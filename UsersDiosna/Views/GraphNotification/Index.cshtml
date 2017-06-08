@@ -1,0 +1,59 @@
+﻿@model IEnumerable<UsersDiosna.Graph.Models.NameDef>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")<br>
+    Check checkbox of deisired alarms
+</p>
+<table class="table table-sm">
+    <tr>
+        <th>
+            Select requested tags
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.column)
+        </th>
+        <th>Condition</th>
+        <th>Value</th>
+    </tr>
+@{ int i = 0; }
+        
+@using (Html.BeginForm("NewNotification", "GraphNotification", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    foreach (var item in Model) {
+        <input type="hidden" name="table_@i" value="@item.table">
+        <tr>
+            <td>
+                <input type="checkbox" name="@item.column">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.column)
+            </td>
+            <td>
+                <input list="operators" name="operator_@i">
+                <datalist id="operators">
+                    <option value=">">More than</option>
+                    <option value=">=">Equals and more than</option>
+                    <option value="<=">Equals and less than</option>
+                    <option value="<">Less then</option>
+                </datalist>
+            </td>
+            <td>    
+                <div class="form-group-sm">
+                    <input type="text" name="text_@i">
+                </div>
+                
+            </td>
+        </tr>
+        i++;
+    }
+    <p>
+            <input type="submit" class="btn btn-default" value="Create new notification" />
+    </p>
+}
+</table>

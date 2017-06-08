@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "All";
+}
+
+<h2>Notification from all alarms</h2>
+<div class="bottom">
+    Check checkbox of deisired alarms
+
+        @using (Html.BeginForm("NewNotification", "AlarmNotification", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            <table class="tg">
+                <tr>
+                    <th class="tg-yw4l"></th>
+                    <th class="tg-yw4l">Id</th>
+                    <th class="tg-yw42">Alarm Label</th>
+                </tr>
+                @foreach (UsersDiosna.Controllers.AlarmNotificationController.alarm_texts Alarm in ViewBag.Alarms)
+                {
+                <tr>
+                    <td class="tg-yw4l"><input type="checkbox" name="@Alarm.id">@*@Html.CheckBox(Alarm.id.ToString())*@</td>
+                    <td class="tg-yw4l">@Alarm.id</td>
+                    <td class="tg-yw42">@Alarm.title</td>
+                </tr>
+                }
+
+            </table>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Create new notification" />
+            </div>
+        </div>
+       }
+</div>

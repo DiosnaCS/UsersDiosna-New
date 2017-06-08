@@ -1,0 +1,15 @@
+﻿@using UsersDiosna.Controllers
+@using System.Web.Mvc
+
+
+<h2>Welcome to Diosna cloud</h2>
+<div class="jumbotron">
+        <div class="btn-group btn-group-justified">
+            @for (int i = 0; i < ViewBag.Count; i++)
+            {
+
+                <a href="/Menu?id=@ViewBag.Numbers[i]" class="btn btn-primary">@ViewBag.Text[i]&rAarr;</a>
+
+            }
+        </div>
+</div>

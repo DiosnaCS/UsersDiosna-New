@@ -1,0 +1,35 @@
+42703: column "diWater_Amount_need" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Vizualization\UsersDiosna\Controllers\db.cs:line 569
+   at UsersDiosna.Controllers.GraphController.proceedSQLquery(DataRequest dataRequest) in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 151
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 10542703: column "diOperSF7_Age" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Vizualization\UsersDiosna\Controllers\db.cs:line 569
+   at UsersDiosna.Controllers.GraphController.proceedSQLquery(DataRequest dataRequest) in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 151
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 105
+5/25/2017 1:20:09 PM42703: column "iOperSF9_RCP" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Vizualization\UsersDiosna\Controllers\db.cs:line 569
+   at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphHandler.cs:line 86
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 89

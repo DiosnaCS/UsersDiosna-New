@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>164010</id>
+		<prefix />
+		<country>NL</country>
+		<name>Aalsmeer</name>
+		<description/>
+	</contract>
+	<plc name="Megaline">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_overview_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF1">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF1_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF2">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF2_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF3">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF3_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF4">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF4_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF5">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF5_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF6">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF6_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF7">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF7_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF8">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF8_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF9">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF9_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF10">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF10_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF11">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF11_operation_NLAAL_ML__</url>
+		</scheme>
+		<scheme name="SF12">
+			<url>http://users.nordit.cz/ih2/10640_Aalsmeer/__pic_sch_SF12_operation_NLAAL_ML__</url>
+		</scheme>
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_NLAAL_ML.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_NLAAL.ini</pathNames>
+		</graph>
+		<alarm name="Alarms">
+			<dbName>Aalsmeer</dbName>
+		</alarm>
+		<Download>
+			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164010_NL-Bakkersland_Aalsmeer_ML\</path>
+		</Download>
+		<Upload>
+			<path>\\192.168.2.20\Public\Zakazky_Public\164010_NL-Bakkersland_Aalsmeer_ML\</path>
+		</Upload>
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>

@@ -1,0 +1,12 @@
+
+5/26/2017 10:10:37 AM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Vizualization\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Vizualization\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method

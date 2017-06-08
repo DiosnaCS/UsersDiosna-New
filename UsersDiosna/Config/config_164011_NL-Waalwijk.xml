@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>164011</id>
+		<prefix />
+		<country>NL</country>
+		<name>Waalwijk</name>
+		<description/>
+	</contract>
+	<plc name="Wheat predough">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_overview_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="PF1">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_PF1_operation_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="SF1">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF1_operation_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="SF2">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF2_operation_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="SF3">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF3_operation_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="SF4">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF4_operation_NLWAL_WP__</url>
+		</scheme>
+		<scheme name="SF5">
+			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF5_operation_NLWAL_WP__</url>
+		</scheme>
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_NLWAL_WP.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_NLWAL.ini</pathNames>
+		</graph>
+		<alarm name="Alarms">
+			<dbName>Wallwijk</dbName>
+		</alarm>
+		<Download>
+			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164011_NL-Bakkersland_Wallwijk_WheatPredough\</path>
+		</Download>
+		<Upload>
+			<path>\\192.168.2.20\Public\Zakazky_Public\164011_NL-Bakkersland_Wallwijk_WheatPredough\</path>
+		</Upload>
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>

@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Users Diosna</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+</head>
+@{
+    ViewBag.error = Session["tempforview"];
+    ViewBag.success = Session["success"];
+}
+<body onresize="responsive()" onload="notification()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Notifications <span class="glyphicon glyphicon-bell"></span></a>
+                        <ul class="dropdown-menu" id="notification">
+                            <li><a href="/Notification/"><b>Notifications center</b></a></li>
+                            @*Here will be new notification from javascript*@
+                        </ul>
+                    </li>
+                </ul>
+                @if (Session["types"] != null && ViewBag.menuDisable != true)
+                {
+                    <ul class="nav navbar-nav">
+                        <li onclick="menuShow()"><a id="menuShow"></a></li>
+                        <li onclick="menuHide()"><a id="menuHide">Hide Menu</a></li>
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    @if (Session["types"] != null && ViewBag.menuDisable != true)
+    {
+        <script>
+            function menuHide() {
+                $('#menuShow').text("Show menu");
+                $('#menuHide').text("");
+                $('.sidenav').hide();
+            }
+            function menuShow() {
+                $('#menuHide').text("Hide menu");
+                $('#menuShow').text("");
+                $('.sidenav').show();
+            }
+        </script>
+        <div class="sidenav">
+            @Html.Partial("~/Views/Menu/_Menu.cshtml")
+        </div>
+    }
+    <script>
+        function notification() {
+            var time = 60000;
+            var url = '/Notification/getNotifications';
+            
+            $.ajax({ url: url,
+                async: true,        
+                dataType: "json",
+                type: "post",
+                success: function (data, textStatus) {
+                    console.log(data);
+                    var id = data[0]["Id"];
+                    
+                    if (id != null) {
+                        var html;
+                        time = 104000;
+                        $('#bell ').css("color", "red");
+                        for (var i = 0; i < data.length; i++) {
+                            id = data[i]["Id"];
+                            var projectName = data[i]["ProjectName"];
+                            var detail = data[i]["Detail"];
+                            html += '<li><a href="/Notification/turnOff/'+ id +'">' + '<b>' + projectName + '</b>' + detail + '</a></li>';
+                            notifyMe(data[i]["Detail"], data[i]["ProjectName"], id);
+                        }
+                        $('#notification').html(html);
+                    } else {
+                        $('#bell').css("color", "white");
+                    }
+                    console.log(time);
+                    setInterval("notification()", time);
+                }
+            });
+        }
+        function responsive() {
+            var sidenavWidth = $('.sidenav').width();
+            console.log(sidenavWidth);
+            document.getElementById('container-body').style.marginLeft = sidenavWidth + 'px';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            if (!Notification) {
+                alert('Desktop notifications not available in your browser. Try Chromium.');
+                return;
+            }
+
+            if (Notification.permission !== "granted")
+                Notification.requestPermission();
+        });
+
+        function notifyMe(notif, notifTitle, id) {
+            if (Notification.permission !== "granted")
+                Notification.requestPermission();
+            else {
+                var notification = new Notification(notifTitle, {
+                    icon: 'http://icons.iconarchive.com/icons/fasticon/coffee-break/128/bread-icon.png',
+                    body: notif,
+                });
+
+                notification.onclick = function () {
+                    window.open("/Notification/turnOff/" + id);
+                };
+            }
+        }
+    </script>
+    <div class="container body-content" id="container-body">
+        @if (ViewBag.error != null)
+        {
+        <div class="alert alert-danger">@ViewBag.error<br></div>
+            Session["tempforview"] = null;
+        }
+        @if (ViewBag.message != null)
+        {
+        <div class="alert alert-danger">@ViewBag.message<br></div>
+            ViewBag.message = null;
+        }
+        @if (ViewBag.warning != null)
+        {
+        <div class="alert alert-warning">@ViewBag.warning<br></div>
+            ViewBag.warning = null;
+        }
+        @if (ViewBag.success != null)
+        {
+            <div class="alert alert-success">@ViewBag.success<br></div>
+            Session["success"] = null;
+        }
+        @RenderBody()
+    </div>
+    <hr />
+    @{
+        Session["tempforview"] = null;
+    }
+    <footer>
+        <p>&copy; @DateTime.Now.Year - DIOSNA CS s.r.o. - Liberec</p>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
