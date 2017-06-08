@@ -57,6 +57,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
     <PublishDatabases>false</PublishDatabases>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -338,11 +340,6 @@
       <LastGenOutput>Notification.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="ClassDiagram1.cd" />
-    <None Include="Dockerfile" />
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-    </None>
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

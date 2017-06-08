@@ -53,7 +53,7 @@ namespace UsersDiosna
         /// <param name="e">Exception that was made and i hope it will work</param>
         protected void Application_Error(Exception e)
         {
-            string PathToErrorFile = Controllers.Error.PathToErrorFile;
+            string PathToErrorFile = UsersDiosna.Error.PathToErrorFile;
             DateTime now = DateTime.Now;
             int id = ErrorId++;
             string timestamp = "\r\n" + now.ToString();
@@ -66,10 +66,10 @@ namespace UsersDiosna
             }
             else
             {
-                if (Directory.Exists(Controllers.Path.physicalPath + @"\ErroLog") == true &&
-                    Directory.GetDirectories(Controllers.Path.physicalPath, e.Source.ToString()) != null)
+                if (Directory.Exists(Path.physicalPath + @"\ErroLog") == true &&
+                    Directory.GetDirectories(Path.physicalPath, e.Source.ToString()) != null)
                 {
-                    PathToErrorFile = Controllers.Path.physicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt";
+                    PathToErrorFile = Path.physicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt";
                     if (!System.IO.File.Exists(PathToErrorFile))
                     {
                         System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one
@@ -81,8 +81,8 @@ namespace UsersDiosna
                 }
                 else
                 {
-                    Directory.CreateDirectory(Controllers.Path.physicalPath + @"\ErrorLog\" + e.Source.ToString());//If directory in the path does not exist create one 
-                    PathToErrorFile = Controllers.Path.physicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt"; //Asign path to Path attribute
+                    Directory.CreateDirectory(Path.physicalPath + @"\ErrorLog\" + e.Source.ToString());//If directory in the path does not exist create one 
+                    PathToErrorFile = Path.physicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt"; //Asign path to Path attribute
                     if (!System.IO.File.Exists(PathToErrorFile))
                     {
                         System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one

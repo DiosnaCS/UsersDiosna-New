@@ -8,12 +8,6 @@ namespace UsersDiosna.Controllers
 {
     public class AlarmNotificationController : Controller
     {
- 
-        public static int DateTimetTopkTime(DateTime DT) {
-            long preResult = (DT.Ticks - (630836424000000000 - 13608000000000))/10000000;
-            int result = (int)preResult;
-            return result;
-        }
         [HttpPost]
         // POST: AlarmNofication
         public RedirectToRouteResult NewNotification()

@@ -1,10 +1,11 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
-using UsersDiosna.Controllers
+using UsersDiosna.Controllers;
 
 namespace UsersDiosna
 {
@@ -51,6 +52,14 @@ namespace UsersDiosna
             }
         }
         #region Alarms_Helpers
+
+        public static int DateTimetTopkTime(DateTime DT)
+        {
+            long preResult = (DT.Ticks - (630836424000000000 - 13608000000000)) / 10000000;
+            int result = (int)preResult;
+            return result;
+        }
+
         public struct alarm_texts
         {
             public int id { get; set; }
