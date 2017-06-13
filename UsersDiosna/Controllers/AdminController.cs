@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UsersDiosna.Admin.Models;
 using System.Web.Mvc;
 using System.Web.Security;
+using UsersDiosna.Handlers;
 
 namespace UsersDiosna.Controllers
 {
@@ -13,7 +14,16 @@ namespace UsersDiosna.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            AdminAddUserModel model = new AdminAddUserModel();
+            model.UsersInRoles = new List<AdminAddUserModel.UsersInRole>();
+            foreach (string role in Roles.GetAllRoles())
+            {
+                AdminAddUserModel.UsersInRole usersInRole = new AdminAddUserModel.UsersInRole();
+                usersInRole.role = role;
+                usersInRole.Users = Roles.GetUsersInRole(role);
+                model.UsersInRoles.Add(usersInRole);
+            }
+            return View(model);
         }
 
         public ActionResult  AddMask()
@@ -90,14 +100,47 @@ namespace UsersDiosna.Controllers
 
             return RedirectToAction("RemoveMask", "Admin");
         }
-        public ActionResult AddUser()
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterUser"></param>
+        /// <param name="filterRole"></param>
+        /// <returns></returns>
+        public ActionResult AddUser(string filterUser = null, string filterRole = null)
         {
-            ViewBag.roles = Roles.GetAllRoles();
+            //if (filterUser != null && filterRole == null) {
+
+            //    FilterHandler FH = new FilterHandler();
+            //    Roles.GetRolesForUser();
+            //    FH.filterArray(filterUser, ); 
+            //}
+            //if (filterRole != null) {
+
+            //}
+            AdminAddUserModel model = new AdminAddUserModel();
+            model.UsersInRoles = new List<AdminAddUserModel.UsersInRole>();
+            model.RolesForUsers = new List<AdminAddUserModel.RolesForUser>();
+            foreach (string role in Roles.GetAllRoles()) {
+                AdminAddUserModel.UsersInRole usersInRole = new AdminAddUserModel.UsersInRole();
+                usersInRole.role = role;
+                usersInRole.Users = Roles.GetUsersInRole(role);
+                model.UsersInRoles.Add(usersInRole);
+                foreach (var user in usersInRole.Users) {
+                    if (!model.RolesForUsers.Exists(p => p.user == user)) {
+                        AdminAddUserModel.RolesForUser rolesForUser = new AdminAddUserModel.RolesForUser();
+                        rolesForUser.user = user;
+                        rolesForUser.Roles = Roles.GetRolesForUser(user);
+                        model.RolesForUsers.Add(rolesForUser);
+                    }
+                }
+            }
+            
             if (Session["tempforview"] != null){
                 ViewBag.message = Session["tempforview"];
                 Session["tempforview"] = null;
             }            
-            return View();
+            return View(model);
         }
 
         /*

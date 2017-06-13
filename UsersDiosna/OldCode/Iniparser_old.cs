@@ -8,7 +8,7 @@ namespace UsersDiosna.OldCode
 {
     public class Iniparser_old
     {
-        private static string NamePath;
+        private static string NamePath = "";
 
         #region oldsectionNames
         public void ParseNames(CIniFile config, string[] separators)
@@ -39,6 +39,7 @@ namespace UsersDiosna.OldCode
                         }
                         catch (Exception e)
                         {
+                            Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                         }
                     }
                 }

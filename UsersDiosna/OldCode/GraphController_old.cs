@@ -34,6 +34,7 @@ namespace UsersDiosna.OldCode
             }
             catch (FormatException e)
             {
+                Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 time = time.Replace(".", ",");
                 utcTime = double.Parse(time);
             }

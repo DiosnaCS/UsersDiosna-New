@@ -80,7 +80,7 @@ namespace UsersDiosna.Controllers
                     }
                 }
                 catch (Exception e) {
-
+                    Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 }
             }
         }
@@ -357,7 +357,11 @@ namespace UsersDiosna.Controllers
                 Idxs.Add(x);
                 values.Add(tmpPole);
             }
-
+            for(int i = 0;i < names.Length; i++) {
+                if (names[i].Contains(@"\")) {
+                    names[i] = names[i].Replace(@"\", "-");
+                }
+            }
             TextlistDefinition.Add(config, column, values, Idxs); //name is not present so add name as tablename
             List<string> units = null; //yes add only null
             NameDefinition.Add(config, column, names, units, tableName); //Adds name to names

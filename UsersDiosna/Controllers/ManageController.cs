@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -7,10 +6,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using UsersDiosna.Models;
-using System.Data.SqlClient;
-using System.Configuration;
 using System.Collections.Generic;
-using System.Web.Optimization;
 
 namespace UsersDiosna.Controllers
 {
@@ -91,7 +87,7 @@ namespace UsersDiosna.Controllers
                 }  
             } 
             catch (Exception e) {
-
+                Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
             }
             MultiSelectList ThemesList = new MultiSelectList(ThemesListString);
             var model = new ChangeThemeModel { ThemesList = ThemesList };

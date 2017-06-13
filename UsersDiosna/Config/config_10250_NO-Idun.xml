@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>10250</id>
+		<prefix />
+		<country>NO</country>
+		<name>Idun</name>
+		<description/>
+	</contract>
+	<plc name="Megaline">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_overview_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="MF1">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_MF1_operation_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="MF2">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_MF2_operation_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="RF1">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_RF1_operation_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="RF2">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_RF2_operation_NOIDU_IH__</url>
+		</scheme>
+                <scheme name="RF3">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_RF3_operation_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="RF4">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_RF4_operation_NOIDU_IH__</url>
+		</scheme>
+		<scheme name="RF5">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_RF5_operation_NOIDU_IH__</url>
+		</scheme>
+                <scheme name="Pipework">
+			<url>http://users.nordit.cz/ih/10250_Idun/__pic_sch_Pipework_NOIDU_IH__</url>
+		</scheme>
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_NOIDU_IH.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_NOIDU.ini</pathNames>
+		</graph>
+		<alarm name="Alarms">
+			<dbName>Idun</dbName>
+		</alarm>
+	</plc>
+</configuration>

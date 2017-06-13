@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Web;
 using UsersDiosna.Graph.Models;
 
 namespace UsersDiosna.Controllers
@@ -40,6 +38,7 @@ namespace UsersDiosna.Controllers
             catch (FormatException e)
             {
                 time = time.Replace(".", ",");
+                Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 utcTime = double.Parse(time);
             }
 
@@ -65,7 +64,7 @@ namespace UsersDiosna.Controllers
             {
                 foreach (Tag tag in dataRequest.tags)
                 {
-                    if (tabledef.shortName.Contains(tag.table))
+                    if (tabledef.shortName == tag.table)
                     {
                         columns += " \"" + tag.column + "\",";
                         tagsPos.Add(dataRequest.tags.IndexOf(tag));

@@ -60,7 +60,6 @@ namespace UsersDiosna
         }
         public static async Task<List<tag>> SelectTags(string DB, string table, string tags, string definition, DateTime notifCreated)
         {
-            int i = 0;
             List<object[]> results = new List<object[]>();
             List<tag> forNotification = new List<tag>();
             db db = new db(DB, 12);

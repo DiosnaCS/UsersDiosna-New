@@ -1,4 +1,4 @@
-﻿
+﻿@model UsersDiosna.Admin.Models.AdminAddUserModel
 @{
     ViewBag.Title = "Index";
 }
@@ -7,8 +7,24 @@
 
 @Html.ActionLink("Add Role", "AddRole", "Admin")<br>
 @Html.ActionLink("Remove Role", "RemoveRole", "Admin")<br>
-@Html.ActionLink("Add User", "AddUser", "Admin")<br>
+@Html.ActionLink("Add user to role", "AddUser", "Admin")<br>
 @Html.ActionLink("Remove User", "RemoveUser", "Admin")<br>
 @Html.ActionLink("Add Mask", "AddMask", "Admin")<br>
 @Html.ActionLink("Remove Mask", "RemoveMask", "Admin")<br>
 @Html.ActionLink("Register", "Register", "Account")<br>
+<br>
+
+@Html.Partial("_Search")
+Existing roles: <br>
+<ul id="myUL">
+@foreach (var usersInRole in Model.UsersInRoles)
+{
+    <li>
+        <b><a class="header">@usersInRole.role</a></b>
+        @foreach (var user in usersInRole.Users)
+            {
+            <a class="ul-item">@user</a>
+        }
+    </li>
+}
+</ul>

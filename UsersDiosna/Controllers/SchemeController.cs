@@ -35,7 +35,9 @@ namespace UsersDiosna.Controllers
                     Response.BinaryWrite(data);
                     Response.ContentType = "image/png";
                 }
-                catch (Exception e){ }
+                catch (Exception e){
+                    Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
+                }
             }
         }
     }

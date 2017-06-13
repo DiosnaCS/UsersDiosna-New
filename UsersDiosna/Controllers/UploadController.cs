@@ -41,6 +41,7 @@ namespace UsersDiosna.Controllers
             catch (Exception e)
             {
                 ViewBag.message = "Problem with finding uploads to this bakery.";
+                Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 return View();
             }
         }

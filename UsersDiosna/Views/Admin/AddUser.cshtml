@@ -3,12 +3,8 @@
     ViewBag.Title = "AddUser";
 }
 
-<h2>AddUser</h2>
-Exstining roles:<br>
-@foreach (String role in ViewBag.Roles) {
-    @role<br>
-}
-
+<h2>Add user to role</h2>
+@Html.Partial("_Search")
 <div class="message">
     @ViewBag.message
 </div>
@@ -32,3 +28,16 @@ Exstining roles:<br>
         </div>
     </div>
 }
+Existining users:<br>
+<ul id="myUL">
+    @foreach (var rolesForUser in Model.RolesForUsers)
+    {
+        <li>
+            <b><a class="header">@rolesForUser.user</a></b>
+            @foreach (var user in rolesForUser.Roles)
+                {
+                <a class="ul-item">@user</a>
+            }
+        </li>
+    }
+</ul>

@@ -33,3 +33,49 @@
    at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Vizualization\UsersDiosna\Controllers\db.cs:line 569
    at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphHandler.cs:line 86
    at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Vizualization\UsersDiosna\Controllers\GraphController.cs:line 89
+6/12/2017 1:18:41 PMCould not find file 'C:\Akce\Users\Config\grafy.ini'.mscorlib   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.InternalReadAllLines(String path, Encoding encoding)
+   at System.IO.File.ReadAllLines(String path, Encoding encoding)
+   at UsersDiosna.Controllers.GraphHandler.getDbConfig() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 219
+   at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 54
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 97
+6/12/2017 1:20:32 PM42703: column "usiSF3_Agit" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Source-Repos\UsersDiosna\Controllers\db.cs:line 571
+   at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 86
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 97
+6/12/2017 1:22:45 PM42703: column "diOperSF1_Age" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Source-Repos\UsersDiosna\Controllers\db.cs:line 571
+   at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 86
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 97
+6/12/2017 1:27:04 PM42703: column "diOperSF1_Age" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Source-Repos\UsersDiosna\Controllers\db.cs:line 571
+   at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 86
+   at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 97

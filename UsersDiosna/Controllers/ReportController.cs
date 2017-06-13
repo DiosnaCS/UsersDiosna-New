@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UsersDiosna.Report.Models;
-using System.Collections.Generic;
 
 namespace UsersDiosna.Controllers
 {

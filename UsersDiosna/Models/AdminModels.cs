@@ -7,7 +7,7 @@ namespace UsersDiosna.Admin.Models
     public class AdminAddMaskModel
     {
         //Model for add mask to masks of some bakery
-        
+
         [DataType(DataType.Text)]
         [Display(Name = "Id of bakery")]
         public string bakeryId { get; set; }
@@ -16,7 +16,7 @@ namespace UsersDiosna.Admin.Models
         [Display(Name = "Name of mask to add")]
         public string maskName { get; set; }
 
-        
+
         [DataType(DataType.Text)]
         [Display(Name = "Mask permission-role to view and download files:")]
         public string maskRole { get; set; }
@@ -29,7 +29,7 @@ namespace UsersDiosna.Admin.Models
     public class AdminRemoveMaskModel
     {
         //Model for remove mask of existing bakery
-        
+
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Id of bakery")]
@@ -44,7 +44,18 @@ namespace UsersDiosna.Admin.Models
     {
         //Model for add user to exsting role
         //It is only admin function so it is not necessary to repeat username
-
+        public struct UsersInRole
+        {
+            public string role;
+            public string[] Users;
+        }
+        public List<UsersInRole> UsersInRoles;
+        public struct RolesForUser
+        {
+            public string user;
+            public string[] Roles;
+        }
+        public List<RolesForUser> RolesForUsers;
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Username of exsting user")]
@@ -92,4 +103,5 @@ namespace UsersDiosna.Admin.Models
         [Display(Name = "Name of removing role")]
         public string Role { get; set; }
     }
+
 }

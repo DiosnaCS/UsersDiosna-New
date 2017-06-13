@@ -1,42 +1,74 @@
-﻿/* The side navigation menu */
+﻿/* The top menu */
+.navbar-inverse {
+    background-color: #054060 !important;
+}
+
+.navbar-collapse collapse {
+    color: #eeeeee !important;
+}
+
+/* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     position: fixed;
     top: 0;
     left: 0;
-    width: 11%;
+    /*width: 11%;*/
     max-width: 25%;
-    min-width:150px;
-    background-color: #222222; /* Black*/
-    padding-top: 45px; /* */
+    min-width: 150px;
+    background-color: #FFFFFF; /* Black*/
+    padding-top: 55px !important; /* */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
+
 .projectName {
+    padding-bottom: 10px !important;
     margin-right: 5px;
     margin-left: -10%;
 }
+
 /* The side navigation menu */
 .sidenav a {
-    background-color: #222222;
+    background-color: #FFFFFF;
     max-width: 250px;
-    padding: 8px 8px 8px 32px;
-    text-decoration:none;
-    font-size: 18px;
+    padding: 5px 0px 2px 25px !important;
+    text-decoration: none;
+    font-size: 14px;
     color: #428bca;
     display: block;
-    line-height:1;
+    line-height: 1;
+}
+
+    .sidenav a a {
+        padding: 0px 0px 6px 20px !important;
+        font-weight: 600;
+        color: #428bca;
+        display: block;
+        line-height: 1;
+    }
+
+    .sidenav a:hover {
+        font-weight: 600;
+    }
+
+.projectName {
+    font-size: 18px !important;
+    font-weight: 600;
+    color: #000000 !important;
+    display: block;
+    line-height: 1;
 }
 
 .plc {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 18px;
+    padding: 5px 2px 5px 20px !important;
+    text-decoration: underline !important;
+    font-size: 16px !important;
     color: #428bca;
-    line-height:1;
+    line-height: 1;
     margin-right: 5px;
-    margin-left: -10%;
+    margin-left: -5%;
     display: block;
-    transition: 0.3s
+    transition: 0.3s;
 }
 
 body {
@@ -45,10 +77,10 @@ body {
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*
     padding-left: 15px;
     padding-right: 15px;
-}
+} */
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -68,51 +100,49 @@ textarea {
 
 .date-time {
     width: 185px;
-    padding: 2px 0px 2px 5px;    
+    padding: 2px 0px 2px 5px;
     border: 1px solid #808080;
     border-radius: 2px;
 }
 
 .form-item,
-.form-item div
-.form-item label
-.form-item input {   
-   float: left;
-   margin: 0px 0px 0px 10px;
+.form-item div .form-item label .form-item input {
+    float: left;
+    margin: 0px 0px 0px 10px;
 }
 
-.form-item input {
-    line-height: 12pt;
-}
+    .form-item input {
+        line-height: 12pt;
+    }
 
 #bootstrap-overrides .rcp-in {
-    width: 40px; 
+    width: 40px;
 }
 
 #bootstrap-overrides .thin-row th {
-    padding: 2px 0px 2px 4px;    
+    padding: 2px 0px 2px 4px;
 }
 
 #bootstrap-overrides .thin-row td {
-    padding: 2px 4px 2px 4px;    
+    padding: 2px 4px 2px 4px;
 }
 
 #bootstrap-overrides .form-item .checkbox {
-    margin: 2px 0px 2px 4px;    
+    margin: 2px 0px 2px 4px;
 }
 
-#bootstrap-overrides .ov-tab tr:hover :not(th) {    
+#bootstrap-overrides .ov-tab tr:hover :not(th) {
     cursor: pointer;
     background-color: #FFE4C4;
 }
 
-#bootstrap-overrides .det-tab tr:hover :not(th) {    
+#bootstrap-overrides .det-tab tr:hover :not(th) {
     cursor: default;
     background-color: #ffffff;
 }
 
 #bootstrap-overrides .tol-set {
-    width: 50px;    
+    width: 50px;
 }
 
 #bootstrap-overrides .det-header p {

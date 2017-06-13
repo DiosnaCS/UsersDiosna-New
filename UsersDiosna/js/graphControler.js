@@ -59,9 +59,9 @@
     var MAX_VIEWS = 30,
         MAX_FIELDS = 9,
         MAX_SIGNALS = 16,
-        MAX_MULTITEXTS = 19,
+        MAX_MULTITEXTS = 39,
         MAX_HORIZ_LINE = 5,
-        MAX_CLICKMAPS = 35;
+        MAX_CLICKMAPS = 50;
 
     // menu
     var factory,        
@@ -69,6 +69,7 @@
         lang = 0,        
         timeAxisIdx = 7,
         beginTime,
+        lastGroup = 0,
         markerTime;
 
     // fonty
@@ -121,12 +122,22 @@
                       26: {"name": "", "values": []},
                       27: {"name": "", "values": []},                                            
                       28: {"name": "", "values": []},
-                      29: {"name": "", "values": []}
+                      29: {"name": "", "values": []},
+                      30: {"name": "", "values": []},
+                      31: {"name": "", "values": []},
+                      32: {"name": "", "values": []},
+                      33: {"name": "", "values": []},    
+                      34: {"name": "", "values": []},
+                      35: {"name": "", "values": []},                                            
+                      36: {"name": "", "values": []},
+                      37: {"name": "", "values": []},                                            
+                      38: {"name": "", "values": []},
+                      39: {"name": "", "values": []}
                      };
                      
           //nadefinování values
-          for (var m=0;m<30;m++) {
-            for (var v=0;v<60;v++) {
+          for (var m=0;m<MAX_MULTITEXTS;m++) {
+            for (var v=0;v<100;v++) {
               multitexts[m]["values"].push({"idx" : -99, "text": ""});
             };
           };
@@ -151,22 +162,34 @@
         zoom = false,
         setting = false,
         reset = false;
-        isResize = false;        
+                
         
     // event listener
     document.addEventListener("DOMContentLoaded",init,false);
     
-    // event window resize 
-    var idResize;
+    // event window resize
+    var resTime; 
+    var isResize = false;
+    var resDelta = 200;    
     
     $(window).resize(function() {
-        isResize = true;
-        clearTimeout(idResize);
-        idResize = setTimeout(init(), 500);        
+        resTime = new Date();
+        if (isResize == false) {
+           isResize = true;
+           setTimeout(resizeEnd(), resDelta);
+        };
     });
-
+    
+    function resizeEnd() {
+      if (new Date() - resTime < resDelta) {
+          setTimeout(resizeEnd, resDelta);
+          isResize = true;
+      } else {
+          init();
+      };
+    };
     // inicializace
-    function init() { 
+    function init() {
 
       // přizpůsobení ploše
       iWidth = windowWidth() - $('.sidenav').width() - 25;                              
@@ -174,26 +197,26 @@
 
       chartWidth = iWidth-fieldLeftAdjust-fieldBreakVals-fieldValWidth-fieldRightAdjust;
       chartHeight = iHeight-fieldTopAdjust-fieldBottomAdjust;
-      
+
       $('#top_menu').css('width',iWidth);
       $('#top_menu').css('position','absolute');  
       $('#top_menu').css('top',$('.navbar').height()+$('.message').height());
       $('#top_menu').css('left',$('.sidenav').width()+20);
-      
+
       $('#calendar').css('left',$('.sidenav').width()+367);
-      
+
       $('#graph_content').css('left',$('.sidenav').width()+20);
       $('#graph_content').css('top',$('.navbar').height()+$('.message').height()+$('#top_menu').height()+6);
-            
+
       $('#active_canvas').attr('width',iWidth+1);
       $('#active_canvas').attr('height',iHeight+1);      
-      
+
       $('#front_canvas').attr('width',iWidth+1);
       $('#front_canvas').attr('height',iHeight+1);
-      
+
       $('#signal_canvas').attr('width',iWidth+1);
       $('#signal_canvas').attr('height',iHeight+1);
-      
+
       $('#back_canvas').attr('width',iWidth+1);
       $('#back_canvas').attr('height',iHeight+1);     
 
@@ -204,7 +227,7 @@
       $('footer').css('top',$('.navbar').height()+$('.message').height()+$('#top_menu').height()+iHeight+15);      
       
       // index nula vyhrazen pro oblast grafu
-      // 1 - 35 pro viditelnost signálu
+      // 1 - 50 pro viditelnost signálu
       // parametr offset je pro použití relativního odměřování >0<
       chartDef = {0: {"id": ["chart"], "coords": [posX+fieldLeftAdjust,posY+fieldTopAdjust,posX+fieldLeftAdjust+chartWidth,posY+fieldTopAdjust+chartHeight], "offset": 0, "times": [], "values": []},
                   1: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
@@ -242,11 +265,26 @@
                   33: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
                   34: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
                   35: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  36: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  37: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  38: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  39: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  40: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  41: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  42: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  43: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  44: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  45: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  46: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  47: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  48: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  49: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
+                  50: {"id": [""], "coords": [], "visibility": ["true"], "offset": 0, "times": [], "values": []},
                  };
 
       // aktivní canvas - pro operace myši - kreslení kurzoru
       activeCanvasElement = $("#active_canvas");
-      activeCanvas = activeCanvasElement[0].getContext('2d');
+      activeCanvas = activeCanvasElement[0].getContext('2d');      
       $('#activeCanvas').attr('width',iWidth);
       $('#activeCanvas').attr('height',iHeight);            
       activeCanvasElement[0].addEventListener("mousedown",mouseDown,false);
@@ -259,8 +297,10 @@
       // popředí view
       frontCanvasElement = $("#front_canvas");
       frontCanvas = frontCanvasElement[0].getContext('2d');
+      //frontCanvas.scale(2,2);      
       $('#frontCanvas').attr('width',iWidth);
       $('#frontCanvas').attr('height',iHeight);
+      //frontCanvas.scale(0.5,0.5);
 
       // signály - canvas má rozměr a umístění dle oblasti grafu
       signalCanvasElement = $("#signal_canvas");
@@ -281,16 +321,20 @@
       var mod = timeSec%(stepGridTime[timeAxisIdx]*60);
 
       beginTime = timeSec - mod - (timeAxisLength[timeAxisIdx]*3600 - (stepGridTime[timeAxisIdx]*60)); // + stepGridTime[timeAxisIdx]*60;
-            
-      view = 0;
+
+      view = lastGroup;                
       
-      if (!isResize) {
-        getConfig();
+      if (!isResize) {      
+        getConfig();                
       }
       else {
         setupLayout();
         isResize = false;
       };
+      
+      $("#settingsWin").css('left', ($(".sidenav").width()+fieldLeftAdjust+21));
+      $("top_menu").css('left', ($(".sidenav").width()+fieldLeftAdjust+21));
+
     };
     
     function windowWidth() {
@@ -299,7 +343,7 @@
 
     function windowHeight() {
       return $(window).height()-50;
-    };   
+    };    
 
     // operace klávesnice a myši
 
@@ -346,7 +390,7 @@
         if ((markerTime - clickStep) >= beginTime) {
           clickStep = getClickStep();
           markerTime = markerTime - (markerTime%clickStep) - clickStep;
-          drawCursor(markerTime);
+          drawCursor(markerTime);          
         }
         else {
           backShift();
@@ -358,7 +402,7 @@
         if ((markerTime + clickStep) <= (beginTime + timeAxisLength[timeAxisIdx]*3600)) {
           clickStep = getClickStep();
           markerTime = markerTime - (markerTime%clickStep) + clickStep;
-          drawCursor(markerTime);
+          drawCursor(markerTime);         
         }
         else {
           fwdShift();
@@ -397,9 +441,9 @@
           view = $('#group').val();
           lang = getLang();
           redrawChart(view,beginTime,markerTime,timeAxisIdx);
-          redrawTimeAxis(view,lang);                              
+          redrawTimeAxis(view,lang);
+          redrawLegend(view,lang);                              
           redrawValues(view,markerTime,lang);
-          redrawLegend(view,lang);
         };
       };
     };
@@ -427,9 +471,14 @@
 
           // jakému času odpovídá 1px
           koefFieldWidth = timeAxisLength[timeAxisIdx]*3600/(chartWidth);          
-          
-          zoomStartTime = beginTime + Math.round((zoomCanX-fieldLeftAdjust)*koefFieldWidth);          
-          zoomEndTime = beginTime + Math.round((canX-fieldLeftAdjust)*koefFieldWidth);
+          if (zoomCanX <= canX) {
+            zoomStartTime = beginTime + Math.round((zoomCanX-fieldLeftAdjust)*koefFieldWidth);          
+            zoomEndTime = beginTime + Math.round((canX-fieldLeftAdjust)*koefFieldWidth);
+          }
+          else {
+            zoomEndTime = beginTime + Math.round((zoomCanX-fieldLeftAdjust)*koefFieldWidth);          
+            zoomStartTime = beginTime + Math.round((canX-fieldLeftAdjust)*koefFieldWidth);
+          };
           
           for (var i=0;i<=timeAxisLength.length;i++) {
           
@@ -482,8 +531,8 @@
         };        
       };
       
-      for (var i=1;i<=MAX_CLICKMAPS;i++) {        
-        if ((canX  > chartDef[i]["coords"][0]) && (canX < chartDef[i]["coords"][2]) && (canY > chartDef[i]["coords"][1]) && (canY < chartDef[i]["coords"][3])) {          
+      for (var m=1;m<=MAX_CLICKMAPS;m++) {        
+        if ((canX  > chartDef[m]["coords"][0]) && (canX < chartDef[m]["coords"][2]) && (canY > chartDef[m]["coords"][1]) && (canY < chartDef[m]["coords"][3])) {          
           document.getElementById("graph").style.cursor = "pointer";
         }
         else {
@@ -651,7 +700,7 @@
     function getData(view,beginTime,timeAxisLength) {
     var dataRequest,
         tmpVal;
-    
+        
     dataRequest = "";
     
     dataRequest += '{"beginTime": ' + beginTime + ', "timeAxisLength": ' + timeAxisLength + ', "tags":[';
@@ -742,7 +791,7 @@
           setData();
           redrawChart(view,beginTime,markerTime,timeAxisIdx);
           redrawValues(view,markerTime,lang);
-          $('#loading').css('display','none');          
+          $('#loading').css('display','none');
         };        
       };
     };
@@ -771,16 +820,17 @@
         redrawChart(view,beginTime,markerTime,timeAxisIdx);                
       }
       else {
+        view = lastGroup;
         lang = config.LangEnb[0];      
         //nastavení tlačítka lang na defaultní jazyk      
         setLang(lang);                                
               
         //nastavení roletky a aktuálního titulku
-        setTitles(0,lang);      
+        setTitles(view,lang);      
   
         setMultitexts(lang);
         
-        getData(0,beginTime,timeAxisLength[timeAxisIdx]*3600);
+        getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
         
         redrawScreen();      
         redrawTitle(view,lang);      
@@ -799,19 +849,20 @@
         redrawChart(view,beginTime,markerTime,timeAxisIdx);        
     };
 
-    function setData() {
-    console.log('setData');
+    function setData() {    
       //přes všechny tagy
       for (var m=0;m<data.tags.length;m++) {
-        chartDef[m+1]["id"] = (data.tags[m].table + '.' + data.tags[m].column);        
-        if (data.tags[m]["vals"] != "null") {
-          for (var v=0;v<data.tags[m]["vals"].length;v++) {
-            chartDef[m+1]["times"][v] = beginTime + Math.round(v*data.tags[m].period);            
+        if (m <= MAX_CLICKMAPS) {
+          chartDef[m+1]["id"] = (data.tags[m].table + '.' + data.tags[m].column);        
+          if (data.tags[m]["vals"] != "null") {
+            for (var v=0;v<data.tags[m]["vals"].length;v++) {
+              chartDef[m+1]["times"][v] = beginTime + Math.round(v*data.tags[m].period);            
+            };
+            chartDef[m+1]["values"] = data.tags[m]["vals"];
+          }
+          else {
+            console.log('bad request of data');
           };
-          chartDef[m+1]["values"] = data.tags[m]["vals"];
-        }
-        else {
-          console.log('bad request of data');
         };
       };
     };
@@ -822,8 +873,8 @@
       var text = '';
        // nejprve vypiseme parametry fieldů                      
        for (var field=1;field<=config.View[view].field.length;field++) {
-         text += ' <input style="position: absolute; top: ' + SetPosMax[field-1].toString() + 'px; padding-top: 1px; padding-bottom: 1px; width: 50px; height: 18px; margin-right: 10px; font-size: 10pt;" id="f' + (field-1).toString() + '_max" type=number min=' + (config.View[view].field[field-1].minY).toString() + ' max=' + (config.View[view].field[field-1].maxY).toString() + ' value=' + (config.View[view].field[field-1].maxY).toString() + ' step="1">';
-         text += ' <input style="position: absolute; top: ' + SetPosMin[field-1].toString() + 'px; padding-top: 1px; padding-bottom: 1px; width: 50px; height: 18px; margin-right: 10px; font-size: 10pt;" id="f' + (field-1).toString() + '_min" type=number min=' + (config.View[view].field[field-1].minY).toString() + ' max=' + (config.View[view].field[field-1].maxY).toString() + ' value=' + (config.View[view].field[field-1].minY).toString() + ' step="1">';
+         text += ' <input style="position: absolute; top: ' + (SetPosMax[field-1]-20).toString() + 'px; padding-top: 1px; padding-bottom: 1px; width: 50px; height: 18px; margin-right: 10px; font-size: 10pt;" id="f' + (field-1).toString() + '_max" type=number min=' + (config.View[view].field[field-1].minY).toString() + ' max=' + (config.View[view].field[field-1].maxY).toString() + ' value=' + (config.View[view].field[field-1].maxY).toString() + ' step="1">';
+         text += ' <input style="position: absolute; top: ' + (SetPosMin[field-1]-20).toString() + 'px; padding-top: 1px; padding-bottom: 1px; width: 50px; height: 18px; margin-right: 10px; font-size: 10pt;" id="f' + (field-1).toString() + '_min" type=number min=' + (config.View[view].field[field-1].minY).toString() + ' max=' + (config.View[view].field[field-1].maxY).toString() + ' value=' + (config.View[view].field[field-1].minY).toString() + ' step="1">';
         }; 
                                                                  
       text += '<input type=button value="Set" onClick="setupLayout()" />';      
@@ -836,11 +887,11 @@
     // nastavení menu dle konfigurace   
 
     // nastavení multitextů s aktuálním jazykem   
-    function setMultitexts(lang) {
+    function setMultitexts(lang) {            
       //vyprázdnění předchozích multitextů
-      for (var m=0;m<30;m++) {
+      for (var m=0;m<MAX_MULTITEXTS;m++) {
         multitexts[m]["name"] = "";
-        for (var v=0;v<60;v++) {
+        for (var v=0;v<100;v++) {
           multitexts[m]["values"][v].idx = -99;                       
           multitexts[m]["values"][v].text = "";            
         };    
@@ -848,7 +899,7 @@
       
       // nastavení multitextů pro příslušný jazyk
       for (var m=0;m<config.TextlistDef.length;m++) {
-        if (m < 30) {
+        if (m < MAX_MULTITEXTS) {
           multitexts[m]["name"] = config.TextlistDef[m].textlist;
           for (var v=0;v<config.TextlistDef[m].values.length;v++) {
             multitexts[m]["values"][v].idx = config.TextlistDef[m]["values"][v].idx;
@@ -926,7 +977,6 @@
           backCanvas.stroke();
         backCanvas.closePath();
       };
-            
     };    
                            
     function getViewInfo(view) {
@@ -969,9 +1019,10 @@
         
         for (var j=1;j<field;j++) {
           FieldPosY += (config.View[view]["field"][j-1].relSize*koefFieldHeight)+fieldBrake;
+          FieldPosY = Math.floor(FieldPosY)+0.5;
         };
         
-        fieldSigHeight = config.View[view]["field"][field-1].relSize*koefFieldHeight;
+        fieldSigHeight = Math.floor(config.View[view]["field"][field-1].relSize*koefFieldHeight);
 
         var signals = new Array(),            
             mask = "",
@@ -984,10 +1035,8 @@
             a,
             regresInterval = 30;
                             
-        signals = config.View[view]["field"][field-1]["signal"];
-
-        console.log(signals);
-
+        signals = config.View[view]["field"][field-1]["signal"];        
+        
         // signals
         for (var x=0;x<signals.length;x++) {
 
@@ -996,21 +1045,22 @@
           signalIdCfg = signals[x].table + "." + signals[x].column;          
           
           // data
-          for (var d=1;d<30;d++) {
+          for (var d=1;d<=MAX_CLICKMAPS;d++) {
 
             if ((signalIdCfg) == (chartDef[d].id)) {
                           
               // times
               for (var t=0;t<chartDef[d]["times"].length;t++) {
-
+                              
                 if ((markerTime >= chartDef[d]["times"][t]) && (markerTime < chartDef[d]["times"][t+1])) {
-                 
+
                   // najeli jsme kurzorem na data
                   if (markerTime == chartDef[d]["times"][t]) {
                     value = chartDef[d]["values"][t];
                   }
                   // najeli jsme kursorem mimo data - proložíme regresí pro typ number, pro multitext zobrazíme hodnotu předešlých dat
                   else {
+
                     if (((markerTime - chartDef[d]["times"][t]) <= regresInterval) || ((chartDef[d]["times"][t+1] - markerTime) <= regresInterval)) {
 
                       switch (signals[x].type) {
@@ -1038,22 +1088,40 @@
                     };
                   };
                   
-                  console.log('sig_type : ' + signals[x].type);
-                  
+                //dosud nezaarchivovaná data
+                if (value > 100000) {
+                    frontCanvas.fillStyle = colorBackFields;
+                    frontCanvas.fillRect(posX+iWidth-fieldRightAdjust-fieldValWidth+180-0.5,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx)*14,95.5,14);
+                    frontCanvas.fillStyle = signals[x].color;
+                    frontCanvas.font = fontLegend;
+                    frontCanvas.fillText("no data",posX+iWidth-fieldRightAdjust-fieldValWidth+230,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx-1)*14-4);
+                    break;
+                };
+                
+                //ztracená data
+                if (value < -100000) {
+                    frontCanvas.fillStyle = colorBackFields;
+                    frontCanvas.fillRect(posX+iWidth-fieldRightAdjust-fieldValWidth+180-0.5,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx)*14,95.5,14);
+                    frontCanvas.fillStyle = signals[x].color;
+                    frontCanvas.font = fontLegend;
+                    frontCanvas.fillText("missing",posX+iWidth-fieldRightAdjust-fieldValWidth+230,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx-1)*14-4);
+                    break;
+                };
+
                   switch (signals[x].type) {
                     // typ číslo
                     case "analog" :
-                      for (var m=1;m<=MAX_CLICKMAPS;m++) {                        
+                      for (var m=1;m<=MAX_CLICKMAPS;m++) {
                         if (chartDef[m]["id"] == signalIdCfg) {
                           if (chartDef[m]["visibility"] == "true") {
-                            value = value - chartDef[m].offset;                            
+                              value = value - chartDef[m].offset;
                           }
                           else {
                             value = undefined;
                           };
                         };
                       };
-  
+
                       if (Math.abs(chartDef[0].offset - markerTime) <= 5) {
                         value = 0;
                       }; 
@@ -1073,12 +1141,11 @@
                     // typ multitext
                     case "multitext" :                      
                       signalTextList = signals[x].textlist;
-                      console.log('signalTextList : ' + signalTextList);                      
                       for (var s=1;s<=MAX_CLICKMAPS;s++) {
                         if (chartDef[s]["id"] == signalIdCfg) {                                                    
                           if (chartDef[s]["visibility"] == "true") {
                             //vyhledání multitextu                                                    
-                            for (var m=0;m<30;m++) {
+                            for (var m=0;m<MAX_MULTITEXTS;m++) {
                               if ((multitexts[m].name == signals[x].textlist) && (multitexts[m].name != "")) {
                                 //vyhledání textu dle hodnoty
                                 for (var v=0;v<multitexts[m].values.length;v++) {                                                                  
@@ -1159,10 +1226,11 @@
         for (var j=1;j<field;j++) {
          // offset v pixelech příslušného fieldu
          FieldPosY += (config.View[view]["field"][j-1].relSize*koefFieldHeight)+fieldBrake;
+         FieldPosY = Math.floor(FieldPosY)+0.5;
         };
 
         // výška příslušného fieldu v pixelech
-        fieldSigHeight = config.View[view]["field"][field-1].relSize*koefFieldHeight;                        
+        fieldSigHeight = Math.floor(config.View[view]["field"][field-1].relSize*koefFieldHeight);                        
         
         // fields
         backCanvas.fillStyle = colorBackFields;
@@ -1207,8 +1275,8 @@
               frontCanvas.lineWidth = 1;
 
               frontCanvas.beginPath();
-                frontCanvas.moveTo(posX+fieldLeftAdjust-3,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))));
-                frontCanvas.lineTo(posX+fieldLeftAdjust,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))));
+                frontCanvas.moveTo(posX+fieldLeftAdjust-3,Math.floor(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))))+0.5);
+                frontCanvas.lineTo(posX+fieldLeftAdjust,Math.floor(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))))+0.5);
                 frontCanvas.stroke();
               frontCanvas.closePath();
 
@@ -1219,8 +1287,8 @@
                 backCanvas.lineWidth = 1;
 
                 backCanvas.beginPath();
-                  backCanvas.moveTo(posX+fieldLeftAdjust+0.5,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))));
-                  backCanvas.lineTo(posX+fieldLeftAdjust+chartWidth+0.5,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))));
+                  backCanvas.moveTo(posX+fieldLeftAdjust+0.5,Math.floor(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))))+0.5);
+                  backCanvas.lineTo(posX+fieldLeftAdjust+chartWidth+0.5,Math.floor(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(k*stepVertGrid*(fieldSigHeight/(fieldRange-offsetY))))+0.5);
                   backCanvas.stroke();
                 backCanvas.closePath();
               };
@@ -1247,7 +1315,11 @@
             signalIdCfg = "",  
             signalIdData = "",
             dataLastX = 0,
-            dataLastY = 0;        
+            dataLastY = 0,
+            dataStartMissingX,
+            dataStartMissingY,
+            dataEndMissingX,
+            dataEndMissingY;
 
         signals = config.View[view]["field"][field-1]["signal"];
 
@@ -1271,24 +1343,41 @@
 
                 for (var v=0;v<chartDef[i]["values"].length;v++) {
                   if (timeAxisLength[timeAxisIdx] != 0) {    //ochrana před dělením nulou
-                    dataX = fieldLeftAdjust + ((chartDef[i]["times"][v] - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]);                    
+                    dataX = Math.round(fieldLeftAdjust + ((chartDef[i]["times"][v] - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]))+0.5;                    
                   };
+                  
+                  dataY = Math.round(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(chartDef[i]["values"][v]-offsetY)*(fieldSigHeight/(fieldRange-offsetY)))+0.5;
 
-                  dataY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(chartDef[i]["values"][v]-offsetY)*(fieldSigHeight/(fieldRange-offsetY));                  
-  
+                  //začátek díry v datech                  
+                  if ((v >= 1) && (chartDef[i]["values"][v-1] > -100000) && (chartDef[i]["values"][v] <= -100000)) {                                        
+                    dataStartMissingX = dataLastX;
+                    dataStartMissingY = dataLastY;
+                  };
+                  
+                  //konec díry v datech
+                  if ((v >= 1) && (chartDef[i]["values"][v-1] <= -100000) && (chartDef[i]["values"][v] > -100000)) {
+                    signalCanvas.fillStyle = '#FFFFFF';
+                    dataEndMissingX = dataX;
+                    dataEndMissingY = dataY;
+                    signalCanvas.moveTo(dataStartMissingX,dataStartMissingY);
+                    signalCanvas.lineTo(dataEndMissingX,dataEndMissingY);
+                    signalCanvas.stroke();
+                  };
+                  
                   if (v == 0) {
                     dataLastX = dataX;
                     dataLastY = dataY;
                   };
-  
+
                   signalCanvas.beginPath();
-                  
+
                     if ((dataX > chartDef[0]["coords"][0]) && (dataX < chartDef[0]["coords"][2])) {
+
                       if (chartDef[i]["values"][v]*(fieldSigHeight/fieldRange) > fieldSigHeight) {
                         signalCanvas.fillStyle = signals[x].color;
                         signalCanvas.fill();
                       };
-  
+
                       switch (signals[x].type) {
                         case "analog" :
                           signalCanvas.moveTo(dataLastX,dataLastY);
@@ -1303,10 +1392,11 @@
                           signalCanvas.moveTo(dataX,dataY);                        
                           signalCanvas.stroke();
                       };
+                      
                     };
-  
+                    
                   signalCanvas.closePath();
-  
+                  
                   dataLastX = dataX;
                   dataLastY = dataY;
                 };                
@@ -1318,6 +1408,7 @@
           
       // horizontální mřížka
       stepHorzGrid = stepGridTime[timeAxisIdx]/60;
+      stepHorzGrid = Math.floor(stepHorzGrid)+0.5;
       lineCnt = Math.floor(timeAxisLength[timeAxisIdx]/stepHorzGrid);
       
       for (var k=0;k<=lineCnt;k++) {
@@ -1336,7 +1427,7 @@
             backCanvas.closePath();
           };
         };
-      };
+      };    
     };
     
     function redrawTimeAxis(view,lang) {
@@ -1352,9 +1443,9 @@
       fieldsCnt = viewInfo[1];
       
       // vyčištění plochy časové osy
-      frontCanvas.clearRect(posX+1,posY+fieldTopAdjust+chartHeight,fieldLeftAdjust+chartWidth+fieldBreakVals,32.5);  //38.5
+      frontCanvas.clearRect(posX+1,posY+fieldTopAdjust+chartHeight,fieldLeftAdjust+chartWidth+fieldBreakVals,28);
       frontCanvas.fillStyle = colorView;
-      frontCanvas.fillRect(posX+1,posY+fieldTopAdjust+chartHeight,fieldLeftAdjust+chartWidth+fieldBreakVals,32.5);  //38.5
+      frontCanvas.fillRect(posX+1,posY+fieldTopAdjust+chartHeight,fieldLeftAdjust+chartWidth+fieldBreakVals,28.5);
   
       // časová osa
       stepHorzGrid = stepGridTime[timeAxisIdx]/60;
@@ -1368,8 +1459,8 @@
           frontCanvas.lineWidth = 1;
       
           frontCanvas.beginPath();
-            frontCanvas.moveTo(posX+fieldLeftAdjust+k*stepHorzGrid*(chartWidth/timeAxisLength[timeAxisIdx]),posY+fieldTopAdjust+chartHeight); //posY+iHeight-fieldBottomAdjus
-            frontCanvas.lineTo(posX+fieldLeftAdjust+k*stepHorzGrid*(chartWidth/timeAxisLength[timeAxisIdx]),posY+fieldTopAdjust+chartHeight+3); //posY+iHeight-fieldBottomAdjust
+            frontCanvas.moveTo(posX+fieldLeftAdjust+k*stepHorzGrid*(chartWidth/timeAxisLength[timeAxisIdx]),posY+fieldTopAdjust+chartHeight);
+            frontCanvas.lineTo(posX+fieldLeftAdjust+k*stepHorzGrid*(chartWidth/timeAxisLength[timeAxisIdx]),posY+fieldTopAdjust+chartHeight+3);
             frontCanvas.stroke();
           frontCanvas.closePath();
   
@@ -1401,7 +1492,7 @@
 
       frontCanvas.fillStyle = BLACK;               
       frontCanvas.font = fontTitle;
-      frontCanvas.fillText(getFormatedDateTime(beginTime+utcBias,lang),posX+fieldLeftAdjust+5,posY+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
+      frontCanvas.fillText(getFormatedDateTime(beginTime+utcBias,lang),posX+0.5+fieldLeftAdjust+5,posY+0.5+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
     };
 
     function redrawTitle(view) {      
@@ -1412,7 +1503,7 @@
 
       frontCanvas.fillStyle = colorTitle;
       frontCanvas.font = fontTitle;      
-      frontCanvas.fillText(titles[view],posX+fieldLeftAdjust,posY+fieldTopAdjust-10);
+      frontCanvas.fillText(titles[view],posX+0.5+fieldLeftAdjust,posY+0.5+fieldTopAdjust-10);
     };
 
     function redrawLegend(view,lang) {
@@ -1422,7 +1513,7 @@
         koefFieldHeight = 0,
         FieldPosY = 0,
         fieldSigHeight = 0,
-        sigGlobalIdx = 0;                
+        sigGlobalIdx = 0;
 
       //fields      
       viewInfo = getViewInfo(view);
@@ -1446,10 +1537,12 @@
         FieldPosY = 0;
 
         for (var j=1;j<field;j++) {
-         FieldPosY += (config.View[view]["field"][j-1].relSize*koefFieldHeight)+fieldBrake;         
+        
+         FieldPosY += (config.View[view]["field"][j-1].relSize*koefFieldHeight)+fieldBrake;
+         FieldPosY = Math.floor(FieldPosY)+0.5;
         };
 
-        fieldSigHeight = config.View[view]["field"][field-1].relSize*koefFieldHeight;        
+        fieldSigHeight = Math.floor(config.View[view]["field"][field-1].relSize*koefFieldHeight);
         
         // legenda
         frontCanvas.fillStyle = colorBackFields;
@@ -1483,7 +1576,7 @@
                     
           for (n=0;n<config.NameDef.length;n++){
              
-            if (/*(config.NameDef[n].table == signals[x].table) &&*/ (config.NameDef[n].column == signals[x].column)) {
+            if (/*(config.NameDef[n].table == signals[x].table) && */(config.NameDef[n].column == signals[x].column)) {
               
               signalLegend = config.NameDef[n]["fullName_" + lang];              
               
@@ -1496,10 +1589,10 @@
             };
           };
 
-          sX = posX+iWidth-fieldRightAdjust-fieldValWidth-13; 
-          sY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx)*14;
-          frontCanvas.fillText(signalLegend,posX+iWidth-fieldRightAdjust-fieldValWidth+5,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx-1)*14-4.5);
-          
+          sX = Math.round(posX+iWidth-fieldRightAdjust-fieldValWidth-13)-0.5;
+          sY = Math.round(posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx)*14)-0.5;
+          frontCanvas.fillText(signalLegend,posX+0.5+iWidth-fieldRightAdjust-fieldValWidth+5,posY+0.5+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx-1)*14-4.5);
+
           // omezeni indexu
           if (sigGlobalIdx <= MAX_CLICKMAPS) {                    
             chartDef[sigGlobalIdx]["id"] = signalIdCfg;
@@ -1508,18 +1601,18 @@
             chartDef[sigGlobalIdx]["coords"][2] = sX+11;
             chartDef[sigGlobalIdx]["coords"][3] = sY+11;                      
             if (chartDef[sigGlobalIdx]["visibility"] == "true") {
-              frontCanvas.drawImage(img,0,0,11,11,sX,sY,11,11);
+              frontCanvas.drawImage(img,0,0,11,11,sX+0.5,sY+0.5,11,11);
             }
             else {
-              frontCanvas.drawImage(img,11,0,11,11,sX,sY,11,11);
+              frontCanvas.drawImage(img,11,0,11,11,sX+0.5,sY+0.5,11,11);
             };
           };
 
           //jednotky
           if (signals[x].type == "analog") {  // typ číslo
-            
-            frontCanvas.fillStyle = signals[x].color;  
-            frontCanvas.font = fontLegend;            
+
+            frontCanvas.fillStyle = signals[x].color;
+            frontCanvas.font = fontLegend;
             frontCanvas.fillText(signalUnits,posX+iWidth-fieldRightAdjust-fieldValWidth+275,posY+fieldTopAdjust+FieldPosY+fieldSigHeight-(idx-1)*14-4.5);
           };
         };
@@ -1542,10 +1635,10 @@
       if (reset == true) {        
         sign = (markerTime >= chartDef[0].offset) ? " + " : " - ";
         
-        frontCanvas.fillText(sign + getFormatedTime(Math.abs(markerTime-chartDef[0].offset)),posX+iWidth-fieldRightAdjust-fieldValWidth+5,posY+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
+        frontCanvas.fillText(sign + getFormatedTime(Math.abs(markerTime-chartDef[0].offset)),posX+0.5+iWidth-fieldRightAdjust-fieldValWidth+5,posY+0.5+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
       }
       else {
-        frontCanvas.fillText(getFormatedDateTime(markerTime+utcBias,lang),posX+iWidth-fieldRightAdjust-fieldValWidth+5,posY+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
+        frontCanvas.fillText(getFormatedDateTime(markerTime+utcBias,lang),posX+0.5+iWidth-fieldRightAdjust-fieldValWidth+5,posY+0.5+iHeight-fieldBottomAdjust+poleBegtimeOdsazY+12);
       };
             
     };
@@ -1682,11 +1775,24 @@
        break;               
      };     
    };   
+   
+   function refresh() {
+     view = $('#group').val();
+     lang = getLang();     
+     beginTime += 1;
+     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     redrawChart(view,beginTime,markerTime,timeAxisIdx);
+     redrawBeginTime(beginTime,lang);
+     redrawTimeAxis(view,lang);
+     drawCursor(markerTime);
+   };
 
    function changeGroup(view) {
      for (m=1;m<=MAX_CLICKMAPS;m++) {       
       chartDef[m]["visibility"] = "true";         
      };
+     
+     lastGroup = view;
      
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      

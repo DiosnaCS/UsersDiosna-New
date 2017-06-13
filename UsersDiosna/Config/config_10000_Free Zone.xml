@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>00000</id>
+		<prefix>BIG</prefix>
+		<country>ALL</country>
+		<name>Free zone</name>
+		<description/>
+	</contract>
+	<plc name="Documents">	
+		<Download>
+			<path>\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
+		</Download>
+		<Upload>
+			<path>\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
+		</Upload>
+		<CMS name="Communication">
+		</CMS>
+	</plc>
+</configuration>
