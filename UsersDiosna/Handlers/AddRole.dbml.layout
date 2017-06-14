@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AddRole">
+  <DataContextMoniker Name="/AddRoleDataContext" />
+  <nestedChildShapes>
+    <classShape Id="35066e37-8476-43df-9c99-1dcb0327e648" absoluteBounds="4.5, 3.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/AddRoleDataContext/aspnet_Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f524429-b91d-4465-8965-44560de4a48b" absoluteBounds="4.515, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

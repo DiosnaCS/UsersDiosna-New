@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.625" name="CMS">
+  <DataContextMoniker Name="/CMSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e8f1d9a3-5118-49fd-a821-32dbc3275f9e" absoluteBounds="4.125, 9.5, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/CMSDataContext/Article" />
+      <nestedChildShapes>
+        <elementListCompartment Id="30de1abb-5f78-4832-a517-ec1957898b05" absoluteBounds="4.14, 9.96, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94665931-a9ad-4b83-bd77-ccdcda6b29c0" absoluteBounds="1.625, 6, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/CMSDataContext/Section" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19538139-d56a-4854-8f07-58e96ede351b" absoluteBounds="1.6399999999999997, 6.4600000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.625 : 7.57859537760417); (2.625 : 10.9623527018229); (4.125 : 10.9623527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/CMSDataContext/Section/Section_Article" />
+      <nodes>
+        <classShapeMoniker Id="94665931-a9ad-4b83-bd77-ccdcda6b29c0" />
+        <classShapeMoniker Id="e8f1d9a3-5118-49fd-a821-32dbc3275f9e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

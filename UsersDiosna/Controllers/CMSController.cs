@@ -1,97 +1,95 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
+using UsersDiosna.Models;
 using System.Web.Mvc;
-using UsersDiosna.CMS.Models;
-using System;
 
 namespace UsersDiosna.Controllers
 {
     public class CMSController : Controller
     {
-        /// <summary>
-        /// Actually Index mean list of articles
-        /// </summary>
-        /// <returns>View</returns>
+        // GET: CMS
         public ActionResult Index()
         {
-            db db = new db();
-            List<object> objects = new List<object>();
-            List<object> objects_id = new List<object>();
-            List<string> strings = new List<string>();
+            CMSDataContext db = new CMSDataContext();
+            List<Section> SectionData = db.Sections.Where(p => p.bakeryId == int.Parse(Session["id"].ToString())).ToList();
+            foreach (Section section in SectionData)
+            {
+                List<Article> ArticleData = db.Articles.Where(p => p.bakeryId == int.Parse(Session["id"].ToString())).ToList();
+            }
+            return View(SectionData);
+        }
 
-            try
-            {
-                List<int> ids = new List<int>();
-                objects = db.multipleItemSelect("Date,Author,Header,Text", "Articles", "bakeryId=" + Session["id"].ToString());
-                foreach (object o in objects)
-                {
-                    strings.Add(o.ToString());
-                }
-                objects_id = db.multipleItemSelect("Id", "Articles", "bakeryId=" + Session["id"].ToString());
-                foreach (object o in objects_id)
-                {
-                    ids.Add(int.Parse(o.ToString()));
-                }
-                if (Session["tempforview"] != null)
-                {
-                    ViewBag.message = Session["tempforview"];
-                    Session["tempforview"] = null;
-                }
-                ViewBag.Id = ids;
-                ViewBag.data = strings;
-                ViewBag.count = strings.Count();
-                return View();
-            }
-            catch {
-                ViewBag.message = "Problem with finding articles to this bakery.";
-                return View();
-            }
-        }
-        public ActionResult Delete()
-        {
-            if (User.IsInRole("programmer"))
-            {
-                string PostId = Request.QueryString["PostId"].ToString();
-                db db = new db();
-                db.singleItemDeleteAsync("Articles", "Id=" + PostId);
-                Session["tempforview"] = "Post has been deleted";
-            }
-            return RedirectToAction("Index", "CMS");
-        }
-        public ActionResult Add()
+        // GET: CMS/Details/5
+        public ActionResult ArticleDetails(int id)
         {
             return View();
         }
-        /// <summary>
-        /// Add informations for project
-        /// </summary>
-        /// <param name="model">Method to evaluate form</param>
-        /// <returns>Redirect back to action Add</returns>
-        [HttpPost]
-        public ActionResult AddArticle(AddProjectArticle model)
-        {
-            if (ModelState.IsValid)
-            {
-                int bakeryId;
-                if (model.bakeryId == null)
-                {
-                    bakeryId = Int32.Parse(Session["id"].ToString());
-                }
-                else
-                {
-                    bakeryId = Int32.Parse(model.bakeryId.ToString());
-                }
-                db db = new db();
-                string text = model.Text.ToString();
-                text = text.Replace("\r\n", "<br>");
 
-                db.singleItemInsertAsync("Articles", "bakeryId,Author,Header,Text", bakeryId + ",'" + User.Identity.Name.ToString() + "','" + model.Header + "','" + text + "'"); //TODO solve potential SQL injections
-                Session["tempforview"] = "Your status informations has been successfully added to bakery: " + model.bakeryId + ".";
-                return RedirectToAction("Add", "CMS");
+        // GET: CMS/Create
+        public ActionResult CreateArticle()
+        {
+            return View();
+        }
+
+        // POST: CMS/Create
+        [HttpPost]
+        public ActionResult AddArticle(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
-            else {
-                Session["tempforview"] = "Empty Subject or Project info status";
-                return RedirectToAction("Add", "CMS");
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CMS/Edit/5
+        public ActionResult EditArticle(int id)
+        {
+            return View();
+        }
+
+        // POST: CMS/Edit/5
+        [HttpPost]
+        public ActionResult EditArticle(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CMS/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: CMS/Delete/5
+        [HttpPost]
+        public ActionResult DeleteArticle(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
             }
         }
     }

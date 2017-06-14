@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UsersDiosna.Admin.Models;
 using System.Web.Mvc;
+using System.Linq;
 using System.Web.Security;
 using UsersDiosna.Handlers;
 
@@ -109,15 +110,6 @@ namespace UsersDiosna.Controllers
         /// <returns></returns>
         public ActionResult AddUser(string filterUser = null, string filterRole = null)
         {
-            //if (filterUser != null && filterRole == null) {
-
-            //    FilterHandler FH = new FilterHandler();
-            //    Roles.GetRolesForUser();
-            //    FH.filterArray(filterUser, ); 
-            //}
-            //if (filterRole != null) {
-
-            //}
             AdminAddUserModel model = new AdminAddUserModel();
             model.UsersInRoles = new List<AdminAddUserModel.UsersInRole>();
             model.RolesForUsers = new List<AdminAddUserModel.RolesForUser>();
@@ -256,7 +248,7 @@ namespace UsersDiosna.Controllers
          * redirect is to AddRole method
          */
         [HttpPost]
-        public ActionResult AddRoleForm(AdminAddUserModel model)
+        public ActionResult AddRoleForm(AdminAddRoleModel model)
         {
             try
             {
@@ -268,6 +260,10 @@ namespace UsersDiosna.Controllers
                 else
                 {
                     Roles.CreateRole(model.Role);
+                    AddRoleDataContext db = new AddRoleDataContext();
+                    aspnet_Role role = db.aspnet_Roles.Single(p => p.RoleName == model.Role);
+                    role.Description = model.RoleDescription;
+                    db.SubmitChanges();
                     if (Int32.TryParse(model.Role, out id) == true) {
                         string[] users  = Roles.GetUsersInRole("AllDest");
                         Roles.AddUsersToRole(users, model.Role);

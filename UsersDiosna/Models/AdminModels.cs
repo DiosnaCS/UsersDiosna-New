@@ -56,6 +56,7 @@ namespace UsersDiosna.Admin.Models
             public string[] Roles;
         }
         public List<RolesForUser> RolesForUsers;
+
         [Required]
         [DataType(DataType.Text)]
         [Display(Name = "Username of exsting user")]
@@ -91,6 +92,11 @@ namespace UsersDiosna.Admin.Models
         [DataType(DataType.Text)]
         [Display(Name = "Name of role to add")]
         public string Role { get; set; }
+
+        [Required]
+        [DataType(DataType.Text)]
+        [Display(Name = "Decription of role to add")]
+        public string RoleDescription { get; set; }
     }
 
     public class AdminRemoveRoleModel

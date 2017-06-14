@@ -276,8 +276,19 @@
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
+    <Compile Include="OldCode\CMSController_old.cs" />
     <Compile Include="Controllers\db.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Handlers\AddRole.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddRole.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMS.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Handlers\Global.cs" />
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\GraphHandler.cs" />
@@ -366,6 +377,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RemoveUser.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CMS_old\add.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>add.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS_old\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Home\Homepage.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -396,6 +417,22 @@
       <LastGenOutput>Notification.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Handlers\AddRole.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>AddRole.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Handlers\AddRole.dbml.layout">
+      <DependentUpon>AddRole.dbml</DependentUpon>
+    </None>
+    <Content Include="Models\CMS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CMS.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Models\CMS.dbml.layout">
+      <DependentUpon>CMS.dbml</DependentUpon>
+    </None>
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -550,11 +587,11 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\CMS\Index.cshtml">
+    <Content Include="Views\CMS_old\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\CMS\add.cshtml">
+    <Content Include="Views\CMS_old\add.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>add.generated.cs</LastGenOutput>
     </Content>
@@ -606,7 +643,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Default\" />
+    <Folder Include="Views\CMS\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>
