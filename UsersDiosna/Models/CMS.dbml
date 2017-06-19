@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MainDB" Class="CMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-5L6JE3G;Initial Catalog=MainDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DefaultConnection" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-TIDKJG0\SQL;Initial Catalog=MainDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MainDBConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Articles" Member="Articles">
     <Type Name="Article">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -22,6 +22,8 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ArticleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BakeryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Section_Article" Member="Articles" ThisKey="Id" OtherKey="SectionId" Type="Article" />
     </Type>
   </Table>

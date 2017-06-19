@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 namespace UsersDiosna.CMS.Models
 {
-    public class AddProjectArticle
+    public class AddArticle
     {
         /// <summary>
         /// Model for add project status informations
@@ -23,5 +23,33 @@ namespace UsersDiosna.CMS.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Project info status")]
         public string Text { get; set; }
+    }
+
+    public class AddSection
+    {
+        /// <summary>
+        /// Model for add section into CMS system
+        /// </summary>
+
+        [Required(ErrorMessage = "Name is required")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
+        
+        public IEnumerable<SelectList> Ids { get; set; }
+
+        [DataType(DataType.Text)]
+        [Display(Name = "For bakery (id - integer)")]
+        public int BakeryId { get; set; }
+
+        [Required(ErrorMessage ="Role for this section is required")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Role for this section")]
+        public string Role { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Description of the section")]
+        public string Description { get; set; }
     }
 }

@@ -1,0 +1,2 @@
+
+6/15/2017 3:41:30 PMCould not find a part of the path '\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents9_Public'.

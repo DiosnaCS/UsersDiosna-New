@@ -104,7 +104,7 @@ WriteLiteral(">\r\n");
             
             #line default
             #line hidden
-WriteLiteral("                <h4>Use given account into NORDIT vizualization platform</h4>\r\n");
+WriteLiteral("                <h4>Use given account into DIOSNA cloud</h4>\r\n");
 
 WriteLiteral("                <hr />\r\n");
 

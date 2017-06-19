@@ -51,8 +51,9 @@ namespace UsersDiosna
         /// Some sort of try to catch all errors that wasnt cought
         /// </summary>
         /// <param name="e">Exception that was made and i hope it will work</param>
-        protected void Application_Error(Exception e)
+        protected void Application_Error()
         {
+            Exception e =Server.GetLastError();
             string PathToErrorFile = UsersDiosna.Error.PathToErrorFile;
             DateTime now = DateTime.Now;
             int id = ErrorId++;
@@ -93,6 +94,7 @@ namespace UsersDiosna
                     Session["tempforview"] = timestamp + "    Error " + id.ToString() + " occured so please try it again after some time"; //To screen also with id 
                 }
             }
+            Server.ClearError();
         }
     }
 }

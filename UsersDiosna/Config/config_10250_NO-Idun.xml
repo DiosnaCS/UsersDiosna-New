@@ -39,7 +39,7 @@
 			<pathConfig>C:\Akce\java\grafy_cfg_NOIDU_IH.ini</pathConfig>
 			<pathNames>C:\Akce\java\grafy_names_NOIDU.ini</pathNames>
 		</graph>
-		<alarm name="Alarms">
+		<alarm>
 			<dbName>Idun</dbName>
 		</alarm>
 	</plc>

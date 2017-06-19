@@ -10,3 +10,106 @@
    at Npgsql.NpgsqlCommand.ExecuteReader()
    at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Vizualization\UsersDiosna\Controllers\AlarmController.cs:line 166
    at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Vizualization\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 12:14:35 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 12:15:02 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 2:11:51 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 2:14:40 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 2:15:05 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 4:11:26 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 4:11:28 PM0Object reference not set to an instance of an object.
+6/16/2017 4:12:15 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 4:12:17 PM1Object reference not set to an instance of an object.
+6/16/2017 4:12:29 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 4:12:29 PM2Object reference not set to an instance of an object.
+6/16/2017 4:12:44 PM42P01: relation "alarm_texts" does not existNpgsql   at Npgsql.NpgsqlConnector.DoReadMessage(DataRowLoadingMode dataRowLoadingMode, Boolean isPrependedMessage)
+   at Npgsql.NpgsqlConnector.ReadMessageWithPrepended(DataRowLoadingMode dataRowLoadingMode)
+   at Npgsql.NpgsqlConnector.ReadExpecting[T]()
+   at Npgsql.NpgsqlDataReader.NextResultInternal()
+   at Npgsql.NpgsqlDataReader.NextResult()
+   at Npgsql.NpgsqlCommand.Execute(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderInternal(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at Npgsql.NpgsqlCommand.ExecuteReader()
+   at UsersDiosna.Controllers.AlarmController.possibleLangs() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 166
+   at UsersDiosna.Controllers.AlarmController.Index() in C:\Akce\Source-Repos\UsersDiosna\Controllers\AlarmController.cs:line 187Alarms reading problem on Index method
+6/16/2017 4:12:50 PM3Object reference not set to an instance of an object.

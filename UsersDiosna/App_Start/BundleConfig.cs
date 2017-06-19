@@ -26,6 +26,10 @@ namespace UsersDiosna
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/notification").Include(
+                      "~/Scripts/notification.js",
+                      "~/Scripts/notifyMe.js",
+                      "~/Scripts/ChromeNotification.js"));
         }
     }
 }

@@ -39,7 +39,7 @@ namespace UsersDiosna.Models
     #endregion
 		
 		public CMSDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MainDBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -442,6 +442,10 @@ namespace UsersDiosna.Models
 		
 		private System.Nullable<int> _ArticleId;
 		
+		private string _Role;
+		
+		private System.Nullable<int> _BakeryId;
+		
 		private EntitySet<Article> _Articles;
 		
     #region Extensibility Method Definitions
@@ -456,6 +460,10 @@ namespace UsersDiosna.Models
     partial void OnDescriptionChanged();
     partial void OnArticleIdChanging(System.Nullable<int> value);
     partial void OnArticleIdChanged();
+    partial void OnRoleChanging(string value);
+    partial void OnRoleChanged();
+    partial void OnBakeryIdChanging(System.Nullable<int> value);
+    partial void OnBakeryIdChanged();
     #endregion
 		
 		public Section()
@@ -540,6 +548,46 @@ namespace UsersDiosna.Models
 					this._ArticleId = value;
 					this.SendPropertyChanged("ArticleId");
 					this.OnArticleIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Role", DbType="NVarChar(MAX)")]
+		public string Role
+		{
+			get
+			{
+				return this._Role;
+			}
+			set
+			{
+				if ((this._Role != value))
+				{
+					this.OnRoleChanging(value);
+					this.SendPropertyChanging();
+					this._Role = value;
+					this.SendPropertyChanged("Role");
+					this.OnRoleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BakeryId", DbType="Int")]
+		public System.Nullable<int> BakeryId
+		{
+			get
+			{
+				return this._BakeryId;
+			}
+			set
+			{
+				if ((this._BakeryId != value))
+				{
+					this.OnBakeryIdChanging(value);
+					this.SendPropertyChanging();
+					this._BakeryId = value;
+					this.SendPropertyChanged("BakeryId");
+					this.OnBakeryIdChanged();
 				}
 			}
 		}

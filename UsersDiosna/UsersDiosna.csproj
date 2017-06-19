@@ -90,10 +90,6 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework6.Npgsql, Version=3.1.1.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework6.Npgsql.3.1.1\lib\net45\EntityFramework6.Npgsql.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -289,7 +285,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CMS.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\Global.cs" />
+    <Compile Include="Handlers\GlobaHelper.cs" />
     <Compile Include="Controllers\GraphController.cs" />
     <Compile Include="Controllers\GraphHandler.cs" />
     <Compile Include="Controllers\GraphNotificationController.cs" />
@@ -337,65 +333,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Account\Register.generated.cs">
+    <Compile Include="Views\Shared\_Layout.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Register.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\AddMask.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddMask.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\AddRole.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddRole.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\AddUser.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AddUser.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\Index.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\RemoveMask.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoveMask.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\RemoveRole.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoveRole.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Admin\RemoveUser.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoveUser.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CMS_old\add.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>add.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CMS_old\Index.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Index.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Home\Homepage.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Homepage.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Menu\_Menu.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Menu.cshtml</DependentUpon>
+      <DependentUpon>_Layout.cshtml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +377,7 @@
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\ChromeNotification.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -444,6 +386,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\notification.js" />
+    <Content Include="Scripts\notifyMe.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -640,10 +584,11 @@
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Admin\_Search.cshtml" />
+    <Content Include="Views\CMS\Index.cshtml" />
+    <Content Include="Views\CMS\CreateSection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\CMS\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>

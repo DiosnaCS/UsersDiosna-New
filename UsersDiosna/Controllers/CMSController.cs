@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using UsersDiosna.Models;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace UsersDiosna.Controllers
 {
@@ -13,16 +14,108 @@ namespace UsersDiosna.Controllers
         public ActionResult Index()
         {
             CMSDataContext db = new CMSDataContext();
-            List<Section> SectionData = db.Sections.Where(p => p.bakeryId == int.Parse(Session["id"].ToString())).ToList();
-            foreach (Section section in SectionData)
-            {
-                List<Article> ArticleData = db.Articles.Where(p => p.bakeryId == int.Parse(Session["id"].ToString())).ToList();
+            List<Article> ArticleData = new List<Article>();
+            List<Section> SectionData = new List<Section>();
+            foreach (string role in Roles.GetRolesForUser(User.Identity.Name)) {
+                SectionData.AddRange(db.Sections.Where(p => p.Role == role).ToList());
             }
-            return View(SectionData);
+            if (SectionData != null)
+            {
+                foreach (Section section in SectionData)
+                {
+                     ArticleData.AddRange(db.Articles.Where(p => (p.bakeryId == int.Parse(Session["id"].ToString())) && p.SectionId == section.Id).ToList());
+                }
+            }
+            return View(ArticleData);
+        }
+        #region section
+        // GET: CMS/CreateSection/
+        public ActionResult CreateSection()
+        {
+            CMS.Models.AddSection addmodel = new CMS.Models.AddSection();
+            foreach (string role in Roles.GetAllRoles()) {
+                if (int.TryParse(role, out int bakeryId)) {
+                    addmodel.Ids.
+                }
+            }
+            
+            
+            return View();
+        }
+        
+        // POST: CMS/CreateSection
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddSection(CMS.Models.AddSection collection)
+        {
+            try
+            {
+                CMSDataContext db = new CMSDataContext();
+                Section section = new Section();
+                //section data into object form form
+                section.Name = collection.Name;
+                section.BakeryId = collection.BakeryId;
+                section.Role = collection.Role;
+                section.Description = collection.Description;
+                //Add section into db
+                db.Sections.InsertOnSubmit(section);
+                db.SubmitChanges();                
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
-        // GET: CMS/Details/5
-        public ActionResult ArticleDetails(int id)
+        // GET: CMS/EditSection/5
+        public ActionResult EditSection(int id)
+        {
+            return View();
+        }
+
+        // POST: CMS/EditSection/5
+        [HttpPost]
+        public ActionResult EditSection(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: CMS/DeleteSection/5
+        public ActionResult DeleteSection(int id)
+        {
+            return View();
+        }
+
+        // POST: CMS/DeleteSection/5
+        [HttpPost]
+        public ActionResult DeleteSection(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        #endregion
+        #region articles
+        // GET: CMS/DetailArticle/5
+        public ActionResult DetailArticle(int id)
         {
             return View();
         }
@@ -33,7 +126,7 @@ namespace UsersDiosna.Controllers
             return View();
         }
 
-        // POST: CMS/Create
+        // POST: CMS/CreateArticle
         [HttpPost]
         public ActionResult AddArticle(FormCollection collection)
         {
@@ -49,13 +142,13 @@ namespace UsersDiosna.Controllers
             }
         }
 
-        // GET: CMS/Edit/5
+        // GET: CMS/EditArticle/5
         public ActionResult EditArticle(int id)
         {
             return View();
         }
 
-        // POST: CMS/Edit/5
+        // POST: CMS/EditArticle/5
         [HttpPost]
         public ActionResult EditArticle(int id, FormCollection collection)
         {
@@ -71,13 +164,13 @@ namespace UsersDiosna.Controllers
             }
         }
 
-        // GET: CMS/Delete/5
-        public ActionResult Delete(int id)
+        // GET: CMS/DeleteArticle/5
+        public ActionResult DeleteArticle (int id)
         {
             return View();
         }
 
-        // POST: CMS/Delete/5
+        // POST: CMS/DeleteArticle/5
         [HttpPost]
         public ActionResult DeleteArticle(int id, FormCollection collection)
         {
@@ -92,5 +185,6 @@ namespace UsersDiosna.Controllers
                 return View();
             }
         }
+        #endregion
     }
 }
