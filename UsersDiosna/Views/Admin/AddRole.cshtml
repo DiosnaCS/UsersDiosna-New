@@ -3,7 +3,7 @@
     ViewBag.Title = "AddRole";
 }
 
-<h2>AddUser</h2>
+<h2>Add Role</h2>
 Exstining roles:<br>
 @foreach (String role in ViewBag.Roles) {
     @role<br>
@@ -18,6 +18,12 @@ Exstining roles:<br>
         @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Role, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoleDescription, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.RoleDescription, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">

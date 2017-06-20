@@ -68,7 +68,7 @@ namespace UsersDiosna.Controllers
         /// <param name="model">Method to evaluate form</param>
         /// <returns>Redirect back to action Add</returns>
         [HttpPost]
-        public ActionResult AddArticle(AddArticle model)
+        public ActionResult AddArticle(ArticleModel model)
         {
             if (ModelState.IsValid)
             {

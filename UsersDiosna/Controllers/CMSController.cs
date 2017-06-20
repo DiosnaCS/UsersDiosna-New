@@ -5,6 +5,7 @@ using System.Web;
 using UsersDiosna.Models;
 using System.Web.Mvc;
 using System.Web.Security;
+using UsersDiosna.CMS.Models;
 
 namespace UsersDiosna.Controllers
 {
@@ -32,41 +33,66 @@ namespace UsersDiosna.Controllers
         // GET: CMS/CreateSection/
         public ActionResult CreateSection()
         {
-            CMS.Models.AddSection addmodel = new CMS.Models.AddSection();
+            SectionModel addmodel = new SectionModel();
+            Handlers.AddRoleDataContext db = new Handlers.AddRoleDataContext();
+            addmodel.Ids = new List<SelectListItem>();
+            addmodel.Roles = new List<SelectListItem>();
+            int bakeryId;
+            bool first = true;
             foreach (string role in Roles.GetAllRoles()) {
-                if (int.TryParse(role, out int bakeryId)) {
-                    addmodel.Ids.
+                SelectListItem roleItem = new SelectListItem();
+                if (first == true) {
+                    roleItem.Selected = true;
                 }
+                roleItem.Value = role;
+                string roleDescription = db.aspnet_Roles.Single(p => p.RoleName == role.ToString()).Description;
+                if (roleDescription != null) {
+                    roleItem.Text = roleDescription;
+                }
+                else {
+                    roleItem.Text = role;
+                }
+                //For bakery id list
+                if (int.TryParse(role, out bakeryId)) {
+                    SelectListItem id = new SelectListItem();
+                    if (bakeryId == 10000) {
+                        id.Selected = true;
+                    }
+                    
+                    id.Value = bakeryId.ToString();
+                    if (roleDescription != null) {
+                        id.Text = roleDescription;
+                    }
+                    else {
+                        id.Text = bakeryId.ToString();
+                    }
+                    addmodel.Ids.Add(id);
+
+                }
+                addmodel.Roles.Add(roleItem);
+                first=false;
             }
-            
-            
-            return View();
+                        
+            return View(addmodel);
         }
         
         // POST: CMS/CreateSection
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddSection(CMS.Models.AddSection collection)
+        public ActionResult AddSection(SectionModel collection)
         {
-            try
-            {
-                CMSDataContext db = new CMSDataContext();
-                Section section = new Section();
-                //section data into object form form
-                section.Name = collection.Name;
-                section.BakeryId = collection.BakeryId;
-                section.Role = collection.Role;
-                section.Description = collection.Description;
-                //Add section into db
-                db.Sections.InsertOnSubmit(section);
-                db.SubmitChanges();                
+            CMSDataContext db = new CMSDataContext();
+            Section section = new Section();
+            //section data into object form form
+            section.Name = collection.Name;
+            section.BakeryId = collection.BakeryId;
+            section.Role = collection.Role;
+            section.Description = collection.Description;
+            //Add section into db
+            db.Sections.InsertOnSubmit(section);
+            db.SubmitChanges();                
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: CMS/EditSection/5
@@ -123,23 +149,64 @@ namespace UsersDiosna.Controllers
         // GET: CMS/Create
         public ActionResult CreateArticle()
         {
-            return View();
+            int bakeryId;
+            ArticleModel addmodel = new ArticleModel();
+            Handlers.AddRoleDataContext addRole = new Handlers.AddRoleDataContext();
+            CMSDataContext db = new CMSDataContext();
+            addmodel.Ids = new List<SelectListItem>();
+            foreach (string role in Roles.GetAllRoles()) {
+                string roleDescription = addRole.aspnet_Roles.Single(p => p.RoleName == role.ToString()).Description;
+
+                if (int.TryParse(role, out bakeryId))
+                {
+                    SelectListItem id = new SelectListItem();
+                    if (bakeryId == 10000)
+                    {
+                        id.Selected = true;
+                    }
+
+                    id.Value = bakeryId.ToString();
+                    if (roleDescription != null)
+                    {
+                        id.Text = roleDescription;
+                    }
+                    else
+                    {
+                        id.Text = bakeryId.ToString();
+                    }
+                    addmodel.Ids.Add(id);
+
+                }
+            }
+            foreach (Section section in db.Sections) {
+                if (Roles.IsUserInRole(section.Role) && section.BakeryId == int.Parse(Session["id"].ToString())) {
+                    SelectListItem item = new SelectListItem();
+                    item.Value = section.Id.ToString();
+                    item.Text = section.Name;
+                }
+            }
+            return View(addmodel);
         }
 
         // POST: CMS/CreateArticle
         [HttpPost]
-        public ActionResult AddArticle(FormCollection collection)
+        public ActionResult AddArticle(ArticleModel collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
+            CMSDataContext db = new CMSDataContext();
+            Article article = new Article();
+            //section data into object form form
+            article.bakeryId = collection.bakeryId;
+            article.Header = collection.Header;
+            article.Text = collection.Text;
+            article.Amount = collection.Amount;
+            article.HoursSpend = collection.HoursSpend;
+            article.Description = collection.Description;
+            article.SectionId = collection.SectionId;
+            //Add section into db
+            db.Articles.InsertOnSubmit(article);
+            db.SubmitChanges();
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: CMS/EditArticle/5

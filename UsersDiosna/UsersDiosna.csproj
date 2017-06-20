@@ -333,6 +333,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\AddRole.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddRole.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\_Layout.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -586,6 +591,7 @@
     <Content Include="Views\Admin\_Search.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
     <Content Include="Views\CMS\CreateSection.cshtml" />
+    <Content Include="Views\CMS\CreateArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

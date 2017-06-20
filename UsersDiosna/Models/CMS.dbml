@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MainDB" Class="CMSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-TIDKJG0\SQL;Initial Catalog=MainDB;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="MainDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Sections" Member="Sections">
+    <Type Name="Section">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ArticleId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BakeryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Section_Article" Member="Articles" ThisKey="Id" OtherKey="SectionId" Type="Article" />
+    </Type>
+  </Table>
   <Table Name="dbo.Articles" Member="Articles">
     <Type Name="Article">
       <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -12,19 +23,8 @@
       <Column Name="HoursSpend" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Attachment" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Description" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="SectionId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SectionId" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Association Name="Section_Article" Member="Section" ThisKey="SectionId" OtherKey="Id" Type="Section" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Sections" Member="Sections">
-    <Type Name="Section">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ArticleId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Role" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BakeryId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Section_Article" Member="Articles" ThisKey="Id" OtherKey="SectionId" Type="Article" />
     </Type>
   </Table>
 </Database>

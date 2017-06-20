@@ -1,0 +1,37 @@
+
+6/20/2017 10:15:51 AM2The view 'CreateArticle' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CMS/CreateArticle.aspx
+~/Views/CMS/CreateArticle.ascx
+~/Views/Shared/CreateArticle.aspx
+~/Views/Shared/CreateArticle.ascx
+~/Views/CMS/CreateArticle.cshtml
+~/Views/CMS/CreateArticle.vbhtml
+~/Views/Shared/CreateArticle.cshtml
+~/Views/Shared/CreateArticle.vbhtml
+6/20/2017 11:06:04 AM0The view 'AddSection' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CMS/AddSection.aspx
+~/Views/CMS/AddSection.ascx
+~/Views/Shared/AddSection.aspx
+~/Views/Shared/AddSection.ascx
+~/Views/CMS/AddSection.cshtml
+~/Views/CMS/AddSection.vbhtml
+~/Views/Shared/AddSection.cshtml
+~/Views/Shared/AddSection.vbhtml
+6/20/2017 11:07:19 AM1The view 'AddSection' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CMS/AddSection.aspx
+~/Views/CMS/AddSection.ascx
+~/Views/Shared/AddSection.aspx
+~/Views/Shared/AddSection.ascx
+~/Views/CMS/AddSection.cshtml
+~/Views/CMS/AddSection.vbhtml
+~/Views/Shared/AddSection.cshtml
+~/Views/Shared/AddSection.vbhtml
+6/20/2017 2:03:05 PM0The view 'CreateArticle' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CMS/CreateArticle.aspx
+~/Views/CMS/CreateArticle.ascx
+~/Views/Shared/CreateArticle.aspx
+~/Views/Shared/CreateArticle.ascx
+~/Views/CMS/CreateArticle.cshtml
+~/Views/CMS/CreateArticle.vbhtml
+~/Views/Shared/CreateArticle.cshtml
+~/Views/Shared/CreateArticle.vbhtml
