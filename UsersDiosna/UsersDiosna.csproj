@@ -272,6 +272,7 @@
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
+    <Compile Include="Handlers\CMSHelper.cs" />
     <Compile Include="OldCode\CMSController_old.cs" />
     <Compile Include="Controllers\db.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
@@ -592,6 +593,10 @@
     <Content Include="Views\CMS\Index.cshtml" />
     <Content Include="Views\CMS\CreateSection.cshtml" />
     <Content Include="Views\CMS\CreateArticle.cshtml" />
+    <Content Include="Views\CMS\DeleteArticle.cshtml" />
+    <Content Include="Views\CMS\DeleteSection.cshtml" />
+    <Content Include="Views\CMS\EditSection.cshtml" />
+    <Content Include="Views\CMS\EditArticle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

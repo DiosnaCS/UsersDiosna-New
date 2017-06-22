@@ -35,3 +35,12 @@
 ~/Views/CMS/CreateArticle.vbhtml
 ~/Views/Shared/CreateArticle.cshtml
 ~/Views/Shared/CreateArticle.vbhtml
+6/22/2017 2:30:08 PM0The view 'DetailArticle' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/CMS/DetailArticle.aspx
+~/Views/CMS/DetailArticle.ascx
+~/Views/Shared/DetailArticle.aspx
+~/Views/Shared/DetailArticle.ascx
+~/Views/CMS/DetailArticle.cshtml
+~/Views/CMS/DetailArticle.vbhtml
+~/Views/Shared/DetailArticle.cshtml
+~/Views/Shared/DetailArticle.vbhtml

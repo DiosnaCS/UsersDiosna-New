@@ -4,7 +4,7 @@
     ViewBag.Title = "List of Articles";
 }
 
-<h2>Index</h2>
+<h2>List of articles to current</h2>
 <p>
     @Html.ActionLink("Create new Section", "CreateSection",new { }, new { @class = "btn btn-xs btn-primary" })
 </p>
@@ -41,7 +41,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SectionId)
+            Section @Html.DisplayNameFor(model => model.Section.Name).ToString().ToLower()
         </th>
         <th></th>
     </tr>
@@ -76,12 +76,12 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SectionId)
+            @Html.DisplayFor(modelItem => item.Section.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditSection", new { id=item.Id }) |
-            @Html.ActionLink("Details", "DetailSection", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteSection", new { id=item.Id })
+            @Html.ActionLink("Edit", "EditArticle", new { id=item.Id }) |
+            @Html.ActionLink("Details", "DetailArticle", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id })
         </td>
     </tr>
 }

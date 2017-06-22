@@ -31,7 +31,7 @@ namespace UsersDiosna.CMS.Models
 
         [DataType(DataType.Text)]
         [Display(Name = "Hours spent on vice work")]
-        public int HoursSpend { get; set; }
+        public int? HoursSpend { get; set; }
 
         [DataType(DataType.Upload)]
         [Display(Name = "Attachment")]
@@ -62,6 +62,7 @@ namespace UsersDiosna.CMS.Models
         
         public List<SelectListItem> Ids { get; set; }
 
+        [Required(ErrorMessage = "Bakery is required")]
         [DataType(DataType.Text)]
         [Display(Name = "For bakery")]
         public int BakeryId { get; set; }

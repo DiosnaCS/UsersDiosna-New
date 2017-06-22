@@ -69,7 +69,8 @@
         lang = 0,        
         timeAxisIdx = 7,
         beginTime,
-        lastGroup = 0,
+        agregBeginTime = 0,
+        lastGroup = 0,        
         markerTime;
 
     // fonty
@@ -315,7 +316,7 @@
       backCanvas = backCanvasElement[0].getContext('2d');
       $('#backCanvas').attr('width',chartWidth);
       $('#backCanvas').attr('height',chartHeight);
-      $('#backCanvas').css('cursor','pointer');           
+      $('#backCanvas').css('cursor','pointer');
 
       var timeSec = getCurrentTime();
       var mod = timeSec%(stepGridTime[timeAxisIdx]*60);
@@ -334,6 +335,8 @@
       
       $("#settingsWin").css('left', ($(".sidenav").width()+fieldLeftAdjust+21));
       $("top_menu").css('left', ($(".sidenav").width()+fieldLeftAdjust+21));
+
+      shiftLength(timeAxisIdx);
 
     };
     
@@ -496,6 +499,7 @@
 
               view = $('#group').val();
               lang = getLang();
+              shiftLength(timeAxisIdx);
               redrawChart(view,beginTime,markerTime,timeAxisIdx);
               redrawTimeAxis(view,lang);
               redrawValues(view,markerTime,lang);
@@ -1660,34 +1664,76 @@
     };         
     
    // tlačítka menu 
+
+   // event shift
+   var shiftTime; 
+   var isShift = false;
+   var shiftDelta = 1000; 
   
    function backShift() {     
-     view = $('#group').val();
-     lang = getLang();          
-     beginTime -= (timeAxisLength[timeAxisIdx]*3600)/2;
-     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
-     redrawChart(view,beginTime,markerTime,timeAxisIdx);
-     redrawBeginTime(beginTime,lang);
-     redrawTimeAxis(view,lang);
-     drawCursor(markerTime);
+     if (isShift == false) {
+       agregBeginTime = beginTime;
+     }
+     
+     agregBeginTime -= (timeAxisLength[timeAxisIdx]*3600)/2;
+    
+     shiftTime = new Date();
+     if (isShift == false) {
+         isShift = true;
+           setTimeout(shiftEnd(), shiftDelta);
+     };
+    
+     function shiftEnd() {
+       if (new Date() - shiftTime < shiftDelta) {
+         setTimeout(shiftEnd, shiftDelta);
+         isShift = true;
+       } else {
+         agregShift();
+       };     
+     };
    }; 
    
-   function fwdShift() {
+   function fwdShift() {   
+     if (isShift == false) {
+       agregBeginTime = beginTime;
+     }
+               
+     agregBeginTime += (timeAxisLength[timeAxisIdx]*3600)/2;
+     
+     shiftTime = new Date();
+     if (isShift == false) {
+         isShift = true;
+           setTimeout(shiftEnd(), shiftDelta);
+     };
+    
+     function shiftEnd() {
+       if (new Date() - shiftTime < shiftDelta) {
+         setTimeout(shiftEnd, shiftDelta);
+         isShift = true;
+       } else {
+         agregShift();
+       };     
+     };     
+   };
+
+   function agregShift() {     
      view = $('#group').val();
-     lang = getLang();     
-     beginTime += (timeAxisLength[timeAxisIdx]*3600)/2;
-     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     lang = getLang();
+     beginTime = agregBeginTime;
+     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);     
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
      redrawTimeAxis(view,lang);
      drawCursor(markerTime);
+     isShift = false;
    };
-   
+     
    function narrow() {
      view = $('#group').val();
      lang = getLang();    
      timeAxisIdx = (timeAxisIdx >= 9) ? 9 : timeAxisIdx+1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     shiftLength(timeAxisIdx);
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
      redrawTimeAxis(view,lang);
@@ -1696,35 +1742,61 @@
    
    function extend() {
      view = $('#group').val();
-     lang = getLang();
+     lang = getLang();     
      timeAxisIdx = (timeAxisIdx <= 0) ? 0 : timeAxisIdx-1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     shiftLength(timeAxisIdx);     
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
      redrawTimeAxis(view,lang);
-     drawCursor(markerTime);
+     drawCursor(markerTime);     
    };
    
    function backDay() {
-     view = $('#group').val();
-     lang = getLang();
-     beginTime -= 86400;
-     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
-     redrawChart(view,beginTime,markerTime,timeAxisIdx);
-     redrawBeginTime(beginTime,lang);
-     redrawTimeAxis(view,lang);
-     drawCursor(markerTime);
+     if (isShift == false) {
+       agregBeginTime = beginTime;
+     }
+        
+     agregBeginTime -= 86400;
+     
+     shiftTime = new Date();
+     if (isShift == false) {
+         isShift = true;
+           setTimeout(shiftEnd(), shiftDelta);
+     };
+    
+     function shiftEnd() {
+       if (new Date() - shiftTime < shiftDelta) {
+         setTimeout(shiftEnd, shiftDelta);
+         isShift = true;
+       } else {
+         agregShift();
+       };     
+     };
+     
    };
    
    function fwdDay() {
-     view = $('#group').val();
-     lang = getLang();
-     beginTime += 86400;
-     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
-     redrawChart(view,beginTime,markerTime,timeAxisIdx);
-     redrawBeginTime(beginTime,lang);
-     redrawTimeAxis(view,lang);
-     drawCursor(markerTime);
+    if (isShift == false) {
+       agregBeginTime = beginTime;
+     }
+        
+     agregBeginTime += 86400;
+     
+     shiftTime = new Date();
+     if (isShift == false) {
+         isShift = true;
+           setTimeout(shiftEnd(), shiftDelta);
+     };
+    
+     function shiftEnd() {
+       if (new Date() - shiftTime < shiftDelta) {
+         setTimeout(shiftEnd, shiftDelta);
+         isShift = true;
+       } else {
+         agregShift();
+       };     
+     };
    };
    
    function zoomSignal(val) {
@@ -2155,3 +2227,15 @@
      break;               
      };   
    };  
+   
+   function shiftLength(timeAxisIdx) {   
+   shiftLen = timeAxisLength[timeAxisIdx]/2; 
+      if ((shiftLen) > 24) {              
+        $("#backShift").attr('value', "-" + (shiftLen / 24) + "d");
+        $("#fwdShift").attr('value', "+" + (shiftLen / 24) + "d"); 
+      }
+      else {
+        $("#backShift").attr('value', "-" + shiftLen + "h");
+        $("#fwdShift").attr('value', "+" + shiftLen + "h");
+      }
+   }

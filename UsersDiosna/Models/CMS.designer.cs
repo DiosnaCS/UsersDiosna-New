@@ -101,7 +101,7 @@ namespace UsersDiosna.Models
 		
 		private string _Role;
 		
-		private System.Nullable<int> _BakeryId;
+		private int _BakeryId;
 		
 		private EntitySet<Article> _Articles;
 		
@@ -230,7 +230,7 @@ namespace UsersDiosna.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BakeryId", DbType="Int")]
-		public System.Nullable<int> BakeryId
+		public int BakeryId
 		{
 			get
 			{
