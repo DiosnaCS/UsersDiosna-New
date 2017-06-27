@@ -11,6 +11,8 @@ namespace UsersDiosna
     {
         public static async Task<Notification> getNotifcations(Notification ActiveNotif)
         {
+            if (ActiveNotif.Tables == null || ActiveNotif.Definition == null || ActiveNotif.Tags == null || ActiveNotif.BakeryID == 0)
+                return null;
             List<string> dbNames = XMLHandler.readTag("dbName", ActiveNotif.BakeryID);
             List<tag> notifications = new List<tag>();
             string[] separator1 = new string[] { "," };
@@ -65,6 +67,8 @@ namespace UsersDiosna
             db db = new db(DB, 12);
             string sql = "SELECT " + tags + " FROM \"" + table + "\" WHERE (\"UTC\" IN(SELECT \"UTC\" FROM \"" + table + "\" ORDER BY \"UTC\" DESC LIMIT 1)) AND " + definition;
             results = await db.multipleItemSelectPostgresAsync(sql);
+            if (results.Count == 0)
+                return null;
             foreach (object o in results[0])
             {
                 tag tag = new tag();

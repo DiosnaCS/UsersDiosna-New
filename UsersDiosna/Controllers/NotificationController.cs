@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace UsersDiosna.Controllers
 {
     public class NotificationController : AsyncController
@@ -96,6 +97,10 @@ namespace UsersDiosna.Controllers
                             AlarmNotificationController ANC = new AlarmNotificationController();
                             Notification Anotif = new Notification();
                             Anotif = await AlarmNotificationHandler.getNotifcations(notification);
+                            if (Anotif.Status == null)
+                            {
+                                break;
+                            }
                             if (Anotif.Status == 1)
                             {
                                 resultNotifications.Add(Anotif);
@@ -105,6 +110,9 @@ namespace UsersDiosna.Controllers
                             GraphNotificationController GNC = new GraphNotificationController();
                             Notification Gnotif = new Notification();
                             Gnotif = await GraphNotificationHandler.getNotifcations(notification);
+                            if (Gnotif == null) {
+                                break;
+                            }
                             if (Gnotif.Status == 1)
                             {
                                 resultNotifications.Add(Gnotif);

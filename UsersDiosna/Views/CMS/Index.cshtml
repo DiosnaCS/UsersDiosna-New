@@ -11,7 +11,11 @@
 <p>
     @Html.ActionLink("Create new Article", "CreateArticle", new { }, new { @class = "btn btn-xs btn-primary" })
 </p>
-<table class="table">
+<p>
+    @Html.ActionLink("List of sections", "Sections",new { }, new { @class = "btn btn-xs btn-primary" })
+    <input type="text" class="form-control" id="searchSections" onkeyup="" placeholder="search for roles with username">
+</p>
+<table class="table-striped table-condensed table-hover table-responsive">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.bakeryId)

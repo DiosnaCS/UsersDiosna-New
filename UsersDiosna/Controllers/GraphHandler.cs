@@ -31,6 +31,9 @@ namespace UsersDiosna.Controllers
                 int idx = time.IndexOf(":");
                 time = time.Substring(0, idx - 1);
             }
+            if (time.Contains(".")) {
+                time = time.Replace(".", ",");
+            }
             try
             {
                 utcTime = double.Parse(time);
@@ -38,7 +41,7 @@ namespace UsersDiosna.Controllers
             catch (FormatException e)
             {
                 time = time.Replace(".", ",");
-                Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
+                Error.toFile(e.Message.ToString() + " String time " + time, this.GetType().Name.ToString());
                 utcTime = double.Parse(time);
             }
 

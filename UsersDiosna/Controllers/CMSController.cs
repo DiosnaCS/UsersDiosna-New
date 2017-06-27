@@ -16,23 +16,60 @@ namespace UsersDiosna.Controllers
         // GET: CMS
         public ActionResult Index()
         {
-            CMSDataContext db = new CMSDataContext();
-            List<Article> ArticleData = new List<Article>();
-            List<Section> SectionData = new List<Section>();
-            foreach (string role in Roles.GetRolesForUser(User.Identity.Name)) {
-                SectionData.AddRange(db.Sections.Where(p => p.Role == role).ToList());
-            }
-            if (SectionData != null)
+            try
             {
-                foreach (Section section in SectionData)
+                CMSDataContext db = new CMSDataContext();
+                List<Article> ArticleData = new List<Article>();
+                List<Section> SectionData = new List<Section>();
+                foreach (string role in Roles.GetRolesForUser(User.Identity.Name))
                 {
-                     ArticleData.AddRange(db.Articles.Where(p => (p.bakeryId == int.Parse(Session["id"].ToString())) && p.SectionId == section.Id).ToList());
+                    SectionData.AddRange(db.Sections.Where(p => p.Role == role && p.BakeryId == int.Parse(Session["id"].ToString())).ToList());
                 }
-            }
+                if (SectionData != null)
+                {
+                    foreach (Section section in SectionData)
+                    {
+                        ArticleData.AddRange(db.Articles.Where(p => (p.bakeryId == int.Parse(Session["id"].ToString())) && p.SectionId == section.Id).ToList());
+                    }
+                }
             return View(ArticleData);
+            }
+            catch (Exception e)
+            {
+                Error.toFile(e.Message + e.Source + e.StackTrace + " Something went wrong in the inxdex of articles" + e.Data + e.InnerException, this.GetType().Name.ToString());
+                Session["tempforview"] = "Something went wrong in the inxdex of rticles";
+                return Redirect("/Account/Login");
+            }
         }
 
         #region section
+        // GET: CMS/DetailSection/5
+        public ActionResult DetailSection(int id)
+        {
+            CMSDataContext db = new CMSDataContext();
+            Section sectionDetail = db.Sections.Single(p => p.Id == id);
+            if (!(Roles.IsUserInRole(sectionDetail.Role)))
+            {
+                Session["tempforview"] = "You dont have a permission to view this article";
+                return RedirectToAction("Login", "Account");
+            }
+            return View(sectionDetail);
+        }
+        public ActionResult Sections() {
+            CMSDataContext db = new CMSDataContext();
+            List<Section> SectionData = new List<Section>();
+            foreach (string role in Roles.GetRolesForUser(User.Identity.Name)) {
+                SectionData.AddRange(db.Sections.Where(p => p.Role == role && p.BakeryId == int.Parse(Session["id"].ToString())).ToList());
+            }
+            return View(SectionData);
+        }
+        public JsonResult FilterSection(string what)
+        {
+            CMSDataContext db = new CMSDataContext();
+            List<Section> sections = db.Sections.Where(p => p.Name.Contains(what) || p.Description.Contains(what)).ToList();
+            return Json(sections);
+        }
+
         // GET: CMS/CreateSection/
         public ActionResult CreateSection()
         {
@@ -150,6 +187,12 @@ namespace UsersDiosna.Controllers
         }
         #endregion
         #region articles
+        public JsonResult FilterArticle(string what)
+        {
+            CMSDataContext db = new CMSDataContext();
+            List<Article> articles = db.Articles.Where(q => q.Text.Contains(what) || q.Header.Contains(what) || q.Description.Contains(what)).ToList();
+            return Json(articles);
+        }
         // GET: CMS/DetailArticle/5
         public ActionResult DetailArticle(int id)
         {

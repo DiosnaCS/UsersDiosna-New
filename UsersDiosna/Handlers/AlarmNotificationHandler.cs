@@ -18,6 +18,8 @@ namespace UsersDiosna
         /// <returns></returns>
         public static async Task<Notification> getNotifcations(Notification ActiveNotif)
         {
+            if (ActiveNotif.Tables == null || ActiveNotif.Definition == null || ActiveNotif.Tags == null || ActiveNotif.BakeryID == 0)
+                return null;
             string where = "";
             string definition = ActiveNotif.Definition;
             List<alarm> happenedAlarms = new List<alarm>();

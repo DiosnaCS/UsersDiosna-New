@@ -268,13 +268,20 @@ namespace UsersDiosna.Controllers
             int multitextIndex = nameLine.FindIndex(s => s.Contains("multitext"));
             TextListName = nameLine[multitextIndex + 1].Trim();
             ColumnTextlistDefine.Add(nameLine[1].Trim(), TextListName); //To add textlist into helper class 
-
+            int langPos = 0;
             //Only add rest of tag also into NameDef
             string[] langs = line.Split(Const.separ_dollar, StringSplitOptions.RemoveEmptyEntries);
             langs = langs.Where(p => p.Length > 2).ToArray();
             for (int j = 0; j < langs.Length; j++)
             {
-                names[j] = nameLine[((multitextIndex - 1) + (j + 2))];
+                if (j == 0) {
+                    names[j] = nameLine[3];
+                }
+                else { 
+                    langPos = j + 2;
+                    names[j] = nameLine[3 + langPos];
+                }
+                
             }
             List<string> units = null; //yes add only null
             NameDefinition.Add(config, column, names, units, tableName); //Adds name to names

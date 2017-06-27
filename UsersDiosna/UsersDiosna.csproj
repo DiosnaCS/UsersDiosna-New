@@ -276,12 +276,12 @@
     <Compile Include="OldCode\CMSController_old.cs" />
     <Compile Include="Controllers\db.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
-    <Compile Include="Handlers\AddRole.designer.cs">
+    <Compile Include="DBML\AddRole.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AddRole.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Models\CMS.designer.cs">
+    <Compile Include="DBML\CMS.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CMS.dbml</DependentUpon>
@@ -295,7 +295,7 @@
     <Compile Include="Controllers\Iniparser.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Controllers\Notification.designer.cs">
+    <Compile Include="DBML\Notification.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Notification.dbml</DependentUpon>
@@ -359,31 +359,32 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Controllers\Notification.dbml">
+    <Content Include="DBML\Notification.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>Notification.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Handlers\AddRole.dbml">
+    <Content Include="DBML\AddRole.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>AddRole.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Handlers\AddRole.dbml.layout">
+    <None Include="DBML\AddRole.dbml.layout">
       <DependentUpon>AddRole.dbml</DependentUpon>
     </None>
-    <Content Include="Models\CMS.dbml">
+    <Content Include="DBML\CMS.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>CMS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Models\CMS.dbml.layout">
+    <None Include="DBML\CMS.dbml.layout">
       <DependentUpon>CMS.dbml</DependentUpon>
     </None>
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChromeNotification.js" />
+    <Content Include="Scripts\filter.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -597,6 +598,7 @@
     <Content Include="Views\CMS\DeleteSection.cshtml" />
     <Content Include="Views\CMS\EditSection.cshtml" />
     <Content Include="Views\CMS\EditArticle.cshtml" />
+    <Content Include="Views\CMS\Sections.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -621,7 +623,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Notification.dbml.layout">
+    <None Include="DBML\Notification.dbml.layout">
       <DependentUpon>Notification.dbml</DependentUpon>
     </None>
   </ItemGroup>
