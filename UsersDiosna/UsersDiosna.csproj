@@ -131,6 +131,9 @@
       <HintPath>..\packages\Npgsql.3.1.0\lib\net451\Npgsql.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="RazorGenerator.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorGenerator.Mvc.2.4.9\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
@@ -216,6 +219,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -264,6 +270,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -301,7 +308,6 @@
       <DependentUpon>Notification.dbml</DependentUpon>
     </Compile>
     <Compile Include="Controllers\NotificationController.cs" />
-    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SchemeController.cs" />
     <Compile Include="Controllers\SecurityAttribute.cs" />
     <Compile Include="Controllers\ToJSON.cs" />
@@ -334,15 +340,225 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Login.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Account\Register.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Register.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\AddMask.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddMask.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Admin\AddRole.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AddRole.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Admin\AddUser.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddUser.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\RemoveMask.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RemoveMask.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\RemoveRole.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RemoveRole.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\RemoveUser.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RemoveUser.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\_Search.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Search.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AlarmNotification\All.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>All.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alarm\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alarm\_Content.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Content.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Alarm\_Form.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Form.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\CreateArticle.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateArticle.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\CreateSection.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateSection.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\DeleteArticle.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteArticle.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\DeleteSection.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteSection.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\EditArticle.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditArticle.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\EditSection.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditSection.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\Sections.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sections.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Download\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphNotification\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Homepage.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Homepage.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\News.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>News.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home\Order.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Order.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage\ChangePassword.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage\ChangeTheme.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeTheme.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage\DefaultView.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DefaultView.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Manage\SetPassword.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetPassword.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Menu\_Menu.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_Menu.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notification\Edit.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Edit.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Notification\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Scheme\index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Error.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Error.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\Lockout.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lockout.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\_Layout.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_Layout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_LoginPartial.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_LoginPartial.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Upload\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\XML\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_ViewStart.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_ViewStart.cshtml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -398,6 +614,26 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Manage\ChangePassword.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ChangePassword.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Manage\ChangeTheme.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>ChangeTheme.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Manage\DefaultView.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DefaultView.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Manage\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Manage\SetPassword.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>SetPassword.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -433,18 +669,6 @@
     <Content Include="Views\Account\Register.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Register.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Manage\ChangePassword.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>ChangePassword.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Manage\Index.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Index.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Manage\SetPassword.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>SetPassword.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Shared\Lockout.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -502,18 +726,6 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Download\backup.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>backup.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\XML\preXMLForm.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>preXMLForm.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\XML\CreateXMLForm.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>CreateXMLForm.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\Menu\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
@@ -530,45 +742,13 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Homepage.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Manage\DefaultView.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>DefaultView.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\XML\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\CMS_old\Index.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Index.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\CMS_old\add.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>add.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\Upload\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Manage\ChangeTheme.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>ChangeTheme.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Report\Index.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Index.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Report\_Detail.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_Detail.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Report\_Form.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_Form.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Report\_Overview.cshtml">
-      <Generator>RazorGenerator</Generator>
-      <LastGenOutput>_Overview.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Alarm\_Form.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -590,15 +770,42 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Admin\_Search.cshtml" />
-    <Content Include="Views\CMS\Index.cshtml" />
-    <Content Include="Views\CMS\CreateSection.cshtml" />
-    <Content Include="Views\CMS\CreateArticle.cshtml" />
-    <Content Include="Views\CMS\DeleteArticle.cshtml" />
-    <Content Include="Views\CMS\DeleteSection.cshtml" />
-    <Content Include="Views\CMS\EditSection.cshtml" />
-    <Content Include="Views\CMS\EditArticle.cshtml" />
-    <Content Include="Views\CMS\Sections.cshtml" />
+    <Content Include="Views\Admin\_Search.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_Search.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\CreateSection.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateSection.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\CreateArticle.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>CreateArticle.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\DeleteArticle.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DeleteArticle.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\DeleteSection.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DeleteSection.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\EditSection.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditSection.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\EditArticle.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>EditArticle.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\Sections.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Sections.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

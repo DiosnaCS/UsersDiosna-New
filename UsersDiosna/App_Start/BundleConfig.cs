@@ -30,6 +30,9 @@ namespace UsersDiosna
                       "~/Scripts/notification.js",
                       "~/Scripts/notifyMe.js",
                       "~/Scripts/ChromeNotification.js"));
+            bundles.Add(new ScriptBundle("~/bundles/filter").Include(
+                      "~/Scripts/filter.js"
+                ));
         }
     }
 }

@@ -15,7 +15,7 @@
                     <th class="tg-yw4l">Id</th>
                     <th class="tg-yw42">Alarm Label</th>
                 </tr>
-                @foreach (UsersDiosna.Controllers.AlarmNotificationController.alarm_texts Alarm in ViewBag.Alarms)
+                @foreach (UsersDiosna.AlarmNotificationHandler.alarm_texts Alarm in ViewBag.Alarms)
                 {
                 <tr>
                     <td class="tg-yw4l"><input type="checkbox" name="@Alarm.id">@*@Html.CheckBox(Alarm.id.ToString())*@</td>
