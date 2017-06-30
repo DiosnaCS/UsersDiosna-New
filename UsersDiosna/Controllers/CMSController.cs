@@ -63,11 +63,27 @@ namespace UsersDiosna.Controllers
             }
             return View(SectionData);
         }
-        public JsonResult FilterSection(string what)
+        public JsonResult FilterSection(string id)
         {
             CMSDataContext db = new CMSDataContext();
-            List<Section> sections = db.Sections.Where(p => p.Name.Contains(what) || p.Description.Contains(what)).ToList();
-            return Json(sections);
+            if (id == null)
+                return null;
+            List<Section> sections = db.Sections.Where(p => p.Name.Contains(id) || p.Description.Contains(id)).ToList();
+            if (sections.Count == 0)
+                return null;
+            List<SectionJSON> results = new List<SectionJSON>();
+            foreach (Section section in sections) {
+                SectionJSON sectionJSON = new SectionJSON();
+                sectionJSON.ArticleId = section.ArticleId;
+                sectionJSON.BakeryId = section.BakeryId;
+                sectionJSON.Description = section.Description;
+                sectionJSON.Id = section.Id;
+                sectionJSON.Name = section.Name;
+                sectionJSON.Role = section.Role;
+                results.Add(sectionJSON);
+            }
+            //var results = from se
+            return Json(results);
         }
 
         // GET: CMS/CreateSection/

@@ -3,13 +3,18 @@
 
 <h2>Welcome to Diosna cloud</h2>
 <div class="jumbotron">
+    @{int index = 0;}
+    @for (int idx = 1; idx <= (ViewBag.Count / 3); idx++)
+    {
     <div class="btn-group btn-group-justified">
-        @for (int i = 1; i < ViewBag.Count; i++)
+        @for (int i = 1; i <= 3 && (i*idx) < ViewBag.Count; i++)
         {
-            <a href="/Menu?id=@ViewBag.Numbers[i]" class="btn btn-primary">@ViewBag.Text[i]&rAarr;</a>
+            <a href="/Menu?id=@ViewBag.Numbers[index]" class="btn btn-primary">@ViewBag.Text[index]&rAarr;</a>
+            index++;
         }
     </div>
     <p></p>
+    }
     <div class="btn-group btn-group-justified">
         <a href="/Menu?id=@ViewBag.Numbers[0]" class="btn btn-primary">@ViewBag.Text[0]&rAarr;</a>
     </div>

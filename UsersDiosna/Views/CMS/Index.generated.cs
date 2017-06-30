@@ -90,9 +90,9 @@ WriteLiteral(" class=\"form-control\"");
 
 WriteLiteral(" id=\"searchSections\"");
 
-WriteLiteral(" onkeyup=\"\"");
+WriteLiteral(" onkeyup=\"filterSection()\"");
 
-WriteLiteral(" placeholder=\"search for roles with username\"");
+WriteLiteral(" placeholder=\"search for sections\"");
 
 WriteLiteral(">\r\n</p>\r\n<table");
 

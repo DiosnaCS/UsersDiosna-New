@@ -275,11 +275,11 @@ namespace UsersDiosna.Controllers
             for (int j = 0; j < langs.Length; j++)
             {
                 if (j == 0) {
-                    names[j] = nameLine[3];
+                    names[j] = nameLine[multitextIndex-1];
                 }
                 else { 
                     langPos = j + 2;
-                    names[j] = nameLine[3 + langPos];
+                    names[j] = nameLine[(multitextIndex-1) + langPos];
                 }
                 
             }

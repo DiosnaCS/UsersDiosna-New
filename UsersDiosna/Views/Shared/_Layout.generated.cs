@@ -497,7 +497,7 @@ WriteLiteral("    ");
 
             
             #line 103 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/jquery"));
+Write(Scripts.Render("~/bundles/filter"));
 
             
             #line default
@@ -508,7 +508,7 @@ WriteLiteral("    ");
 
             
             #line 104 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/bootstrap"));
+Write(Scripts.Render("~/bundles/jquery"));
 
             
             #line default
@@ -519,7 +519,7 @@ WriteLiteral("    ");
 
             
             #line 105 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/jqueryval"));
+Write(Scripts.Render("~/bundles/bootstrap"));
 
             
             #line default
@@ -530,7 +530,7 @@ WriteLiteral("    ");
 
             
             #line 106 "..\..\Views\Shared\_Layout.cshtml"
-Write(Scripts.Render("~/bundles/notification"));
+Write(Scripts.Render("~/bundles/jqueryval"));
 
             
             #line default
@@ -541,6 +541,17 @@ WriteLiteral("    ");
 
             
             #line 107 "..\..\Views\Shared\_Layout.cshtml"
+Write(Scripts.Render("~/bundles/notification"));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
+
+WriteLiteral("    ");
+
+            
+            #line 108 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

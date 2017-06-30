@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Linq;
 using System.Web.Mvc;
+using UsersDiosna.Models;
 
 namespace UsersDiosna.CMS.Models
 {
@@ -77,5 +80,21 @@ namespace UsersDiosna.CMS.Models
         [DataType(DataType.MultilineText)]
         [Display(Name = "Description of the section")]
         public string Description { get; set; }
+    }
+
+    public class SectionJSON {
+
+        public long Id;
+
+        public string Name;
+
+        public string Description;
+
+        public long? ArticleId;
+
+        public string Role;
+
+        public int BakeryId;
+
     }
 }

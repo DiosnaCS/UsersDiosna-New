@@ -30,8 +30,9 @@ namespace UsersDiosna.Controllers
             {
                 json = System.IO.File.ReadAllText(path);
                 json = new string((from c in json
-                                   where !char.IsWhiteSpace(c)
+                                   where !char.IsWhiteSpace(c) || c.ToString().Contains(" ")
                                   select c).ToArray());
+                int jsonLength = json.Length;
                 configSer = new JavaScriptSerializer().Deserialize<Config>(json);
                 config.LangEnbList = configSer.LangEnbList;
                 config.NameDefList = configSer.NameDef;
