@@ -68,10 +68,10 @@ namespace UsersDiosna.Controllers
             {
                 return View(model);
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, shouldLockout: false);
+            var name = User.Identity.Name;
             switch (result)
             {
                 case SignInStatus.Success:
@@ -85,7 +85,7 @@ namespace UsersDiosna.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize(Roles ="Admin")]
+        //[Authorize(Roles ="Admin")]
         public ActionResult Register()
         {
             return View();

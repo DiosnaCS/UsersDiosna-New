@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>164017</id>
+		<prefix />
+		<country>US</country>
+		<name>iDelights</name>
+		<description/>
+	</contract>
+	<plc name="Bread fermentation">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10680_InternDelights/__pic_sch_overview_USINT_WS__</url>
+		</scheme>
+		<scheme name="MF1">
+			<url>http://users.nordit.cz/ih2/10680_InternDelights/__pic_sch_MF1_operation_USINT_WS__</url>
+		</scheme>
+		<scheme name="SF1">
+			<url>http://users.nordit.cz/ih2/10680_InternDelights/__pic_sch_SF1_operation_USINT_WS__</url>
+		</scheme>
+		<scheme name="SF2">
+			<url>http://users.nordit.cz/ih2/10680_InternDelights/__pic_sch_SF2_operation_USINT_WS__</url>
+		</scheme>				
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_USINT_WS.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_USINT.ini</pathNames>
+		</graph>
+		<alarm name="Alarms">
+			<dbName>InternDelights</dbName>
+		</alarm>
+		<Download>
+			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
+		</Download>
+		<Upload>
+			<path>\\192.168.2.20\Public\Zakazky_Public\164017_USA-International_Delights_WS\</path>
+		</Upload>
+		<Report>
+			<dbName>InternDelights</dbName>
+			<tableName>events</tableName>
+			<congirationNumber>1</congirationNumber>
+		</Report>
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>

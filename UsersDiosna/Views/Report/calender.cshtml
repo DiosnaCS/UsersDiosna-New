@@ -1,0 +1,42 @@
+﻿@model UsersDiosna.Report.Models.DataReportModel
+
+@{
+    ViewBag.Title = "calender";
+    string name = string.Empty;
+}
+
+<h2>calender</h2>
+<table class="table-condensed table-striped table-hover">
+    <tr>
+        <th>Day</th>
+        <th>Batches count</th>
+        @for (int hours = 0;0<24;hours++) {
+            <th>@hours</th>
+        }
+    </tr>
+    @for (int day = 1; day <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); day++)
+    {
+        <tr>
+           @for (int hour = 0; 0 < 24; hour++)
+           {
+               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour))
+               {
+                   var data = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour);
+                   <td>
+                        @{ 
+                            int latestBatchNo = 0;
+                            foreach (var batch in data) {
+                                if (batch.BatchNo != latestBatchNo)
+                                {
+                                    name += batch.Destination;
+                                }
+                                latestBatchNo = batch.BatchNo;
+                            }
+                        }
+                        @name
+                   </td>
+               }
+           }
+        </tr>
+    }
+</table>

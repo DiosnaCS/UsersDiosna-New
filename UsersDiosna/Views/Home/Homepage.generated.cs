@@ -63,7 +63,7 @@ WriteLiteral(">\r\n");
             #line hidden
             
             #line 6 "..\..\Views\Home\Homepage.cshtml"
-      int index = 0;
+      int index = 1;
             
             #line default
             #line hidden

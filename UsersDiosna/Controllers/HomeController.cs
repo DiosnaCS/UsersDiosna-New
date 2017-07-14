@@ -29,6 +29,7 @@ namespace UsersDiosna.Controllers
         [Authorize]
         public ActionResult Homepage()
         {
+            string name = User.Identity.Name;
             string[] existingRolesForUser = Roles.GetRolesForUser();
             int id;
             int projectsCount = 0;

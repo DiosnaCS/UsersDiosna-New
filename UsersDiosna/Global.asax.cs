@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 namespace UsersDiosna
 {
@@ -20,6 +21,14 @@ namespace UsersDiosna
         }
         protected void Session_Start()
         {
+            if (done == false) { 
+                SessionIDManager manager = new SessionIDManager();
+                string newID = manager.CreateSessionID(Context);
+                bool redirected = false;
+                bool isAdded = false;
+                manager.SaveSessionID(Context, newID, out redirected, out isAdded);
+                done = true;
+            }
             if (Context.Session != null)
             {
                 if (Context.Session.IsNewSession)
@@ -34,17 +43,18 @@ namespace UsersDiosna
 
         protected void Session_OnEnd()
         {
-            if (Context.Session != null)
+            if (HttpContext.Current != null)
             {
-                if (HttpContext.Current.Session.Count == 0)
+                if (HttpContext.Current.Session == null)
                 {
                     Response.Redirect("~/Account/Login/");
                 }
             }
+            else { }
         }
 
         public static int ErrorId { get; private set; }
-
+        public static bool done { get; private set; }
         //TODO prepare some kind of my own errors with to log file mmethods - use Application_Error() method for that
 
         /// <summary>

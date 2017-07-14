@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
+using UsersDiosna.Report.Models;
 
 namespace UsersDiosna.Controllers
 {
@@ -718,6 +719,15 @@ namespace UsersDiosna.Controllers
     }
 
     public class ReportDBHelper {
+        public Int32 ConvertDT2pkTime(DateTime dateTime)
+        {
+            DateTime pkTimeStart = DateTime.SpecifyKind(new DateTime(2000, 1, 1), DateTimeKind.Utc);
+            Int32 pkTime = 0;
+            pkTime = (Int32)(dateTime.ToUniversalTime() - pkTimeStart).TotalSeconds;
+
+            return pkTime;
+        }
+
         public NpgsqlConnection connection;
         /// <summary>
         /// Constructor to establish db connection on PostgreSQL database
@@ -727,14 +737,96 @@ namespace UsersDiosna.Controllers
         {
             string DB = aDB;
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
-              "192.168.2." + dataserverNumber, 5432, "postgres", "Nordit0276", DB);
+              "192.168.2.1" + dataserverNumber, 5432, "postgres", "Nordit0276", DB);
             connection = new NpgsqlConnection(connstring);
             connection.OpenAsync();
         }
-        /*
-        public Task<List<object[]>> SelectAsync() {
-            
-            return;
-        }*/
+
+        public async Task<List<DataReportModel>> SelectHeaderDataAsync(DateTime from, DateTime to)
+        {
+            List<DataReportModel> data = null;
+            return data;
+        }
+
+        public DataReportModel SelectHeaderData(DateTime from, DateTime to, string table)
+        {
+            // variables initialization
+            DataReportModel data = new DataReportModel();
+            data.Data = new List<ColumnReportModel>();
+            string columns = string.Empty;
+            string where = string.Empty;
+
+                
+            int pkTimeStart = ConvertDT2pkTime(from);
+            int pkTimeEnd = ConvertDT2pkTime(to);
+
+            //gett where condition
+            /* Indexes of result set
+             0 => RecordNo 
+            1 => RecordType 
+            2 =>TimeStart 
+            3 => TimeEnd 
+            4 =>BatchNo 
+            5 => Destination 
+            6 => Need 
+            7 => Actual 
+            8 => Variant1 
+            9 => Variant2 
+            10 => Variant3 
+            11 => Variant4 
+            */
+
+            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})", 
+                table, pkTimeStart, pkTimeEnd, OperationReportModel.RecipeStart, OperationReportModel.Interrupt, OperationReportModel.Continue, OperationReportModel.StepSkip, OperationReportModel.RecipeEnd);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                ColumnReportModel CRM = new ColumnReportModel();                
+                if (r[0] != DBNull.Value)
+                {
+                    CRM.RecordNo = int.Parse(r[0].ToString());
+                }
+                if (r[1] != DBNull.Value)
+                {
+                    CRM.RecordType = int.Parse(r[1].ToString());
+                }
+                if (r[2] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = int.Parse(r[2].ToString()) * 10000000;
+                    CRM.TimeStart = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                }
+                // r[3] should be TimeEnd and TimeEnd is irrelevant for header data
+                if (r[4] != DBNull.Value)
+                {
+                    CRM.BatchNo = int.Parse(r[4].ToString());
+                }
+                if (r[5] != DBNull.Value)
+                {
+                    if ((int) r[5] != 0)
+                        CRM.Need = int.Parse(r[5].ToString());
+                }
+                //r[6] should be Actual and Actual is irrelevant for header data
+                if (r[7] != DBNull.Value)
+                {
+                    //Variant1 is iRCP_NO
+                    CRM.Variant1 = int.Parse(r[7].ToString());
+                }
+                if (r[8] != DBNull.Value)
+                {
+                    if ((int)r[8] != 0)
+                        CRM.Variant2 = int.Parse(r[8].ToString());
+                }
+                // r[9] should be Variant3 and Variant3 is  irrelevant
+                if (r[10] != DBNull.Value)
+                {
+                    CRM.Variant4 = int.Parse(r[10].ToString());
+                }
+                data.Data.Add(CRM);
+            }
+
+            return data;
+        }
     }
 }

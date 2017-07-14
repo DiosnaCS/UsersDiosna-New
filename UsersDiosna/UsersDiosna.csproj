@@ -279,7 +279,9 @@
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Handlers\CMSHelper.cs" />
+    <Compile Include="Handlers\ReportHandler.cs" />
     <Compile Include="OldCode\CMSController_old.cs" />
     <Compile Include="Controllers\db.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
@@ -806,6 +808,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Sections.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Report\calender.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
