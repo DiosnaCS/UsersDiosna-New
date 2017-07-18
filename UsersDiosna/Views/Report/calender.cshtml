@@ -3,40 +3,66 @@
 @{
     ViewBag.Title = "calender";
     string name = string.Empty;
+    int count = 0;
+    int year = ViewBag.year;
+    int monthLess = ViewBag.Month - 1;
+    int monthMore = ViewBag.Month + 1;
+    if (monthLess < 1) {
+        year--;
+        monthLess = 12;
+    }
+    if (monthMore > 12) {
+        year++;
+        monthMore = 1;
+    }
+    DateTime monthDT = new DateTime(year, ViewBag.month, 1);
+    string monthName = monthDT.ToString("MMMM");
 }
 
-<h2>calender</h2>
-<table class="table-condensed table-striped table-hover">
+<h4>calender</h4>
+<div class=" col-md-10">
+    <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@year">-1 month</a> Month: @monthName <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@year">+1 month</a>
+    <p></p>
+</div>
+<table class="table-bordered table-condensed table-hover">
+    <thead>
     <tr>
         <th>Day</th>
-        <th>Batches count</th>
-        @for (int hours = 0;0<24;hours++) {
+        @for (int hours = 0;hours<24;hours++) {
             <th>@hours</th>
         }
+        <th>Batches count</th>
     </tr>
-    @for (int day = 1; day <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); day++)
+    </thead>
+    @for (int day = 1; day <= DateTime.DaysInMonth(year, ViewBag.month); day++)
     {
+        @{ DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString(); }
         <tr>
-           @for (int hour = 0; 0 < 24; hour++)
+            <td>@day. @sDay</td>            
+           @for (int hour = 0; hour < 24; hour++) 
            {
+               int latestBatchNo = 0;
+               name = string.Empty;
                if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour))
                {
                    var data = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour);
-                   <td>
-                        @{ 
-                            int latestBatchNo = 0;
-                            foreach (var batch in data) {
-                                if (batch.BatchNo != latestBatchNo)
-                                {
-                                    name += batch.Destination;
-                                }
-                                latestBatchNo = batch.BatchNo;
-                            }
-                        }
-                        @name
-                   </td>
+                   foreach (var batch in data)
+                   {
+                       if (batch.RecordNo != latestBatchNo)
+                       {
+                           name += batch.Destination;
+                           count++;
+                       }
+                       latestBatchNo = batch.RecordNo;
+                   }
+
                }
+                <td>
+                    <a href="">@name</a>
+                </td>                
            }
+            <td>@count</td>
+            @{count = 0;}
         </tr>
     }
 </table>

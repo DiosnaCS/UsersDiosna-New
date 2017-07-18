@@ -513,7 +513,7 @@ namespace UsersDiosna.Controllers
         {
             string sql = null;
             List<object[]> result = new List<object[]>();
-            if (connection.FullState == System.Data.ConnectionState.Closed)
+            if (connection.FullState != System.Data.ConnectionState.Open)
             {
                 connection.Open();
             }
@@ -739,7 +739,7 @@ namespace UsersDiosna.Controllers
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
               "192.168.2.1" + dataserverNumber, 5432, "postgres", "Nordit0276", DB);
             connection = new NpgsqlConnection(connstring);
-            connection.OpenAsync();
+            connection.Open();
         }
 
         public async Task<List<DataReportModel>> SelectHeaderDataAsync(DateTime from, DateTime to)
@@ -794,7 +794,7 @@ namespace UsersDiosna.Controllers
                 }
                 if (r[2] != DBNull.Value)
                 {
-                    long timeInNanoSeconds = int.Parse(r[2].ToString()) * 10000000;
+                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
                     CRM.TimeStart = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
                 }
                 // r[3] should be TimeEnd and TimeEnd is irrelevant for header data
@@ -804,24 +804,28 @@ namespace UsersDiosna.Controllers
                 }
                 if (r[5] != DBNull.Value)
                 {
-                    if ((int) r[5] != 0)
-                        CRM.Need = int.Parse(r[5].ToString());
+                    CRM.Destination = r[5].ToString();
                 }
-                //r[6] should be Actual and Actual is irrelevant for header data
-                if (r[7] != DBNull.Value)
+                if (r[6] != DBNull.Value)
                 {
-                    //Variant1 is iRCP_NO
-                    CRM.Variant1 = int.Parse(r[7].ToString());
+                    if ((int) r[6] != 0)
+                        CRM.Need = int.Parse(r[6].ToString());
                 }
+                //r[7] should be Actual and Actual is irrelevant for header data
                 if (r[8] != DBNull.Value)
                 {
-                    if ((int)r[8] != 0)
-                        CRM.Variant2 = int.Parse(r[8].ToString());
+                    //Variant1 is iRCP_NO
+                    CRM.Variant1 = int.Parse(r[8].ToString());
                 }
-                // r[9] should be Variant3 and Variant3 is  irrelevant
-                if (r[10] != DBNull.Value)
+                if (r[9] != DBNull.Value)
                 {
-                    CRM.Variant4 = int.Parse(r[10].ToString());
+                    if ((int)r[9] != 0)
+                        CRM.Variant2 = int.Parse(r[9].ToString());
+                }
+                // r[10] should be Variant3 and Variant3 is  irrelevant
+                if (r[11] != DBNull.Value)
+                {
+                    CRM.Variant4 = int.Parse(r[11].ToString());
                 }
                 data.Data.Add(CRM);
             }

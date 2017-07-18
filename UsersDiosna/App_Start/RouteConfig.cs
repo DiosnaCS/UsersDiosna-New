@@ -18,6 +18,12 @@ namespace UsersDiosna
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Report",
+                url: "{controller}/{action}/{month}/{year}",
+                defaults: new { controller = "Home", action = "Index", month = UrlParameter.Optional, year = UrlParameter.Optional }
+            );
         }
     }
 }

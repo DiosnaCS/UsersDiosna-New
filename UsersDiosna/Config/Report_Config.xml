@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<tankNames>
-		<1>MF1</1>
-		<2>SF1</2>
-		<3>SF2</3>
+		<MF1>1</MF1>
+		<SF1>2</SF1>
+		<SF2>3</SF2>
 	</tankNames>
 </configuration>

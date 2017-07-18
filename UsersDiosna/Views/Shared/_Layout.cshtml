@@ -51,11 +51,14 @@
                 $('#menuShow').text("Show menu");
                 $('#menuHide').text("");
                 $('.sidenav').hide();
+                $('#graph').css('left', 10);
+                console.log("Hide graph");
             }
             function menuShow() {
                 $('#menuHide').text("Hide menu");
                 $('#menuShow').text("");
                 $('.sidenav').show();
+                $('#graph_content').css('left', $('.sidenav').width() + 20);
             }
         </script>
         <div class="sidenav">

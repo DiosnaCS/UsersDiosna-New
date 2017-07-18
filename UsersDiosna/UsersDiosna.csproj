@@ -522,6 +522,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Report\calender.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>calender.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Scheme\index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -808,7 +813,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Sections.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Report\calender.cshtml" />
+    <Content Include="Views\Report\calender.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>calender.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

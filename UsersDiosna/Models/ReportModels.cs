@@ -16,7 +16,7 @@ namespace UsersDiosna.Report.Models
 
         public int  BatchNo { get; set; }
 
-        public int  Destination { get; set; }
+        public string  Destination { get; set; }
 
         public int  Need { get; set; }
 

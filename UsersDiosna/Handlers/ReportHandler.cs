@@ -11,19 +11,21 @@ namespace UsersDiosna
     {
         private static string path = Path.physicalPath + @"\Config";
 
-        public List<string> getTanknames(int congirationNumber = 0)
+        public Dictionary<int, string> getTanknames(int congirationNumber = 1)
         {
             XmlDocument xml = new XmlDocument();
             const string fileName = "Report_config*";
-            List<string> tankNames = new List<string>();
+            Dictionary<int, string> tankNames = new Dictionary<int, string>();
 
 
             string[] absoulte_path = Directory.GetFiles(path, fileName);
             xml.Load(absoulte_path[0]);
-            XmlNodeList xnList = xml.SelectNodes("//");
-            foreach (XmlNode node in xnList) {
-                string tankName = node.InnerText;
-                tankNames.Add(tankName);
+            string xpath = string.Format("/configuration[{0}]/tankNames", congirationNumber);
+            XmlNodeList xnList = xml.SelectNodes(xpath);
+            foreach (XmlNode node in xnList[0].ChildNodes) {
+                string tankName = node.Name;
+                int tankIdx = int.Parse(node.InnerText);
+                tankNames.Add(tankIdx, tankName);
             }
             return tankNames;
         }
