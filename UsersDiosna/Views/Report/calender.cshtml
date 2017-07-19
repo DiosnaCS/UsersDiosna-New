@@ -1,4 +1,5 @@
-﻿@model UsersDiosna.Report.Models.DataReportModel
+﻿@using UsersDiosna.Report.Models
+@model UsersDiosna.Report.Models.DataReportModel
 
 @{
     ViewBag.Title = "calender";
@@ -27,7 +28,7 @@
 <table class="table-bordered table-condensed table-hover">
     <thead>
     <tr>
-        <th>Day</th>
+        <th>Day | Hours</th>
         @for (int hours = 0;hours<24;hours++) {
             <th>@hours</th>
         }
@@ -39,8 +40,9 @@
         @{ DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString(); }
         <tr>
             <td>@day. @sDay</td>            
-           @for (int hour = 0; hour < 24; hour++) 
+           @for (int hour = 0; hour < 24; hour++)
            {
+               List<ViewHeaderBatch> batches = new List<ViewHeaderBatch>();
                int latestBatchNo = 0;
                name = string.Empty;
                if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour))
@@ -50,7 +52,7 @@
                    {
                        if (batch.RecordNo != latestBatchNo)
                        {
-                           name += batch.Destination;
+                           batches.Add(new ViewHeaderBatch() { Name = batch.Destination, BatchNo = batch.BatchNo });
                            count++;
                        }
                        latestBatchNo = batch.RecordNo;
@@ -58,7 +60,9 @@
 
                }
                 <td>
-                    <a href="">@name</a>
+                    @foreach (var batch in batches) {
+                        <a href="/Report/Detail/@batch.BatchNo ">@batch.Name</a>
+                    }
                 </td>                
            }
             <td>@count</td>

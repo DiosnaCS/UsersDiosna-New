@@ -8,7 +8,7 @@ namespace UsersDiosna.Report.Models
         
         public int  RecordNo { get; set; }
 
-        public int  RecordType { get; set; }
+        public Operations  RecordType { get; set; }
 
         public DateTime TimeStart { get; set; }
 
@@ -51,16 +51,26 @@ namespace UsersDiosna.Report.Models
         /*Maybe could be some dynamic to reed it from xml file*/
     }
 
-    public class OperationReportModel
+    public class ViewHeaderBatch
+    {
+        public string Name;
+        public int BatchNo;
+    }
+
+    public enum Operations
     {
         //Recipe operations
-        public static int RecipeStart = 10;
-        public static int Interrupt = 11;
-        public static int Continue = 12;
-        public static int StepSkip = 13;
-        public static int RecipeEnd = 14;
-
+        RecipeStart = 10,
+        Interrupt = 11,
+        Continue = 12,
+        StepSkip = 13,
+        RecipeEnd = 14,
         //Rawmaterial operations
+        FillingMotherCulture = 20,
+        FillingFlour = 21,
+        FillingWater = 22,
+        //RecipeSteps
+        FillingMixture = 31
     }
 
     public class DataReportModel

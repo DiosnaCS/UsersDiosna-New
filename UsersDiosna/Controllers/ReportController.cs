@@ -74,5 +74,18 @@ namespace UsersDiosna.Controllers
             ViewBag.year = year;
             return View("calender", model);
         }
+
+        public ActionResult Detail(int id)
+        {
+            ReportDBHelper db = new ReportDBHelper(DB, 2);
+            DataReportModel data = db.SelectSteps(id, table);
+            ReportHandler RH = new ReportHandler();
+            tankNames = RH.getTanknames();
+            foreach (var report in model.Data)
+            {
+                report.Destination = tankNames[int.Parse(report.Destination)];
+            }
+            return View(data.Data);
+        }
     }
 }

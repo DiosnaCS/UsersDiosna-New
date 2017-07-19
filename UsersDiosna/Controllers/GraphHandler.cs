@@ -136,7 +136,7 @@ namespace UsersDiosna.Controllers
                         if (vals_agreg.Count != 0)
                         {
                             vals_agreg.Reverse();
-                            for (int j = 1; j < (objectsArray.Length - 1); j++)
+                            for (int j = 1; j < (objectsArray.Length); j++)
                             {
                                 double value = Convert.ToDouble(vals_agreg[0][j]);
                                 dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
@@ -148,7 +148,7 @@ namespace UsersDiosna.Controllers
                         {
                             if (buffPos <= vals_buffers.Length)
                             {
-                                for (int j = 1; j < (objectsArray.Length - 1); j++)
+                                for (int j = 1; j < (objectsArray.Length); j++)
                                 {
                                     dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = double.MinValue; // missing data adding NaN value to response
                                 }
@@ -170,7 +170,7 @@ namespace UsersDiosna.Controllers
                         if (vals_agreg.Count != 0)
                         {
                             vals_agreg.Reverse();
-                            for (int j = 1; j < (objectsArray.Length - 1); j++)
+                            for (int j = 1; j < (objectsArray.Length); j++)
                             {
                                 double value = Convert.ToDouble(vals_agreg[0][j]);
                                 dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
@@ -183,7 +183,7 @@ namespace UsersDiosna.Controllers
                         {
                             if (buffPos < vals_buffers.Length)
                             {
-                                for (int j = 1; j < (objectsArray.Length - 1); j++)
+                                for (int j = 1; j < (objectsArray.Length); j++)
                                 {
                                     dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = double.MinValue;// missing data adding Double.MinValue(about -1.79 E+308) value to response
                                 }
@@ -198,7 +198,7 @@ namespace UsersDiosna.Controllers
                     {
                         if (buffPos < vals_buffers.Length)
                         {
-                            for (int j = 1; j < (objectsArray.Length - 1); j++)
+                            for (int j = 1; j < (objectsArray.Length); j++)
                             {
                                 dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = double.MinValue;// missing data adding  Double.MinValue (about -1.79 E+308) value to response
                             }

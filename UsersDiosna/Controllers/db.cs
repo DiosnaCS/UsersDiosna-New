@@ -753,8 +753,6 @@ namespace UsersDiosna.Controllers
             // variables initialization
             DataReportModel data = new DataReportModel();
             data.Data = new List<ColumnReportModel>();
-            string columns = string.Empty;
-            string where = string.Empty;
 
                 
             int pkTimeStart = ConvertDT2pkTime(from);
@@ -775,9 +773,8 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})", 
-                table, pkTimeStart, pkTimeEnd, OperationReportModel.RecipeStart, OperationReportModel.Interrupt, OperationReportModel.Continue, OperationReportModel.StepSkip, OperationReportModel.RecipeEnd);
+            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5})", //OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",
+                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue);//, (int) Operations.StepSkip, (int)Operations.RecipeEnd);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -790,7 +787,7 @@ namespace UsersDiosna.Controllers
                 }
                 if (r[1] != DBNull.Value)
                 {
-                    CRM.RecordType = int.Parse(r[1].ToString());
+                    CRM.RecordType = (Operations) int.Parse(r[1].ToString());
                 }
                 if (r[2] != DBNull.Value)
                 {
@@ -823,6 +820,94 @@ namespace UsersDiosna.Controllers
                         CRM.Variant2 = int.Parse(r[9].ToString());
                 }
                 // r[10] should be Variant3 and Variant3 is  irrelevant
+                if (r[11] != DBNull.Value)
+                {
+                    CRM.Variant4 = int.Parse(r[11].ToString());
+                }
+                data.Data.Add(CRM);
+            }
+
+            return data;
+        }
+
+        public DataReportModel SelectSteps(int batchNo, string table)
+        {
+            // variables initialization
+            DataReportModel data = new DataReportModel();
+            data.Data = new List<ColumnReportModel>();
+            string columns = string.Empty;
+            string where = string.Empty;
+
+            //gett where condition
+            /* Indexes of result set
+             0 => RecordNo 
+            1 => RecordType 
+            2 =>TimeStart 
+            3 => TimeEnd 
+            4 =>BatchNo 
+            5 => Destination 
+            6 => Need 
+            7 => Actual 
+            8 => Variant1 
+            9 => Variant2 
+            10 => Variant3 
+            11 => Variant4 
+            */
+            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" = {1}", table, batchNo);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                ColumnReportModel CRM = new ColumnReportModel();
+                if (r[0] != DBNull.Value)
+                {
+                    CRM.RecordNo = int.Parse(r[0].ToString());
+                }
+                if (r[1] != DBNull.Value)
+                {
+                    CRM.RecordType = (Operations) int.Parse(r[1].ToString());
+                }
+                if (r[2] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
+                    CRM.TimeStart = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                }
+                if (r[3] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = int.Parse(r[3].ToString());
+                    CRM.TimeEnd = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                }
+                //r[4] is BatchNo and we dont need BatchNo
+                if (r[5] != DBNull.Value)
+                {
+                    CRM.Destination = r[5].ToString();
+                }
+                if (r[6] != DBNull.Value)
+                {
+                    if ((int)r[6] != 0)
+                        CRM.Need = int.Parse(r[6].ToString());
+                }
+                if (r[7] != DBNull.Value)
+                {
+                    if ((int)r[7] != 0)
+                        CRM.Actual = int.Parse(r[7].ToString());
+                }
+                if (r[8] != DBNull.Value)
+                {
+                    //Variant1 is iRCP_NO
+                    CRM.Variant1 = int.Parse(r[8].ToString());
+                }
+                if (r[9] != DBNull.Value)
+                {
+                    if ((int)r[9] != 0)
+                        CRM.Variant2 = int.Parse(r[9].ToString());
+                }
+                if (r[10] != DBNull.Value)
+                {
+                    if ((int)r[9] != 0)
+                        CRM.Variant3 = int.Parse(r[10].ToString());
+                }
                 if (r[11] != DBNull.Value)
                 {
                     CRM.Variant4 = int.Parse(r[11].ToString());
