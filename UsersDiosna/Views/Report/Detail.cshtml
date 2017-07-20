@@ -2,12 +2,15 @@
 
 @{
     ViewBag.Title = "Detail";
+    int BatchNo = ViewBag.BatchNo;
 }
 
-<h2>Batch Detail</h2>
+<h4>Batch Detail</h4>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a class="btn-primary btn-xs" href="/Report/GetPrevBatch/@BatchNo">Previouse batch</a> Batch number: @BatchNo <a class="btn-primary btn-xs" href="/Report/GetNextBatch/@BatchNo">Next batch</a>
+    <br>
+    <p><h5></h5></p>
 </p>
 <table class="table table-striped">
     <tr>
@@ -19,9 +22,6 @@
         </th>
         <th>
             Ended at
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Destination)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Need)
@@ -57,9 +57,6 @@
             @Html.DisplayFor(modelItem => item.TimeEnd)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Destination)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Need)
         </td>
         <td>
@@ -83,3 +80,6 @@
 }
 
 </table>
+<p>
+    <a class="btn-primary btn-xs" href="/Report/">Back to calender</a>
+</p>

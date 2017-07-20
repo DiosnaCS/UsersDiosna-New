@@ -1,4 +1,6 @@
-﻿@using UsersDiosna.Report.Models
+﻿@using System.Threading;
+@using System.Globalization;
+@using UsersDiosna.Report.Models
 @model UsersDiosna.Report.Models.DataReportModel
 
 @{
@@ -16,13 +18,14 @@
         year++;
         monthMore = 1;
     }
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     DateTime monthDT = new DateTime(year, ViewBag.month, 1);
     string monthName = monthDT.ToString("MMMM");
 }
 
-<h4>calender</h4>
+<h4>Calender</h4>
 <div class=" col-md-10">
-    <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@year">-1 month</a> Month: @monthName <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@year">+1 month</a>
+    <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@year">-1 month</a> Month: @monthName @year <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@year">+1 month</a>
     <p></p>
 </div>
 <table class="table-bordered table-condensed table-hover">
@@ -30,7 +33,7 @@
     <tr>
         <th>Day | Hours</th>
         @for (int hours = 0;hours<24;hours++) {
-            <th>@hours</th>
+            <th class="th-Report">@hours</th>
         }
         <th>Batches count</th>
     </tr>

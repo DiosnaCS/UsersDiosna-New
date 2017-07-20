@@ -37,7 +37,7 @@ namespace UsersDiosna
                     if (HttpContext.Current.Session.Count == 0)
                     {
                         Response.Redirect("~/Account/Login/");
-                        UsersDiosna.Error.toFile("Session_Start hapened", this.GetType().Name.ToString());
+                        //UsersDiosna.Error.toFile("Session_Start hapened", this.GetType().Name.ToString());
                     }
                 }
             }
@@ -50,12 +50,12 @@ namespace UsersDiosna
                 if (HttpContext.Current.Session == null)
                 {
                     Response.Redirect("~/Account/Login/");
-                    UsersDiosna.Error.toFile("Session_onEnd hapened", this.GetType().Name.ToString());
+                    //UsersDiosna.Error.toFile("Session_onEnd hapened", this.GetType().Name.ToString());
                 }
             }
             else {
                 Response.Redirect("~/Account/Login/");
-                UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
+                //UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
             }
         }
 

@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using UsersDiosna.Report.Models;
 using System.Collections.Generic;
 
+
 namespace UsersDiosna.Controllers
 {
     [Authorize(Roles = "View")]
@@ -79,13 +80,45 @@ namespace UsersDiosna.Controllers
         {
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel data = db.SelectSteps(id, table);
-            ReportHandler RH = new ReportHandler();
-            tankNames = RH.getTanknames();
-            foreach (var report in model.Data)
-            {
-                report.Destination = tankNames[int.Parse(report.Destination)];
-            }
+
+            ViewBag.BatchNo = id;
+            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
+
             return View(data.Data);
+        }
+
+        public ActionResult GetPrevBatch(int id)
+        {
+            ReportDBHelper db = new ReportDBHelper(DB, 2);
+            int BatchNo = db.SelectPrevBatchNo(id, table);
+            if (BatchNo == 0)
+            {
+                Session["tempforview"] = "You have reached the minimum batch";
+                return RedirectToAction("Detail", new { id = id });
+            }
+            DataReportModel data = db.SelectSteps(BatchNo, table);
+
+            ViewBag.BatchNo = BatchNo;
+            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
+
+            return View("Detail", data.Data);
+        }
+
+        public ActionResult GetNextBatch(int id)
+        {
+            ReportDBHelper db = new ReportDBHelper(DB, 2);
+            int BatchNo = db.SelectNextBatchNo(id, table);
+            if (BatchNo == 0)
+            {
+                Session["tempforview"] = "You have reached the maximum batch";
+                return RedirectToAction("Detail", new { id = id});
+            }
+            DataReportModel data = db.SelectSteps(BatchNo, table);
+
+            ViewBag.BatchNo = BatchNo;
+            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
+
+            return View("Detail", data.Data);
         }
     }
 }

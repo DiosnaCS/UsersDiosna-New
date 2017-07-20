@@ -826,7 +826,8 @@ namespace UsersDiosna.Controllers
                 }
                 data.Data.Add(CRM);
             }
-
+            r.Dispose();
+            cmd.Dispose();
             return data;
         }
 
@@ -914,8 +915,43 @@ namespace UsersDiosna.Controllers
                 }
                 data.Data.Add(CRM);
             }
-
+            r.Dispose();
+            cmd.Dispose();
             return data;
+        }
+
+        public int SelectPrevBatchNo(int BatchNo, string table) {
+            //id is BatchNo
+            int id = 0;
+
+            string sql = string.Format("SELECT \"BatchNo\" FROM {0} WHERE \"BatchNo\"<{1} ORDER BY \"BatchNo\" DESC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read()) {
+                id = r.GetInt32(0);
+            }
+            r.Dispose();
+            cmd.Dispose();
+            return id;
+        }
+
+        public int SelectNextBatchNo(int BatchNo, string table)
+        {
+            //id is BatchNo
+            int id = 0;
+
+            string sql = string.Format("SELECT \"BatchNo\" FROM {0} WHERE \"BatchNo\">{1} ORDER BY \"BatchNo\" ASC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                id = r.GetInt32(0);
+            }
+            r.Dispose();
+            cmd.Dispose();
+            return id;
         }
     }
 }

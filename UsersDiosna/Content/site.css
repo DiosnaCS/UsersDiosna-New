@@ -16,7 +16,7 @@
     /*width: 11%;*/
     max-width: 25%;
     min-width: 150px;
-    background-color: #FFFFFF; /* Black*/
+    /*background-color: #FFFFFF; /* Black*/
     padding-top: 55px !important; /* */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 }
@@ -29,7 +29,7 @@
 
 /* The side navigation menu */
 .sidenav a {
-    background-color: #FFFFFF;
+    /*background-color: #FFFFFF;*/
     max-width: 250px;
     padding: 5px 0px 2px 25px !important;
     text-decoration: none;
@@ -179,4 +179,8 @@ textarea {
 .table-condensed tbody > tr > td,
 .table-condensed tfoot > tr > td {
     padding: 1px;
+}
+
+.th-Report {
+    min-width: 30px;
 }
