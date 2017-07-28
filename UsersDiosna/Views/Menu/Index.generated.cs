@@ -32,60 +32,352 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Menu/Index.cshtml")]
-    public partial class _Views_Menu_Index_cshtml : System.Web.Mvc.WebViewPage<dynamic>
+    public partial class _Views_Menu_Index_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<UsersDiosna.Controllers.Notification>>
     {
         public _Views_Menu_Index_cshtml()
         {
         }
         public override void Execute()
         {
-WriteLiteral(@"<script>
-    var t;
-    $(document).ready(function init() {
-        autoreload();
-    });
-    function autoreload() {
-        load();
-        setInterval(""autoreload()"", 20000);
-    }
-    function reload() {
-        load();
-    }
-    function load() {
-        var d = new Date();
-        document.getElementById(""schema"").src = ""/scheme/getImage?514561"" + d.getTime();
-    }
-</script>
-");
-
             
-            #line 18 "..\..\Views\Menu\Index.cshtml"
+            #line 3 "..\..\Views\Menu\Index.cshtml"
   
-    ViewBag.Title = "Menu";
+    string alarmName = string.Empty;
+    string graphName = string.Empty;
+    ViewBag.Title = "Menu center";
+    ViewBag.names = Session["names"];
+    ViewBag.plc = Session["plc"];
+    foreach (string name in ViewBag.names) {
+        if(name.ToLower().Contains("alarm"))
+        {
+            alarmName = name;
+        }
+        if (name.ToLower().Contains("graph"))
+        {
+            graphName = name;
+        }
+    }
+
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<h2>");
+WriteLiteral("\r\n\r\n<h4>Menu center</h4>\r\n<div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n    <p");
+
+WriteLiteral(" class=\"col-md-4 col-md-offset-2\"");
+
+WriteLiteral(">\r\n        <a");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 626), Tuple.Create("\"", 691)
+, Tuple.Create(Tuple.Create("", 633), Tuple.Create("/AlarmNotification/All?name=", 633), true)
+            
+            #line 25 "..\..\Views\Menu\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 661), Tuple.Create<System.Object, System.Int32>(alarmName
+            
+            #line default
+            #line hidden
+, 661), false)
+, Tuple.Create(Tuple.Create("", 671), Tuple.Create("&plc=", 671), true)
+            
+            #line 25 "..\..\Views\Menu\Index.cshtml"
+     , Tuple.Create(Tuple.Create("", 676), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[0]
+            
+            #line default
+            #line hidden
+, 676), false)
+);
+
+WriteLiteral(">Notification alarms</a>\r\n    </p><p");
+
+WriteLiteral(" class=\"col-md-4 col-md-offset-2\"");
+
+WriteLiteral(">\r\n        <a");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 798), Tuple.Create("\"", 865)
+, Tuple.Create(Tuple.Create("", 805), Tuple.Create("/GraphNotification/Index?name=", 805), true)
+            
+            #line 27 "..\..\Views\Menu\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 835), Tuple.Create<System.Object, System.Int32>(graphName
+            
+            #line default
+            #line hidden
+, 835), false)
+, Tuple.Create(Tuple.Create("", 845), Tuple.Create("&plc=", 845), true)
+            
+            #line 27 "..\..\Views\Menu\Index.cshtml"
+       , Tuple.Create(Tuple.Create("", 850), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[0]
+            
+            #line default
+            #line hidden
+, 850), false)
+);
+
+WriteLiteral(">Notification PLC tags</a>\r\n    </p>\r\n</div>\r\n<a hrt");
+
+WriteLiteral(" class=\"glyphicon glyphicon-cog\"");
+
+WriteLiteral(">\r\n\r\n</a>\r\n<table");
+
+WriteLiteral(" class=\"table \"");
+
+WriteLiteral(">\r\n\r\n\r\n</table>\r\n<table");
+
+WriteLiteral(" class=\"table col-md-1\"");
+
+WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
 
             
-            #line 21 "..\..\Views\Menu\Index.cshtml"
-Write(ViewBag.Name);
+            #line 40 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.ProjectName));
 
             
             #line default
             #line hidden
-WriteLiteral("</h2>\r\n<div");
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 
-WriteLiteral(" onclick=\"reload()\"");
+WriteLiteral("            ");
 
-WriteLiteral(">\r\n    <img");
+            
+            #line 43 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.BakeryID));
 
-WriteLiteral(" id=\"schema\"");
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 
-WriteLiteral(" src=\"/scheme/getImage\"");
+WriteLiteral("            ");
 
-WriteLiteral(" />\r\n</div>\r\n");
+            
+            #line 46 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Type));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 49 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Definition));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 52 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.TimestampCreated));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 55 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Active));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 58 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Detail));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 61 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Occurred));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+
+WriteLiteral("            ");
+
+            
+            #line 64 "..\..\Views\Menu\Index.cshtml"
+       Write(Html.DisplayNameFor(model => model.Status));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n        </th>\r\n        <th>Actions</th>\r\n    </tr>\r\n\r\n");
+
+            
+            #line 69 "..\..\Views\Menu\Index.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 69 "..\..\Views\Menu\Index.cshtml"
+     foreach (var item in Model)
+    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <tr>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 73 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.ProjectName));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 76 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.BakeryID));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 79 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Type));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 82 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Definition));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 85 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.TimestampCreated));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 88 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Active));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 91 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Detail));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 94 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Occurred));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 97 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Status));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 100 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.ActionLink("Edit", "Edit", new { id = item.Id }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" |\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 101 "..\..\Views\Menu\Index.cshtml"
+           Write(Html.ActionLink("Delete", "Delete", new { id = item.Id }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n        </tr>\r\n");
+
+            
+            #line 104 "..\..\Views\Menu\Index.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n</table>\r\n");
 
         }
     }

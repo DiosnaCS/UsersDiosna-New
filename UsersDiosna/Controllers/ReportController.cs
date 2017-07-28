@@ -1,8 +1,8 @@
-﻿using System;
+﻿    using System;
 using System.Web.Mvc;
 using UsersDiosna.Report.Models;
 using System.Collections.Generic;
-
+using System.Linq;
 
 namespace UsersDiosna.Controllers
 {
@@ -81,6 +81,11 @@ namespace UsersDiosna.Controllers
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel data = db.SelectSteps(id, table);
 
+            ViewBag.AmntTotal = data.Data.Single(p => p.RecordType == Operations.RecipeStart).Need;
+            //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
+                ViewBag.InteruptedCounts = data.Data.Where(p => p.RecordType == Operations.Interrupt).Count();
+            //if (data.Data.Exists(p=> p.RecordType == Operations.StepSkip))
+                ViewBag.NumberOfStepsSkipped = data.Data.Where(p => p.RecordType == Operations.StepSkip).Count();
             ViewBag.BatchNo = id;
             ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
 

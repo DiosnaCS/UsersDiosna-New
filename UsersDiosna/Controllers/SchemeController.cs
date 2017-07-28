@@ -37,6 +37,7 @@ namespace UsersDiosna.Controllers
                 }
                 catch (Exception e){
                     Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
+                    Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
                 }
             }
         }

@@ -42,9 +42,11 @@ namespace UsersDiosna.Controllers
             else {
                 if (config.ViewList.Count == 0)
                 {
-                    ViewData["pathConfig"] = Session["pathConfig"];
-                    ViewData["pathNames"] = Session["pathNames"];
-                    Iniparser ini = new Iniparser(ViewData["pathConfig"].ToString(), ViewData["pathNames"].ToString());
+                    if (Session != null) {
+                        pathConfig = Session["pathConfig"].ToString();
+                        pathNames = Session["pathNames"].ToString();
+                    }
+                    Iniparser ini = new Iniparser(pathConfig, pathNames);
                     ini.ParseLangs(config);
                     ini.ParseNames(config, Const.separators);
                     ini.ParseCfg(config, Const.separators, config);
@@ -105,6 +107,7 @@ namespace UsersDiosna.Controllers
                     string k = e.Message.ToString() + e.Source.ToString() + e.StackTrace.ToString();
                     string name = this.ControllerContext.RouteData.Values["controller"].ToString();
                     Error.toFile(k, name);
+                    Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
                     return Json(data, "application/json", JsonRequestBehavior.AllowGet);
                 }
             }

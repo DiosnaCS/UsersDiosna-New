@@ -773,8 +773,8 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5})", //OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",
-                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue);//, (int) Operations.StepSkip, (int)Operations.RecipeEnd);
+            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",
+                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -915,6 +915,60 @@ namespace UsersDiosna.Controllers
                 }
                 data.Data.Add(CRM);
             }
+            r.Dispose();
+            cmd.Dispose();
+            return data;
+        }
+
+        public DataReportModel SelectConsumption(DateTime from, DateTime to, string table)
+        {
+            // variables initialization
+            DataReportModel data = new DataReportModel();
+            data.Data = new List<ColumnReportModel>();
+            string columns = string.Empty;
+            string where = string.Empty;
+
+            int pkTimeStart = ConvertDT2pkTime(from);
+            int pkTimeEnd = ConvertDT2pkTime(to);
+
+            //gett where condition
+            /* Indexes of result set
+             0 => RecordNo 
+            1 => RecordType 
+            2 =>TimeStart 
+            3 => TimeEnd 
+            4 =>BatchNo 
+            5 => Destination 
+            6 => Need 
+            7 => Actual 
+            8 => Variant1 
+            9 => Variant2 
+            10 => Variant3 
+            11 => Variant4 
+            */
+            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28", table, pkTimeStart, pkTimeEnd);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                ColumnReportModel CRM = new ColumnReportModel();
+                if (r[1] != DBNull.Value)
+                {
+                    CRM.RecordType = (Operations)int.Parse(r[1].ToString());
+                }
+                if (r[4] != DBNull.Value)
+                {
+                    CRM.BatchNo = int.Parse(r[4].ToString());
+                }
+                if (r[7] != DBNull.Value)
+                {
+                    if ((int)r[7] != 0)
+                        CRM.Actual = int.Parse(r[7].ToString());
+                }
+                data.Data.Add(CRM);
+            }
+                  
             r.Dispose();
             cmd.Dispose();
             return data;

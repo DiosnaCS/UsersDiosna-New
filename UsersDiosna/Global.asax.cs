@@ -22,21 +22,13 @@ namespace UsersDiosna
         }
         protected void Session_Start()
         {
-            if (done == false) { 
-                SessionIDManager manager = new SessionIDManager();
-                string newID = manager.CreateSessionID(Context);
-                bool redirected = false;
-                bool isAdded = false;
-                manager.SaveSessionID(Context, newID, out redirected, out isAdded);
-                done = true;
-            }
             if (Context.Session != null)
             {
                 if (Context.Session.IsNewSession)
                 {
                     if (HttpContext.Current.Session.Count == 0)
                     {
-                        Response.Redirect("~/Account/Login/");
+                        HttpContext.Current.Response.Redirect("~/Account/Login/");
                         //UsersDiosna.Error.toFile("Session_Start hapened", this.GetType().Name.ToString());
                     }
                 }
@@ -49,17 +41,16 @@ namespace UsersDiosna
             {
                 if (HttpContext.Current.Session == null)
                 {
-                    Response.Redirect("~/Account/Login/");
+                    HttpContext.Current.Response.Redirect("~/Account/Login/");
                     //UsersDiosna.Error.toFile("Session_onEnd hapened", this.GetType().Name.ToString());
                 }
             }
             else {
-                Response.Redirect("~/Account/Login/");
-                //UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
+                UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
             }
         }
 
-        public static int ErrorId { get; private set; }
+        public static int id { get; private set; }
         public static bool done { get; private set; }
         //TODO prepare some kind of my own errors with to log file mmethods - use Application_Error() method for that
 
@@ -72,7 +63,7 @@ namespace UsersDiosna
             Exception e =Server.GetLastError();
             string PathToErrorFile = UsersDiosna.Error.PathToErrorFile;
             DateTime now = DateTime.Now;
-            int id = ErrorId++;
+            id++;
             string timestamp = "\r\n" + now.ToString();
             if (PathToErrorFile != null)
             {

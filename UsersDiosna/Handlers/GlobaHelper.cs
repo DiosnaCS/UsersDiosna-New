@@ -10,12 +10,14 @@ namespace UsersDiosna
     }
     public static class Error
     {
+        public static int id { get; set; }
         public static string PathToErrorFile { get; set; }
         public static string timestamp { get; set; }
         public static void toFile(string message, string name)
         {
             DateTime now = DateTime.Now;
             timestamp = "\r\n"  + now.ToString();
+            id++;
             if (PathToErrorFile != null)
             {
                 System.IO.File.AppendAllText(PathToErrorFile, timestamp);

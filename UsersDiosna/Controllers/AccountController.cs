@@ -54,6 +54,8 @@ namespace UsersDiosna.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            if (User.Identity.IsAuthenticated == true)
+                return RedirectToAction("Homepage", "Home");
             return View();
         }
 

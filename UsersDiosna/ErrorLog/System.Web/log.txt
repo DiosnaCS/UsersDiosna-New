@@ -217,3 +217,45 @@
    at System.Web.SessionState.SessionStateModule.BeginAcquireState(Object source, EventArgs e, AsyncCallback cb, Object extraData)
    at System.Web.HttpApplication.AsyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+7/24/2017 11:50:00 AM0Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/24/2017 11:50:00 AM1Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:25:02 PM1Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd()
+7/26/2017 12:27:40 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:27:40 PM4Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:33:46 PM2Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:33:46 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:37:02 PM2Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:37:02 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:38:22 PM2Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:38:22 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
+7/26/2017 12:44:06 PM2Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd()
+7/26/2017 12:44:06 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
+   at UsersDiosna.MvcApplication.Session_OnEnd()
+7/28/2017 2:34:13 PM1Session state has created a session id, but cannot save it because the response was already flushed by the application.   at System.Web.SessionState.SessionIDManager.SaveSessionID(HttpContext context, String id, Boolean& redirected, Boolean& cookieAdded)
+   at System.Web.SessionState.SessionStateModule.CreateSessionId()
+   at System.Web.SessionState.SessionStateModule.DelayedGetSessionId()
+   at System.Web.SessionState.SessionStateModule.ReleaseStateGetSessionID()
+   at System.Web.SessionState.SessionStateModule.OnReleaseState(Object source, EventArgs eventArgs)
+   at System.Web.SessionState.SessionStateModule.OnEndRequest(Object source, EventArgs eventArgs)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+7/28/2017 3:01:05 PM1Session state has created a session id, but cannot save it because the response was already flushed by the application.   at System.Web.SessionState.SessionIDManager.SaveSessionID(HttpContext context, String id, Boolean& redirected, Boolean& cookieAdded)
+   at System.Web.SessionState.SessionStateModule.CreateSessionId()
+   at System.Web.SessionState.SessionStateModule.DelayedGetSessionId()
+   at System.Web.SessionState.SessionStateModule.ReleaseStateGetSessionID()
+   at System.Web.SessionState.SessionStateModule.OnReleaseState(Object source, EventArgs eventArgs)
+   at System.Web.SessionState.SessionStateModule.OnEndRequest(Object source, EventArgs eventArgs)
+   at System.Web.HttpApplication.SyncEventExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

@@ -280,6 +280,7 @@
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportOverviewController.cs" />
     <Compile Include="Handlers\CMSHelper.cs" />
     <Compile Include="Handlers\ReportHandler.cs" />
     <Compile Include="OldCode\CMSController_old.cs" />
@@ -522,10 +523,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportOverview\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Report\calender.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>calender.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Report\Detail.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Detail.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Scheme\index.generated.cs">
       <AutoGen>True</AutoGen>
@@ -817,7 +828,14 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>calender.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Report\Detail.cshtml" />
+    <Content Include="Views\Report\Detail.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Detail.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\ReportOverview\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

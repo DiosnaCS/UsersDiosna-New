@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UsersDiosna.Report.Models
 {
-    public class ColumnReportModel
+    public  class ColumnReportModel
     {
         
         public int  RecordNo { get; set; }
@@ -27,34 +27,48 @@ namespace UsersDiosna.Report.Models
         public int Variant3 { get; set; }
         public int Variant4 { get; set; }
 
-
-        /*
-         public int diRecNo  { get; set; }
-         public int iRecType  { get; set; }
-         public int diTimestamp  { get; set; }
-         public int diBatchNo  { get; set; }
-         public int iSrc  { get; set; }
-         public int iDest  { get; set; }
-         public int iFlags  { get; set; }
-         public int iRcpNo  { get; set; }
-         public int diSetpoint  { get; set; }
-         public int diActual  { get; set; }
-         public int iUserID  { get; set; }
-         public int iParam1  { get; set; }
-         public int iParam2  { get; set; }
-         public int diMatCode  { get; set; }
-         public int diDoseSetPoint  { get; set; }
-         public int iSPinfo  { get; set; }
-         public int iOrgUnit  { get; set; }
-         */
-
         /*Maybe could be some dynamic to reed it from xml file*/
+    }
+
+    public class FilterReportModel {
+
+    }
+
+    public class OverviewReportDataModel {
+        //Columns of the table daily consumption
+        public int? MotherCultureAmnt { get; set; }
+        public int? MotherCultureBatchCount { get; set; }
+
+        public int? FlourAmnt { get; set; }
+        public int? FlourBatchCount { get; set; }
+
+        public int? WaterAmnt { get; set; }
+        public int? WaterBatchCount { get; set; }
+
+        public int? OldBreadAmnt { get; set; }
+        public int? OldBreadBatchCount { get; set; }
+
+        public int? LiquidYeastAmnt { get; set; }
+        public int? LiquidYeastBatchCount { get; set; }
+
+        public int? MixtureAmnt { get; set; }
+        public int? MixtureBatchCount { get; set; }
+
+        public int? GenericAmnt { get; set; }
+        public int? GenericBatchCount { get; set; }
+    }
+
+    public class OverviewReportModel {
+        public List<OverviewReportDataModel> Data { get; set; }
     }
 
     public class ViewHeaderBatch
     {
         public string Name;
         public int BatchNo;
+        public int AmntTotal;
+        public int RecipeNo;
+        public bool Status;
     }
 
     public enum Operations
@@ -69,8 +83,27 @@ namespace UsersDiosna.Report.Models
         FillingMotherCulture = 20,
         FillingFlour = 21,
         FillingWater = 22,
+        FillingOldBread = 23,
+        FillingLiquidYeast =  24,
+        FillingGenericComponent = 25,
         //RecipeSteps
-        FillingMixture = 31
+        FillingMixture = 31,
+        Soaking = 32,
+        Mixing = 33,
+        Fermentation = 35,
+        Cooling = 36,
+        Storing = 37,
+        StatusInfo = 39,
+        //Auxiliary operations
+        Repumping = 40,
+        DosingOut = 44,
+        Pigging = 45,
+        FermenterCleaning = 46,
+        PipWorkCleaning = 47,
+        YeastCleaning = 48,
+        //OperatorActions
+        OperatorLogin = 50,
+        OperatorLogout = 51
     }
 
     public class DataReportModel

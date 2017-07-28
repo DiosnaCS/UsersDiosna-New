@@ -3,6 +3,10 @@
 @{
     ViewBag.Title = "Detail";
     int BatchNo = ViewBag.BatchNo;
+    int needSum = 0;
+    int doneSum = 0;
+    string need;
+    string done;
 }
 
 <h4>Batch Detail</h4>
@@ -10,26 +14,32 @@
 <p>
     <a class="btn-primary btn-xs" href="/Report/GetPrevBatch/@BatchNo">Previouse batch</a> Batch number: @BatchNo <a class="btn-primary btn-xs" href="/Report/GetNextBatch/@BatchNo">Next batch</a>
     <br>
-    <p><h5></h5></p>
+    <p>
+        <h4>Batch info</h4>
+        Destination: @ViewBag.Destination<br>
+        Batch: @ViewBag.BatchNo<br>
+        Number of interuts: @ViewBag.InteruptedCounts<br>
+        Number of skips: @ViewBag.NumberOfStepsSkipped<br>
+    </p>
 </p>
-<table class="table table-striped">
+<table class="table table-striped table-hover">
     <tr>
         <th>
             Operation
         </th>
         <th>
-            Start at
+            Start at @Model.Min(p => p.TimeStart.ToShortDateString())
         </th>
         <th>
-            Ended at
+            Ended at @Model.Max(p => p.TimeStart.ToShortDateString())
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Need)
+            @Html.DisplayNameFor(model => model.Need) in kg
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Actual)
+            @Html.DisplayNameFor(model => model.Actual) in kg
         </th>
-        @*
+        
         <th>
             @Html.DisplayNameFor(model => model.Variant1)
         </th>
@@ -42,7 +52,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Variant4)
         </th>
-        *@
     </tr>
 
 @foreach (var item in Model) {
@@ -51,18 +60,43 @@
             @Html.DisplayFor(modelItem => item.RecordType)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TimeStart)
+            @{string timeStartForView = item.TimeStart.ToShortTimeString();}
+            @timeStartForView
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TimeEnd)
+            @{string timeEndForView = item.TimeEnd.ToShortTimeString();}
+            @timeEndForView
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Need)
+            @if( (int)item.RecordType > 31 && (int)item.RecordType < 39) {
+                TimeSpan spanN = new TimeSpan((item.Need * 10000000));
+                need = spanN.ToString();
+            } else {
+                if ((int)item.RecordType > 21 && (int)item.RecordType > 29)
+                {
+                    needSum += item.Need;
+                }
+                need = (item.Need / 1000) + "kg";
+            }
+            @need
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Actual)
+            @if ((int)item.RecordType > 31 && (int)item.RecordType < 39)
+            {
+                TimeSpan spanD = new TimeSpan((item.Actual * 10000000));
+                done = spanD.ToString();
+            }
+            else
+            {
+                if ((int)item.RecordType > 21 && (int)item.RecordType > 29)
+                {
+                    doneSum += item.Actual;
+                }
+                done = (item.Need / 1000) + "kg";
+            }
+            @done
         </td>
-        @*
+        
         <td>
             @Html.DisplayFor(modelItem => item.Variant1)
         </td>
@@ -75,10 +109,38 @@
         <td>
             @Html.DisplayFor(modelItem => item.Variant4)
         </td>
-        *@
     </tr>
 }
-
+    <tr>
+        <td>
+            <b>Summary</b>
+        </td>
+        <td>
+            <b>Length of starts in minutes @{
+                long startDiff = Model.Max(p => p.TimeStart.Ticks) - Model.Min(p => p.TimeStart.Ticks);
+                int minutesStartDiff = (int) TimeSpan.FromTicks(startDiff).TotalMinutes; }
+               @minutesStartDiff 
+            </b>
+        </td>
+        <td>
+            <b>
+                Length of ends in minutes @{
+                    long endDiff = Model.Max(p => p.TimeEnd.Ticks) - Model.Min(p => p.TimeEnd.Ticks);
+                    int minutesEndDiff = (int) TimeSpan.FromTicks(endDiff).TotalMinutes; }
+                @minutesEndDiff
+            </b>
+        </td>
+        <td>
+            <b>
+                @(needSum/1000) kg
+            </b>
+        </td>
+        <td>
+            <b>
+                @(doneSum/1000) kg
+            </b>
+        </td>
+    </tr>
 </table>
 <p>
     <a class="btn-primary btn-xs" href="/Report/">Back to calender</a>

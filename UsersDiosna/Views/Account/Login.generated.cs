@@ -222,43 +222,6 @@ WriteLiteral(">\r\n                    <div");
 
 WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
 
-WriteLiteral(">\r\n                        <div");
-
-WriteLiteral(" class=\"checkbox\"");
-
-WriteLiteral(">\r\n");
-
-WriteLiteral("                            ");
-
-            
-            #line 34 "..\..\Views\Account\Login.cshtml"
-                       Write(Html.CheckBoxFor(m => m.RememberMe));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                            ");
-
-            
-            #line 35 "..\..\Views\Account\Login.cshtml"
-                       Write(Html.LabelFor(m => m.RememberMe));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n                        </div>\r\n                    </div>\r\n                </d" +
-"iv>\r\n");
-
-WriteLiteral("                <div");
-
-WriteLiteral(" class=\"form-group\"");
-
-WriteLiteral(">\r\n                    <div");
-
-WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
-
 WriteLiteral(">\r\n                        <input");
 
 WriteLiteral(" type=\"submit\"");
@@ -270,13 +233,13 @@ WriteLiteral(" class=\"btn btn-default\"");
 WriteLiteral(" />\r\n                    </div>\r\n                </div>\r\n");
 
             
-            #line 44 "..\..\Views\Account\Login.cshtml"
+            #line 36 "..\..\Views\Account\Login.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 47 "..\..\Views\Account\Login.cshtml"
+            #line 39 "..\..\Views\Account\Login.cshtml"
                           
             }
 
@@ -292,7 +255,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 53 "..\..\Views\Account\Login.cshtml"
+            #line 45 "..\..\Views\Account\Login.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             

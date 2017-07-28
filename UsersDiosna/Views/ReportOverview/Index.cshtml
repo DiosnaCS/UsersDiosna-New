@@ -1,0 +1,116 @@
+﻿@using System.Threading;
+@using System.Globalization;
+@model UsersDiosna.Report.Models.OverviewReportModel
+
+@{
+    ViewBag.Title = "Index";
+    string name = string.Empty;
+    int EndType = 0;
+    int amntTotal = 0;
+    int amntOverall = 0;
+    int amnt = 0;
+    bool colourRow;
+    int count = 0;
+    int countOverall = 0;
+    int year = ViewBag.year;
+    int monthLess = ViewBag.Month - 1;
+    int monthMore = ViewBag.Month + 1;
+    if (monthLess < 1)
+    {
+        year--;
+        monthLess = 12;
+    }
+    if (monthMore > 12)
+    {
+        year++;
+        monthMore = 1;
+    }
+    Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+    DateTime monthDT = new DateTime(year, ViewBag.month, 1);
+    string monthName = monthDT.ToString("MMMM");
+
+}
+
+<h2>Cunsumption Report</h2>
+
+<div class=" col-md-10">
+    <a class="btn-primary btn-xs" href="/ReportOverview/Month/@monthLess/@year">-1 month</a> Month: @monthName @year <a class="btn-primary btn-xs" href="/ReportOverview/Month/@monthMore/@year">+1 month</a>
+    <p></p>
+</div>
+<table class="table-bordered table-condensed table-hover">
+    <thead>
+        <tr>
+            <th>Day</th>
+            @if(Model.Data.Max(p=> p.MotherCultureBatchCount > 0)) {
+                <th>Mother culture</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.FlourBatchCount > 0)) {
+                <th>Flour</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.WaterBatchCount > 0)) {
+                <th>Water</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.OldBreadBatchCount > 0)) {
+                <th>Old Bread</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.LiquidYeastBatchCount > 0)) {
+                <th>Liquid yeast</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.MixtureBatchCount > 0)) {
+                <th>Mixture</th>
+                <td class="th-Report"></td>
+            }
+            @if (Model.Data.Max(p => p.GenericBatchCount > 0)) {
+                <th>Generic component</th>
+                <td class="th-Report"></td>
+            }
+        </tr>
+    </thead>
+    @for (int day = 1; day <= DateTime.DaysInMonth(year, ViewBag.month); day++)
+    {
+        @{ DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString();  }
+            <tr>
+                @if (dayDT.DayOfWeek == DayOfWeek.Saturday || dayDT.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    colourRow = true;
+                    <td style="background-color: lightgoldenrodyellow">@day. @sDay</td>
+                }
+                else
+                {
+                    colourRow = false;
+                    <td>@day. @sDay</td>
+                }
+                @if (Model.Data.Where(p =>  >= day) {
+                    <td>@Model.Data[day-1].MotherCultureAmnt</td>
+                    <td>@Model.Data[day - 1].MotherCultureBatchCount</td>
+                    <td>@Model.Data[day - 1].FlourAmnt</td>
+                    <td>@Model.Data[day - 1].FlourBatchCount</td>
+                    <td>@Model.Data[day - 1].WaterAmnt</td>
+                    <td>@Model.Data[day - 1].WaterBatchCount</td>
+                    <td>@Model.Data[day - 1].OldBreadAmnt</td>
+                    <td>@Model.Data[day - 1].OldBreadBatchCount</td>
+                    <td>@Model.Data[day - 1].LiquidYeastAmnt</td>
+                    <td>@Model.Data[day - 1].LiquidYeastBatchCount</td>
+                    <td>@Model.Data[day - 1].MixtureAmnt</td>
+                    <td>@Model.Data[day - 1].MixtureBatchCount</td>
+                    <td>@Model.Data[day - 1].GenericAmnt</td>
+                    <td>@Model.Data[day - 1].GenericBatchCount</td>
+                }
+                else
+                {
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                }
+            </tr>
+    }
+</table>

@@ -1,15 +1,31 @@
 ﻿@model IEnumerable<UsersDiosna.Controllers.Notification>
 
 @{
-    ViewBag.Title = "Index";
+    string alarmName = string.Empty;
+    string graphName = string.Empty;
+    ViewBag.Title = "Notification center";
+    ViewBag.names = Session["names"];
+    ViewBag.plc = Session["plc"];
+    foreach (string name in ViewBag.names)
+    {
+        if (name.ToLower().Contains("alarm"))
+        {
+            alarmName = name;
+        }
+        if (name.ToLower().Contains("graph"))
+        {
+            graphName = name;
+        }
+    }
+
 }
 
-<h4>Notifications center</h4>
+<h4>Notification center</h4>
 <div class="row">
     <p class="col-md-4 col-md-offset-2">
-        <a class="btn btn-default" href="/AlarmNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification alarms</a>
+        <a class="btn btn-default" href="/AlarmNotification/All?name=@alarmName&plc=@ViewBag.plc[0]">Notification alarms</a>
     </p><p class="col-md-4 col-md-offset-2">
-        <a class="btn btn-default" href="/GraphNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification PLC tags</a>
+        <a class="btn btn-default" href="/GraphNotification/Index?name=@graphName&plc=@ViewBag.plc[0]">Notification PLC tags</a>
     </p>
 </div>
 <table class="table col-md-1">
@@ -44,40 +60,41 @@
         <th>Actions</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProjectName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BakeryID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Definition)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimestampCreated)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Detail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Occurred)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Status)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BakeryID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Definition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimestampCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Detail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Occurred)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

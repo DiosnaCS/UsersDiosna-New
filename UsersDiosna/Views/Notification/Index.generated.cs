@@ -42,12 +42,28 @@ namespace ASP
             
             #line 3 "..\..\Views\Notification\Index.cshtml"
   
-    ViewBag.Title = "Index";
+    string alarmName = string.Empty;
+    string graphName = string.Empty;
+    ViewBag.Title = "Notification center";
+    ViewBag.names = Session["names"];
+    ViewBag.plc = Session["plc"];
+    foreach (string name in ViewBag.names)
+    {
+        if (name.ToLower().Contains("alarm"))
+        {
+            alarmName = name;
+        }
+        if (name.ToLower().Contains("graph"))
+        {
+            graphName = name;
+        }
+    }
+
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h4>Notifications center</h4>\r\n<div");
+WriteLiteral("\r\n\r\n<h4>Notification center</h4>\r\n<div");
 
 WriteLiteral(" class=\"row\"");
 
@@ -59,23 +75,23 @@ WriteLiteral(">\r\n        <a");
 
 WriteLiteral(" class=\"btn btn-default\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 225), Tuple.Create("\"", 320)
-, Tuple.Create(Tuple.Create("", 232), Tuple.Create("/AlarmNotification/All?name=", 232), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 648), Tuple.Create("\"", 713)
+, Tuple.Create(Tuple.Create("", 655), Tuple.Create("/AlarmNotification/All?name=", 655), true)
             
-            #line 10 "..\..\Views\Notification\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 260), Tuple.Create<System.Object, System.Int32>(Request.QueryString["name"]
-            
-            #line default
-            #line hidden
-, 260), false)
-, Tuple.Create(Tuple.Create("", 288), Tuple.Create("&plc=", 288), true)
-            
-            #line 10 "..\..\Views\Notification\Index.cshtml"
-                       , Tuple.Create(Tuple.Create("", 293), Tuple.Create<System.Object, System.Int32>(Request.QueryString["plc"]
+            #line 26 "..\..\Views\Notification\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 683), Tuple.Create<System.Object, System.Int32>(alarmName
             
             #line default
             #line hidden
-, 293), false)
+, 683), false)
+, Tuple.Create(Tuple.Create("", 693), Tuple.Create("&plc=", 693), true)
+            
+            #line 26 "..\..\Views\Notification\Index.cshtml"
+     , Tuple.Create(Tuple.Create("", 698), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[0]
+            
+            #line default
+            #line hidden
+, 698), false)
 );
 
 WriteLiteral(">Notification alarms</a>\r\n    </p><p");
@@ -86,23 +102,23 @@ WriteLiteral(">\r\n        <a");
 
 WriteLiteral(" class=\"btn btn-default\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 427), Tuple.Create("\"", 522)
-, Tuple.Create(Tuple.Create("", 434), Tuple.Create("/GraphNotification/All?name=", 434), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 820), Tuple.Create("\"", 887)
+, Tuple.Create(Tuple.Create("", 827), Tuple.Create("/GraphNotification/Index?name=", 827), true)
             
-            #line 12 "..\..\Views\Notification\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 462), Tuple.Create<System.Object, System.Int32>(Request.QueryString["name"]
-            
-            #line default
-            #line hidden
-, 462), false)
-, Tuple.Create(Tuple.Create("", 490), Tuple.Create("&plc=", 490), true)
-            
-            #line 12 "..\..\Views\Notification\Index.cshtml"
-                       , Tuple.Create(Tuple.Create("", 495), Tuple.Create<System.Object, System.Int32>(Request.QueryString["plc"]
+            #line 28 "..\..\Views\Notification\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 857), Tuple.Create<System.Object, System.Int32>(graphName
             
             #line default
             #line hidden
-, 495), false)
+, 857), false)
+, Tuple.Create(Tuple.Create("", 867), Tuple.Create("&plc=", 867), true)
+            
+            #line 28 "..\..\Views\Notification\Index.cshtml"
+       , Tuple.Create(Tuple.Create("", 872), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[0]
+            
+            #line default
+            #line hidden
+, 872), false)
 );
 
 WriteLiteral(">Notification PLC tags</a>\r\n    </p>\r\n</div>\r\n<table");
@@ -114,7 +130,7 @@ WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 18 "..\..\Views\Notification\Index.cshtml"
+            #line 34 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.ProjectName));
 
             
@@ -125,7 +141,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 21 "..\..\Views\Notification\Index.cshtml"
+            #line 37 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.BakeryID));
 
             
@@ -136,7 +152,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 24 "..\..\Views\Notification\Index.cshtml"
+            #line 40 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Type));
 
             
@@ -147,7 +163,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 27 "..\..\Views\Notification\Index.cshtml"
+            #line 43 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Definition));
 
             
@@ -158,7 +174,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 30 "..\..\Views\Notification\Index.cshtml"
+            #line 46 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.TimestampCreated));
 
             
@@ -169,7 +185,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 33 "..\..\Views\Notification\Index.cshtml"
+            #line 49 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Active));
 
             
@@ -180,7 +196,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 36 "..\..\Views\Notification\Index.cshtml"
+            #line 52 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Detail));
 
             
@@ -191,7 +207,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 39 "..\..\Views\Notification\Index.cshtml"
+            #line 55 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Occurred));
 
             
@@ -202,7 +218,7 @@ WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 WriteLiteral("            ");
 
             
-            #line 42 "..\..\Views\Notification\Index.cshtml"
+            #line 58 "..\..\Views\Notification\Index.cshtml"
        Write(Html.DisplayNameFor(model => model.Status));
 
             
@@ -211,138 +227,145 @@ WriteLiteral("            ");
 WriteLiteral("\r\n        </th>\r\n        <th>Actions</th>\r\n    </tr>\r\n\r\n");
 
             
-            #line 47 "..\..\Views\Notification\Index.cshtml"
- foreach (var item in Model) {
+            #line 63 "..\..\Views\Notification\Index.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 63 "..\..\Views\Notification\Index.cshtml"
+     foreach (var item in Model)
+    {
 
             
             #line default
             #line hidden
-WriteLiteral("    <tr>\r\n        <td>\r\n");
+WriteLiteral("        <tr>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 50 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.ProjectName));
+WriteLiteral("                ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 53 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.BakeryID));
+            #line 67 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.ProjectName));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 56 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Type));
+WriteLiteral("                ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 59 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Definition));
+            #line 70 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.BakeryID));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 62 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.TimestampCreated));
+WriteLiteral("                ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 65 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Active));
+            #line 73 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Type));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 68 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Detail));
+WriteLiteral("                ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 71 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Occurred));
+            #line 76 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Definition));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 74 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Status));
+            #line 79 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.TimestampCreated));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 77 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.ActionLink("Edit", "Edit", new { id=item.Id }));
+            #line 82 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Active));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 85 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Detail));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 88 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Occurred));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 91 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.DisplayFor(modelItem => item.Status));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 94 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.ActionLink("Edit", "Edit", new { id = item.Id }));
 
             
             #line default
             #line hidden
 WriteLiteral(" |\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 78 "..\..\Views\Notification\Index.cshtml"
-       Write(Html.ActionLink("Delete", "Delete", new { id=item.Id }));
+            #line 95 "..\..\Views\Notification\Index.cshtml"
+           Write(Html.ActionLink("Delete", "Delete", new { id = item.Id }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n    </tr>\r\n");
+WriteLiteral("\r\n            </td>\r\n        </tr>\r\n");
 
             
-            #line 81 "..\..\Views\Notification\Index.cshtml"
-}
+            #line 98 "..\..\Views\Notification\Index.cshtml"
+    }
 
             
             #line default

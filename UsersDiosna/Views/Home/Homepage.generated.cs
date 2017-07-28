@@ -105,15 +105,15 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 345), Tuple.Create("\"", 384)
-, Tuple.Create(Tuple.Create("", 352), Tuple.Create("/Menu?id=", 352), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 345), Tuple.Create("\"", 387)
+, Tuple.Create(Tuple.Create("", 352), Tuple.Create("/Menu/Index/", 352), true)
             
             #line 12 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 361), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
+, Tuple.Create(Tuple.Create("", 364), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
             
             #line default
             #line hidden
-, 361), false)
+, 364), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -122,7 +122,7 @@ WriteLiteral(">");
 
             
             #line 12 "..\..\Views\Home\Homepage.cshtml"
-                                                                          Write(ViewBag.Text[index]);
+                                                                             Write(ViewBag.Text[index]);
 
             
             #line default
@@ -154,15 +154,15 @@ WriteLiteral(" class=\"btn-group btn-group-justified\"");
 
 WriteLiteral(">\r\n        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 567), Tuple.Create("\"", 602)
-, Tuple.Create(Tuple.Create("", 574), Tuple.Create("/Menu?id=", 574), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 570), Tuple.Create("\"", 608)
+, Tuple.Create(Tuple.Create("", 577), Tuple.Create("/Menu/Index/", 577), true)
             
             #line 19 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 583), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
+, Tuple.Create(Tuple.Create("", 589), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
             
             #line default
             #line hidden
-, 583), false)
+, 589), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -171,7 +171,7 @@ WriteLiteral(">");
 
             
             #line 19 "..\..\Views\Home\Homepage.cshtml"
-                                                                  Write(ViewBag.Text[0]);
+                                                                     Write(ViewBag.Text[0]);
 
             
             #line default

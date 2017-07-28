@@ -38,6 +38,11 @@
 			<tableName>events</tableName>
 			<congirationNumber>1</congirationNumber>
 		</Report>
+		<ReportOverview name="Consumptions">
+			<dbName>InternDelights</dbName>
+			<tableName>events</tableName>
+			<congirationNumber>1</congirationNumber>
+		</ReportOverview>
 		<CMS name="Project Info">
 		</CMS>
 	</plc>

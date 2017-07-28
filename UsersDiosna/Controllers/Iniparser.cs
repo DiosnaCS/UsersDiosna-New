@@ -164,7 +164,7 @@ namespace UsersDiosna.Controllers
             catch (Exception e) {
                 string k = e.Message.ToString() + e.Source.ToString() + e.StackTrace.ToString();
                 string name = this.GetType().Name.ToString();
-                Error.toFile(k, name);
+                Error.toFile(k, name);                
             }
             string tableName = null;
             string TextListName = null;

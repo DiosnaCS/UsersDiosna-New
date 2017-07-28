@@ -42,6 +42,7 @@ namespace UsersDiosna.Controllers
             {
                 ViewBag.message = "Problem with finding uploads to this bakery.";
                 Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
+                Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
                 return View();
             }
         }
@@ -69,7 +70,9 @@ namespace UsersDiosna.Controllers
                     Session["success"] = "File: " + filename + " has been successfullly uploaded.";
                 } catch(Exception ex)
                 {
-                    Session["tempforview"] = "An error has occured in file uploading:" + ex;
+                    Error.toFile(ex.Message.ToString(), this.GetType().Name.ToString());
+                    Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " An error has occured in file uploading"; //To screen also with id 
+                    //Session["tempforview"] = "An error has occured in file uploading:" + ex;
                 }
                 
             }

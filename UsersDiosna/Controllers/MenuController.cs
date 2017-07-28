@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace UsersDiosna.Controllers
 {
     public class MenuController : Controller
     {
+        /*
         // GET: Menu\
         [Authorize]
         public ActionResult Index()
@@ -36,40 +38,54 @@ namespace UsersDiosna.Controllers
             
             return View();
         }
+        */
+        [Authorize]
+        public ActionResult Index(int id)
+        {
+            bool bMenu = getMenu(id);
+            if (!bMenu)
+                return RedirectToAction("Login", "Account");
+            NotificationDataContext db = new NotificationDataContext();
+            List<Notification> data = db.Notifications.Where(p => p.Owner.Contains(User.Identity.Name) && p.BakeryID == id).ToList();
+            return View(data);
+        }
 
         /*
          * @param void, @return redirect 
          * Method to get Menu o
          * to Menu on Index view method
          */
-        public ActionResult getMenu()
+        public bool getMenu(int id = 0)
         {
             String preId;
-            int id = 00000;
-            if (Request.QueryString["id"] != null)
+            if (id == 0)
             {
-                preId = Request.QueryString["id"].ToString();
-                if (User.IsInRole(preId))
+
+                if (Request.QueryString["id"] != null)
                 {
-                    id = Int32.Parse(preId);
+                    preId = Request.QueryString["id"].ToString();
+                    if (User.IsInRole(preId))
+                    {
+                        id = Int32.Parse(preId);
+                    }
+                    else
+                    {
+                        return false;//RedirectToAction("Login", "Account");
+                    }
                 }
                 else
                 {
-                    return RedirectToAction("Login", "Account");
+                    if ((Int32.TryParse(Session["id"].ToString(), out id)) == true)
+                    {
+                        //out int id = int id 
+                    }
+                    else
+                    {
+                        return true;//RedirectToAction("Index", "Home");
+                    }
                 }
             }
-            else
-            {
-                if ((Int32.TryParse(Session["id"].ToString(), out id)) == true)
-                {
-                    //out int id = int id 
-                }
-                else
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-            }
-            int i = 0;
+            
 
             XMLController XC = new XMLController();
             List<String> values = XC.readXML("plc", id);
@@ -78,7 +94,7 @@ namespace UsersDiosna.Controllers
             List<String> names = XC.readNodesNameXML("plc", id, 2);
             List<String> types = XC.XMLgetTypes("plc", id);
             string ProjectName = XC.readNodeXML("name", id);
-            i = 0;
+            int i = 0;
             foreach (String value in values)
             {
                 //String name = names[i] + items[i];
@@ -93,7 +109,7 @@ namespace UsersDiosna.Controllers
             Session.Add("types", types);
             Session.Add("ProjectName", ProjectName);
 
-            return RedirectToAction("Index", "Menu");
+            return true;//return RedirectToAction("Index", "Menu");
         }
     }
 }

@@ -182,5 +182,6 @@ textarea {
 }
 
 .th-Report {
+    text-align: center;
     min-width: 30px;
 }

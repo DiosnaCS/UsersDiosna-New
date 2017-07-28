@@ -6,7 +6,13 @@
 @{
     ViewBag.Title = "calender";
     string name = string.Empty;
+    int EndType = 0;
+    int amntTotal = 0;
+    int amntOverall= 0;
+    int amnt = 0;
+    bool colourRow;
     int count = 0;
+    int countOverall = 0;
     int year = ViewBag.year;
     int monthLess = ViewBag.Month - 1;
     int monthMore = ViewBag.Month + 1;
@@ -21,6 +27,7 @@
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     DateTime monthDT = new DateTime(year, ViewBag.month, 1);
     string monthName = monthDT.ToString("MMMM");
+
 }
 
 <h4>Calender</h4>
@@ -35,14 +42,23 @@
         @for (int hours = 0;hours<24;hours++) {
             <th class="th-Report">@hours</th>
         }
-        <th>Batches count</th>
+        <th style="background-color: lightcyan;">Count</th>
+        <th style="background-color: lightgray;">Amount</th>
     </tr>
     </thead>
     @for (int day = 1; day <= DateTime.DaysInMonth(year, ViewBag.month); day++)
     {
-        @{ DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString(); }
+        @{ DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString();  }
         <tr>
-            <td>@day. @sDay</td>            
+            @if (dayDT.DayOfWeek == DayOfWeek.Saturday || dayDT.DayOfWeek == DayOfWeek.Sunday)
+            {
+                colourRow = true;
+                <td>@day. @sDay</td>
+            } else
+            {
+                colourRow = false;
+                <td>@day. @sDay</td>            
+            }
            @for (int hour = 0; hour < 24; hour++)
            {
                List<ViewHeaderBatch> batches = new List<ViewHeaderBatch>();
@@ -53,23 +69,86 @@
                    var data = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour);
                    foreach (var batch in data)
                    {
-                       if (batch.RecordNo != latestBatchNo)
+                       if (batch.Need != 0)
                        {
-                           batches.Add(new ViewHeaderBatch() { Name = batch.Destination, BatchNo = batch.BatchNo });
+                           amnt = batch.Need / 1000;
+                           amntTotal += amnt;
+                       }
+                       if (batch.BatchNo != latestBatchNo && (batch.RecordType != Operations.RecipeEnd))
+                       {
+
+                           batches.Add(new ViewHeaderBatch() { Name = batch.Destination, BatchNo = batch.BatchNo, AmntTotal = amnt, RecipeNo = batch.Variant1});
                            count++;
                        }
-                       latestBatchNo = batch.RecordNo;
+                       latestBatchNo = batch.BatchNo;
                    }
-
                }
-                <td>
-                    @foreach (var batch in batches) {
-                        <a href="/Report/Detail/@batch.BatchNo ">@batch.Name</a>
+               if (colourRow == true)
+               {
+                <td style="background-color: lightgoldenrodyellow">
+                    @foreach (var batch in batches)
+                    {
+                        if (Model.Data.Exists(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd))
+                        {
+                            EndType = Model.Data.Single(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd).Variant2; // takes endType
+                        }
+                        batch.Status = Convert.ToBoolean(EndType);
+                        if (batch.Status != false)
+                        {
+                            <b><a href="/Report/Detail/@batch.BatchNo" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                        }
+                        else
+                        {
+                            <b><a href="/Report/Detail/@batch.BatchNo" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                        }
                     }
-                </td>                
+                </td>
+               }
+               else
+               {
+                <td>
+                    @foreach (var batch in batches)
+                    {
+                        if (Model.Data.Exists(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd))
+                        {
+                            EndType = Model.Data.Single(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd).Variant2; // takes endType
+                        }
+                        batch.Status = Convert.ToBoolean(EndType);
+                        if (batch.Status != false)
+                        {
+                            <b><a href="/Report/Detail/@batch.BatchNo" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                        }
+                        else
+                        {
+                            <b><a href="/Report/Detail/@batch.BatchNo" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                        }
+                    }
+                </td>
+               }
            }
-            <td>@count</td>
-            @{count = 0;}
+            @if (count != 0)
+            {
+                <td  style="background-color: lightcyan; text-align: center;">@count</td>
+            } else {
+                <td style="background-color: lightcyan; text-align: center;"></td>
+            }
+            @{countOverall += count; count = 0; }
+            @if (amntTotal != 0)
+            {
+                <td style="background-color: lightgray; text-align: center; ">@amntTotal kg</td>
+            } else {
+                <td style="background-color: lightgray; text-align: center;"></td>
+            }
+            @{amntOverall += amntTotal; amntTotal = 0; }
         </tr>
     }
+    <tr>
+        <td><b>Total</b></td>
+        @for (int hours = 0; hours < 24; hours++)
+        {
+            <td class="th-Report"></td>
+        }
+        <td><b>@countOverall</b></td>
+        <td><b>@amntOverall kg</b></td>
+    </tr>
 </table>
