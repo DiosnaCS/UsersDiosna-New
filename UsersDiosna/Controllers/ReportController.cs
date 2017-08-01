@@ -48,7 +48,11 @@ namespace UsersDiosna.Controllers
             DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
             foreach (var report in model.Data)
             {
-                report.Destination = tankNames[int.Parse(report.Destination)];
+                int dest = int.Parse(report.Destination);
+                if (tankNames.Keys.Contains(dest))
+                    report.Destination = tankNames[dest];
+                else
+                    Session["tempforview"] = "Check configuration of report config";
             }
             ViewBag.month = month;
             ViewBag.year = year;
@@ -69,7 +73,12 @@ namespace UsersDiosna.Controllers
             DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
             foreach (var report in model.Data)
             {
-                report.Destination = tankNames[int.Parse(report.Destination)];
+                int dest = int.Parse(report.Destination);
+                if (tankNames.Keys.Contains(dest))
+                    report.Destination = tankNames[dest];
+                else
+                    Session["tempforview"] = "Check configuration of report config";
+                //report.Destination = tankNames[int.Parse(report.Destination)];
             }
             ViewBag.month = month;
             ViewBag.year = year;
@@ -81,14 +90,18 @@ namespace UsersDiosna.Controllers
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel data = db.SelectSteps(id, table);
 
+            //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
             ViewBag.AmntTotal = data.Data.Single(p => p.RecordType == Operations.RecipeStart).Need;
             //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
                 ViewBag.InteruptedCounts = data.Data.Where(p => p.RecordType == Operations.Interrupt).Count();
             //if (data.Data.Exists(p=> p.RecordType == Operations.StepSkip))
                 ViewBag.NumberOfStepsSkipped = data.Data.Where(p => p.RecordType == Operations.StepSkip).Count();
             ViewBag.BatchNo = id;
-            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
-
+            int dest = int.Parse(data.Data[0].Destination);
+            if (tankNames.Keys.Contains(dest))
+                ViewBag.Destination = tankNames[dest];
+            else
+                Session["tempforview"] = "Check configuration of report config"; 
             return View(data.Data);
         }
 
@@ -104,7 +117,11 @@ namespace UsersDiosna.Controllers
             DataReportModel data = db.SelectSteps(BatchNo, table);
 
             ViewBag.BatchNo = BatchNo;
-            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
+            int dest = int.Parse(data.Data[0].Destination);
+            if (tankNames.Keys.Contains(dest))
+                ViewBag.Destination = tankNames[dest];
+            else
+                Session["tempforview"] = "Check configuration of report config";
 
             return View("Detail", data.Data);
         }
@@ -121,7 +138,11 @@ namespace UsersDiosna.Controllers
             DataReportModel data = db.SelectSteps(BatchNo, table);
 
             ViewBag.BatchNo = BatchNo;
-            ViewBag.Destination = tankNames[int.Parse(data.Data[0].Destination)];
+            int dest = int.Parse(data.Data[0].Destination);
+            if (tankNames.Keys.Contains(dest))
+                ViewBag.Destination = tankNames[dest];
+            else
+                Session["tempforview"] = "Check configuration of report config";
 
             return View("Detail", data.Data);
         }

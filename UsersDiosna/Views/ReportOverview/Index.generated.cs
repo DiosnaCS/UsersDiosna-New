@@ -58,10 +58,23 @@ namespace ASP
     string name = string.Empty;
     int EndType = 0;
     int amntTotal = 0;
-    int amntOverall = 0;
+    int MotherAmntOverall = 0;
+    int MotherCountOverall = 0;
+    int FlourAmountOverall = 0;
+    int FlourCountOverall = 0;
+    int WaterAmountOverall = 0;
+    int WaterCountOverall = 0;
+    int OldBreadAmountOverall = 0;
+    int OldBreadCountOverall = 0;
+    int LiquidYeastAmountOverall = 0;
+    int LiquidYeastCountOverall = 0;
+    int MixtureAmountOverall = 0;
+    int MixtureCountOverall = 0;
+    int GenericAmountOverall = 0;
+    int GenericCountOverall = 0;
     int amnt = 0;
     bool colourRow;
-    int count = 0;
+    int countHeades = 0;
     int countOverall = 0;
     int year = ViewBag.year;
     int monthLess = ViewBag.Month - 1;
@@ -92,29 +105,29 @@ WriteLiteral(">\r\n    <a");
 
 WriteLiteral(" class=\"btn-primary btn-xs\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 886), Tuple.Create("\"", 931)
-, Tuple.Create(Tuple.Create("", 893), Tuple.Create("/ReportOverview/Month/", 893), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 1347), Tuple.Create("\"", 1392)
+, Tuple.Create(Tuple.Create("", 1354), Tuple.Create("/ReportOverview/Month/", 1354), true)
             
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 915), Tuple.Create<System.Object, System.Int32>(monthLess
-            
-            #line default
-            #line hidden
-, 915), false)
-, Tuple.Create(Tuple.Create("", 925), Tuple.Create("/", 925), true)
-            
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 926), Tuple.Create<System.Object, System.Int32>(year
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1376), Tuple.Create<System.Object, System.Int32>(monthLess
             
             #line default
             #line hidden
-, 926), false)
+, 1376), false)
+, Tuple.Create(Tuple.Create("", 1386), Tuple.Create("/", 1386), true)
+            
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1387), Tuple.Create<System.Object, System.Int32>(year
+            
+            #line default
+            #line hidden
+, 1387), false)
 );
 
 WriteLiteral(">-1 month</a> Month: ");
 
             
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
                                                                                                Write(monthName);
 
             
@@ -123,7 +136,7 @@ WriteLiteral(">-1 month</a> Month: ");
 WriteLiteral(" ");
 
             
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
                                                                                                           Write(year);
 
             
@@ -133,23 +146,23 @@ WriteLiteral(" <a");
 
 WriteLiteral(" class=\"btn-primary btn-xs\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 999), Tuple.Create("\"", 1044)
-, Tuple.Create(Tuple.Create("", 1006), Tuple.Create("/ReportOverview/Month/", 1006), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 1460), Tuple.Create("\"", 1505)
+, Tuple.Create(Tuple.Create("", 1467), Tuple.Create("/ReportOverview/Month/", 1467), true)
             
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
-                                                                                               , Tuple.Create(Tuple.Create("", 1028), Tuple.Create<System.Object, System.Int32>(monthMore
-            
-            #line default
-            #line hidden
-, 1028), false)
-, Tuple.Create(Tuple.Create("", 1038), Tuple.Create("/", 1038), true)
-            
-            #line 37 "..\..\Views\ReportOverview\Index.cshtml"
-                                                                                                          , Tuple.Create(Tuple.Create("", 1039), Tuple.Create<System.Object, System.Int32>(year
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                               , Tuple.Create(Tuple.Create("", 1489), Tuple.Create<System.Object, System.Int32>(monthMore
             
             #line default
             #line hidden
-, 1039), false)
+, 1489), false)
+, Tuple.Create(Tuple.Create("", 1499), Tuple.Create("/", 1499), true)
+            
+            #line 50 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                          , Tuple.Create(Tuple.Create("", 1500), Tuple.Create<System.Object, System.Int32>(year
+            
+            #line default
+            #line hidden
+, 1500), false)
 );
 
 WriteLiteral(">+1 month</a>\r\n    <p></p>\r\n</div>\r\n<table");
@@ -159,14 +172,14 @@ WriteLiteral(" class=\"table-bordered table-condensed table-hover\"");
 WriteLiteral(">\r\n    <thead>\r\n        <tr>\r\n            <th>Day</th>\r\n");
 
             
-            #line 44 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 57 "..\..\Views\ReportOverview\Index.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 44 "..\..\Views\ReportOverview\Index.cshtml"
-             if(Model.Data.Max(p=> p.MotherCultureBatchCount > 0)) {
+            #line 57 "..\..\Views\ReportOverview\Index.cshtml"
+             if (Model.Data.Max(p => p.MotherCultureBatchCount > 0)) {
 
             
             #line default
@@ -180,7 +193,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 47 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 60 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -189,7 +202,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 48 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 61 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.FlourBatchCount > 0)) {
 
             
@@ -204,7 +217,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 51 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 64 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -213,7 +226,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 52 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 65 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.WaterBatchCount > 0)) {
 
             
@@ -228,7 +241,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 55 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 68 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -237,7 +250,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 56 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 69 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.OldBreadBatchCount > 0)) {
 
             
@@ -252,7 +265,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 59 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 72 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -261,7 +274,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 60 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 73 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.LiquidYeastBatchCount > 0)) {
 
             
@@ -276,7 +289,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 63 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 76 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -285,7 +298,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 64 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 77 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.MixtureBatchCount > 0)) {
 
             
@@ -300,7 +313,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 67 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 80 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -309,7 +322,7 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 68 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 81 "..\..\Views\ReportOverview\Index.cshtml"
              if (Model.Data.Max(p => p.GenericBatchCount > 0)) {
 
             
@@ -324,7 +337,7 @@ WriteLiteral(" class=\"th-Report\"");
 WriteLiteral("></td>\r\n");
 
             
-            #line 71 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 84 "..\..\Views\ReportOverview\Index.cshtml"
             }
 
             
@@ -333,13 +346,13 @@ WriteLiteral("></td>\r\n");
 WriteLiteral("        </tr>\r\n    </thead>\r\n");
 
             
-            #line 74 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 87 "..\..\Views\ReportOverview\Index.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 74 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 87 "..\..\Views\ReportOverview\Index.cshtml"
      for (int day = 1; day <= DateTime.DaysInMonth(year, ViewBag.month); day++)
     {
         
@@ -347,13 +360,13 @@ WriteLiteral("        </tr>\r\n    </thead>\r\n");
             #line default
             #line hidden
             
-            #line 76 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 89 "..\..\Views\ReportOverview\Index.cshtml"
            DateTime dayDT = new DateTime(year, ViewBag.month, day); string sDay = dayDT.DayOfWeek.ToString();  
             
             #line default
             #line hidden
             
-            #line 76 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 89 "..\..\Views\ReportOverview\Index.cshtml"
                                                                                                                 
 
             
@@ -362,13 +375,13 @@ WriteLiteral("        </tr>\r\n    </thead>\r\n");
 WriteLiteral("            <tr>\r\n");
 
             
-            #line 78 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 91 "..\..\Views\ReportOverview\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 78 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 91 "..\..\Views\ReportOverview\Index.cshtml"
                  if (dayDT.DayOfWeek == DayOfWeek.Saturday || dayDT.DayOfWeek == DayOfWeek.Sunday)
                 {
                     colourRow = true;
@@ -383,7 +396,7 @@ WriteLiteral(" style=\"background-color: lightgoldenrodyellow\"");
 WriteLiteral(">");
 
             
-            #line 81 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 94 "..\..\Views\ReportOverview\Index.cshtml"
                                                                   Write(day);
 
             
@@ -392,7 +405,7 @@ WriteLiteral(">");
 WriteLiteral(". ");
 
             
-            #line 81 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 94 "..\..\Views\ReportOverview\Index.cshtml"
                                                                         Write(sDay);
 
             
@@ -401,7 +414,7 @@ WriteLiteral(". ");
 WriteLiteral("</td>\r\n");
 
             
-            #line 82 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 95 "..\..\Views\ReportOverview\Index.cshtml"
                 }
                 else
                 {
@@ -413,7 +426,7 @@ WriteLiteral("</td>\r\n");
 WriteLiteral("                    <td>");
 
             
-            #line 86 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 99 "..\..\Views\ReportOverview\Index.cshtml"
                    Write(day);
 
             
@@ -422,7 +435,7 @@ WriteLiteral("                    <td>");
 WriteLiteral(". ");
 
             
-            #line 86 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 99 "..\..\Views\ReportOverview\Index.cshtml"
                          Write(sDay);
 
             
@@ -431,7 +444,7 @@ WriteLiteral(". ");
 WriteLiteral("</td>\r\n");
 
             
-            #line 87 "..\..\Views\ReportOverview\Index.cshtml"
+            #line 100 "..\..\Views\ReportOverview\Index.cshtml"
                 }
 
             
@@ -440,8 +453,206 @@ WriteLiteral("</td>\r\n");
 WriteLiteral("                ");
 
             
-            #line 88 "..\..\Views\ReportOverview\Index.cshtml"
-                 if (Model.Data.Where(p =>  >= day) {
+            #line 101 "..\..\Views\ReportOverview\Index.cshtml"
+                 if (Model.Data.Exists(p => p.day == day))
+                {
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 103 "..\..\Views\ReportOverview\Index.cshtml"
+                       int? MotherAmount = Model.Data.Single(p => p.day == day).MotherCultureAmnt / 1000;
+                        if (MotherAmount != null) {
+                            MotherAmntOverall += (int)MotherAmount; }
+            
+            #line default
+            #line hidden
+            
+            #line 105 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                      
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 106 "..\..\Views\ReportOverview\Index.cshtml"
+                       int? MotherCount = Model.Data.Single(p => p.day == day).MotherCultureBatchCount;
+                        if (MotherCount != null)
+                        {
+                            MotherCountOverall += (int)MotherCount;
+                        } 
+            
+            #line default
+            #line hidden
+            
+            #line 110 "..\..\Views\ReportOverview\Index.cshtml"
+                           
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 111 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? FlourAmount = Model.Data.Single(p => p.day == day).FlourAmnt / 1000; if (FlourAmount != null)
+                        {
+                            FlourAmountOverall += (int)FlourAmount;
+                        } 
+            
+            #line default
+            #line hidden
+            
+            #line 114 "..\..\Views\ReportOverview\Index.cshtml"
+                           
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 115 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? FlourCount = Model.Data.Single(p => p.day == day).FlourBatchCount; if (FlourCount != null)
+                        {
+                            FlourCountOverall += (int)FlourCount;
+                        } 
+            
+            #line default
+            #line hidden
+            
+            #line 118 "..\..\Views\ReportOverview\Index.cshtml"
+                           
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 119 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? WaterAmount = Model.Data.Single(p => p.day == day).WaterAmnt / 1000; if (WaterAmount != null)
+                            {
+                                WaterAmountOverall += (int)WaterAmount;
+                            }
+            
+            #line default
+            #line hidden
+            
+            #line 122 "..\..\Views\ReportOverview\Index.cshtml"
+                              
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 123 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? WaterCount = Model.Data.Single(p => p.day == day).WaterBatchCount; if (WaterCount != null) { WaterCountOverall += (int)WaterCount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 123 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                 
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 124 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? OldBreadAmount = Model.Data.Single(p => p.day == day).OldBreadAmnt / 1000; if (OldBreadAmount != null) { OldBreadAmountOverall += (int)OldBreadAmount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 124 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                     
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 125 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? OldBreadCount = Model.Data.Single(p => p.day == day).OldBreadBatchCount; if (OldBreadCount != null) { OldBreadCountOverall += (int)OldBreadCount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 125 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 126 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? LiquidYeastAmount = Model.Data.Single(p => p.day == day).LiquidYeastAmnt / 1000; if (LiquidYeastAmount != null) { LiquidYeastAmountOverall += (int)LiquidYeastAmount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 126 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                                    
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 127 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? LiquidYeastCount = Model.Data.Single(p => p.day == day).LiquidYeastBatchCount; if (LiquidYeastCount != null) { LiquidYeastCountOverall += (int)LiquidYeastCount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 127 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                               
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 128 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? MixtureAmount = Model.Data.Single(p => p.day == day).MixtureAmnt / 1000; if (MixtureAmount != null) { MixtureAmountOverall += (int)MixtureAmount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 128 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 129 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? MixtureCount = Model.Data.Single(p => p.day == day).MixtureBatchCount; if (MixtureCount != null) { MixtureCountOverall += (int)MixtureCount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 129 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                           
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 130 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? GenericAmount = Model.Data.Single(p => p.day == day).GenericAmnt / 1000; if (GenericAmount != null) { GenericAmountOverall += (int)GenericAmount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 130 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                                
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 131 "..\..\Views\ReportOverview\Index.cshtml"
+                      int? GenericCount = Model.Data.Single(p => p.day == day).GenericBatchCount; if (GenericCount != null) { GenericCountOverall += (int)GenericCount; } 
+            
+            #line default
+            #line hidden
+            
+            #line 131 "..\..\Views\ReportOverview\Index.cshtml"
+                                                                                                                                                                           
 
             
             #line default
@@ -449,152 +660,704 @@ WriteLiteral("                ");
 WriteLiteral("                    <td>");
 
             
-            #line 89 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day-1].MotherCultureAmnt);
+            #line 132 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(MotherAmount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 90 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].MotherCultureBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 91 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].FlourAmnt);
+            #line 133 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(MotherCount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 92 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].FlourBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 93 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].WaterAmnt);
+            #line 134 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(FlourAmount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 94 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].WaterBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 95 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].OldBreadAmnt);
+            #line 135 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(FlourCount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 96 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].OldBreadBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 97 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].LiquidYeastAmnt);
+            #line 136 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(WaterAmount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 98 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].LiquidYeastBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 99 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].MixtureAmnt);
+            #line 137 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(WaterCount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 100 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].MixtureBatchCount);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("</td>\r\n                    <td>");
-
-            
-            #line 101 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].GenericAmnt);
+            #line 138 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(OldBreadAmount);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td>");
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
 
             
-            #line 102 "..\..\Views\ReportOverview\Index.cshtml"
-                   Write(Model.Data[day - 1].GenericBatchCount);
+            #line 139 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(OldBreadCount);
 
             
             #line default
             #line hidden
-WriteLiteral(@"</td>
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 140 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(LiquidYeastAmount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 141 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(LiquidYeastCount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 142 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(MixtureAmount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 143 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(MixtureCount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 144 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(GenericAmount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+WriteLiteral("                    <td>");
+
+            
+            #line 145 "..\..\Views\ReportOverview\Index.cshtml"
+                   Write(GenericCount);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n");
+
+            
+            #line 146 "..\..\Views\ReportOverview\Index.cshtml"
                 }
-                else
-                {
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                }
-            </tr>
-");
-
+               
             
-            #line 115 "..\..\Views\ReportOverview\Index.cshtml"
-    }
+            #line default
+            #line hidden
+            
+            #line 163 "..\..\Views\ReportOverview\Index.cshtml"
+                   
 
             
             #line default
             #line hidden
-WriteLiteral("</table>");
+WriteLiteral("            </tr>\r\n");
+
+            
+            #line 165 "..\..\Views\ReportOverview\Index.cshtml"
+                        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <tr>\r\n        <td><b>Summary</b></td>\r\n");
+
+            
+            #line 168 "..\..\Views\ReportOverview\Index.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 168 "..\..\Views\ReportOverview\Index.cshtml"
+         if (MotherAmntOverall != 0) {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 169 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(MotherAmntOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 170 "..\..\Views\ReportOverview\Index.cshtml"
+        } else {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 172 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 173 "..\..\Views\ReportOverview\Index.cshtml"
+         if (MotherCountOverall != 0) {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <td><b>");
+
+            
+            #line 174 "..\..\Views\ReportOverview\Index.cshtml"
+          Write(MotherCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 175 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 178 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 179 "..\..\Views\ReportOverview\Index.cshtml"
+         if (FlourAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 180 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(FlourAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 181 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 184 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 185 "..\..\Views\ReportOverview\Index.cshtml"
+         if (FlourCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 186 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(FlourCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 187 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 190 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 191 "..\..\Views\ReportOverview\Index.cshtml"
+         if (WaterAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 192 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(WaterAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 193 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 196 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 197 "..\..\Views\ReportOverview\Index.cshtml"
+         if (WaterCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 198 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(MotherCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 199 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 202 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 203 "..\..\Views\ReportOverview\Index.cshtml"
+         if (OldBreadAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 204 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(OldBreadAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 205 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 208 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 209 "..\..\Views\ReportOverview\Index.cshtml"
+         if (OldBreadCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 210 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(OldBreadCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 211 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 214 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 215 "..\..\Views\ReportOverview\Index.cshtml"
+         if (LiquidYeastAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 216 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(LiquidYeastAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 217 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 220 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 221 "..\..\Views\ReportOverview\Index.cshtml"
+         if (LiquidYeastCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 222 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(LiquidYeastCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 223 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 226 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 227 "..\..\Views\ReportOverview\Index.cshtml"
+         if (MixtureAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 228 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(MixtureAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 229 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 232 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 233 "..\..\Views\ReportOverview\Index.cshtml"
+         if (MixtureCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 234 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(MixtureCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 235 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 238 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 239 "..\..\Views\ReportOverview\Index.cshtml"
+         if (GenericAmountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 240 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(GenericAmountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 241 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 244 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        ");
+
+            
+            #line 245 "..\..\Views\ReportOverview\Index.cshtml"
+         if (GenericCountOverall != 0)        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td><b>");
+
+            
+            #line 246 "..\..\Views\ReportOverview\Index.cshtml"
+              Write(GenericCountOverall);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b></td>\r\n");
+
+            
+            #line 247 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+        else        {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("            <td></td>\r\n");
+
+            
+            #line 250 "..\..\Views\ReportOverview\Index.cshtml"
+        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    </tr>\r\n</table>");
 
         }
     }

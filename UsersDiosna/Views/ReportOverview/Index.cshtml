@@ -7,10 +7,23 @@
     string name = string.Empty;
     int EndType = 0;
     int amntTotal = 0;
-    int amntOverall = 0;
+    int MotherAmntOverall = 0;
+    int MotherCountOverall = 0;
+    int FlourAmountOverall = 0;
+    int FlourCountOverall = 0;
+    int WaterAmountOverall = 0;
+    int WaterCountOverall = 0;
+    int OldBreadAmountOverall = 0;
+    int OldBreadCountOverall = 0;
+    int LiquidYeastAmountOverall = 0;
+    int LiquidYeastCountOverall = 0;
+    int MixtureAmountOverall = 0;
+    int MixtureCountOverall = 0;
+    int GenericAmountOverall = 0;
+    int GenericCountOverall = 0;
     int amnt = 0;
     bool colourRow;
-    int count = 0;
+    int countHeades = 0;
     int countOverall = 0;
     int year = ViewBag.year;
     int monthLess = ViewBag.Month - 1;
@@ -41,7 +54,7 @@
     <thead>
         <tr>
             <th>Day</th>
-            @if(Model.Data.Max(p=> p.MotherCultureBatchCount > 0)) {
+            @if (Model.Data.Max(p => p.MotherCultureBatchCount > 0)) {
                 <th>Mother culture</th>
                 <td class="th-Report"></td>
             }
@@ -85,23 +98,53 @@
                     colourRow = false;
                     <td>@day. @sDay</td>
                 }
-                @if (Model.Data.Where(p =>  >= day) {
-                    <td>@Model.Data[day-1].MotherCultureAmnt</td>
-                    <td>@Model.Data[day - 1].MotherCultureBatchCount</td>
-                    <td>@Model.Data[day - 1].FlourAmnt</td>
-                    <td>@Model.Data[day - 1].FlourBatchCount</td>
-                    <td>@Model.Data[day - 1].WaterAmnt</td>
-                    <td>@Model.Data[day - 1].WaterBatchCount</td>
-                    <td>@Model.Data[day - 1].OldBreadAmnt</td>
-                    <td>@Model.Data[day - 1].OldBreadBatchCount</td>
-                    <td>@Model.Data[day - 1].LiquidYeastAmnt</td>
-                    <td>@Model.Data[day - 1].LiquidYeastBatchCount</td>
-                    <td>@Model.Data[day - 1].MixtureAmnt</td>
-                    <td>@Model.Data[day - 1].MixtureBatchCount</td>
-                    <td>@Model.Data[day - 1].GenericAmnt</td>
-                    <td>@Model.Data[day - 1].GenericBatchCount</td>
+                @if (Model.Data.Exists(p => p.day == day))
+                {
+                    @{ int? MotherAmount = Model.Data.Single(p => p.day == day).MotherCultureAmnt / 1000;
+                        if (MotherAmount != null) {
+                            MotherAmntOverall += (int)MotherAmount; }}
+                    @{ int? MotherCount = Model.Data.Single(p => p.day == day).MotherCultureBatchCount;
+                        if (MotherCount != null)
+                        {
+                            MotherCountOverall += (int)MotherCount;
+                        } }
+                    @{int? FlourAmount = Model.Data.Single(p => p.day == day).FlourAmnt / 1000; if (FlourAmount != null)
+                        {
+                            FlourAmountOverall += (int)FlourAmount;
+                        } }
+                    @{int? FlourCount = Model.Data.Single(p => p.day == day).FlourBatchCount; if (FlourCount != null)
+                        {
+                            FlourCountOverall += (int)FlourCount;
+                        } }
+                    @{int? WaterAmount = Model.Data.Single(p => p.day == day).WaterAmnt / 1000; if (WaterAmount != null)
+                            {
+                                WaterAmountOverall += (int)WaterAmount;
+                            }}
+                    @{int? WaterCount = Model.Data.Single(p => p.day == day).WaterBatchCount; if (WaterCount != null) { WaterCountOverall += (int)WaterCount; } }
+                    @{int? OldBreadAmount = Model.Data.Single(p => p.day == day).OldBreadAmnt / 1000; if (OldBreadAmount != null) { OldBreadAmountOverall += (int)OldBreadAmount; } }
+                    @{int? OldBreadCount = Model.Data.Single(p => p.day == day).OldBreadBatchCount; if (OldBreadCount != null) { OldBreadCountOverall += (int)OldBreadCount; } }
+                    @{int? LiquidYeastAmount = Model.Data.Single(p => p.day == day).LiquidYeastAmnt / 1000; if (LiquidYeastAmount != null) { LiquidYeastAmountOverall += (int)LiquidYeastAmount; } }
+                    @{int? LiquidYeastCount = Model.Data.Single(p => p.day == day).LiquidYeastBatchCount; if (LiquidYeastCount != null) { LiquidYeastCountOverall += (int)LiquidYeastCount; } }
+                    @{int? MixtureAmount = Model.Data.Single(p => p.day == day).MixtureAmnt / 1000; if (MixtureAmount != null) { MixtureAmountOverall += (int)MixtureAmount; } }
+                    @{int? MixtureCount = Model.Data.Single(p => p.day == day).MixtureBatchCount; if (MixtureCount != null) { MixtureCountOverall += (int)MixtureCount; } }
+                    @{int? GenericAmount = Model.Data.Single(p => p.day == day).GenericAmnt / 1000; if (GenericAmount != null) { GenericAmountOverall += (int)GenericAmount; } }
+                    @{int? GenericCount = Model.Data.Single(p => p.day == day).GenericBatchCount; if (GenericCount != null) { GenericCountOverall += (int)GenericCount; } }
+                    <td>@MotherAmount</td>
+                    <td>@MotherCount</td>
+                    <td>@FlourAmount</td>
+                    <td>@FlourCount</td>
+                    <td>@WaterAmount</td>
+                    <td>@WaterCount</td>
+                    <td>@OldBreadAmount</td>
+                    <td>@OldBreadCount</td>
+                    <td>@LiquidYeastAmount</td>
+                    <td>@LiquidYeastCount</td>
+                    <td>@MixtureAmount</td>
+                    <td>@MixtureCount</td>
+                    <td>@GenericAmount</td>
+                    <td>@GenericCount</td>
                 }
-                else
+               @* else
                 {
                     <td></td>
                     <td></td>
@@ -110,7 +153,100 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                }
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                }*@
             </tr>
-    }
+                        }
+    <tr>
+        <td><b>Summary</b></td>
+        @if (MotherAmntOverall != 0) {
+            <td><b>@MotherAmntOverall</b></td>
+        } else {
+            <td></td>
+        }
+        @if (MotherCountOverall != 0) {
+        <td><b>@MotherCountOverall</b></td>
+        }
+        else {
+            <td></td>
+        }
+        @if (FlourAmountOverall != 0)        {
+            <td><b>@FlourAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (FlourCountOverall != 0)        {
+            <td><b>@FlourCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (WaterAmountOverall != 0)        {
+            <td><b>@WaterAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (WaterCountOverall != 0)        {
+            <td><b>@MotherCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (OldBreadAmountOverall != 0)        {
+            <td><b>@OldBreadAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (OldBreadCountOverall != 0)        {
+            <td><b>@OldBreadCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (LiquidYeastAmountOverall != 0)        {
+            <td><b>@LiquidYeastAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (LiquidYeastCountOverall != 0)        {
+            <td><b>@LiquidYeastCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (MixtureAmountOverall != 0)        {
+            <td><b>@MixtureAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (MixtureCountOverall != 0)        {
+            <td><b>@MixtureCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (GenericAmountOverall != 0)        {
+            <td><b>@GenericAmountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+        @if (GenericCountOverall != 0)        {
+            <td><b>@GenericCountOverall</b></td>
+        }
+        else        {
+            <td></td>
+        }
+    </tr>
 </table>

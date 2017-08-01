@@ -42,65 +42,16 @@ namespace UsersDiosna.Controllers
             }
 
             ReportDBHelper db = new ReportDBHelper(DB, 2);
-            DataReportModel data = db.SelectConsumption(thisMonthStart, thisMontEnd, table);
-            OverviewReportModel ORM = new OverviewReportModel();
-            ORM.Data = new List<OverviewReportDataModel>();
+            OverviewReportModel data = db.SelectConsumption(thisMonthStart, thisMontEnd, table);
 
-            foreach (var batch in data.Data)
-            {                
-                if (batch.BatchNo != prevouseBatchNo)
-                {
-                    OverviewReportDataModel ORDM = new OverviewReportDataModel();
-
-                    prevouseBatchNo = batch.BatchNo;
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingMotherCulture && p.BatchNo == batch.BatchNo))
-                    {
-                        var MotherCultureFilling = data.Data.Where(p => p.RecordType == Operations.FillingMotherCulture && p.BatchNo == batch.BatchNo);
-                        ORDM.MotherCultureBatchCount = MotherCultureFilling.Count();
-                        ORDM.MotherCultureAmnt = MotherCultureFilling.Sum(p => p.Actual);
-                    }
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingFlour && p.BatchNo == batch.BatchNo))
-                    {
-                        var FillingFlour = data.Data.Where(p => p.RecordType == Operations.FillingFlour && p.BatchNo == batch.BatchNo);
-                        ORDM.FlourBatchCount = FillingFlour.Count();
-                        ORDM.FlourAmnt = FillingFlour.Sum(p => p.Actual);
-                    }
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingOldBread && p.BatchNo == batch.BatchNo))
-                    {
-                        var FillingOldBread = data.Data.Where(p => p.RecordType == Operations.FillingOldBread && p.BatchNo == batch.BatchNo);
-                        ORDM.OldBreadBatchCount = FillingOldBread.Count();
-                        ORDM.OldBreadAmnt = FillingOldBread.Sum(p => p.Actual);
-                    }
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingLiquidYeast && p.BatchNo == batch.BatchNo))
-                    {
-                        var FillingLiquidYeast = data.Data.Where(p => p.RecordType == Operations.FillingLiquidYeast && p.BatchNo == batch.BatchNo);
-                        ORDM.LiquidYeastBatchCount = FillingLiquidYeast.Count();
-                        ORDM.LiquidYeastAmnt = FillingLiquidYeast.Sum(p => p.Actual);
-                    }
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingMixture && p.BatchNo == batch.BatchNo))
-                    {
-                        var FillingMixture = data.Data.Where(p => p.RecordType == Operations.FillingMixture && p.BatchNo == batch.BatchNo);
-                        ORDM.MixtureBatchCount = FillingMixture.Count();
-                        ORDM.MixtureAmnt = FillingMixture.Sum(p => p.Actual);
-                    }
-                    if (data.Data.Exists(p => p.RecordType == Operations.FillingGenericComponent && p.BatchNo == batch.BatchNo))
-                    {
-                        var FillingGenericComponent = data.Data.Where(p => p.RecordType == Operations.FillingGenericComponent && p.BatchNo == batch.BatchNo);
-                        ORDM.GenericBatchCount = FillingGenericComponent.Count();
-                        ORDM.GenericAmnt = FillingGenericComponent.Sum(p => p.Actual);
-                    }
-                    ORM.Data.Add(ORDM);
-                }
-                
-            }
             ViewBag.month = month;
             ViewBag.year = year;
 
-            return View(ORM);
+            return View(data);
         }
         public ActionResult Month(int year, int month)
         {
             return View();
         }
     }
-}
+} 

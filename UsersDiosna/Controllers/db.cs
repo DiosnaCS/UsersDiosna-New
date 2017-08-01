@@ -792,7 +792,7 @@ namespace UsersDiosna.Controllers
                 if (r[2] != DBNull.Value)
                 {
                     long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
-                    CRM.TimeStart = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                    CRM.TimeStart = new DateTime(((630822816000000000) + timeInNanoSeconds));
                 }
                 // r[3] should be TimeEnd and TimeEnd is irrelevant for header data
                 if (r[4] != DBNull.Value)
@@ -872,12 +872,12 @@ namespace UsersDiosna.Controllers
                 if (r[2] != DBNull.Value)
                 {
                     long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
-                    CRM.TimeStart = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                    CRM.TimeStart = new DateTime(((630822816000000000) + timeInNanoSeconds));
                 }
                 if (r[3] != DBNull.Value)
                 {
-                    long timeInNanoSeconds = int.Parse(r[3].ToString());
-                    CRM.TimeEnd = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
+                    long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
+                    CRM.TimeEnd = new DateTime(((630822816000000000) + timeInNanoSeconds));
                 }
                 //r[4] is BatchNo and we dont need BatchNo
                 if (r[5] != DBNull.Value)
@@ -920,17 +920,19 @@ namespace UsersDiosna.Controllers
             return data;
         }
 
-        public DataReportModel SelectConsumption(DateTime from, DateTime to, string table)
+        public OverviewReportModel SelectConsumption(DateTime from, DateTime to, string table)
         {
             // variables initialization
-            DataReportModel data = new DataReportModel();
-            data.Data = new List<ColumnReportModel>();
+            OverviewReportModel data = new OverviewReportModel();
+            data.Data = new List<OverviewReportDataModel>();
             string columns = string.Empty;
             string where = string.Empty;
-
+            int oldDay = 1;
+            int newDay = 1;
+            int thisBatchNo = 0;
             int pkTimeStart = ConvertDT2pkTime(from);
             int pkTimeEnd = ConvertDT2pkTime(to);
-
+            OverviewReportDataModel ORDM = new OverviewReportDataModel();
             //gett where condition
             /* Indexes of result set
              0 => RecordNo 
@@ -946,16 +948,24 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28", table, pkTimeStart, pkTimeEnd);
+            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28 ORDER BY \"TimeEnd\" ASC", table, pkTimeStart, pkTimeEnd);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
             while (r.Read())
             {
                 ColumnReportModel CRM = new ColumnReportModel();
+                
                 if (r[1] != DBNull.Value)
                 {
                     CRM.RecordType = (Operations)int.Parse(r[1].ToString());
+                }
+                if (r[3] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
+                    CRM.TimeEnd = new DateTime((630822816000000000) + timeInNanoSeconds);
+                    if (CRM.TimeEnd.Day > newDay)
+                        newDay = CRM.TimeEnd.Day;
                 }
                 if (r[4] != DBNull.Value)
                 {
@@ -965,10 +975,107 @@ namespace UsersDiosna.Controllers
                 {
                     if ((int)r[7] != 0)
                         CRM.Actual = int.Parse(r[7].ToString());
+                    if (newDay <= oldDay)
+                    {
+                        switch (CRM.RecordType)
+                        {
+                            case Operations.FillingMotherCulture:
+                                if (ORDM.MotherCultureAmnt == null)
+                                    ORDM.MotherCultureAmnt = 0;
+                                ORDM.MotherCultureAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.MotherCultureBatchCount == null)
+                                        ORDM.MotherCultureBatchCount = 0;
+                                    ORDM.MotherCultureBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingFlour:
+                                if (ORDM.FlourAmnt == null)
+                                    ORDM.FlourAmnt = 0;
+                                ORDM.FlourAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.FlourBatchCount == null)
+                                        ORDM.FlourBatchCount = 0;
+                                    ORDM.FlourBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingWater:
+                                if (ORDM.WaterAmnt == null)
+                                    ORDM.WaterAmnt = 0;
+                                ORDM.WaterAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.WaterBatchCount == null)
+                                        ORDM.WaterBatchCount = 0;
+                                    ORDM.WaterBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingOldBread:
+                                if (ORDM.OldBreadAmnt == null)
+                                    ORDM.OldBreadAmnt = 0;
+                                ORDM.OldBreadAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.OldBreadBatchCount == null)
+                                        ORDM.OldBreadBatchCount = 0;
+                                    ORDM.OldBreadBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingLiquidYeast:
+                                if (ORDM.LiquidYeastAmnt == null)
+                                    ORDM.LiquidYeastAmnt = 0;
+                                ORDM.LiquidYeastAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.LiquidYeastBatchCount == null)
+                                        ORDM.LiquidYeastBatchCount = 0;
+                                    ORDM.LiquidYeastBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingMixture:
+                                if (ORDM.MixtureAmnt == null)
+                                    ORDM.MixtureAmnt = 0;
+                                ORDM.MixtureAmnt += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.MixtureBatchCount == null)
+                                        ORDM.MixtureBatchCount = 0;
+                                    ORDM.MixtureBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            case Operations.FillingGenericComponent:
+                                if (ORDM.GenericAmnt == null)
+                                    ORDM.GenericAmnt = 0;
+                                ORDM.MixtureBatchCount += CRM.Actual;
+                                if (CRM.BatchNo != thisBatchNo)
+                                {
+                                    if (ORDM.GenericBatchCount == null)
+                                        ORDM.GenericBatchCount = 0;
+                                    ORDM.GenericBatchCount++;
+                                    thisBatchNo = CRM.BatchNo;
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+                        ORDM.day = newDay;
+                    }
+                    else {
+                        data.Data.Add(ORDM);
+                        ORDM = new OverviewReportDataModel();
+                        oldDay = newDay;
+                    }
                 }
-                data.Data.Add(CRM);
             }
-                  
+            
             r.Dispose();
             cmd.Dispose();
             return data;

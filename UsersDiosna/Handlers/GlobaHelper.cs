@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Web;
+using System.Collections.Generic;
 
 namespace UsersDiosna
 {
@@ -55,6 +56,21 @@ namespace UsersDiosna
                 array[i] = value;
             }
             return array;
+        }
+
+        public static List<T> Replace<T>(this List<T> list, T OldValue, T NewValue)
+        {
+            foreach (var value in list) {
+                if (value.GetType() ==  OldValue.GetType())
+                {
+                    if (value.ToString() == OldValue.ToString())
+                    {
+                        list.Remove(value);
+                        list.Add(value);
+                    }
+                }
+            }
+            return list;
         }
     }
 }

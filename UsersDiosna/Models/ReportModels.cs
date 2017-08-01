@@ -35,6 +35,7 @@ namespace UsersDiosna.Report.Models
     }
 
     public class OverviewReportDataModel {
+        public int? day { get; set; }
         //Columns of the table daily consumption
         public int? MotherCultureAmnt { get; set; }
         public int? MotherCultureBatchCount { get; set; }

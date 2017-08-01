@@ -162,7 +162,7 @@ WriteLiteral("            ");
             
             #line default
             #line hidden
-WriteLiteral(" in kg\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
 
 WriteLiteral("            ");
 
@@ -173,7 +173,7 @@ WriteLiteral("            ");
             
             #line default
             #line hidden
-WriteLiteral(" in kg\r\n        </th>\r\n        \r\n        <th>\r\n");
+WriteLiteral("\r\n        </th>\r\n        \r\n        <th>\r\n");
 
 WriteLiteral("            ");
 
