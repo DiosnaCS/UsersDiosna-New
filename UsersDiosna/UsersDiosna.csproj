@@ -280,6 +280,7 @@
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ReportDosingController.cs" />
     <Compile Include="Controllers\ReportOverviewController.cs" />
     <Compile Include="Handlers\CMSHelper.cs" />
     <Compile Include="Handlers\ReportHandler.cs" />
@@ -473,10 +474,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>News.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\Order.generated.cs">
+    <Compile Include="Views\Home\Compatibility.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Order.cshtml</DependentUpon>
+      <DependentUpon>Compatibility.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Manage\ChangePassword.generated.cs">
       <AutoGen>True</AutoGen>
@@ -552,6 +553,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Lockout.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\_LayoutMenu.generated.cs">
+      <DependentUpon>_LayoutMenu.cshtml</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Views\Shared\_Layout.generated.cs">
       <AutoGen>True</AutoGen>
@@ -629,6 +635,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\notification.js" />
     <Content Include="Scripts\notifyMe.js" />
+    <Content Include="Scripts\notZeroRender.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -736,9 +743,9 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>News.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Home\Order.cshtml">
+    <Content Include="Views\Home\Compatibility.cshtml">
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Order.generated.cs</LastGenOutput>
+      <LastGenOutput>Compatibility.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Download\Index.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -836,9 +843,14 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\Shared\_LayoutMenu.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>_LayoutMenu.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ReportDosing\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>

@@ -21,36 +21,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home", "Homepage", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Guest Zone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                @if (Request.IsAuthenticated)
-                {
-                <ul class="nav navbar-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="bell">Notifications <span class="glyphicon glyphicon-bell"></span></a>
-                        <ul class="dropdown-menu" id="notification">
-                            <li><a href="/Notification/"><b>Notifications center</b></a></li>
-                            @*Here will be new notification from javascript*@
-                        </ul>
-                    </li>
-                </ul>
-                }
-                @if (Session["types"] != null && ViewBag.menuDisable != true)
-                {
-                    <ul class="nav navbar-nav">
-                        <li onclick="menuShow()" style="cursor: pointer; cursor: hand;"><a id="menuShow"></a></li>
-                        <li onclick="menuHide()" style="cursor: pointer; cursor: hand;"><a id="menuHide">Hide Menu</a></li>
-                    </ul>
-                }
-                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     @if (Session["types"] != null && ViewBag.menuDisable != true)
     {
         <script>
-            var bMenuIsHide = false;
             function menuHide() {
                 bMenuIsHide = true;
                 $('#container-body').css('margin-left', 0);
@@ -59,8 +38,8 @@
                 $('.sidenav').hide();
                 $('#top_menu').css('left', 10);
                 $('#graph_content').css('left', 10);
+                $('#graph_content').css('left', 10);
                 $(window).css('width', windowWidth() - 1);
-                init();
             }
             function menuShow() {
                 bMenuIsHide = false;
@@ -70,7 +49,6 @@
                 $('.sidenav').show();
                 $('#top_menu').css('left', $('.sidenav').width() + 20);
                 $('#graph_content').css('left', $('.sidenav').width() + 20);
-                init();
             }
         </script>
         <div class="sidenav">

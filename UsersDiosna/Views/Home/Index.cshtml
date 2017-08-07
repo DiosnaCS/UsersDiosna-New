@@ -1,44 +1,21 @@
 ﻿
 @using Microsoft.AspNet.Identity
 @{
-    ViewBag.Title = "Homepage";
+    ViewBag.Title = "Guest Zone";
 }
-<h2>Homepage</h2>
-<div class="jumbotron">
-    @*<p class="lead">Prepare yourself for stunning experience on new users.nordit.cz vizulization platform with NORDIT platform brand</p>*@
-    @if (!(Request.IsAuthenticated))
-    {
-        <p class="lead">This is welcome screen please @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</p>
-    }
-    else
-    {
-        <p class="lead">If you want to continue into your bakery please @Html.ActionLink("click here", "Homepage", "Home")</p>
-    }
+<h2>Guest Zone</h2>
+<h6>Read general articles in our knowledge base: </h6>
+<div class="well">
+    <div class="btn-group btn-group-justified">
+        <a href="/Home/" class="btn btn-primary">Free documnets and info&rAarr;</a>
+    </div>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Errors</h2>
-        <p>
-            Have you find a bug in this system?<br>
-            Pleease write this bug as issue into our issue system
-        </p>
-        <p><a class="btn btn-default" href="https://github.com/Sidmarek/MVCTutorial/issues">Add Issue &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>News</h2>
-        <p>
-            In latest update have been add following features:<br>
-            Changes commit:  …<br>
-            scheme index h2 to h4<br>
-            graph getData async done<br>
-            graph client signals drawed<br>
-            menu small style changes<br>
-        </p>
-        <p><a class="btn btn-default" href="http://192.168.2.13/Home/News">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Link to old users.nordit.cz</h2>
-        <p>If you need old users click below</p>
-        <p><a class="btn btn-default" href="http://users.nordit.cz/">Bye &raquo;</a></p>
-    </div>
+<h6>About us and our partners</h6>
+<div class="well" style="background-color: white;">
+    <a href="http://www.diosna.com/">
+    <img src="../img/diosna.jpg" class="img-rounded" alt="Diosna" />
+    </a>
+    <a href="http://www.isernhaeger.de/">
+        <img src="../img/isernhager.png" class="img-rounded" alt="Iserngaer" />
+    </a>
 </div>

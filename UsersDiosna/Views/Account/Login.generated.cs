@@ -48,6 +48,7 @@ namespace ASP
             
             #line 3 "..\..\Views\Account\Login.cshtml"
   
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
     ViewBag.Title = "Log into vizualization platform";
 
             
@@ -56,7 +57,7 @@ namespace ASP
 WriteLiteral("\r\n\r\n<h2>");
 
             
-            #line 7 "..\..\Views\Account\Login.cshtml"
+            #line 8 "..\..\Views\Account\Login.cshtml"
 Write(ViewBag.Title);
 
             
@@ -77,13 +78,13 @@ WriteLiteral(" id=\"loginForm\"");
 WriteLiteral(">\r\n");
 
             
-            #line 11 "..\..\Views\Account\Login.cshtml"
+            #line 12 "..\..\Views\Account\Login.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 11 "..\..\Views\Account\Login.cshtml"
+            #line 12 "..\..\Views\Account\Login.cshtml"
              using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 
@@ -91,14 +92,14 @@ WriteLiteral(">\r\n");
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Account\Login.cshtml"
+            #line 14 "..\..\Views\Account\Login.cshtml"
            Write(Html.AntiForgeryToken());
 
             
             #line default
             #line hidden
             
-            #line 13 "..\..\Views\Account\Login.cshtml"
+            #line 14 "..\..\Views\Account\Login.cshtml"
                                         
 
             
@@ -109,20 +110,20 @@ WriteLiteral("                <h4>Use given account into DIOSNA cloud</h4>\r\n")
 WriteLiteral("                <hr />\r\n");
 
             
-            #line 16 "..\..\Views\Account\Login.cshtml"
+            #line 17 "..\..\Views\Account\Login.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Account\Login.cshtml"
+            #line 17 "..\..\Views\Account\Login.cshtml"
            Write(Html.ValidationSummary(true, "", new { @class = "text-danger" }));
 
             
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Account\Login.cshtml"
+            #line 17 "..\..\Views\Account\Login.cshtml"
                                                                                  
 
             
@@ -137,7 +138,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                    ");
 
             
-            #line 18 "..\..\Views\Account\Login.cshtml"
+            #line 19 "..\..\Views\Account\Login.cshtml"
                Write(Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" }));
 
             
@@ -152,7 +153,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                        ");
 
             
-            #line 20 "..\..\Views\Account\Login.cshtml"
+            #line 21 "..\..\Views\Account\Login.cshtml"
                    Write(Html.TextBoxFor(m => m.Username, new { @class = "form-control" }));
 
             
@@ -163,7 +164,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                        ");
 
             
-            #line 21 "..\..\Views\Account\Login.cshtml"
+            #line 22 "..\..\Views\Account\Login.cshtml"
                    Write(Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" }));
 
             
@@ -180,7 +181,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                    ");
 
             
-            #line 25 "..\..\Views\Account\Login.cshtml"
+            #line 26 "..\..\Views\Account\Login.cshtml"
                Write(Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" }));
 
             
@@ -195,7 +196,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                        ");
 
             
-            #line 27 "..\..\Views\Account\Login.cshtml"
+            #line 28 "..\..\Views\Account\Login.cshtml"
                    Write(Html.PasswordFor(m => m.Password, new { @class = "form-control" }));
 
             
@@ -206,7 +207,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                        ");
 
             
-            #line 28 "..\..\Views\Account\Login.cshtml"
+            #line 29 "..\..\Views\Account\Login.cshtml"
                    Write(Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" }));
 
             
@@ -233,20 +234,35 @@ WriteLiteral(" class=\"btn btn-default\"");
 WriteLiteral(" />\r\n                    </div>\r\n                </div>\r\n");
 
             
-            #line 36 "..\..\Views\Account\Login.cshtml"
+            #line 37 "..\..\Views\Account\Login.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 39 "..\..\Views\Account\Login.cshtml"
+            #line 40 "..\..\Views\Account\Login.cshtml"
                           
             }
 
             
             #line default
             #line hidden
-WriteLiteral("        </section>\r\n    </div>\r\n</div>\r\n");
+WriteLiteral("        </section>\r\n    </div>\r\n</div>\r\n<h6>Go to the guest zone (login not neces" +
+"sary):</h6>\r\n<div");
+
+WriteLiteral(" class=\"well\"");
+
+WriteLiteral(">\r\n    <div");
+
+WriteLiteral(" class=\"btn-group btn-group-justified\"");
+
+WriteLiteral(">\r\n        <a");
+
+WriteLiteral(" href=\"/Home/\"");
+
+WriteLiteral(" class=\"btn btn-primary\"");
+
+WriteLiteral(">Guest Zone</a>\r\n    </div>\r\n</div>\r\n");
 
 DefineSection("Scripts", () => {
 
@@ -255,7 +271,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 45 "..\..\Views\Account\Login.cshtml"
+            #line 52 "..\..\Views\Account\Login.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             

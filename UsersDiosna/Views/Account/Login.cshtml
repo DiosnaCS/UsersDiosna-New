@@ -1,6 +1,7 @@
 ﻿@using UsersDiosna.Models
 @model LoginViewModel
 @{
+    Layout = "~/Views/Shared/_LayoutMenu.cshtml";
     ViewBag.Title = "Log into vizualization platform";
 }
 
@@ -39,6 +40,12 @@
                     </p>*@
             }
         </section>
+    </div>
+</div>
+<h6>Go to the guest zone (login not necessary):</h6>
+<div class="well">
+    <div class="btn-group btn-group-justified">
+        <a href="/Home/" class="btn btn-primary">Guest Zone</a>
     </div>
 </div>
 @section Scripts {

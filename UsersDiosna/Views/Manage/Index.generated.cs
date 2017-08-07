@@ -121,27 +121,7 @@ WriteLiteral(">\r\n        <dt>Password:</dt>\r\n        <dd>\r\n            [\r
             
             #line default
             #line hidden
-WriteLiteral("            ]\r\n        </dd>\r\n        <dt>Set your Default view in Menu</dt>\r\n   " +
-"     <dd>\r\n            <p>\r\n                [ ");
-
-            
-            #line 29 "..\..\Views\Manage\Index.cshtml"
-             Write(Html.ActionLink("Manage", "DefaultView"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" ]\r\n            </p>\r\n        </dd>\r\n        <dt>Change your theme (how would loo" +
-"k like this website)</dt>\r\n        <dd>\r\n            <p>\r\n                [ ");
-
-            
-            #line 35 "..\..\Views\Manage\Index.cshtml"
-             Write(Html.ActionLink("Manage", "ChangeTheme"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" ]\r\n            </p>\r\n        </dd>\r\n    </dl>\r\n</div>\r\n");
+WriteLiteral("            ]\r\n        </dd>\r\n    </dl>\r\n</div>\r\n");
 
         }
     }

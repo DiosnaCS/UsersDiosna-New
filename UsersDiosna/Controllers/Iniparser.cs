@@ -263,25 +263,17 @@ namespace UsersDiosna.Controllers
         /// <param name="names">names which will contains name in all langs</param>
         private static string parseMultitextLine(CIniFile config, string tableName, string column, string line, List<string> nameLine, string[] names)
         {
-            string TextListName;
             //Textlist on a tag
             int multitextIndex = nameLine.FindIndex(s => s.Contains("multitext"));
-            TextListName = nameLine[multitextIndex + 1].Trim();
-            ColumnTextlistDefine.Add(nameLine[1].Trim(), TextListName); //To add textlist into helper class 
-            int langPos = 0;
+            string TextListName = nameLine[multitextIndex + 1].Trim();
+            ColumnTextlistDefine.Add(column, TextListName); //To add textlist into helper class 
             //Only add rest of tag also into NameDef
-            string[] langs = line.Split(Const.separ_dollar, StringSplitOptions.RemoveEmptyEntries);
-            langs = langs.Where(p => p.Length > 2).ToArray();
-            for (int j = 0; j < langs.Length; j++)
+            string[] eqeuateSplit = line.Split(Const.separ_equate,StringSplitOptions.RemoveEmptyEntries);
+            string[] langs = eqeuateSplit[1].Split(Const.separ_dollar, StringSplitOptions.RemoveEmptyEntries);
+            for(int i = 0;i < langs.Length;i++)
             {
-                if (j == 0) {
-                    names[j] = nameLine[multitextIndex-1];
-                }
-                else { 
-                    langPos = j + 2;
-                    names[j] = nameLine[(multitextIndex-1) + langPos];
-                }
-                
+                string[] parts = langs[i].Split(Const.separ_semicolon, StringSplitOptions.RemoveEmptyEntries);
+                names[i] = parts[0];
             }
             List<string> units = null; //yes add only null
             NameDefinition.Add(config, column, names, units, tableName); //Adds name to names

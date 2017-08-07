@@ -890,3 +890,7 @@
 7/20/2017 12:13:54 PM3Response is not available in this context.   at System.Web.HttpApplication.get_Response()
    at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 57
 7/31/2017 3:32:16 PMSession_onEnd hapened with null current context
+8/3/2017 12:13:22 PMSession_onEnd hapened with null current context
+8/4/2017 10:26:41 AMSession_onEnd hapened with null current context
+8/4/2017 11:56:21 AMSession_onEnd hapened with null current context
+8/7/2017 11:45:01 AMSession_onEnd hapened with null current context

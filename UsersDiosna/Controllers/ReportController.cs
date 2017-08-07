@@ -47,7 +47,7 @@ namespace UsersDiosna.Controllers
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
             foreach (var report in model.Data)
-            {
+            {                    
                 int dest = int.Parse(report.Destination);
                 if (tankNames.Keys.Contains(dest))
                     report.Destination = tankNames[dest];

@@ -33,30 +33,32 @@ namespace UsersDiosna.Report.Models
     public class FilterReportModel {
 
     }
+    
+    
 
     public class OverviewReportDataModel {
-        public int? day { get; set; }
+        public int day { get; set; }
         //Columns of the table daily consumption
-        public int? MotherCultureAmnt { get; set; }
-        public int? MotherCultureBatchCount { get; set; }
+        public int MotherCultureAmnt { get; set; }
+        public int MotherCultureBatchCount { get; set; }
 
-        public int? FlourAmnt { get; set; }
-        public int? FlourBatchCount { get; set; }
+        public int FlourAmnt { get; set; }
+        public int FlourBatchCount { get; set; }
 
-        public int? WaterAmnt { get; set; }
-        public int? WaterBatchCount { get; set; }
+        public int WaterAmnt { get; set; }
+        public int WaterBatchCount { get; set; }
 
-        public int? OldBreadAmnt { get; set; }
-        public int? OldBreadBatchCount { get; set; }
+        public int OldBreadAmnt { get; set; }
+        public int OldBreadBatchCount { get; set; }
 
-        public int? LiquidYeastAmnt { get; set; }
-        public int? LiquidYeastBatchCount { get; set; }
+        public int LiquidYeastAmnt { get; set; }
+        public int LiquidYeastBatchCount { get; set; }
 
-        public int? MixtureAmnt { get; set; }
-        public int? MixtureBatchCount { get; set; }
+        public int MixtureAmnt { get; set; }
+        public int MixtureBatchCount { get; set; }
 
-        public int? GenericAmnt { get; set; }
-        public int? GenericBatchCount { get; set; }
+        public int GenericAmnt { get; set; }
+        public int GenericBatchCount { get; set; }
     }
 
     public class OverviewReportModel {
@@ -72,7 +74,14 @@ namespace UsersDiosna.Report.Models
         public bool Status;
     }
 
-    public enum Operations
+    public class ViewHeaderDosingOut
+    {
+        public int hour;
+        public int count;
+        public int amountSum;
+    }
+
+        public enum Operations
     {
         //Recipe operations
         RecipeStart = 10,

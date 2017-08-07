@@ -773,8 +773,8 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",
-                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd);
+            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8})",
+                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd, (int)Operations.DosingOut);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -808,7 +808,11 @@ namespace UsersDiosna.Controllers
                     if ((int) r[6] != 0)
                         CRM.Need = int.Parse(r[6].ToString());
                 }
-                //r[7] should be Actual and Actual is irrelevant for header data
+                if (r[7] != DBNull.Value)
+                {
+                    if ((int)r[7] != 0)
+                        CRM.Actual = int.Parse(r[7].ToString());
+                }
                 if (r[8] != DBNull.Value)
                 {
                     //Variant1 is iRCP_NO
@@ -948,7 +952,7 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28 ORDER BY \"TimeEnd\" ASC", table, pkTimeStart, pkTimeEnd);
+            string sql = string.Format("SELECT * FROM {0} WHERE (\"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28 ORDER BY \"TimeEnd\" ASC", table, pkTimeStart, pkTimeEnd);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -964,8 +968,6 @@ namespace UsersDiosna.Controllers
                 {
                     long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
                     CRM.TimeEnd = new DateTime((630822816000000000) + timeInNanoSeconds);
-                    if (CRM.TimeEnd.Day > newDay)
-                        newDay = CRM.TimeEnd.Day;
                 }
                 if (r[4] != DBNull.Value)
                 {
@@ -975,104 +977,75 @@ namespace UsersDiosna.Controllers
                 {
                     if ((int)r[7] != 0)
                         CRM.Actual = int.Parse(r[7].ToString());
-                    if (newDay <= oldDay)
+                    if (CRM.TimeEnd.Day > newDay)
                     {
-                        switch (CRM.RecordType)
-                        {
-                            case Operations.FillingMotherCulture:
-                                if (ORDM.MotherCultureAmnt == null)
-                                    ORDM.MotherCultureAmnt = 0;
-                                ORDM.MotherCultureAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.MotherCultureBatchCount == null)
-                                        ORDM.MotherCultureBatchCount = 0;
-                                    ORDM.MotherCultureBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingFlour:
-                                if (ORDM.FlourAmnt == null)
-                                    ORDM.FlourAmnt = 0;
-                                ORDM.FlourAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.FlourBatchCount == null)
-                                        ORDM.FlourBatchCount = 0;
-                                    ORDM.FlourBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingWater:
-                                if (ORDM.WaterAmnt == null)
-                                    ORDM.WaterAmnt = 0;
-                                ORDM.WaterAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.WaterBatchCount == null)
-                                        ORDM.WaterBatchCount = 0;
-                                    ORDM.WaterBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingOldBread:
-                                if (ORDM.OldBreadAmnt == null)
-                                    ORDM.OldBreadAmnt = 0;
-                                ORDM.OldBreadAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.OldBreadBatchCount == null)
-                                        ORDM.OldBreadBatchCount = 0;
-                                    ORDM.OldBreadBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingLiquidYeast:
-                                if (ORDM.LiquidYeastAmnt == null)
-                                    ORDM.LiquidYeastAmnt = 0;
-                                ORDM.LiquidYeastAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.LiquidYeastBatchCount == null)
-                                        ORDM.LiquidYeastBatchCount = 0;
-                                    ORDM.LiquidYeastBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingMixture:
-                                if (ORDM.MixtureAmnt == null)
-                                    ORDM.MixtureAmnt = 0;
-                                ORDM.MixtureAmnt += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.MixtureBatchCount == null)
-                                        ORDM.MixtureBatchCount = 0;
-                                    ORDM.MixtureBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            case Operations.FillingGenericComponent:
-                                if (ORDM.GenericAmnt == null)
-                                    ORDM.GenericAmnt = 0;
-                                ORDM.MixtureBatchCount += CRM.Actual;
-                                if (CRM.BatchNo != thisBatchNo)
-                                {
-                                    if (ORDM.GenericBatchCount == null)
-                                        ORDM.GenericBatchCount = 0;
-                                    ORDM.GenericBatchCount++;
-                                    thisBatchNo = CRM.BatchNo;
-                                }
-                                break;
-                            default:
-                                break;
-                        }
-                        ORDM.day = newDay;
-                    }
-                    else {
                         data.Data.Add(ORDM);
                         ORDM = new OverviewReportDataModel();
-                        oldDay = newDay;
+                        newDay = CRM.TimeEnd.Day;
                     }
+
+                    switch (CRM.RecordType)
+                    {
+                        case Operations.FillingMotherCulture:
+                            ORDM.MotherCultureAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.MotherCultureBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingFlour:
+                            ORDM.FlourAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.FlourBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingWater:
+                            ORDM.WaterAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.WaterBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingOldBread:
+                            ORDM.OldBreadAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.OldBreadBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingLiquidYeast:
+                            ORDM.LiquidYeastAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.LiquidYeastBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingMixture:
+                            ORDM.MixtureAmnt += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.MixtureBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        case Operations.FillingGenericComponent:
+                            ORDM.MixtureBatchCount += CRM.Actual;
+                            if (CRM.BatchNo != thisBatchNo)
+                            {
+                                ORDM.GenericBatchCount++;
+                                thisBatchNo = CRM.BatchNo;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                    ORDM.day = newDay;
                 }
             }
             

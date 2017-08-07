@@ -8,14 +8,14 @@
     int i = 0;
     int j = 0;
 }
-<a href="/Home/Homepage" class="projectName" style="color:white;">
+<a href="/Menu/Index/@ViewBag.id" class="projectName" style="color:white;">
     @if (ViewBag.ProjectName != null) {
         @ViewBag.ProjectName.ToString()
     }</a>
 @foreach (String type in ViewBag.types)
 {
     if (type.Contains("plc"))    {
-        <a class="plc">@ViewBag.plc[i]</a>
+        <span class="plc">@ViewBag.plc[i]</span>
         i++;
     } else {
         if (i == 0)

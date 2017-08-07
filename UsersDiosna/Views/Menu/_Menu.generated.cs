@@ -61,7 +61,16 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("\r\n<a");
 
-WriteLiteral(" href=\"/Home/Homepage\"");
+WriteAttribute("href", Tuple.Create(" href=\"", 263), Tuple.Create("\"", 293)
+, Tuple.Create(Tuple.Create("", 270), Tuple.Create("/Menu/Index/", 270), true)
+            
+            #line 11 "..\..\Views\Menu\_Menu.cshtml"
+, Tuple.Create(Tuple.Create("", 282), Tuple.Create<System.Object, System.Int32>(ViewBag.id
+            
+            #line default
+            #line hidden
+, 282), false)
+);
 
 WriteLiteral(" class=\"projectName\"");
 
@@ -107,7 +116,7 @@ WriteLiteral("</a>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <a");
+WriteLiteral("        <span");
 
 WriteLiteral(" class=\"plc\"");
 
@@ -115,12 +124,12 @@ WriteLiteral(">");
 
             
             #line 18 "..\..\Views\Menu\_Menu.cshtml"
-                  Write(ViewBag.plc[i]);
+                     Write(ViewBag.plc[i]);
 
             
             #line default
             #line hidden
-WriteLiteral("</a>\r\n");
+WriteLiteral("</span>\r\n");
 
             
             #line 19 "..\..\Views\Menu\_Menu.cshtml"
@@ -134,31 +143,31 @@ WriteLiteral("</a>\r\n");
             #line hidden
 WriteLiteral("            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 620), Tuple.Create("\"", 677)
-, Tuple.Create(Tuple.Create("", 627), Tuple.Create("/", 627), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 635), Tuple.Create("\"", 692)
+, Tuple.Create(Tuple.Create("", 642), Tuple.Create("/", 642), true)
             
             #line 23 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 628), Tuple.Create<System.Object, System.Int32>(type
+, Tuple.Create(Tuple.Create("", 643), Tuple.Create<System.Object, System.Int32>(type
             
             #line default
             #line hidden
-, 628), false)
-, Tuple.Create(Tuple.Create("", 633), Tuple.Create("?&name=", 633), true)
+, 643), false)
+, Tuple.Create(Tuple.Create("", 648), Tuple.Create("?&name=", 648), true)
             
             #line 23 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 640), Tuple.Create<System.Object, System.Int32>(ViewBag.names[j]
+, Tuple.Create(Tuple.Create("", 655), Tuple.Create<System.Object, System.Int32>(ViewBag.names[j]
             
             #line default
             #line hidden
-, 640), false)
-, Tuple.Create(Tuple.Create("", 657), Tuple.Create("&plc=", 657), true)
+, 655), false)
+, Tuple.Create(Tuple.Create("", 672), Tuple.Create("&plc=", 672), true)
             
             #line 23 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 662), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[i]
+, Tuple.Create(Tuple.Create("", 677), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[i]
             
             #line default
             #line hidden
-, 662), false)
+, 677), false)
 );
 
 WriteLiteral(">");
@@ -184,31 +193,31 @@ WriteLiteral("</a>\r\n");
             #line hidden
 WriteLiteral("            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 770), Tuple.Create("\"", 826)
-, Tuple.Create(Tuple.Create("", 777), Tuple.Create("/", 777), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 785), Tuple.Create("\"", 841)
+, Tuple.Create(Tuple.Create("", 792), Tuple.Create("/", 792), true)
             
             #line 28 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 778), Tuple.Create<System.Object, System.Int32>(type
+, Tuple.Create(Tuple.Create("", 793), Tuple.Create<System.Object, System.Int32>(type
             
             #line default
             #line hidden
-, 778), false)
-, Tuple.Create(Tuple.Create("", 783), Tuple.Create("?name=", 783), true)
+, 793), false)
+, Tuple.Create(Tuple.Create("", 798), Tuple.Create("?name=", 798), true)
             
             #line 28 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 789), Tuple.Create<System.Object, System.Int32>(ViewBag.names[j]
+, Tuple.Create(Tuple.Create("", 804), Tuple.Create<System.Object, System.Int32>(ViewBag.names[j]
             
             #line default
             #line hidden
-, 789), false)
-, Tuple.Create(Tuple.Create("", 806), Tuple.Create("&plc=", 806), true)
+, 804), false)
+, Tuple.Create(Tuple.Create("", 821), Tuple.Create("&plc=", 821), true)
             
             #line 28 "..\..\Views\Menu\_Menu.cshtml"
-, Tuple.Create(Tuple.Create("", 811), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[i]
+, Tuple.Create(Tuple.Create("", 826), Tuple.Create<System.Object, System.Int32>(ViewBag.plc[i]
             
             #line default
             #line hidden
-, 811), false)
+, 826), false)
 );
 
 WriteLiteral(">");

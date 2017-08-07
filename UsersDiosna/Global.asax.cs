@@ -42,7 +42,7 @@ namespace UsersDiosna
                 if (HttpContext.Current.Session == null)
                 {
                     HttpContext.Current.Response.Redirect("~/Account/Login/");
-                    //UsersDiosna.Error.toFile("Session_onEnd hapened", this.GetType().Name.ToString());
+                    UsersDiosna.Error.toFile("Session_onEnd hapened", this.GetType().Name.ToString());
                 }
             }
             else {
@@ -71,7 +71,7 @@ namespace UsersDiosna
                 System.IO.File.AppendAllText(PathToErrorFile, id.ToString()); //set id  of Error
                 System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString());
                 System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                Session["tempforview"] = timestamp + "    Error " + id.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                Session["tempforview"] = timestamp + "    Error Id:" + id.ToString() + " occured so please try it again after some time"; //To screen also with id 
             }
             else
             {
@@ -87,7 +87,7 @@ namespace UsersDiosna
                     System.IO.File.AppendAllText(PathToErrorFile, id.ToString()); //set id  of Error
                     System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString()); //Write Error to file
                     System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                    Session["tempforview"] = timestamp + "    Error " + id.ToString() + " occured so please try it again after some time";//To screen also with id 
+                    Session["tempforview"] = timestamp + "    Error Id:" + id.ToString() + " occured so please try it again after some time";//To screen also with id 
                 }
                 else
                 {
@@ -101,7 +101,7 @@ namespace UsersDiosna
                     System.IO.File.AppendAllText(PathToErrorFile, id.ToString()); //set id  of Error
                     System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString()); //Write Error to file
                     System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                    Session["tempforview"] = timestamp + "    Error " + id.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                    Session["tempforview"] = timestamp + "    Error Id:" + id.ToString() + " occured so please try it again after some time"; //To screen also with id 
                 }
             }
             Server.ClearError();

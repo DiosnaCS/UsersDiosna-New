@@ -21,7 +21,7 @@ namespace UsersDiosna.Controllers
         {
             return View();
         }
-        public ActionResult Order()
+        public ActionResult Compatibility()
         {
             return View();
         }

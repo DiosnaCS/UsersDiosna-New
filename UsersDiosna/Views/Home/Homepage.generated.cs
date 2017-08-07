@@ -49,71 +49,83 @@ namespace ASP
         }
         public override void Execute()
         {
-WriteLiteral("\r\n<h2>Welcome to Diosna cloud</h2>\r\n<div");
-
-WriteLiteral(" class=\"jumbotron\"");
-
-WriteLiteral(">\r\n");
+            
+            #line 3 "..\..\Views\Home\Homepage.cshtml"
+  
+    ViewBag.Title = "Home - Diosna cloud";
 
             
-            #line 6 "..\..\Views\Home\Homepage.cshtml"
+            #line default
+            #line hidden
+WriteLiteral("\r\n<h2>Welcome to Diosna cloud homepage</h2>\r\n<div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n    <h6>Select your destination / bakery</h6>\r\n");
+
+            
+            #line 9 "..\..\Views\Home\Homepage.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 6 "..\..\Views\Home\Homepage.cshtml"
+            #line 9 "..\..\Views\Home\Homepage.cshtml"
       int index = 1;
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("\r\n    <div");
+
+WriteLiteral(" class=\"well\"");
+
+WriteLiteral(">\r\n");
 
             
-            #line 7 "..\..\Views\Home\Homepage.cshtml"
+            #line 11 "..\..\Views\Home\Homepage.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 7 "..\..\Views\Home\Homepage.cshtml"
+            #line 11 "..\..\Views\Home\Homepage.cshtml"
      for (int idx = 1; idx <= (ViewBag.Count / 3); idx++)
     {
 
             
             #line default
             #line hidden
-WriteLiteral("    <div");
+WriteLiteral("        <div");
 
 WriteLiteral(" class=\"btn-group btn-group-justified\"");
 
 WriteLiteral(">\r\n");
 
             
-            #line 10 "..\..\Views\Home\Homepage.cshtml"
-        
+            #line 14 "..\..\Views\Home\Homepage.cshtml"
+            
             
             #line default
             #line hidden
             
-            #line 10 "..\..\Views\Home\Homepage.cshtml"
-         for (int i = 1; i <= 3 && (i*idx) < ViewBag.Count; i++)
-        {
+            #line 14 "..\..\Views\Home\Homepage.cshtml"
+             for (int i = 1; i <= 3 && (i * idx) < ViewBag.Count; i++)
+            {
 
             
             #line default
             #line hidden
-WriteLiteral("            <a");
+WriteLiteral("                <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 345), Tuple.Create("\"", 387)
-, Tuple.Create(Tuple.Create("", 352), Tuple.Create("/Menu/Index/", 352), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 486), Tuple.Create("\"", 528)
+, Tuple.Create(Tuple.Create("", 493), Tuple.Create("/Menu/Index/", 493), true)
             
-            #line 12 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 364), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
+            #line 16 "..\..\Views\Home\Homepage.cshtml"
+, Tuple.Create(Tuple.Create("", 505), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
             
             #line default
             #line hidden
-, 364), false)
+, 505), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -121,8 +133,8 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">");
 
             
-            #line 12 "..\..\Views\Home\Homepage.cshtml"
-                                                                             Write(ViewBag.Text[index]);
+            #line 16 "..\..\Views\Home\Homepage.cshtml"
+                                                                                 Write(ViewBag.Text[index]);
 
             
             #line default
@@ -130,53 +142,102 @@ WriteLiteral(">");
 WriteLiteral("&rAarr;</a>\r\n");
 
             
-            #line 13 "..\..\Views\Home\Homepage.cshtml"
-            index++;
-        }
+            #line 17 "..\..\Views\Home\Homepage.cshtml"
+                index++;
+            }
 
             
             #line default
             #line hidden
-WriteLiteral("    </div>\r\n");
+WriteLiteral("        </div>\r\n");
 
-WriteLiteral("    <p></p>\r\n");
+WriteLiteral("        <p></p>\r\n");
 
             
-            #line 17 "..\..\Views\Home\Homepage.cshtml"
+            #line 21 "..\..\Views\Home\Homepage.cshtml"
     }
 
             
             #line default
             #line hidden
-WriteLiteral("    <div");
+WriteLiteral("    </div>\r\n    <h6>Read general or project specific articles in our knowledge ba" +
+"se</h6>\r\n    <div");
 
-WriteLiteral(" class=\"btn-group btn-group-justified\"");
+WriteLiteral(" class=\"btn-group btn-group-justified well\"");
 
 WriteLiteral(">\r\n        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 570), Tuple.Create("\"", 608)
-, Tuple.Create(Tuple.Create("", 577), Tuple.Create("/Menu/Index/", 577), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 822), Tuple.Create("\"", 860)
+, Tuple.Create(Tuple.Create("", 829), Tuple.Create("/Menu/Index/", 829), true)
             
-            #line 19 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 589), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
+            #line 25 "..\..\Views\Home\Homepage.cshtml"
+, Tuple.Create(Tuple.Create("", 841), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
             
             #line default
             #line hidden
-, 589), false)
+, 841), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
 
-WriteLiteral(">");
+WriteLiteral(">Knowledge Base&rAarr;</a>\r\n    </div>\r\n    <p></p>\r\n    <h6>Go to the guest zone" +
+" (login not necessary)</h6>\r\n    <div");
 
-            
-            #line 19 "..\..\Views\Home\Homepage.cshtml"
-                                                                     Write(ViewBag.Text[0]);
+WriteLiteral(" class=\"btn-group btn-group-justified well\"");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("&rAarr;</a>\r\n    </div>\r\n    \r\n</div>");
+WriteLiteral(">\r\n        <a");
+
+WriteLiteral(" href=\"/Home/\"");
+
+WriteLiteral(" class=\"btn btn-primary\"");
+
+WriteLiteral(">Guest Zone</a>\r\n    </div>\r\n</div>\r\n<div");
+
+WriteLiteral(" class=\"row\"");
+
+WriteLiteral(">\r\n    <div");
+
+WriteLiteral(" class=\"col-md-4\"");
+
+WriteLiteral(">\r\n        <h2>Compatibility</h2>\r\n        <p>\r\n            Compatible with chrom" +
+"e<br>\r\n        </p>\r\n        <p><a");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteLiteral(" href=\"http://users.diosn.cz/Home/Compatibility/\"");
+
+WriteLiteral(">See more &raquo;</a></p>\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"col-md-4\"");
+
+WriteLiteral(@">
+        <h2>News</h2>
+        <p>
+            In latest update have been added following features:<br>
+            Changes commit:  …<br>
+            scheme index h2 to h4<br>
+            graph getData async done<br>
+            graph client signals drawed<br>
+            menu small style changes<br>
+        </p>
+        <p><a");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteLiteral(" href=\"http://users.diosna.cz/Home/News/\"");
+
+WriteLiteral(">See more &raquo;</a></p>\r\n    </div>\r\n    <div");
+
+WriteLiteral(" class=\"col-md-4\"");
+
+WriteLiteral(">\r\n        <h2>Link to old version:</h2>\r\n        <p>If you need old users click " +
+"below</p>\r\n        <p><a");
+
+WriteLiteral(" class=\"btn btn-default\"");
+
+WriteLiteral(" href=\"http://users.nordit.cz/\"");
+
+WriteLiteral(">Bye &raquo;</a></p>\r\n    </div>\r\n</div>");
 
         }
     }

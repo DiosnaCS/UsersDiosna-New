@@ -31,10 +31,10 @@ namespace ASP
     using UsersDiosna.Controllers;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Home/Order.cshtml")]
-    public partial class _Views_Home_Order_cshtml : System.Web.Mvc.WebViewPage<dynamic>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Home/Compatibility.cshtml")]
+    public partial class _Views_Home_Compatibility_cshtml : System.Web.Mvc.WebViewPage<dynamic>
     {
-        public _Views_Home_Order_cshtml()
+        public _Views_Home_Compatibility_cshtml()
         {
         }
         public override void Execute()
@@ -42,7 +42,7 @@ namespace ASP
 WriteLiteral("\r\n");
 
             
-            #line 2 "..\..\Views\Home\Order.cshtml"
+            #line 2 "..\..\Views\Home\Compatibility.cshtml"
   
     ViewBag.Title = "Order";
 
@@ -53,11 +53,13 @@ WriteLiteral("\r\n\r\n<h2>Under development</h2>\r\n\r\n<div");
 
 WriteLiteral(" class=\"jumbotron\"");
 
-WriteLiteral(">\r\n    <p>\r\n        I want to very apologize but we arent prepare for delivier ou" +
-"r awesome product please try it again later following year. But you should try a" +
-"ll features, which has been finished yet\r\n    </p><a");
+WriteLiteral(">\r\n    <p>\r\n       System is under production so please be patient<br />\r\n       " +
+"Chrome well-comptible browser so use it please<br />\r\n    </p><a");
 
-WriteLiteral(" href=\"http://192.168.2.13/\"");
+WriteAttribute("href", Tuple.Create(" href=\"", 238), Tuple.Create("\"", 252)
+, Tuple.Create(Tuple.Create("", 245), Tuple.Create<System.Object, System.Int32>(Href("~/Home/")
+, 245), false)
+);
 
 WriteLiteral(" class=\"btn-primary btn-lg\"");
 

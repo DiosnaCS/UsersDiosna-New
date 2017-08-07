@@ -51,7 +51,18 @@ namespace UsersDiosna.Controllers
         }
         public ActionResult Month(int year, int month)
         {
-            return View();
+            const int startDay = 1;
+
+            DateTime thisMonthStart = new DateTime(year, month, startDay, 0, 0, 0);
+            DateTime thisMontEnd = new DateTime(year, month + 1, startDay, 0, 0, 0);
+
+            ReportDBHelper db = new ReportDBHelper(DB, 2);
+            OverviewReportModel data = db.SelectConsumption(thisMonthStart, thisMontEnd, table);
+
+            ViewBag.month = month;
+            ViewBag.year = year;
+
+            return View("Index", data);
         }
     }
 } 

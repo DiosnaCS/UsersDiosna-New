@@ -32,30 +32,59 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Shared/Error.cshtml")]
-    public partial class _Views_Shared_Error_cshtml : System.Web.Mvc.WebViewPage<System.Web.Mvc.HandleErrorInfo>
+    public partial class _Views_Shared_Error_cshtml : System.Web.Mvc.WebViewPage<dynamic>
     {
         public _Views_Shared_Error_cshtml()
         {
         }
         public override void Execute()
         {
+WriteLiteral("\r\n");
+
             
-            #line 3 "..\..\Views\Shared\Error.cshtml"
+            #line 2 "..\..\Views\Shared\Error.cshtml"
   
     ViewBag.Title = "Error";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h1");
+WriteLiteral("\r\n\r\n<h3");
 
 WriteLiteral(" class=\"text-danger\"");
 
-WriteLiteral(">Error.</h1>\r\n<h2");
+WriteLiteral(">Error:</h3>\r\n<h3");
 
 WriteLiteral(" class=\"text-danger\"");
 
-WriteLiteral(">An error occurred while processing your request.</h2>\r\n\r\n");
+WriteLiteral(">Id: ");
+
+            
+            #line 7 "..\..\Views\Shared\Error.cshtml"
+                       Write(MvcApplication.id);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" At: ");
+
+            
+            #line 7 "..\..\Views\Shared\Error.cshtml"
+                                              Write(DateTime.Now.ToShortTimeString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" Happened on: ");
+
+            
+            #line 7 "..\..\Views\Shared\Error.cshtml"
+                                                                                             Write(DateTime.Now.ToShortDateString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" <br>\r\n    Occured so please try it again after some time</h3>\r\n\r\n");
 
         }
     }
