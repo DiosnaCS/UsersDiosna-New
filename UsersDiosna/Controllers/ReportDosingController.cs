@@ -9,7 +9,7 @@ namespace UsersDiosna.Controllers
     public class ReportDosingController : Controller
     {
         // GET: ReportDosing
-        public ActionResult Detail()
+        public ActionResult Index()
         {
             return View();
         }

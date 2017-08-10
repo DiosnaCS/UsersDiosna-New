@@ -9,25 +9,25 @@
 	</contract>
 	<plc name="Wheat predough">	
 		<scheme name="Overview">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_overview_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_overview_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="PF1">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_PF1_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_PF1_operation_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="SF1">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF1_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_SF1_operation_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="SF2">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF2_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_SF2_operation_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="SF3">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF3_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_SF3_operation_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="SF4">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF4_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_SF4_operation_NLBUN_WP__</url>
 		</scheme>
 		<scheme name="SF5">
-			<url>http://users.nordit.cz/ih2/10650_Wallwijk/__pic_sch_SF5_operation_NLBUN_WP__</url>
+			<url>http://users.nordit.cz/ih2/10570_Bunschoten/__pic_sch_SF5_operation_NLBUN_WP__</url>
 		</scheme>
 		<graph name="Graphs">
 			<pathConfig>C:\Akce\java\grafy_cfg_NLBUN_WP.ini</pathConfig>
@@ -37,10 +37,10 @@
 			<dbName>Bunschoten</dbName>
 		</alarm>
 		<Download>
-			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.20\Public\Zakazky_Public\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
 		</Upload>
 		<CMS name="Project Info">
 		</CMS>

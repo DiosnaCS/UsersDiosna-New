@@ -28,21 +28,16 @@
 			<dbName>InternDelights</dbName>
 		</alarm>
 		<Download>
-			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.20\Public\Zakazky_Public\164017_USA-International_Delights_WS\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
 		</Upload>
 		<Report>
 			<dbName>InternDelights</dbName>
 			<tableName>events</tableName>
 			<congirationNumber>1</congirationNumber>
 		</Report>
-		<ReportOverview name="Consumptions">
-			<dbName>InternDelights</dbName>
-			<tableName>events</tableName>
-			<congirationNumber>1</congirationNumber>
-		</ReportOverview>
 		<CMS name="Project Info">
 		</CMS>
 	</plc>

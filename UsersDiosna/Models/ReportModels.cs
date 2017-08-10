@@ -81,7 +81,7 @@ namespace UsersDiosna.Report.Models
         public int amountSum;
     }
 
-        public enum Operations
+    public enum Operations
     {
         //Recipe operations
         RecipeStart = 10,

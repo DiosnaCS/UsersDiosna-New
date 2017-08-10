@@ -277,6 +277,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
+    <Compile Include="Handlers\AlarmHelper.cs" />
+    <Compile Include="OldCode\AlarmController_old.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
@@ -394,20 +396,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>All.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Alarm\Index.generated.cs">
+    <Compile Include="Views\Alarm_Old\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Alarm\_Content.generated.cs">
+    <Compile Include="Views\Alarm\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>_Content.cshtml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Alarm\_Form.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_Form.cshtml</DependentUpon>
+      <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\CMS\CreateArticle.generated.cs">
       <AutoGen>True</AutoGen>
@@ -625,6 +622,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ChromeNotification.js" />
     <Content Include="Scripts\filter.js" />
+    <Content Include="Scripts\hideShow.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -731,7 +729,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>RemoveMask.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Alarm\_Content.cshtml">
+    <Content Include="Views\Alarm_Old\_Content.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_Content.generated.cs</LastGenOutput>
     </Content>
@@ -775,7 +773,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Alarm\_Form.cshtml">
+    <Content Include="Views\Alarm_Old\_Form.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_Form.generated.cs</LastGenOutput>
     </Content>
@@ -846,6 +844,10 @@
     <Content Include="Views\Shared\_LayoutMenu.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_LayoutMenu.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\Alarm_Old\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

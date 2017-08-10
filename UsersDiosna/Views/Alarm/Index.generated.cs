@@ -28,17 +28,17 @@ namespace ASP
     using System.Web.UI;
     using System.Web.WebPages;
     using UsersDiosna;
+    using UsersDiosna.Controllers;
     
     #line 1 "..\..\Views\Alarm\Index.cshtml"
-    using UsersDiosna.Alarms.Models;
+    using UsersDiosna.Handlers;
     
     #line default
     #line hidden
-    using UsersDiosna.Controllers;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Alarm/Index.cshtml")]
-    public partial class _Views_Alarm_Index_cshtml : System.Web.Mvc.WebViewPage<AlarmFormModel>
+    public partial class _Views_Alarm_Index_cshtml : System.Web.Mvc.WebViewPage<List<AlarmHelper.alarm>>
     {
         public _Views_Alarm_Index_cshtml()
         {
@@ -51,33 +51,169 @@ WriteLiteral("\r\n");
             #line 5 "..\..\Views\Alarm\Index.cshtml"
   
     ViewBag.Title = "Alarms";
+    int pageLess = ViewBag.page-1;
+    int pageMore = ViewBag.page+1;
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<h2");
-
-WriteLiteral(" class=\"header\"");
-
-WriteLiteral(">Alarms</h2>\r\n\r\n");
+WriteLiteral("\r\n<h4>Alarms</h4>\r\n<p>\r\n");
 
             
-            #line 10 "..\..\Views\Alarm\Index.cshtml"
-Write(Html.Partial("~/Views/Alarm/_Form.cshtml"));
+            #line 12 "..\..\Views\Alarm\Index.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 12 "..\..\Views\Alarm\Index.cshtml"
+     if (pageLess >= 0)
+    {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
+WriteLiteral("        <a");
+
+WriteLiteral(" class=\"btn-sm btn-primary\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 266), Tuple.Create("\"", 294)
+, Tuple.Create(Tuple.Create("", 273), Tuple.Create("/Alarm/Page/", 273), true)
+            
+            #line 14 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 285), Tuple.Create<System.Object, System.Int32>(pageLess
+            
+            #line default
+            #line hidden
+, 285), false)
+);
+
+WriteLiteral(">&lArr;</a>\r\n");
 
             
-            #line 11 "..\..\Views\Alarm\Index.cshtml"
-Write(Html.Partial("~/Views/Alarm/_Content.cshtml"));
+            #line 15 "..\..\Views\Alarm\Index.cshtml"
+    }
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<p");
+WriteLiteral("    Page: ");
+
+            
+            #line 16 "..\..\Views\Alarm\Index.cshtml"
+     Write(ViewBag.page);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" \r\n    <a");
+
+WriteLiteral(" class=\"btn-sm btn-primary\"");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 374), Tuple.Create("\"", 402)
+, Tuple.Create(Tuple.Create("", 381), Tuple.Create("/Alarm/Page/", 381), true)
+            
+            #line 17 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 393), Tuple.Create<System.Object, System.Int32>(pageMore
+            
+            #line default
+            #line hidden
+, 393), false)
+);
+
+WriteLiteral(">&rArr;</a>\r\n</p>\r\n<table");
+
+WriteLiteral(" class=\"table table-striped table-bordered table-condensed table-hover\"");
+
+WriteLiteral(">\r\n    <tr>\r\n        <th>Id</th>\r\n        <th>Name of alarm</th>\r\n        <th>Ori" +
+"gin</th>\r\n        <th>Expiry</th>\r\n    </tr>\r\n");
+
+            
+            #line 26 "..\..\Views\Alarm\Index.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 26 "..\..\Views\Alarm\Index.cshtml"
+     for (int i = 0; i < Model.Count; i++)
+    { 
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <tr>\r\n            <td>");
+
+            
+            #line 29 "..\..\Views\Alarm\Index.cshtml"
+           Write(Model[i].id);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            <td>");
+
+            
+            #line 30 "..\..\Views\Alarm\Index.cshtml"
+           Write(Model[i].title);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            <td");
+
+WriteAttribute("id", Tuple.Create(" id=\"", 780), Tuple.Create("\"", 792)
+, Tuple.Create(Tuple.Create("", 785), Tuple.Create("date_", 785), true)
+            
+            #line 31 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 790), Tuple.Create<System.Object, System.Int32>(i
+            
+            #line default
+            #line hidden
+, 790), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 31 "..\..\Views\Alarm\Index.cshtml"
+                        Write(Model[i].originTime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n            <td");
+
+WriteAttribute("id", Tuple.Create(" id=\"", 836), Tuple.Create("\"", 851)
+, Tuple.Create(Tuple.Create("", 841), Tuple.Create("expDate_", 841), true)
+            
+            #line 32 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 849), Tuple.Create<System.Object, System.Int32>(i
+            
+            #line default
+            #line hidden
+, 849), false)
+);
+
+WriteLiteral(">");
+
+            
+            #line 32 "..\..\Views\Alarm\Index.cshtml"
+                           Write(Model[i].expiryTime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</td>\r\n        </tr>\r\n");
+
+            
+            #line 34 "..\..\Views\Alarm\Index.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</table>\r\n<p");
 
 WriteLiteral(" class=\"left\"");
 
@@ -85,27 +221,96 @@ WriteLiteral(">\r\n    <a");
 
 WriteLiteral(" class=\"btn btn-default\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 274), Tuple.Create("\"", 369)
-, Tuple.Create(Tuple.Create("", 281), Tuple.Create("/AlarmNotification/All?name=", 281), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 960), Tuple.Create("\"", 1055)
+, Tuple.Create(Tuple.Create("", 967), Tuple.Create("/AlarmNotification/All?name=", 967), true)
             
-            #line 13 "..\..\Views\Alarm\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 309), Tuple.Create<System.Object, System.Int32>(Request.QueryString["name"]
-            
-            #line default
-            #line hidden
-, 309), false)
-, Tuple.Create(Tuple.Create("", 337), Tuple.Create("&plc=", 337), true)
-            
-            #line 13 "..\..\Views\Alarm\Index.cshtml"
-                   , Tuple.Create(Tuple.Create("", 342), Tuple.Create<System.Object, System.Int32>(Request.QueryString["plc"]
+            #line 37 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 995), Tuple.Create<System.Object, System.Int32>(Request.QueryString["name"]
             
             #line default
             #line hidden
-, 342), false)
+, 995), false)
+, Tuple.Create(Tuple.Create("", 1023), Tuple.Create("&plc=", 1023), true)
+            
+            #line 37 "..\..\Views\Alarm\Index.cshtml"
+                  , Tuple.Create(Tuple.Create("", 1028), Tuple.Create<System.Object, System.Int32>(Request.QueryString["plc"]
+            
+            #line default
+            #line hidden
+, 1028), false)
 );
 
-WriteLiteral(">Notification from all alarms</a>\r\n</p>\r\n");
+WriteLiteral(@">Notification from all alarms</a>
+</p>
+<script>
+        function DateTime(date){
+                var d = new Date(date);
+                var offset = d.getTimezoneOffset();
+                var offseted_miliseconds = d.getTime() - (offset*60000);
+                var DateTime = new Date(offseted_miliseconds);
+                var localDateTime = DateTime.toLocaleString();
+                console.log(date);
+                console.log(localDateTime);
+                return localDateTime;
+            }
+</script>
+");
 
+            
+            #line 51 "..\..\Views\Alarm\Index.cshtml"
+ for (int i = 0; i < Model.Count; i++)
+{
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <script>\r\n            var date = \"");
+
+            
+            #line 54 "..\..\Views\Alarm\Index.cshtml"
+                   Write(Model[i].originTime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\";\r\n            var expDate = \"");
+
+            
+            #line 55 "..\..\Views\Alarm\Index.cshtml"
+                      Write(Model[i].expiryTime);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\";\r\n\r\n            var localDateTime = DateTime(date);\r\n            document.getEl" +
+"ementById(\"date_\" + \"");
+
+            
+            #line 58 "..\..\Views\Alarm\Index.cshtml"
+                                          Write(i);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\").innerHTML = localDateTime;\r\n            var localExpDateTime = DateTime(expDat" +
+"e);\r\n            document.getElementById(\"expDate_\" + \"");
+
+            
+            #line 60 "..\..\Views\Alarm\Index.cshtml"
+                                             Write(i);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\").innerHTML = localExpDateTime;\r\n    </script>\r\n");
+
+            
+            #line 62 "..\..\Views\Alarm\Index.cshtml"
+}
+
+            
+            #line default
+            #line hidden
         }
     }
 }

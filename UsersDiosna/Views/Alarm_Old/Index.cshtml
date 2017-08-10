@@ -1,0 +1,17 @@
+﻿@using UsersDiosna.Alarms.Models
+@model AlarmFormModel
+
+
+@{
+    ViewBag.Title = "Alarms";
+}
+<h2 class="header">Alarms</h2>
+
+@Html.Partial("~/Views/Alarm/_Form.cshtml")
+@Html.Partial("~/Views/Alarm/_Content.cshtml")
+<p class="left">
+    <a class="btn btn-default" href="/AlarmNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from all alarms</a>
+</p>
+@*<p class="right">
+    <a class="btn btn-default" href="/Alarm/Filter?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Filter from all alarms</a>
+</p>*@

@@ -168,7 +168,7 @@ WriteLiteral(">+1 month</a>\r\n    <p></p>\r\n</div>\r\n");
             #line hidden
 WriteLiteral("<table");
 
-WriteLiteral(" class=\"table-bordered table-condensed  table-report\"");
+WriteLiteral(" class=\"table-bordered table-condensed table-report\"");
 
 WriteLiteral(" id=\"cunsumptionTable\"");
 
@@ -526,14 +526,14 @@ WriteLiteral("        </tr>\r\n    </thead>\r\n");
             #line hidden
 WriteLiteral("            <tr");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 3751), Tuple.Create("\"", 3774)
+WriteAttribute("class", Tuple.Create(" class=\"", 3750), Tuple.Create("\"", 3773)
             
             #line 104 "..\..\Views\ReportOverview\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3759), Tuple.Create<System.Object, System.Int32>(colourRowClass
+, Tuple.Create(Tuple.Create("", 3758), Tuple.Create<System.Object, System.Int32>(colourRowClass
             
             #line default
             #line hidden
-, 3759), false)
+, 3758), false)
 );
 
 WriteLiteral(">\r\n                    <td>");

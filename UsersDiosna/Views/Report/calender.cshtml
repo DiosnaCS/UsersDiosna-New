@@ -34,11 +34,22 @@
 }
 
 <h4>Calender</h4>
-<div class=" col-md-10">
+<div class=" col-md-12">
     <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@year">-1 month</a> Month: @monthName @year <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@year">+1 month</a>
     <p></p>
 </div>
-<table class="table-bordered table-condensed table-hover">
+<div class=" col-md-12">
+    <div class="checkbox-inline big-checkbox">
+        <input type="checkbox" onclick="hideShowBatches()" />Hide Batches
+    </div>
+    <div class="checkbox-inline big-checkbox">
+            <input type="checkbox" onclick="hideShowDosing()" />Hide Dosing
+    </div>
+    <div class="checkbox-inline big-checkbox">
+            <input type="checkbox" onclick="hideShowCleanig()" />Hide Cleaning
+    </div>
+</div>
+<table class="table-bordered table-condensed">
     <thead>
     <tr>
         <th>Day | Hours</th>
@@ -104,16 +115,16 @@
                         batch.Status = Convert.ToBoolean(EndType);
                         if (batch.Status != false)
                         {
-                            <b><a href="/Report/Detail/@batch.BatchNo" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
                         }
                         else
                         {
-                            <b><a href="/Report/Detail/@batch.BatchNo" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
                         }
                     }
                     @if (dosingOut != null)
                     {
-                        <a href="/ReportDosing/@day/@ViewBag.Month" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
+                        <a href="/ReportDosing/@day/@ViewBag.Month" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
                     }
                     @{ dosingOut = null; }
                 </td>
@@ -130,16 +141,16 @@
                         batch.Status = Convert.ToBoolean(EndType);
                         if (batch.Status != false)
                         {
-                            <b><a href="/Report/Detail/@batch.BatchNo" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
                         }
                         else
                         {
-                            <b><a href="/Report/Detail/@batch.BatchNo" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
+                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
                         }
                     }
                     @if (dosingOut != null)
                     {
-                        <a href="/ReportDosing/Detail/@day/@ViewBag.Month" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
+                        <a href="/ReportDosing/Detail/@day/@ViewBag.Month" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
                     }
                     @{ dosingOut = null; }
                 </td>
@@ -171,3 +182,27 @@
         <td><b>@amntOverall kg</b></td>
     </tr>
 </table>
+<script> 
+    function hideBatches() {
+        if ($(".batch").is(":visible") {
+            $(".batch").hide();
+        } else {
+            $(".batch").show();
+        }
+    }
+    function showBatches() {
+        $(".batch").show();
+    }
+    function hideDosing() {
+        $(".dosing").hide();
+    }
+    function showDosing() {
+        $(".dosing").show();
+    }
+    function hideCleaning() {
+        $(".cleaning").hide();
+    }
+    function showCleaning() {
+        $(".cleaning").show();
+    }
+</script>

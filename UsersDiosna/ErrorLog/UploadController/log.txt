@@ -1,3 +1,26 @@
 
 6/15/2017 3:41:30 PMCould not find a part of the path '\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents9_Public'.
 6/20/2017 2:06:24 PMCould not find a part of the path '\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents9_Public'.
+8/10/2017 8:55:38 AMThe network path was not found.
+
+8/10/2017 8:56:01 AMThe network path was not found.
+
+8/10/2017 8:56:02 AMThe network path was not found.
+
+8/10/2017 8:56:03 AMThe network path was not found.
+
+8/10/2017 8:56:03 AMThe network path was not found.
+
+8/10/2017 8:56:04 AMThe network path was not found.
+
+8/10/2017 8:56:49 AMThe network path was not found.
+
+8/10/2017 8:56:58 AMThe network path was not found.
+
+8/10/2017 8:57:07 AMThe network path was not found.
+
+8/10/2017 9:00:30 AMThe network path was not found.
+
+8/10/2017 9:01:36 AMThe network path was not found.
+
+8/10/2017 9:02:27 AMCould not find a part of the path '\\192.168.2.40\Public\Zakazky_Public\164017_USA-International_Delights_WS\9_Public'.

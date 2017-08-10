@@ -22,6 +22,16 @@ namespace UsersDiosna
         }
         protected void Session_Start()
         {
+            if (done == false)
+            {
+                SessionIDManager manager = new SessionIDManager();
+                string newID = manager.CreateSessionID(Context);
+                bool redirected = false;
+                bool isAdded = false;
+                manager.SaveSessionID(Context, newID, out redirected, out isAdded);
+                done = true;
+            }
+            string sessionId = Session.SessionID;
             if (Context.Session != null)
             {
                 if (Context.Session.IsNewSession)

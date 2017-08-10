@@ -9,10 +9,10 @@
 	</contract>
 	<plc name="Documents">	
 		<Download>
-			<path>\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
+			<path>\\192.168.2.40\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.20\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
+			<path>\\192.168.2.40\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
 		</Upload>
 		<CMS name="Communication">
 		</CMS>

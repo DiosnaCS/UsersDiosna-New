@@ -32,7 +32,8 @@ namespace UsersDiosna
                       "~/Scripts/ChromeNotification.js"));
             bundles.Add(new ScriptBundle("~/bundles/helpers").Include(
                       "~/Scripts/filter.js",
-                         "~/Scripts/notZeroRender.js"
+                         "~/Scripts/notZeroRender.js",
+                         "~/Scripts/hideShow.js"
                 ));
         }
     }

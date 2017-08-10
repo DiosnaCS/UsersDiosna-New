@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Users Diosna</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/helpers")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
 </head>
@@ -107,6 +108,21 @@
             Session["success"] = null;
         }
         @RenderBody()
+        @if (Session["types"] != null && ViewBag.menuDisable != true)
+        {
+        <p>
+        <div class="col-md-12">
+            <a class="btn btn-primary btn-xs"  data-toggle="collapse" href="#legendInfo" aria-expanded="false">
+                Legend
+            </a>
+            <div class="collapse" id="legendInfo">
+                <div class="card card-block">
+                    @ViewBag.legend
+                </div>
+            </div>
+        </div>
+        </p>
+        }
     </div>
     @{
         Session["tempforview"] = null;
@@ -116,7 +132,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/helpers")
     @Scripts.Render("~/bundles/notification")
     @RenderSection("scripts", required: false)
 </body>

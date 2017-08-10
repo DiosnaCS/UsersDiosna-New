@@ -43,10 +43,10 @@
 			<dbName>Rotterdam</dbName>
 		</alarm>
 		<Download>
-			<path>\\192.168.2.20\Public\Zakazky\0_New\16_rok\164012_NL-Bakkersland_Rotterdam_ML\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164012_NL-Bakkersland_Rotterdam_ML\</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.20\Public\Zakazky_Public\164012_NL-Bakkersland_Rotterdam_ML\</path>
+			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164012_NL-Bakkersland_Rotterdam_ML\</path>
 		</Upload>
 		<CMS name="Project Info">
 		</CMS>

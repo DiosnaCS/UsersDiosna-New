@@ -84,7 +84,13 @@ WriteLiteral(" Happened on: ");
             
             #line default
             #line hidden
-WriteLiteral(" <br>\r\n    Occured so please try it again after some time</h3>\r\n\r\n");
+WriteLiteral(" <br>\r\n    Occured so please try it again after some time</h3>\r\n<a");
+
+WriteLiteral(" class=\"btn bg-danger\"");
+
+WriteLiteral(" href=\"/Account/Login\"");
+
+WriteLiteral(">Please try again login for second try</a>\r\n\r\n");
 
         }
     }
