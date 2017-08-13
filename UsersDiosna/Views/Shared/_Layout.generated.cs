@@ -524,11 +524,7 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <p>\r\n        <div");
-
-WriteLiteral(" class=\"col-md-12\"");
-
-WriteLiteral(">\r\n            <a");
+WriteLiteral("        <p>\r\n        \r\n            <a");
 
 WriteLiteral(" class=\"btn btn-primary btn-xs\"");
 
@@ -559,7 +555,7 @@ WriteLiteral("                    ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </div>\r\n        </p>\r\n");
+WriteLiteral("\r\n                </div>\r\n            </div>\r\n        \r\n        </p>\r\n");
 
             
             #line 125 "..\..\Views\Shared\_Layout.cshtml"

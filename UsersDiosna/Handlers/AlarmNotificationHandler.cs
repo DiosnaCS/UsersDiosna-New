@@ -87,7 +87,8 @@ namespace UsersDiosna
         public static List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null)
         {
             NpgsqlCommand cmd;
-            string whereIds = "";
+            string whereIds = string.Empty;
+            string sql = string.Empty;
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
             // Making connection with Npgsql provider
@@ -97,16 +98,18 @@ namespace UsersDiosna
             {
                 foreach (int id in alarms)
                 {
-                    whereIds += "id=" + id.ToString() + " OR ";
+                    whereIds += "alarm_id=" + id.ToString() + " OR ";
                 }
+                whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand("SELECT title,alarm_id FROM alarm_texts WHERE (lang='en' AND plc_id=1) AND (", conn);
+                sql = string.Format("SELECT title,alarm_id FROM alarm_texts WHERE (lang='en' AND plc_id=1) AND ({0})",whereIds);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand("SELECT title,alarm_id FROM alarm_texts WHERE lang='en' AND plc_id=1", conn);
+                sql = "SELECT title,alarm_id FROM alarm_texts WHERE lang='en' AND plc_id=1";
             }
+            cmd = new NpgsqlCommand(sql, conn);
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
             List<alarm_texts> alarmList = new List<alarm_texts>();
@@ -150,7 +153,7 @@ namespace UsersDiosna
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
-                alarm.title = titles[id].title;
+                alarm.title = titles[id-1].title;
 
                 int originTime = int.Parse(dr["origin_pktime"].ToString());
                 alarm.originTime = pkTimeToDateTime(originTime);

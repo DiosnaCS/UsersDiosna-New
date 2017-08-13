@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using UsersDiosna.Handlers;
 
 namespace UsersDiosna.Controllers
 {
@@ -42,18 +43,30 @@ namespace UsersDiosna.Controllers
             return View();
         }
 
-        public ActionResult FromCurrent(List<int> alarms)
+        public ActionResult FromCurrent()
         {
-            string DB = null;
-            foreach (string key in Session.Keys)
-            {
-                if (key.Contains("dbName" + Request.QueryString["name"] + Request.QueryString["plc"]))
+            List<int> alarms = (List<int>)Session["alarmIDs"];
+            if (alarms != null) {
+                Session["alarmIDs"] = null;
+                string DB = string.Empty;
+                if (AlarmHelper.DB == null || AlarmHelper.DB == "")
                 {
-                    DB = Session[key].ToString();
+                    foreach (string key in Session.Keys)
+                    {
+                        if (key.Contains("dbName" + Request.QueryString["name"] + Request.QueryString["plc"]))
+                        {
+                            DB = Session[key].ToString();
+                        }
+                    }
                 }
+                else {
+                    DB = AlarmHelper.DB;
+                }
+                ViewBag.Alarms = AlarmNotificationHandler.SelectAlarmsTexts(DB, alarms);
+                return View("All");
             }
-            ViewBag.Alarms = AlarmNotificationHandler.SelectAlarmsTexts(DB,alarms);
-            return View("All"); //One view is enough :)
+            Session["tempforview"] = "Problem with accesing current alarms";
+            return RedirectToAction("Index", "Alarm");
         }
         
     }
