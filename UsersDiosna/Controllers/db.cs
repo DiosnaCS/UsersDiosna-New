@@ -773,8 +773,12 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} AND(\"RecordType\" = {3} OR \"RecordType\" = {4} OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8})",
-                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd, (int)Operations.DosingOut);
+            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
+                                        "AND(\"RecordType\" = {3} OR \"RecordType\" = {4}" +
+                                        " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
+                                        " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",
+                table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd,
+                (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 

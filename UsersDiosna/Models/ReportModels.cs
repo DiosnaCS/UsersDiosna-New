@@ -81,6 +81,13 @@ namespace UsersDiosna.Report.Models
         public int amountSum;
     }
 
+    public class ViewHeaderCleaning
+    {
+        public int hour;
+        public int ;
+        public int amountSum;
+    }
+
     public enum Operations
     {
         //Recipe operations

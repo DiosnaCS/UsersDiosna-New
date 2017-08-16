@@ -292,36 +292,24 @@ WriteLiteral("\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
             #line 51 "..\..\Views\Shared\_Layout.cshtml"
      if (Session["types"] != null && ViewBag.menuDisable != true)
     {
+        
+            
+            #line default
+            #line hidden
+            
+            #line 53 "..\..\Views\Shared\_Layout.cshtml"
+   Write(Scripts.Render("~/bundles/hideShow"));
 
             
             #line default
             #line hidden
-WriteLiteral(@"        <script>
-            var bMenuIsHide = false;
-            function menuHide() {
-                bMenuIsHide = true;
-                $('#container-body').css('margin-left', 0);
-                $('#menuShow').text(""Show menu"");
-                $('#menuHide').text("""");
-                $('.sidenav').hide();
-                $('#top_menu').css('left', 10);
-                $('#graph_content').css('left', 10);
-                $(window).css('width', windowWidth() - 1);
-                init();
-            }
-            function menuShow() {
-                bMenuIsHide = false;
-                $('#container-body').css('margin-left', 150);
-                $('#menuHide').text(""Hide menu"");
-                $('#menuShow').text("""");
-                $('.sidenav').show();
-                $('#top_menu').css('left', $('.sidenav').width() + 20);
-                $('#graph_content').css('left', $('.sidenav').width() + 20);
-                init();
-            }
-        </script>
-");
+            
+            #line 53 "..\..\Views\Shared\_Layout.cshtml"
+                                             
 
+            
+            #line default
+            #line hidden
 WriteLiteral("        <div");
 
 WriteLiteral(" class=\"sidenav\"");
@@ -331,7 +319,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 78 "..\..\Views\Shared\_Layout.cshtml"
+            #line 55 "..\..\Views\Shared\_Layout.cshtml"
        Write(Html.Partial("~/Views/Menu/_Menu.cshtml"));
 
             
@@ -340,7 +328,7 @@ WriteLiteral("            ");
 WriteLiteral("\r\n        </div>\r\n");
 
             
-            #line 80 "..\..\Views\Shared\_Layout.cshtml"
+            #line 57 "..\..\Views\Shared\_Layout.cshtml"
     }
 
             
@@ -364,13 +352,13 @@ WriteLiteral(@">
 ");
 
             
-            #line 90 "..\..\Views\Shared\_Layout.cshtml"
+            #line 67 "..\..\Views\Shared\_Layout.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 90 "..\..\Views\Shared\_Layout.cshtml"
+            #line 67 "..\..\Views\Shared\_Layout.cshtml"
          if (ViewBag.error != null)
         {
 
@@ -384,7 +372,7 @@ WriteLiteral(" class=\"alert alert-danger\"");
 WriteLiteral(">");
 
             
-            #line 92 "..\..\Views\Shared\_Layout.cshtml"
+            #line 69 "..\..\Views\Shared\_Layout.cshtml"
                                    Write(ViewBag.error);
 
             
@@ -393,7 +381,7 @@ WriteLiteral(">");
 WriteLiteral("<br></div>\r\n");
 
             
-            #line 93 "..\..\Views\Shared\_Layout.cshtml"
+            #line 70 "..\..\Views\Shared\_Layout.cshtml"
             Session["tempforview"] = null;
         }
 
@@ -403,7 +391,7 @@ WriteLiteral("<br></div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 95 "..\..\Views\Shared\_Layout.cshtml"
+            #line 72 "..\..\Views\Shared\_Layout.cshtml"
          if (ViewBag.message != null)
         {
 
@@ -417,7 +405,7 @@ WriteLiteral(" class=\"alert alert-danger\"");
 WriteLiteral(">");
 
             
-            #line 97 "..\..\Views\Shared\_Layout.cshtml"
+            #line 74 "..\..\Views\Shared\_Layout.cshtml"
                                    Write(ViewBag.message);
 
             
@@ -426,7 +414,7 @@ WriteLiteral(">");
 WriteLiteral("<br></div>\r\n");
 
             
-            #line 98 "..\..\Views\Shared\_Layout.cshtml"
+            #line 75 "..\..\Views\Shared\_Layout.cshtml"
             ViewBag.message = null;
         }
 
@@ -436,7 +424,7 @@ WriteLiteral("<br></div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 100 "..\..\Views\Shared\_Layout.cshtml"
+            #line 77 "..\..\Views\Shared\_Layout.cshtml"
          if (ViewBag.warning != null)
         {
 
@@ -450,7 +438,7 @@ WriteLiteral(" class=\"alert alert-warning\"");
 WriteLiteral(">");
 
             
-            #line 102 "..\..\Views\Shared\_Layout.cshtml"
+            #line 79 "..\..\Views\Shared\_Layout.cshtml"
                                     Write(ViewBag.warning);
 
             
@@ -459,7 +447,7 @@ WriteLiteral(">");
 WriteLiteral("<br></div>\r\n");
 
             
-            #line 103 "..\..\Views\Shared\_Layout.cshtml"
+            #line 80 "..\..\Views\Shared\_Layout.cshtml"
             ViewBag.warning = null;
         }
 
@@ -469,7 +457,7 @@ WriteLiteral("<br></div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 105 "..\..\Views\Shared\_Layout.cshtml"
+            #line 82 "..\..\Views\Shared\_Layout.cshtml"
          if (ViewBag.success != null)
         {
 
@@ -483,7 +471,7 @@ WriteLiteral(" class=\"alert alert-success\"");
 WriteLiteral(">");
 
             
-            #line 107 "..\..\Views\Shared\_Layout.cshtml"
+            #line 84 "..\..\Views\Shared\_Layout.cshtml"
                                         Write(ViewBag.success);
 
             
@@ -492,7 +480,7 @@ WriteLiteral(">");
 WriteLiteral("<br></div>\r\n");
 
             
-            #line 108 "..\..\Views\Shared\_Layout.cshtml"
+            #line 85 "..\..\Views\Shared\_Layout.cshtml"
             Session["success"] = null;
         }
 
@@ -502,7 +490,7 @@ WriteLiteral("<br></div>\r\n");
 WriteLiteral("        ");
 
             
-            #line 110 "..\..\Views\Shared\_Layout.cshtml"
+            #line 87 "..\..\Views\Shared\_Layout.cshtml"
    Write(RenderBody());
 
             
@@ -511,13 +499,13 @@ WriteLiteral("        ");
 WriteLiteral("\r\n");
 
             
-            #line 111 "..\..\Views\Shared\_Layout.cshtml"
+            #line 88 "..\..\Views\Shared\_Layout.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 111 "..\..\Views\Shared\_Layout.cshtml"
+            #line 88 "..\..\Views\Shared\_Layout.cshtml"
          if (Session["types"] != null && ViewBag.menuDisable != true)
         {
 
@@ -549,7 +537,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                    ");
 
             
-            #line 120 "..\..\Views\Shared\_Layout.cshtml"
+            #line 97 "..\..\Views\Shared\_Layout.cshtml"
                Write(ViewBag.legend);
 
             
@@ -558,7 +546,7 @@ WriteLiteral("                    ");
 WriteLiteral("\r\n                </div>\r\n            </div>\r\n        \r\n        </p>\r\n");
 
             
-            #line 125 "..\..\Views\Shared\_Layout.cshtml"
+            #line 102 "..\..\Views\Shared\_Layout.cshtml"
         }
 
             
@@ -567,13 +555,13 @@ WriteLiteral("\r\n                </div>\r\n            </div>\r\n        \r\n  
 WriteLiteral("    </div>\r\n");
 
             
-            #line 127 "..\..\Views\Shared\_Layout.cshtml"
+            #line 104 "..\..\Views\Shared\_Layout.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 127 "..\..\Views\Shared\_Layout.cshtml"
+            #line 104 "..\..\Views\Shared\_Layout.cshtml"
       
         Session["tempforview"] = null;
     
@@ -585,7 +573,7 @@ WriteLiteral("\r\n    <footer>\r\n    </footer>\r\n");
 WriteLiteral("    ");
 
             
-            #line 132 "..\..\Views\Shared\_Layout.cshtml"
+            #line 109 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -596,7 +584,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 133 "..\..\Views\Shared\_Layout.cshtml"
+            #line 110 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -607,7 +595,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 134 "..\..\Views\Shared\_Layout.cshtml"
+            #line 111 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             
@@ -618,7 +606,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 135 "..\..\Views\Shared\_Layout.cshtml"
+            #line 112 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/notification"));
 
             
@@ -629,7 +617,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 136 "..\..\Views\Shared\_Layout.cshtml"
+            #line 113 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

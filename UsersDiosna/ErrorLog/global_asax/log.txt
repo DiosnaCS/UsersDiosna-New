@@ -899,3 +899,5 @@
 8/10/2017 1:03:02 PMSession_onEnd hapened with null current context
 8/10/2017 2:15:01 PMSession_onEnd hapened with null current context
 8/10/2017 2:15:21 PMSession_onEnd hapened with null current context
+8/16/2017 2:36:21 PMSession_onEnd hapened with null current context
+8/16/2017 2:37:21 PMSession_onEnd hapened with null current context

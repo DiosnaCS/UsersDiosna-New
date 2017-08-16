@@ -130,7 +130,7 @@ namespace UsersDiosna.Controllers
         {
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             int BatchNo = db.SelectNextBatchNo(id, table);
-            if (BatchNo == 0)
+             if (BatchNo == 0)
             {
                 Session["tempforview"] = "You have reached the maximum batch";
                 return RedirectToAction("Detail", new { id = id});

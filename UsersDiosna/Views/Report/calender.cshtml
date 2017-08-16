@@ -10,11 +10,20 @@
     int amntTotal = 0;
     int amntOverall= 0;
     int amnt = 0;
-    bool colourRow;
+    string colourRow = "white";
     int count = 0;
     int countOverall = 0;
     int dosingOutCount = 0;
     int dosingOutAmountSum = 0;
+    int rowDOcount = 0;
+    int rowDOamount = 0;
+    int rowDOcountOverall = 0;
+    int rowDOamountOverall = 0;
+    int cleaningCount = 0;  
+    int rowDOcount = 0;
+    int rowDOamount = 0;
+    int rowDOcountOverall = 0;
+    int rowDOamountOverall = 0;
     int year = ViewBag.year;
     int monthLess = ViewBag.Month - 1;
     int monthMore = ViewBag.Month + 1;
@@ -40,13 +49,13 @@
 </div>
 <div class=" col-md-12">
     <div class="checkbox-inline big-checkbox">
-        <input type="checkbox" onclick="hideShowBatches()" />Hide Batches
+        <input type="checkbox" onclick="hideShowBatches()"/>Hide/Show Batches
     </div>
     <div class="checkbox-inline big-checkbox">
-            <input type="checkbox" onclick="hideShowDosing()" />Hide Dosing
+            <input type="checkbox" onclick="hideShowDosing()" checked/>Hide/Show Dosing
     </div>
     <div class="checkbox-inline big-checkbox">
-            <input type="checkbox" onclick="hideShowCleanig()" />Hide Cleaning
+            <input type="checkbox" onclick="hideShowCleanig()" checked/>Hide/Show Cleaning
     </div>
 </div>
 <table class="table-bordered table-condensed">
@@ -56,8 +65,10 @@
         @for (int hours = 0;hours<24;hours++) {
             <th class="th-Report">@hours</th>
         }
-        <th style="background-color: lightcyan;">Count</th>
-        <th style="background-color: lightgray;">Amount</th>
+        <th style="background-color: lightcyan;" title="Batches Count">B. cnt.</th>
+        <th style="background-color: lightcyan;" title="Dosing Count">DO. cnt.</th>
+        <th style="background-color: lightgray;" title="Batches amount">B. amt.</th>       
+        <th style="background-color: lightgray;" title="Dosing amount">DO. amt.</th>
     </tr>
     </thead>
     @for (int day = 1; day <= DateTime.DaysInMonth(year, ViewBag.month); day++)
@@ -66,11 +77,11 @@
         <tr>
             @if (dayDT.DayOfWeek == DayOfWeek.Saturday || dayDT.DayOfWeek == DayOfWeek.Sunday)
             {
-                colourRow = true;
+                colourRow = "lightgoldenrodyellow";
                 <td>@day. @sDay</td>
             } else
             {
-                colourRow = false;
+                colourRow = "white";
                 <td>@day. @sDay</td>            
             }
            @for (int hour = 0; hour < 24; hour++)
@@ -103,9 +114,13 @@
                    dosingOutAmountSum = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Sum(p => p.Actual);
                    dosingOut = new ViewHeaderDosingOut { hour = hour, count = dosingOutCount, amountSum = dosingOutAmountSum};
                }
-               if (colourRow == true)
+               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut))
                {
-                <td style="background-color: lightgoldenrodyellow">
+                   dosingOutCount = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Count();
+                   dosingOutAmountSum = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Sum(p => p.Actual);
+                   dosingOut = new ViewHeaderDosingOut { hour = hour, count = dosingOutCount, amountSum = dosingOutAmountSum };
+               }
+                <td style="background-color: @colourRow">
                     @foreach (var batch in batches)
                     {
                         if (Model.Data.Exists(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd))
@@ -125,36 +140,11 @@
                     @if (dosingOut != null)
                     {
                         <a href="/ReportDosing/@day/@ViewBag.Month" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
+                        rowDOcount += dosingOut.count;
+                        rowDOamount += (dosingOut.amountSum/1000);
+                        dosingOut = null;
                     }
-                    @{ dosingOut = null; }
                 </td>
-               }
-               else
-               {
-                <td>
-                    @foreach (var batch in batches)
-                    {
-                        if (Model.Data.Exists(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd))
-                        {
-                            EndType = Model.Data.Single(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd).Variant2; // takes endType
-                        }
-                        batch.Status = Convert.ToBoolean(EndType);
-                        if (batch.Status != false)
-                        {
-                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" style="color: darkgreen;" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
-                        }
-                        else
-                        {
-                            <b><a href="/Report/Detail/@batch.BatchNo" class="batch" title="Batch: @batch.BatchNo  Recipe: @batch.RecipeNo Filled amount: @batch.AmntTotal kg">@batch.Name</a></b>
-                        }
-                    }
-                    @if (dosingOut != null)
-                    {
-                        <a href="/ReportDosing/Detail/@day/@ViewBag.Month" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
-                    }
-                    @{ dosingOut = null; }
-                </td>
-               }
            }
             @if (count != 0)
             {
@@ -163,6 +153,15 @@
                 <td style="background-color: lightcyan; text-align: center;"></td>
             }
             @{countOverall += count; count = 0; }
+            @if (rowDOcount != 0)
+            {
+                <td style="background-color: lightcyan; text-align: center; ">@rowDOcount</td>
+            }
+            else
+            {
+                <td style="background-color: lightcyan; text-align: center;"></td>
+            }
+            @{ rowDOcountOverall += rowDOcount; rowDOcount = 0; }
             @if (amntTotal != 0)
             {
                 <td style="background-color: lightgray; text-align: center; ">@amntTotal kg</td>
@@ -170,6 +169,15 @@
                 <td style="background-color: lightgray; text-align: center;"></td>
             }
             @{amntOverall += amntTotal; amntTotal = 0; }
+            @if (rowDOamount != 0)
+            {
+                <td style="background-color: lightgray; text-align: center; ">@rowDOamount kg</td>
+            }
+            else
+            {
+                <td style="background-color: lightgray; text-align: center;"></td>
+            }
+            @{ rowDOamountOverall += rowDOamount; rowDOamount = 0; }
         </tr>
     }
     <tr>
@@ -178,31 +186,9 @@
         {
             <td class="th-Report"></td>
         }
-        <td><b>@countOverall</b></td>
-        <td><b>@amntOverall kg</b></td>
+        <td style="text-align: center;"><b>@countOverall</b></td>
+        <td style="text-align: center;"><b>@rowDOcountOverall</b></td>
+        <td style="text-align: center;"><b>@amntOverall kg</b></td>
+        <td style="text-align: center;"><b>@rowDOamountOverall kg</b></td>
     </tr>
 </table>
-<script> 
-    function hideBatches() {
-        if ($(".batch").is(":visible") {
-            $(".batch").hide();
-        } else {
-            $(".batch").show();
-        }
-    }
-    function showBatches() {
-        $(".batch").show();
-    }
-    function hideDosing() {
-        $(".dosing").hide();
-    }
-    function showDosing() {
-        $(".dosing").show();
-    }
-    function hideCleaning() {
-        $(".cleaning").hide();
-    }
-    function showCleaning() {
-        $(".cleaning").show();
-    }
-</script>
