@@ -23,4 +23,9 @@ namespace UsersDiosna.Alarms.Models
         public string expTime { get; set; }
         
     }
+
+    public class AlarmFilter
+    {
+        public List<int> alarms { get; set; }
+    }
 }

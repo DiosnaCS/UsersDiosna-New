@@ -24,3 +24,21 @@
 8/10/2017 9:01:36 AMThe network path was not found.
 
 8/10/2017 9:02:27 AMCould not find a part of the path '\\192.168.2.40\Public\Zakazky_Public\164017_USA-International_Delights_WS\9_Public'.
+8/21/2017 12:53:24 PMThe user name or password is incorrect.
+
+8/21/2017 12:54:40 PMThe user name or password is incorrect.
+
+8/21/2017 12:58:05 PMThe user name or password is incorrect.
+
+8/21/2017 12:59:39 PMThe user name or password is incorrect.
+
+8/21/2017 1:01:26 PMThe user name or password is incorrect.
+
+8/21/2017 1:03:55 PMThe user name or password is incorrect.
+
+8/21/2017 2:31:57 PMThe user name or password is incorrect.
+
+8/22/2017 12:23:33 PMThe user name or password is incorrect
+8/22/2017 12:25:04 PMThe user name or password is incorrect
+8/22/2017 12:26:52 PMThe user name or password is incorrect
+8/24/2017 3:52:38 PMThe SaveAs method is configured to require a rooted path, and the path 'homepage.png' is not rooted.

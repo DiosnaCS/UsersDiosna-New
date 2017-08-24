@@ -84,7 +84,7 @@ namespace UsersDiosna.Report.Models
     public class ViewHeaderCleaning
     {
         public int hour;
-        public int ;
+        public int cleaning;
         public int amountSum;
     }
 

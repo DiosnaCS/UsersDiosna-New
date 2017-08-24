@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using System.Net;
 using System.Web.Security;
+using UsersDiosna.Handlers;
 
 
 namespace UsersDiosna.Controllers
@@ -116,6 +117,7 @@ namespace UsersDiosna.Controllers
                 string nameFile = Request.QueryString["nameFile"].ToString();
                 //string sessionID = "pathDownload" + Request.QueryString["plc"];
                 string network_path = Session["network_path"].ToString();
+                FileHelper FH = new FileHelper();
 
                 absoultePathToFile = network_path+nameFile;
 
@@ -139,11 +141,13 @@ namespace UsersDiosna.Controllers
                         {
                             Response.ContentType = "text/plain"; //change content type for txt files
                         }
-                        Response.TransmitFile(absoultePathToFile);//For View the file
+                        //Response.TransmitFile(absoultePathToFile);
+                        Response.BinaryWrite(FH.DownloadFile(network_path, nameFile));//For View the file
                     }
                     else {                    
                         Response.AppendHeader("Content-Disposition", "attachment; filename=" + nameFile);
-                        Response.TransmitFile(absoultePathToFile); //For download file
+                        //Response.TransmitFile(absoultePathToFile);
+                        Response.BinaryWrite(FH.DownloadFile(network_path, nameFile)); //For download file
                         Response.Flush(); //For download file
                     }
             }

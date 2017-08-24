@@ -28,10 +28,10 @@
 			<dbName>InternDelights</dbName>
 		</alarm>
 		<Download>
-			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
+			<path>\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\</path>
+			<path>\Zakazky\0_New\16_rok\164017_USA-International_Delights_WS\9_Public\</path>
 		</Upload>
 		<Report>
 			<dbName>InternDelights</dbName>

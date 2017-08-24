@@ -14,5 +14,7 @@ namespace UsersDiosna.Upload.Models
         [DataType(DataType.Upload)]
         [Display(Name = "Upload File")]
         public HttpPostedFileBase File { get; set; }
+
+        public string plcName {get; set;}
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using UsersDiosna.Handlers;
+using System.Threading.Tasks;
 
 namespace UsersDiosna.Controllers
 {
@@ -29,25 +30,18 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: Alarm
-        public async System.Threading.Tasks.Task<ActionResult> Index()
+        public async Task<ActionResult> Index()
         {
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
-            if (AlarmHelper.DB == null)
-            {
-                DBConnnection();
-                model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
-            }
-            else
-            {
-                model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
-            }
+            DBConnnection();
+            model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
             ViewBag.page = 0;
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
             return View(model);
         }
         
         /// <param name="id">Id is page </param>s
-        public async System.Threading.Tasks.Task<ActionResult> Page(int page = 0, int count = 30)
+        public async Task<ActionResult> Page(int page = 0, int count = 30)
         {
             int offsetPage = page * count;
             if (page<0)
@@ -56,15 +50,7 @@ namespace UsersDiosna.Controllers
                 return RedirectToAction("Index");
             }
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
-            if (AlarmHelper.DB == null)
-            {
-                DBConnnection();
-                model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, offsetPage, count);
-            }
-            else
-            {
-                model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, offsetPage, count);
-            }
+            model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
             if (model.Count == 0)
             {
                 Session["tempforview"] = "No alarms has been found";
@@ -74,5 +60,26 @@ namespace UsersDiosna.Controllers
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
             return View("Index",model);
         }
+
+        public async Task<ActionResult> FilterCurrent() {
+            return View();
+        }
+
+        public async Task<ActionResult> FilterAll()
+        {
+            return View();
+        }
+        /*
+        public async Task<ActionResult> FilterCurrent( alarms)
+        {
+            
+            return View(model);
+        }
+
+        public async Task<ActionResult> FilterAll()
+        {
+            return View(model);
+        }
+        */
     }
 }

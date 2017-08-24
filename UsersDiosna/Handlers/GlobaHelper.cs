@@ -2,6 +2,7 @@
 using System.IO;
 using System.Web;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace UsersDiosna
 {
@@ -70,6 +71,13 @@ namespace UsersDiosna
                     }
                 }
             }
+            return list;
+        }
+
+        public static List<string> SplitToList(out List<string> list, string forSplit, string separator)
+        {
+            string[] separatorArray = new string[] { separator };
+            list = forSplit.Split(separatorArray, StringSplitOptions.RemoveEmptyEntries).ToList();           
             return list;
         }
     }

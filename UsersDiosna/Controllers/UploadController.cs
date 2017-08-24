@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using UsersDiosna.Upload.Models;
 using System.IO;
+using System.Net;
+using SimpleImpersonation;
+using UsersDiosna.Handlers;
 
 namespace UsersDiosna.Controllers
 {
@@ -12,12 +15,26 @@ namespace UsersDiosna.Controllers
         // GET: Upload
         public ActionResult Index()
         {
-            try { 
-                    string sessionID = "pathUpload" + Request.QueryString["plc"];
-                    string ServerPath = Session[sessionID].ToString();
-                    Session["network_path"] = ServerPath;
-                    string[] files = Directory.GetFiles(ServerPath + @"9_Public\", "*.*");
-                    List<string> fileList = new List<string>();
+            try {
+                string sessionID = "pathUpload" + Request.QueryString["plc"];
+                string ServerPath = Session[sessionID].ToString();
+                Session["network_path"] = ServerPath;
+
+                FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://remote.diosna.cz/" + ServerPath);
+                request.Method = WebRequestMethods.Ftp.ListDirectory;
+                request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276", "FILESERVER3");
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);                
+                string files = reader.ReadToEnd();
+
+                List<string> fileList = new List<string>();
+                Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
+                ViewBag.fileList = fileList;
+
+                /*
+                files = Directory.GetFiles(ServerPath + @"9_Public\", "*.*");
+                List<string> fileList = new List<string>();
                     List<string> fileNames = new List<string>();
                     int index;
                     string help_string_file;
@@ -36,7 +53,8 @@ namespace UsersDiosna.Controllers
                     }
                     ViewBag.fileName = fileList;
                     ViewBag.files = fileNames;
-                    return View();
+                */
+                return View();
                 }
             catch (Exception e)
             {
@@ -55,18 +73,11 @@ namespace UsersDiosna.Controllers
             {
                 try {
                     string filename = model.File.FileName;
+                    string pathToLocalFile = System.IO.Path.GetFullPath(filename);
                     if (filename.Contains(@"\"))
-                    {
-                        int index = model.File.FileName.LastIndexOf(@"\");
-                        filename = model.File.FileName.Substring(index + 1);
-                    }
-                    
-                    string network_path = Session["network_path"].ToString();
-                    // Use your file here
-                    MemoryStream memoryStream = new MemoryStream();
-                    //9_Public\ is important becasuse of download the file
-                    model.File.SaveAs(network_path + @"9_Public\" + filename);
-                    //Message for user
+                        filename.Substring(1);
+                    FileHelper FH = new FileHelper();
+                    FH.UploadFile(Session["network_path"].ToString(),pathToLocalFile, filename);
                     Session["success"] = "File: " + filename + " has been successfullly uploaded.";
                 } catch(Exception ex)
                 {
@@ -76,8 +87,24 @@ namespace UsersDiosna.Controllers
                 }
                 
             }
+            string sessionID = "pathUpload" + model.plcName;
+            string ServerPath = Session[sessionID].ToString();
+            Session["network_path"] = ServerPath;
 
-            return RedirectToAction("Index", "Upload");
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://remote.diosna.cz/" + ServerPath);
+            request.Method = WebRequestMethods.Ftp.ListDirectory;
+            request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276", "FILESERVER3");
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+            Stream stream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(stream);
+            string files = reader.ReadToEnd();
+
+            List<string> fileList = new List<string>();
+            Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
+            ViewBag.fileList = fileList;
+
+            return View();
+            //return RedirectToAction("Index", "Upload", new { plc=model.plcName});
         }
     }
 

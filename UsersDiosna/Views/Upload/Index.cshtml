@@ -11,6 +11,7 @@
         @Html.TextBoxFor(m => m.File, new { type = "file" })
         <div class="col-md-10">
             @Html.ValidationMessageFor(m => m.File)
+            @Html.HiddenFor(m => m.plcName, Request.QueryString["plc"])
         </div>
     </div>
     <div class="form-group">
@@ -36,12 +37,12 @@
 @{
     int i = 0;
 }
-@if (ViewBag.files != null)
+@if (ViewBag.fileList != null)
 {
-    foreach (string file in ViewBag.files)
+    foreach (string file in ViewBag.fileList)
     {
             <div class="list-group-item-text">
-                @ViewBag.fileName[i]
+                @file
                 <a href="/Download/downloadFile?nameFile=@file">Download</a>
                 @if (file.Contains(".pdf") || file.Contains(".txt"))
                 {
