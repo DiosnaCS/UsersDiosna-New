@@ -8,13 +8,14 @@
     @Scripts.Render("~/bundles/helpers")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/hideShow")
 </head>
 @{
     ViewBag.error = Session["tempforview"];
     ViewBag.success = Session["success"];
 }
 <body onresize="responsive()" onload="notification()">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" >
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -50,7 +51,6 @@
     </div>
     @if (Session["types"] != null && ViewBag.menuDisable != true)
     {
-        @Scripts.Render("~/bundles/hideShow")
         <div class="sidenav">
             @Html.Partial("~/Views/Menu/_Menu.cshtml")
         </div>

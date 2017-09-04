@@ -71,21 +71,10 @@ WriteLiteral(">\r\n    Check checkbox of deisired alarms\r\n\r\n");
             #line hidden
 WriteLiteral("            <table");
 
-WriteLiteral(" class=\"tg\"");
+WriteLiteral(" class=\"table table-striped table-bordered table-condensed table-hover\"");
 
-WriteLiteral(">\r\n                <tr>\r\n                    <th");
-
-WriteLiteral(" class=\"tg-yw4l\"");
-
-WriteLiteral("></th>\r\n                    <th");
-
-WriteLiteral(" class=\"tg-yw4l\"");
-
-WriteLiteral(">Id</th>\r\n                    <th");
-
-WriteLiteral(" class=\"tg-yw42\"");
-
-WriteLiteral(">Alarm Label</th>\r\n                </tr>\r\n");
+WriteLiteral(">\r\n                <tr>\r\n                    <th></th>\r\n                    <th>I" +
+"d</th>\r\n                    <th>Alarm Label</th>\r\n                </tr>\r\n");
 
             
             #line 18 "..\..\Views\AlarmNotification\All.cshtml"
@@ -101,48 +90,36 @@ WriteLiteral(">Alarm Label</th>\r\n                </tr>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("                <tr>\r\n                    <td");
-
-WriteLiteral(" class=\"tg-yw4l\"");
-
-WriteLiteral("><input");
+WriteLiteral("                <tr>\r\n                    <td><input");
 
 WriteLiteral(" type=\"checkbox\"");
 
-WriteAttribute("name", Tuple.Create(" name=\"", 767), Tuple.Create("\"", 783)
+WriteAttribute("name", Tuple.Create(" name=\"", 763), Tuple.Create("\"", 779)
             
             #line 21 "..\..\Views\AlarmNotification\All.cshtml"
-, Tuple.Create(Tuple.Create("", 774), Tuple.Create<System.Object, System.Int32>(Alarm.id
+, Tuple.Create(Tuple.Create("", 770), Tuple.Create<System.Object, System.Int32>(Alarm.id
             
             #line default
             #line hidden
-, 774), false)
+, 770), false)
 );
 
 WriteLiteral(">");
 
-WriteLiteral("</td>\r\n                    <td");
-
-WriteLiteral(" class=\"tg-yw4l\"");
-
-WriteLiteral(">");
+WriteLiteral("</td>\r\n                    <td>");
 
             
             #line 22 "..\..\Views\AlarmNotification\All.cshtml"
-                                   Write(Alarm.id);
+                   Write(Alarm.id);
 
             
             #line default
             #line hidden
-WriteLiteral("</td>\r\n                    <td");
-
-WriteLiteral(" class=\"tg-yw42\"");
-
-WriteLiteral(">");
+WriteLiteral("</td>\r\n                    <td>");
 
             
             #line 23 "..\..\Views\AlarmNotification\All.cshtml"
-                                   Write(Alarm.title);
+                   Write(Alarm.title);
 
             
             #line default

@@ -73,11 +73,20 @@ namespace UsersDiosna.Controllers
             {
                 try {
                     string filename = model.File.FileName;
-                    string pathToLocalFile = System.IO.Path.GetFullPath(filename);
-                    if (filename.Contains(@"\"))
-                        filename.Substring(1);
+                    Stream uploadFileStream = model.File.InputStream;
+                    byte[] data;
+                    using (Stream inputStream = model.File.InputStream)
+                    {
+                        MemoryStream memoryStream = inputStream as MemoryStream;
+                        if (memoryStream == null)
+                        {
+                            memoryStream = new MemoryStream();
+                            inputStream.CopyTo(memoryStream);
+                        }
+                        data = memoryStream.ToArray();
+                    }
                     FileHelper FH = new FileHelper();
-                    FH.UploadFile(Session["network_path"].ToString(),pathToLocalFile, filename);
+                    FH.UploadFile(Session["network_path"].ToString(), data, filename);
                     Session["success"] = "File: " + filename + " has been successfullly uploaded.";
                 } catch(Exception ex)
                 {
@@ -88,6 +97,7 @@ namespace UsersDiosna.Controllers
                 
             }
             string sessionID = "pathUpload" + model.plcName;
+            ViewBag.plcName = model.plcName;
             string ServerPath = Session[sessionID].ToString();
             Session["network_path"] = ServerPath;
 
@@ -103,7 +113,7 @@ namespace UsersDiosna.Controllers
             Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
             ViewBag.fileList = fileList;
 
-            return View();
+            return View("Index");
             //return RedirectToAction("Index", "Upload", new { plc=model.plcName});
         }
     }

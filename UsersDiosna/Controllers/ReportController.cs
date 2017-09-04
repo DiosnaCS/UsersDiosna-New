@@ -71,6 +71,7 @@ namespace UsersDiosna.Controllers
 
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
+            List<ColumnReportModel> cleaning = model.Data.Where(p=> p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning).ToList();
             foreach (var report in model.Data)
             {
                 int dest = int.Parse(report.Destination);

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Net;
 using System.Web.Security;
 using UsersDiosna.Handlers;
-
+using UsersDiosna.Download.Models;
 
 namespace UsersDiosna.Controllers
 {
@@ -19,33 +19,6 @@ namespace UsersDiosna.Controllers
         List <String> ProjectNames = new List<string>();
         List<int> ProjectNumbers = new List<int>();
         public string[] absoulte_path;
-
-
-        /*
-         * @param Stirng NetworkPath, string maskfile = null, String extension = "*", @return string[] absoulte_path
-         * Method to get all files from server with exact params as mask of the file
-         */ 
-        public string[] findFilesOnServer(String networkPath, String maskFile = null)
-        {
-            string maskPath;
-            int iHelper;
-            if (maskFile == null)
-            {
-                absoulte_path = Directory.GetFiles(networkPath, "*.*");
-            }
-            else
-            {
-                iHelper = maskFile.LastIndexOf(@"\");
-                maskPath = maskFile.Substring(0, maskFile.Length - (maskFile.Length - iHelper));
-                maskFile = maskFile.Substring(iHelper+1);
-                absoulte_path = Directory.GetFiles(networkPath+maskPath, maskFile);
-            }
-            int count = absoulte_path.Count();
-
-            ViewBag.count = count;
-            Session["absoulte_path"]  = absoulte_path;
-            return absoulte_path;
-        }
 
         /*
          * @param void, @return List<string> 
@@ -137,12 +110,21 @@ namespace UsersDiosna.Controllers
                         {
                             Response.ContentType = "application/pdf"; //change content type for pdf files
                         }
-                        else
+                        if (absoultePathToFile.Contains(".txt"))
                         {
                             Response.ContentType = "text/plain"; //change content type for txt files
                         }
-                        //Response.TransmitFile(absoultePathToFile);
-                        Response.BinaryWrite(FH.DownloadFile(network_path, nameFile));//For View the file
+                        if (absoultePathToFile.Contains(".html"))
+                        {
+                            Response.ContentType = "text/html"; //change content type for html files
+                        }
+                        if (absoultePathToFile.Contains(".mp4"))
+                        {
+                            Response.ContentType = "video/mp4"; //change content type for mp4 files
+                        }
+
+                    //Response.TransmitFile(absoultePathToFile);
+                    Response.BinaryWrite(FH.DownloadFile(network_path, nameFile));//For View the file
                     }
                     else {                    
                         Response.AppendHeader("Content-Disposition", "attachment; filename=" + nameFile);
@@ -156,40 +138,41 @@ namespace UsersDiosna.Controllers
         public ActionResult Index()
         {
             try {
-                string sessionID = "pathDownload" + Request.QueryString["plc"];
-                string network_path = Session[sessionID].ToString();
-                Session["network_path"] = network_path;
-                int network_path_length = network_path.Length;
-                List <string> filesToView = new List<string>();
-                int i = 0;
-                List<string> masks = new List<string>();
-                List<string> masksNames = new List<string>();
-                masksNames = selectMasksNames();
-                masks = selectMasks();
-                foreach (string mask in masks)
-                {
-                    if (masksNames[i] != "") {
-                        filesToView.Add(masksNames[i]);
-                    }
-                    string[] files = findFilesOnServer(network_path, mask);
-                    if (files != null)
+                    string sessionID = "pathDownload" + Request.QueryString["plc"];
+                    string network_path = Session[sessionID].ToString();
+                    Session["network_path"] = network_path;
+                    
+                    List <string> filesToView = new List<string>();
+                    int i = 0;
+                    List<string> masks = new List<string>();
+                    List<string> masksNames = new List<string>();
+
+                    List<FileForDownload> model = new List<FileForDownload>();
+                    FileHelper FH = new FileHelper();
+                    masksNames = selectMasksNames();
+                    masks = selectMasks();
+                    foreach (string mask in masks)
                     {
-                        foreach (string file in files)
+                        FileForDownload FFD = new FileForDownload();
+                        if (masksNames[i] != "")
                         {
-                            string fileToView = file.Substring(network_path_length); 
-                            filesToView.Add(fileToView);
+                            FFD.maskName = masksNames[i];
                         }
+                        FFD.pathes = FH.findFilesOnServer(network_path, mask);
+                        FFD.files = new List<string>();
+                        foreach (string path in FFD.pathes) {
+                            string fileName = path.Substring(path.LastIndexOf('/')+1);
+                            FFD.files.Add(fileName);
+                        }
+                        if (FFD.files == null)
+                        {
+                            ViewBag.warning = "No files has been found";
+                            filesToView.Add("No files has been found");
+                        }
+                        i++;
+                        model.Add(FFD);
                     }
-                    else
-                    {
-                        ViewBag.warning = "No files has been found";
-                        filesToView.Add("No files has been found");
-                    }
-                    i++;
-                }
-                ViewBag.files = filesToView;
-                ViewBag.masks = masks;
-                return View();
+                    return View(model);
             }
             catch {
                 ViewBag.message = "Problem with finding downloads to this bakery.";

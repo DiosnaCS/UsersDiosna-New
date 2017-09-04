@@ -19,7 +19,7 @@
     int rowDOamount = 0;
     int rowDOcountOverall = 0;
     int rowDOamountOverall = 0;
-    int cleaningCount = 0;  
+    int cleaningCount = 0;
     /*
     int rowDOcount = 0;
     int rowDOamount = 0;
@@ -38,6 +38,7 @@
         monthMore = 1;
     }
     ViewHeaderDosingOut dosingOut = null;
+    ViewHeaderCleaning cleaning = null;
     Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
     DateTime monthDT = new DateTime(year, ViewBag.month, 1);
     string monthName = monthDT.ToString("MMMM");
@@ -57,7 +58,7 @@
             <input type="checkbox" onclick="hideShowDosing()" checked/>Hide/Show Dosing
     </div>
     <div class="checkbox-inline big-checkbox">
-            <input type="checkbox" onclick="hideShowCleanig()" checked/>Hide/Show Cleaning
+            <input type="checkbox" onclick="hideShowCleaning()" checked/>Hide/Show Cleaning
     </div>
 </div>
 <table class="table-bordered table-condensed">
@@ -116,11 +117,17 @@
                    dosingOutAmountSum = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Sum(p => p.Actual);
                    dosingOut = new ViewHeaderDosingOut { hour = hour, count = dosingOutCount, amountSum = dosingOutAmountSum};
                }
-               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut))
+               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.FermenterCleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning)))
                {
-                   dosingOutCount = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Count();
-                   dosingOutAmountSum = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Sum(p => p.Actual);
-                   dosingOut = new ViewHeaderDosingOut { hour = hour, count = dosingOutCount, amountSum = dosingOutAmountSum };
+                   var cleanings = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.FermenterCleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning));
+                   foreach (var cleanOp in cleanings) {
+                       if (cleanOp.RecordType == Operations.Pigging) {
+                           cleaning = new ViewHeaderCleaning { cleaning = cleanOp.RecordType.ToString(), destination = cleanOp.Destination, BatchNo = cleanOp.BatchNo, ClnType = ClnType.none, StartedBy = (StartedBy)cleanOp.Variant2 };
+                       }
+                       else {
+                           cleaning = new ViewHeaderCleaning { cleaning = cleanOp.RecordType.ToString(), destination = cleanOp.Destination, BatchNo = cleanOp.BatchNo, ClnType = (ClnType)cleanOp.Variant1, StartedBy = (StartedBy)cleanOp.Variant2 };
+                       }
+                   }
                }
                 <td style="background-color: @colourRow">
                     @foreach (var batch in batches)
@@ -145,6 +152,11 @@
                         rowDOcount += dosingOut.count;
                         rowDOamount += (dosingOut.amountSum/1000);
                         dosingOut = null;
+                    }
+                    @if (cleaning != null)
+                    {
+                        <a href="/ReportCleaning/@day/@ViewBag.Month" class="cleaning" title="Cleaning: @cleaning.cleaning Clean Type: @cleaning.ClnType.ToString() Started By: @cleaning.StartedBy.ToString()">[<b>@cleaning.destination</b>]</a>
+                        cleaning = null;
                     }
                 </td>
            }

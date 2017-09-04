@@ -1,35 +1,32 @@
-﻿@model UsersDiosna.File.Models.FileFormModel
+﻿@model List<UsersDiosna.Download.Models.FileForDownload>
 @{ 
     ViewBag.Title = "Downloads";
     string fileName;
     int iHelper;
+    int i = 0;
 }
 <h2>@ViewBag.Title</h2>
-@if(ViewBag.files !=null) { 
-    foreach (string file in ViewBag.files)
+@if (Model != null)
+{
+    foreach (UsersDiosna.Download.Models.FileForDownload filesForMask in Model)
     {
-        if (file.Contains(@"\"))
+        <div class="list-group-item-heading"><b>@filesForMask.maskName</b><br></div>
+        foreach (string file in filesForMask.files)
         {
             iHelper = file.LastIndexOf(@"\");
             fileName = file.Substring(iHelper + 1);
-            ViewBag.fileName = fileName;
             <div class="list-group-item-text">
-                @ViewBag.fileName
-                <a href="/Download/downloadFile?nameFile=@file">Download</a>
-                @if (file.Contains(".pdf") || file.Contains(".txt"))
+                @fileName
+                <a href="/Download/downloadFile?nameFile=@filesForMask.pathes[i]">Download</a>
+                @if (file.Contains(".pdf") || file.Contains(".txt") || file.Contains(".html") || file.Contains(".mp4"))
                 {
-                    <a href="/Download/downloadFile?nameFile=@file&View=1">View</a><br>
+                    <a href="/Download/downloadFile?nameFile=@filesForMask.pathes[i]&View=1">View</a>
                 }
-                else
-                {
-                    <br>
-                }
+                <br>
             </div>
+            @{i++; }
         }
-        else
-        {
-        <div class="list-group-item-heading"><b>@file</b><br></div>
-        }
+        @{i = 0;}
     }
 }
 else

@@ -83,7 +83,6 @@
 }
 .plc:hover {
 }
-
 body {
     padding-top: 50px;
     padding-bottom: 20px;
@@ -235,4 +234,7 @@ body {
 }
 footer {
     bottom: 5px !important;
+}
+.cleaning {
+    font-size: 0.8em !important;
 }

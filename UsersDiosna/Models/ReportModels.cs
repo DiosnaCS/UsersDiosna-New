@@ -83,9 +83,11 @@ namespace UsersDiosna.Report.Models
 
     public class ViewHeaderCleaning
     {
-        public int hour;
-        public int cleaning;
-        public int amountSum;
+        public string cleaning;
+        public string destination;
+        public int BatchNo;
+        public ClnType ClnType;
+        public StartedBy StartedBy;
     }
 
     public enum Operations
@@ -123,6 +125,17 @@ namespace UsersDiosna.Report.Models
         OperatorLogout = 51
     }
 
+    public enum StartedBy {
+        automatic = 0,
+        manual = 1
+    }
+    public enum ClnType {
+        none = -1,
+        automatic = 0,
+        manual = 1,
+        showering = 2,
+        chemical = 3
+    }
     public class DataReportModel
     {
         public List<ColumnReportModel> Data { get; set;}

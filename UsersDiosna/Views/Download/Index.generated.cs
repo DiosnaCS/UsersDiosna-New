@@ -32,7 +32,7 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Download/Index.cshtml")]
-    public partial class _Views_Download_Index_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.File.Models.FileFormModel>
+    public partial class _Views_Download_Index_cshtml : System.Web.Mvc.WebViewPage<List<UsersDiosna.Download.Models.FileForDownload>>
     {
         public _Views_Download_Index_cshtml()
         {
@@ -45,6 +45,7 @@ namespace ASP
     ViewBag.Title = "Downloads";
     string fileName;
     int iHelper;
+    int i = 0;
 
             
             #line default
@@ -52,7 +53,7 @@ namespace ASP
 WriteLiteral("\r\n<h2>");
 
             
-            #line 7 "..\..\Views\Download\Index.cshtml"
+            #line 8 "..\..\Views\Download\Index.cshtml"
 Write(ViewBag.Title);
 
             
@@ -61,15 +62,36 @@ Write(ViewBag.Title);
 WriteLiteral("</h2>\r\n");
 
             
-            #line 8 "..\..\Views\Download\Index.cshtml"
- if(ViewBag.files !=null) { 
-    foreach (string file in ViewBag.files)
+            #line 9 "..\..\Views\Download\Index.cshtml"
+ if (Model != null)
+{
+    foreach (UsersDiosna.Download.Models.FileForDownload filesForMask in Model)
     {
-        if (file.Contains(@"\"))
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <div");
+
+WriteLiteral(" class=\"list-group-item-heading\"");
+
+WriteLiteral("><b>");
+
+            
+            #line 13 "..\..\Views\Download\Index.cshtml"
+                                           Write(filesForMask.maskName);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b><br></div>\r\n");
+
+            
+            #line 14 "..\..\Views\Download\Index.cshtml"
+        foreach (string file in filesForMask.files)
         {
             iHelper = file.LastIndexOf(@"\");
             fileName = file.Substring(iHelper + 1);
-            ViewBag.fileName = fileName;
 
             
             #line default
@@ -83,36 +105,36 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 17 "..\..\Views\Download\Index.cshtml"
-           Write(ViewBag.fileName);
+            #line 19 "..\..\Views\Download\Index.cshtml"
+           Write(fileName);
 
             
             #line default
             #line hidden
 WriteLiteral("\r\n                <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 522), Tuple.Create("\"", 566)
-, Tuple.Create(Tuple.Create("", 529), Tuple.Create("/Download/downloadFile?nameFile=", 529), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 636), Tuple.Create("\"", 698)
+, Tuple.Create(Tuple.Create("", 643), Tuple.Create("/Download/downloadFile?nameFile=", 643), true)
             
-            #line 18 "..\..\Views\Download\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 561), Tuple.Create<System.Object, System.Int32>(file
+            #line 20 "..\..\Views\Download\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 675), Tuple.Create<System.Object, System.Int32>(filesForMask.pathes[i]
             
             #line default
             #line hidden
-, 561), false)
+, 675), false)
 );
 
 WriteLiteral(">Download</a>\r\n");
 
             
-            #line 19 "..\..\Views\Download\Index.cshtml"
+            #line 21 "..\..\Views\Download\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 19 "..\..\Views\Download\Index.cshtml"
-                 if (file.Contains(".pdf") || file.Contains(".txt"))
+            #line 21 "..\..\Views\Download\Index.cshtml"
+                 if (file.Contains(".pdf") || file.Contains(".txt") || file.Contains(".html") || file.Contains(".mp4"))
                 {
 
             
@@ -120,69 +142,58 @@ WriteLiteral(">Download</a>\r\n");
             #line hidden
 WriteLiteral("                    <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 693), Tuple.Create("\"", 744)
-, Tuple.Create(Tuple.Create("", 700), Tuple.Create("/Download/downloadFile?nameFile=", 700), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 876), Tuple.Create("\"", 945)
+, Tuple.Create(Tuple.Create("", 883), Tuple.Create("/Download/downloadFile?nameFile=", 883), true)
             
-            #line 21 "..\..\Views\Download\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 732), Tuple.Create<System.Object, System.Int32>(file
+            #line 23 "..\..\Views\Download\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 915), Tuple.Create<System.Object, System.Int32>(filesForMask.pathes[i]
             
             #line default
             #line hidden
-, 732), false)
-, Tuple.Create(Tuple.Create("", 737), Tuple.Create("&View=1", 737), true)
+, 915), false)
+, Tuple.Create(Tuple.Create("", 938), Tuple.Create("&View=1", 938), true)
 );
 
-WriteLiteral(">View</a>");
-
-WriteLiteral("<br>\r\n");
+WriteLiteral(">View</a>\r\n");
 
             
-            #line 22 "..\..\Views\Download\Index.cshtml"
-                }
-                else
-                {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("                    <br>\r\n");
-
-            
-            #line 26 "..\..\Views\Download\Index.cshtml"
+            #line 24 "..\..\Views\Download\Index.cshtml"
                 }
 
             
             #line default
             #line hidden
-WriteLiteral("            </div>\r\n");
+WriteLiteral("                <br>\r\n            </div>\r\n");
 
             
-            #line 28 "..\..\Views\Download\Index.cshtml"
-        }
-        else
-        {
-
+            #line 27 "..\..\Views\Download\Index.cshtml"
+            
             
             #line default
             #line hidden
-WriteLiteral("        <div");
-
-WriteLiteral(" class=\"list-group-item-heading\"");
-
-WriteLiteral("><b>");
-
             
-            #line 31 "..\..\Views\Download\Index.cshtml"
-                                           Write(file);
-
+            #line 27 "..\..\Views\Download\Index.cshtml"
+              i++; 
             
             #line default
             #line hidden
-WriteLiteral("</b><br></div>\r\n");
-
             
-            #line 32 "..\..\Views\Download\Index.cshtml"
+            #line 27 "..\..\Views\Download\Index.cshtml"
+                    
         }
+        
+            
+            #line default
+            #line hidden
+            
+            #line 29 "..\..\Views\Download\Index.cshtml"
+          i = 0;
+            
+            #line default
+            #line hidden
+            
+            #line 29 "..\..\Views\Download\Index.cshtml"
+                 
     }
 }
 else
@@ -198,7 +209,7 @@ WriteLiteral(" class=\"alert alert-warning\"");
 WriteLiteral(">No files has been found</div>\r\n");
 
             
-            #line 38 "..\..\Views\Download\Index.cshtml"
+            #line 35 "..\..\Views\Download\Index.cshtml"
 }
 
             
@@ -213,7 +224,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 42 "..\..\Views\Download\Index.cshtml"
+            #line 39 "..\..\Views\Download\Index.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             
