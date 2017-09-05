@@ -16,9 +16,10 @@
                     for (var i = 0; i < data.length; i++) {
                         id = data[i]["Id"];
                         var projectName = data[i]["ProjectName"];
-                        var detail = data[i]["Detail"];
+                        var tags = data[i]["Tags"];
+                        var rest = tags + '\n' + data[i]["Detail"]; 
                         html += '<li><a href="/Notification/turnOff/' + id + '">' + '<b>' + projectName + '</b>' + detail + '</a></li>';
-                        notifyMe(data[i]["Detail"], data[i]["ProjectName"], id);
+                        notifyMe(rest, data[i]["ProjectName"], id);
                     }
                     $('#notification').html(html);
                 } else {
