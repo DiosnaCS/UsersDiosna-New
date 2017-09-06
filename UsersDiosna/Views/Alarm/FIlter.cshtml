@@ -1,0 +1,35 @@
+﻿@using UsersDiosna.Handlers
+@model List<AlarmHelper.alarm_texts>
+@{
+    ViewBag.Title = "FIlter from alarms";
+}
+
+<h2>Filter from alarms</h2>
+<div class="bottom">
+    Check checkbox of deisired alarms to filter them
+
+    @using (Html.BeginForm("FilterFromAlarms", "Alarm", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <table class="table table-striped table-bordered table-condensed table-hover">
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Alarm Label</th>
+            </tr>
+            @foreach (AlarmHelper.alarm_texts Alarm in Model)
+            {
+                <tr>
+                    <td><input type="checkbox" name="@Alarm.id">@*@Html.CheckBox(Alarm.id.ToString())*@</td>
+                    <td>@Alarm.id</td>
+                    <td>@Alarm.title</td>
+                </tr>
+            }
+
+        </table>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" class="btn btn-default" value="Create new filter" />
+                </div>
+            </div>
+    }
+</div>

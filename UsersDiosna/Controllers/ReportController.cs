@@ -9,9 +9,9 @@ namespace UsersDiosna.Controllers
     [Authorize(Roles = "View")]
     public class ReportController : Controller
     {
-        private static string DB;
-        private static string table;
-        private static int configrationNumber;
+        //private static string DB;
+        //private static string table;
+        //private static int configrationNumber;
         private static Dictionary<int, string>  tankNames;
 
         // GET: ReportCalender
@@ -19,6 +19,9 @@ namespace UsersDiosna.Controllers
         {
             const int startDay = 1;
             tankNames = new Dictionary<int, string>();
+            string DB = string.Empty;
+            string table = string.Empty;
+            int cfNum = 1;
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("dbName" + Request.QueryString["name"] + Request.QueryString["plc"]))
@@ -31,21 +34,23 @@ namespace UsersDiosna.Controllers
                 }
                 if (key.Contains("congirationNumber" + Request.QueryString["name"] + Request.QueryString["plc"]))
                 {
-                    configrationNumber = int.Parse(Session[key].ToString());
+                    cfNum = int.Parse(Session[key].ToString());
                 }
             }
-            
+            Session["ReportDB"] = DB;
+            Session["ReportTable"] = table;
+            Session["ReportConfigrationNumber"] = cfNum;
             int month = DateTime.Now.Month;
             int year = DateTime.Now.Year;
             DateTime thisMonthStart = new DateTime(year, month, startDay,0,0,0);
             DateTime thisMontEnd = new DateTime(year, month+1, startDay,0,0,0);
             ReportHandler RH = new ReportHandler();
-            if(configrationNumber != 0)
-                tankNames = RH.getTanknames(configrationNumber);
+            if(cfNum != 0)
+                tankNames = RH.getTanknames(cfNum);
             tankNames = RH.getTanknames();
            
-            ReportDBHelper db = new ReportDBHelper(DB, 2);
-            DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
+            ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
+            DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, Session["ReportTable"].ToString());
             foreach (var report in model.Data)
             {                    
                 int dest = int.Parse(report.Destination);
@@ -69,8 +74,8 @@ namespace UsersDiosna.Controllers
             DateTime thisMontEnd = new DateTime(year, month + 1, startDay, 0, 0, 0);
             ReportHandler RH = new ReportHandler();
 
-            ReportDBHelper db = new ReportDBHelper(DB, 2);
-            DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, table);
+            ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
+            DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, Session["ReportTable"].ToString());
             List<ColumnReportModel> cleaning = model.Data.Where(p=> p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning).ToList();
             foreach (var report in model.Data)
             {
@@ -88,8 +93,8 @@ namespace UsersDiosna.Controllers
 
         public ActionResult Detail(int id)
         {
-            ReportDBHelper db = new ReportDBHelper(DB, 2);
-            DataReportModel data = db.SelectSteps(id, table);
+            ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
+            DataReportModel data = db.SelectSteps(id, Session["ReportTable"].ToString());
 
             //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
             ViewBag.AmntTotal = data.Data.Single(p => p.RecordType == Operations.RecipeStart).Need;
@@ -108,14 +113,14 @@ namespace UsersDiosna.Controllers
 
         public ActionResult GetPrevBatch(int id)
         {
-            ReportDBHelper db = new ReportDBHelper(DB, 2);
-            int BatchNo = db.SelectPrevBatchNo(id, table);
+            ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
+            int BatchNo = db.SelectPrevBatchNo(id, Session["ReportTable"].ToString());
             if (BatchNo == 0)
             {
                 Session["tempforview"] = "You have reached the minimum batch";
                 return RedirectToAction("Detail", new { id = id });
             }
-            DataReportModel data = db.SelectSteps(BatchNo, table);
+            DataReportModel data = db.SelectSteps(BatchNo, Session["ReportTable"].ToString());
 
             ViewBag.BatchNo = BatchNo;
             int dest = int.Parse(data.Data[0].Destination);
@@ -129,14 +134,14 @@ namespace UsersDiosna.Controllers
 
         public ActionResult GetNextBatch(int id)
         {
-            ReportDBHelper db = new ReportDBHelper(DB, 2);
-            int BatchNo = db.SelectNextBatchNo(id, table);
+            ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
+            int BatchNo = db.SelectNextBatchNo(id, Session["ReportTable"].ToString());
              if (BatchNo == 0)
             {
                 Session["tempforview"] = "You have reached the maximum batch";
                 return RedirectToAction("Detail", new { id = id});
             }
-            DataReportModel data = db.SelectSteps(BatchNo, table);
+            DataReportModel data = db.SelectSteps(BatchNo, Session["ReportTable"].ToString());
 
             ViewBag.BatchNo = BatchNo;
             int dest = int.Parse(data.Data[0].Destination);

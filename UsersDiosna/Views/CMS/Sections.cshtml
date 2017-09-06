@@ -5,10 +5,10 @@
 }
 
 <h2>Sections</h2>
-
 <p>
     @Html.ActionLink("Create New Section", "CreateSection")
 </p>
+<input type="text" class="form-control" id="searchSections" onkeyup="filterSection()" placeholder="search for sections">
 <table class="table">
     <tr>
         <th>

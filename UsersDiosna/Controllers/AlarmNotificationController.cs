@@ -48,9 +48,9 @@ namespace UsersDiosna.Controllers
             List<int> alarms = (List<int>)Session["alarmIDs"];
             if (alarms != null) {
                 Session["alarmIDs"] = null;
-                string DB = string.Empty;
-                if (AlarmHelper.DB == null || AlarmHelper.DB == "")
+                if (Session["AlarmDB"].ToString() == "")
                 {
+                    string DB = string.Empty;
                     foreach (string key in Session.Keys)
                     {
                         if (key.Contains("dbName" + Request.QueryString["name"] + Request.QueryString["plc"]))
@@ -58,11 +58,9 @@ namespace UsersDiosna.Controllers
                             DB = Session[key].ToString();
                         }
                     }
+                    Session["AlarmDB"] = DB;
                 }
-                else {
-                    DB = AlarmHelper.DB;
-                }
-                ViewBag.Alarms = AlarmNotificationHandler.SelectAlarmsTexts(DB, alarms);
+                ViewBag.Alarms = AlarmNotificationHandler.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms);
                 return View("All");
             }
             Session["tempforview"] = "Problem with accesing current alarms";

@@ -12,45 +12,70 @@ namespace UsersDiosna.Controllers
     {
         public void DBConnnection()
         {
+            string DB = string.Empty;
+            string lang = string.Empty;
+            int plcID = 1;
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("dbName" + Request.QueryString["name"] + Request.QueryString["plc"]))
                 {
-                    AlarmHelper.DB = Session[key].ToString();
+                    DB = Session[key].ToString();
                 }
                 if (key.Contains("lang" + Request.QueryString["name"] + Request.QueryString["plc"]))
                 {
-                    AlarmHelper.lang = Session[key].ToString();
+                    lang = Session[key].ToString();
                 }
                 if (key.Contains("plc" + Request.QueryString["name"] + Request.QueryString["plc"]))
                 {
-                    AlarmHelper.plcID = int.Parse(Session[key].ToString());
+                    plcID = int.Parse(Session[key].ToString());
                 }
             }
+            Session["AlarmDB"] = DB;
+            Session["AlarmLang"] = lang;
+            Session["AlarmPlcID"] = plcID;
         }
 
         // GET: Alarm
         public async Task<ActionResult> Index()
         {
-            List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
             DBConnnection();
-            model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
+            List<int> alarms = new List<int>();
+            if (Session["filteredAlarms"] != null)
+            {
+                alarms = (List<int>)Session["filteredAlarms"];
+            }
+            else {
+                alarms = null;
+            }
+            List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
+            AlarmHelper AH = new AlarmHelper();
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms);
             ViewBag.page = 0;
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
             return View(model);
         }
-        
+
         /// <param name="id">Id is page </param>s
         public async Task<ActionResult> Page(int page = 0, int count = 30)
         {
+            List<int> alarms = new List<int>();
+            if (Session["filteredAlarms"] != null)
+            {
+                alarms = (List<int>)Session["filteredAlarms"];
+            }
+            else
+            {
+                alarms = null;
+            }
             int offsetPage = page * count;
-            if (page<0)
+            if (page < 0)
             {
                 Session["tempforview"] = "You have reached the minimum alarm page";
                 return RedirectToAction("Index");
             }
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
-            model = await AlarmHelper.SelectAlarms(AlarmHelper.DB, 0, 30);
+            AlarmHelper AH = new AlarmHelper();
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms);
             if (model.Count == 0)
             {
                 Session["tempforview"] = "No alarms has been found";
@@ -58,28 +83,52 @@ namespace UsersDiosna.Controllers
             }
             ViewBag.page = page;
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
-            return View("Index",model);
+            return View("Index", model);
         }
 
-        public async Task<ActionResult> FilterCurrent() {
-            return View();
+        [HttpPost]
+        public ActionResult FilterFromAlarms() {
+            List<int> alarms = new List<int>();
+            string[] keys = Request.Form.AllKeys;
+            string stringAlarms = "";
+            foreach (string sId in keys) {
+                alarms.Add(int.Parse(sId));
+                stringAlarms += sId + " ";
+            }
+            Session["filteredAlarms"] = alarms;
+            Session["success"] = "Filter on following alarms has been set: " + stringAlarms;
+            Session["filtered"] = stringAlarms;
+            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"]});
+        }        
+        
+        public ActionResult FilterCurrent()
+        {
+            List<int> alarms = (List<int>)Session["alarmIDs"];
+            if (alarms != null)
+            {
+                Session["alarmIDs"] = null;
+
+                AlarmHelper AH = new AlarmHelper();
+                List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
+                model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms);
+                return View("Filter", model);
+            }
+            Session["tempforview"] = "Problem with accesing current alarms";
+            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"] });
         }
 
-        public async Task<ActionResult> FilterAll()
+        public ActionResult FilterAll()
         {
-            return View();
+            AlarmHelper AH = new AlarmHelper();
+            List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
+            model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString());
+            return View("Filter", model);
         }
-        /*
-        public async Task<ActionResult> FilterCurrent( alarms)
+        public ActionResult CancelFilter()
         {
-            
-            return View(model);
+            Session["filteredAlarms"] = null;
+            Session["success"] = "Filter has been sucessfully canceled";
+            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"] });
         }
-
-        public async Task<ActionResult> FilterAll()
-        {
-            return View(model);
-        }
-        */
     }
 }

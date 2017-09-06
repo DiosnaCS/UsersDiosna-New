@@ -82,9 +82,19 @@ Write(Html.ActionLink("List of sections", "Sections",new { }, new { @class = "bt
             #line hidden
 WriteLiteral("\r\n    ");
 
-WriteLiteral("\r\n    ");
+WriteLiteral("\r\n</p>\r\n<input");
 
-WriteLiteral("\r\n</p>\r\n<table");
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" id=\"searchArticle\"");
+
+WriteLiteral(" onkeyup=\"filterArticle()\"");
+
+WriteLiteral(" placeholder=\"search for articles\"");
+
+WriteLiteral(">\r\n<table");
 
 WriteLiteral(" class=\"table table-striped table-condensed table-hover table-responsive\"");
 

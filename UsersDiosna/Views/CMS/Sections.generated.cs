@@ -47,18 +47,30 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Sections</h2>\r\n\r\n<p>\r\n");
+WriteLiteral("\r\n\r\n<h2>Sections</h2>\r\n<p>\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 10 "..\..\Views\CMS\Sections.cshtml"
+            #line 9 "..\..\Views\CMS\Sections.cshtml"
 Write(Html.ActionLink("Create New Section", "CreateSection"));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</p>\r\n<table");
+WriteLiteral("\r\n</p>\r\n<input");
+
+WriteLiteral(" type=\"text\"");
+
+WriteLiteral(" class=\"form-control\"");
+
+WriteLiteral(" id=\"searchSections\"");
+
+WriteLiteral(" onkeyup=\"filterSection()\"");
+
+WriteLiteral(" placeholder=\"search for sections\"");
+
+WriteLiteral(">\r\n<table");
 
 WriteLiteral(" class=\"table\"");
 

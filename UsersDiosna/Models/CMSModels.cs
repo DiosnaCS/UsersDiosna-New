@@ -84,8 +84,6 @@ namespace UsersDiosna.CMS.Models
 
     public class SectionJSON {
 
-        public long Id;
-
         public string Name;
 
         public string Description;

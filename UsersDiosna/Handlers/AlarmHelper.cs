@@ -12,9 +12,9 @@ namespace UsersDiosna.Handlers
     {
         #region Alarms_Helpers
 
-        public static string DB { get; set; }
-        public static string lang { get; set; }
-        public static int plcID { get; set; }
+        //public static string DB { get; set; }
+        //public static string lang { get; set; }
+        //public static int plcID { get; set; }
 
         public static int DateTimetTopkTime(DateTime DT)
         {
@@ -45,7 +45,7 @@ namespace UsersDiosna.Handlers
         /// </summary>
         /// <param name="alarms">Select alarms which you defined</param>
         /// <returns></returns>
-        public static List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null)
+        public List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null)
         {
             NpgsqlCommand cmd;
             string whereIds = string.Empty;
@@ -58,10 +58,12 @@ namespace UsersDiosna.Handlers
             {
                 foreach (int id in alarms)
                 {
-                    whereIds += "id=" + id.ToString() + " OR ";
+                    whereIds += "alarm_id=" + id.ToString() + " OR ";
                 }
+                whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand("SELECT title,alarm_id FROM alarm_texts WHERE (lang='en' AND plc_id=1) AND (", conn);
+                string sql = string.Format("SELECT title,alarm_id FROM alarm_texts WHERE (lang='en' AND plc_id=1) AND ({0})", whereIds);
+                cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
@@ -100,7 +102,7 @@ namespace UsersDiosna.Handlers
         /// <param name="count">count of alarms that you want to select</param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public static async Task<List<alarm>> SelectAlarms(string DB,int offsetPage = 0,int count = 0, List<int> ids = null)
+        public async Task<List<alarm>> SelectAlarms(string DB,int offsetPage = 0,int count = 0, List<int> ids = null)
         {
             int i = 0;
             string sql = string.Empty;
@@ -112,25 +114,29 @@ namespace UsersDiosna.Handlers
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
-               if (ids != null)
+            if (ids != null)
+            {
+                foreach (int id in ids)
                 {
-                    foreach (int id in ids)
-                    {
-                        whereIds += "id=" + id.ToString() + " OR ";
-                    }
-                    // Execute the query and obtain a result set                
-                    sql = string.Format("SELECT * FROM alarm_history WHERE {0} ORDER BY origin_pktime DESC LIMIT {1}", whereIds, count);
+                    whereIds += "alarm_id=" + id.ToString() + " OR ";
                 }
+                whereIds = whereIds.Substring(0, whereIds.Length - 4);
+                // Execute the query and obtain a result set                
+                sql = string.Format("SELECT * FROM alarm_history WHERE {0} ORDER BY origin_pktime DESC LIMIT {1}", whereIds, count);
+            }
+            else
+            {
                 if (count != 0)
                     sql = string.Format("SELECT * FROM alarm_history ORDER BY origin_pktime DESC LIMIT {0}", count);
                 else
                     sql = "SELECT * FROM alarm_history ORDER BY origin_pktime DESC";
+            }
             if (offsetPage > 0 && count > 0) {
                 if (ids != null)
                 {
                     foreach (int id in ids)
                     {
-                        whereIds += "id=" + id.ToString() + " OR ";
+                        whereIds += "alarm_id=" + id.ToString() + " OR ";
                     }
                     // Execute the query and obtain a result set                
                     sql = string.Format("SELECT * FROM alarm_history WHERE {0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}", whereIds, count, offsetPage);
@@ -148,6 +154,49 @@ namespace UsersDiosna.Handlers
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 alarm.title = titles[id-1].title;
+
+                int originTime = int.Parse(dr["origin_pktime"].ToString());
+                alarm.originTime = pkTimeToDateTime(originTime);
+                int expTime = Int32.Parse(dr["expiry_pktime"].ToString());
+                alarm.expiryTime = pkTimeToDateTime(expTime);
+                alarms.Add(alarm);
+                i++;
+            }
+            conn.Close();
+            return alarms;
+        }
+
+        /// <summary>
+        /// Method to get alarms
+        /// </summary>
+        /// <param name="DB">db name</param>
+        /// <param name="count">count of alarms that you want to select</param>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public async Task<List<alarm>> SelectAlarms(string DB, long pktimeFrom, long pkTimeTo)
+        {
+            int i = 0;
+            string sql = string.Empty;
+            string whereIds = string.Empty;
+            List<alarm> alarms = new List<alarm>();
+
+            List<alarm_texts> titles = SelectAlarmsTexts(DB);
+
+            string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
+            "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
+            NpgsqlConnection conn = new NpgsqlConnection(connstring);
+            sql = string.Format("SELECT * FROM alarm_history WHERE origin_pktime BETWEEN {0} AND {1} ORDER BY origin_pktime DESC",pktimeFrom, pkTimeTo);
+            conn.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
+            //Prepare DataReader
+            System.Data.Common.DbDataReader dr = await cmd.ExecuteReaderAsync();
+            while (await dr.ReadAsync())
+            {
+                alarm alarm = new alarm();
+                alarm.id = short.Parse(dr["alarm_id"].ToString());
+                int id = alarm.id;
+                //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
+                alarm.title = titles[id - 1].title;
 
                 int originTime = int.Parse(dr["origin_pktime"].ToString());
                 alarm.originTime = pkTimeToDateTime(originTime);

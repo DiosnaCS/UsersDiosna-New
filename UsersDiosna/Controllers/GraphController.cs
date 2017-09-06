@@ -4,6 +4,10 @@ using System;
 using System.IO;
 using System.Web.Script.Serialization;
 using System.Linq;
+using UsersDiosna.Handlers;
+using System.Threading.Tasks;
+using UsersDiosna.Report.Models;
+using System.Collections.Generic;
 
 namespace UsersDiosna.Controllers
 {
@@ -115,6 +119,78 @@ namespace UsersDiosna.Controllers
             {
                 return null;
             }
+        }
+        [HttpPost]
+        public async Task<JsonResult> getEventsHeader()
+        {
+            StreamReader stream = new StreamReader(Request.InputStream);
+            string json = stream.ReadToEnd();
+            DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+            string DB = string.Empty;
+            string table = string.Empty;
+            foreach (string key in Session.Keys)
+            {
+                if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    DB  = Session[key].ToString();
+                }
+                if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    table = Session[key].ToString();
+                }
+            }
+            ReportDBHelper db = new ReportDBHelper(DB, 2);
+            DataReportModel data =  await db.SelectHeaderDataAsync(dataRequest.beginTime, dataRequest.beginTime + dataRequest.timeAxisLength, table);
+            return Json(data);
+        }
+
+        [HttpPost]
+        public JsonResult getAlarmConfig()
+        {
+            StreamReader stream = new StreamReader(Request.InputStream);
+            string json = stream.ReadToEnd();
+            DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+            string DB = string.Empty;
+            string table = string.Empty;
+            foreach (string key in Session.Keys)
+            {
+                if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    DB = Session[key].ToString();
+                }
+                if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    table = Session[key].ToString();
+                }
+            }
+            AlarmHelper AH = new AlarmHelper();
+            object data = AH.SelectAlarmsTexts(DB).Cast<object>();
+            return Json(data);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> getAlarmsData()
+        {
+            StreamReader stream = new StreamReader(Request.InputStream);
+            string json = stream.ReadToEnd();
+            DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+            string DB = string.Empty;
+            string table = string.Empty;
+            foreach (string key in Session.Keys)
+            {
+                if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    DB = Session[key].ToString();
+                }
+                if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    table = Session[key].ToString();
+                }
+            }
+            List<AlarmHelper.alarm> data = new List<AlarmHelper.alarm>();
+            AlarmHelper AH = new AlarmHelper();
+            data = await AH.SelectAlarms(DB,dataRequest.beginTime,dataRequest.beginTime + dataRequest.timeAxisLength);
+            return Json(data);
         }
 
         [HttpPost]

@@ -74,12 +74,11 @@ namespace UsersDiosna.Controllers
             List<SectionJSON> results = new List<SectionJSON>();
             foreach (Section section in sections) {
                 SectionJSON sectionJSON = new SectionJSON();
-                sectionJSON.ArticleId = section.ArticleId;
-                sectionJSON.BakeryId = section.BakeryId;
-                sectionJSON.Description = section.Description;
-                sectionJSON.Id = section.Id;
                 sectionJSON.Name = section.Name;
+                sectionJSON.Description = section.Description;
+                sectionJSON.ArticleId = section.ArticleId;
                 sectionJSON.Role = section.Role;
+                sectionJSON.BakeryId = section.BakeryId;
                 results.Add(sectionJSON);
             }
             //var results = from se
@@ -203,8 +202,9 @@ namespace UsersDiosna.Controllers
         }
         #endregion
         #region articles
-        public JsonResult FilterArticle(string what)
+        public JsonResult FilterArticle(string id)
         {
+            string what = id;
             CMSDataContext db = new CMSDataContext();
             List<Article> articles = db.Articles.Where(q => q.Text.Contains(what) || q.Header.Contains(what) || q.Description.Contains(what)).ToList();
             return Json(articles);
@@ -305,7 +305,6 @@ namespace UsersDiosna.Controllers
             }
             //Change data from model and prepare them for save
             article.bakeryId = collection.bakeryId;
-            article.DateTime = DateTime.Now;
             article.Header = collection.Header;
             article.Text = collection.Text;
             article.Amount = collection.Amount;

@@ -306,9 +306,9 @@
     </Compile>
     <Compile Include="Handlers\GlobaHelper.cs" />
     <Compile Include="Controllers\GraphController.cs" />
-    <Compile Include="Controllers\GraphHandler.cs" />
+    <Compile Include="Handlers\GraphHandler.cs" />
     <Compile Include="Controllers\GraphNotificationController.cs" />
-    <Compile Include="Controllers\Helpers.cs" />
+    <Compile Include="Handlers\Helpers.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Iniparser.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -321,7 +321,7 @@
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\SchemeController.cs" />
     <Compile Include="Controllers\SecurityAttribute.cs" />
-    <Compile Include="Controllers\ToJSON.cs" />
+    <Compile Include="Handlers\ToJSON.cs" />
     <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Controllers\XMLController.cs" />
     <Compile Include="Global.asax.cs">
@@ -401,10 +401,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>All.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Alarm_Old\Index.generated.cs">
+    <Compile Include="Views\Alarm\FIlter.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Index.cshtml</DependentUpon>
+      <DependentUpon>FIlter.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Alarm\Index.generated.cs">
       <AutoGen>True</AutoGen>
@@ -735,7 +735,6 @@
       <LastGenOutput>RemoveMask.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Alarm_Old\_Content.cshtml">
-      <Generator>RazorGenerator</Generator>
       <LastGenOutput>_Content.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Alarm\Index.cshtml">
@@ -779,7 +778,6 @@
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\Alarm_Old\_Form.cshtml">
-      <Generator>RazorGenerator</Generator>
       <LastGenOutput>_Form.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\AlarmNotification\All.cshtml">
@@ -850,9 +848,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_LayoutMenu.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Alarm_Old\Index.cshtml">
+    <Content Include="Views\Alarm_Old\Index.cshtml" />
+    <Content Include="Views\Alarm\FIlter.cshtml">
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Index.generated.cs</LastGenOutput>
+      <LastGenOutput>FIlter.generated.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

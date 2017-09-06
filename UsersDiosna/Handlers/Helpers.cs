@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace UsersDiosna.Controllers
+namespace UsersDiosna.Handlers
 {
     public class Helpers
     {

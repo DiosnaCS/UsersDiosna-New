@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using UsersDiosna.Graph.Models;
+using UsersDiosna.Controllers;
 
-namespace UsersDiosna.Controllers
+namespace UsersDiosna.Handlers
 {
     public class GraphHandler
     {

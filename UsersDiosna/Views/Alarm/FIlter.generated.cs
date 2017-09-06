@@ -30,62 +30,66 @@ namespace ASP
     using UsersDiosna;
     using UsersDiosna.Controllers;
     
+    #line 1 "..\..\Views\Alarm\FIlter.cshtml"
+    using UsersDiosna.Handlers;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/AlarmNotification/All.cshtml")]
-    public partial class _Views_AlarmNotification_All_cshtml : System.Web.Mvc.WebViewPage<dynamic>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Alarm/FIlter.cshtml")]
+    public partial class _Views_Alarm_FIlter_cshtml : System.Web.Mvc.WebViewPage<List<AlarmHelper.alarm_texts>>
     {
-        public _Views_AlarmNotification_All_cshtml()
+        public _Views_Alarm_FIlter_cshtml()
         {
         }
         public override void Execute()
         {
-WriteLiteral("\r\n");
-
             
-            #line 2 "..\..\Views\AlarmNotification\All.cshtml"
+            #line 3 "..\..\Views\Alarm\FIlter.cshtml"
   
-    ViewBag.Title = "Notification from alarms";
+    ViewBag.Title = "FIlter from alarms";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Notification from alarms</h2>\r\n<div");
+WriteLiteral("\r\n\r\n<h2>Filter from alarms</h2>\r\n<div");
 
 WriteLiteral(" class=\"bottom\"");
 
-WriteLiteral(">\r\n    Check checkbox of deisired alarms\r\n\r\n");
+WriteLiteral(">\r\n    Check checkbox of deisired alarms to filter them\r\n\r\n");
 
             
-            #line 10 "..\..\Views\AlarmNotification\All.cshtml"
-        
+            #line 11 "..\..\Views\Alarm\FIlter.cshtml"
+    
             
             #line default
             #line hidden
             
-            #line 10 "..\..\Views\AlarmNotification\All.cshtml"
-         using (Html.BeginForm("NewNotification", "AlarmNotification", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-        {
+            #line 11 "..\..\Views\Alarm\FIlter.cshtml"
+     using (Html.BeginForm("FilterFromAlarms", "Alarm", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
 
             
             #line default
             #line hidden
-WriteLiteral("            <table");
+WriteLiteral("        <table");
 
 WriteLiteral(" class=\"table table-striped table-bordered table-condensed table-hover\"");
 
-WriteLiteral(">\r\n                <tr>\r\n                    <th></th>\r\n                    <th>I" +
-"d</th>\r\n                    <th>Alarm Label</th>\r\n                </tr>\r\n");
+WriteLiteral(">\r\n            <tr>\r\n                <th></th>\r\n                <th>Id</th>\r\n    " +
+"            <th>Alarm Label</th>\r\n            </tr>\r\n");
 
             
-            #line 18 "..\..\Views\AlarmNotification\All.cshtml"
-                
+            #line 19 "..\..\Views\Alarm\FIlter.cshtml"
+            
             
             #line default
             #line hidden
             
-            #line 18 "..\..\Views\AlarmNotification\All.cshtml"
-                 foreach (UsersDiosna.AlarmNotificationHandler.alarm_texts Alarm in ViewBag.Alarms)
-                {
+            #line 19 "..\..\Views\Alarm\FIlter.cshtml"
+             foreach (AlarmHelper.alarm_texts Alarm in Model)
+            {
 
             
             #line default
@@ -94,14 +98,14 @@ WriteLiteral("                <tr>\r\n                    <td><input");
 
 WriteLiteral(" type=\"checkbox\"");
 
-WriteAttribute("name", Tuple.Create(" name=\"", 780), Tuple.Create("\"", 796)
+WriteAttribute("name", Tuple.Create(" name=\"", 763), Tuple.Create("\"", 779)
             
-            #line 21 "..\..\Views\AlarmNotification\All.cshtml"
-, Tuple.Create(Tuple.Create("", 787), Tuple.Create<System.Object, System.Int32>(Alarm.id
+            #line 22 "..\..\Views\Alarm\FIlter.cshtml"
+, Tuple.Create(Tuple.Create("", 770), Tuple.Create<System.Object, System.Int32>(Alarm.id
             
             #line default
             #line hidden
-, 787), false)
+, 770), false)
 );
 
 WriteLiteral(">");
@@ -109,7 +113,7 @@ WriteLiteral(">");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 22 "..\..\Views\AlarmNotification\All.cshtml"
+            #line 23 "..\..\Views\Alarm\FIlter.cshtml"
                    Write(Alarm.id);
 
             
@@ -118,7 +122,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 23 "..\..\Views\AlarmNotification\All.cshtml"
+            #line 24 "..\..\Views\Alarm\FIlter.cshtml"
                    Write(Alarm.title);
 
             
@@ -127,35 +131,35 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                </tr>\r\n");
 
             
-            #line 25 "..\..\Views\AlarmNotification\All.cshtml"
-                }
+            #line 26 "..\..\Views\Alarm\FIlter.cshtml"
+            }
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            </table>\r\n");
+WriteLiteral("\r\n        </table>\r\n");
 
-WriteLiteral("        <div");
+WriteLiteral("            <div");
 
 WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n            <div");
+WriteLiteral(">\r\n                <div");
 
 WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
 
-WriteLiteral(">\r\n                <input");
+WriteLiteral(">\r\n                    <input");
 
 WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" class=\"btn btn-default\"");
 
-WriteLiteral(" value=\"Create new notification\"");
+WriteLiteral(" value=\"Create new filter\"");
 
-WriteLiteral(" />\r\n            </div>\r\n        </div>\r\n");
+WriteLiteral(" />\r\n                </div>\r\n            </div>\r\n");
 
             
-            #line 33 "..\..\Views\AlarmNotification\All.cshtml"
-       }
+            #line 34 "..\..\Views\Alarm\FIlter.cshtml"
+    }
 
             
             #line default

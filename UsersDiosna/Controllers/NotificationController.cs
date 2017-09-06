@@ -85,7 +85,7 @@ namespace UsersDiosna.Controllers
             NotificationDataContext db = new NotificationDataContext();
             if (ActiveNotifications == null)
             {
-                ActiveNotifications = db.Notifications.Where(p => p.Owner.Contains(User.Identity.Name)).ToList();
+                ActiveNotifications = db.Notifications.Where(p => p.Owner == User.Identity.Name).ToList();
             }
             foreach (Notification notification in ActiveNotifications)
             {
