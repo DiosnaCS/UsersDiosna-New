@@ -1,0 +1,65 @@
+﻿@model UsersDiosna.Report.Models.ReportDosing
+
+@{
+    ViewBag.Title = "One dosing day";
+    DateTime thisDay = new DateTime(Model.Year, Model.Month, Model.Day);
+}
+
+<h4>Day of dosings</h4>
+
+<p>
+    <a class="btn-sm btn-primary" href="/ReporDosing/Day/@(Model.Day+1)/@Model.Month/@Model.Year">&lArr; Day</a> 
+    @thisDay.DayOfWeek @thisDay.ToShortDateString()
+    <a class="btn-sm btn-primary" href="/ReporDosing/Day/@(Model.Day+1)/@Model.Month/@Model.Year">Day &rArr;</a> 
+</p>
+<table class="table table-condensed table-condensed table-hover">
+    <tr>
+        <th>
+            Record id
+        </th>
+        <th>
+            Started at
+        </th>
+        <th>
+            Ended at
+        </th>
+        <th>
+            Destination
+        </th>
+        <th>
+            Actual amount dosed
+        </th>
+        <th>
+            Source Tank
+        </th>
+        <th>
+            Source batch number
+        </th>
+    </tr>
+@foreach (var item in Model.Batches) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecordNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeEnd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actual) g
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SrcTank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SrcBatchNo)
+        </td>
+    </tr>
+}
+
+</table>

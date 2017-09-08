@@ -142,6 +142,8 @@
             };
           };
           
+          var eventTmp = [{ "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }];
+
     /* mask description
        mask: "Src: $@Variant1#dest$,Dest: $@Destination#dest$@Actual#0.001,1,u:kg$/ $@Need#0.001,1,u:kg"
        $ ... odděluje jednotlive prvky
@@ -155,8 +157,8 @@
 
           "recordTypes": [
           
-            {"id": 10, "label": "recipe start", "mask": "@Destination#dest$/$@Need,0.001,1,kg"},
-            {"id": 14, "label": "recipe end", "mask": "@Destination#dest$/@Actual,0.001,1,kg$/$@TimeEnd#1/3600,1,hrs$/$, BatchNo:$@BatchNo"},
+            {"id": 10, "label": "recipe start", "mask": "@Destination#dest$/$@Need#0.001,1,kg$/$@Variant3#1/3600,1,hrs"},
+            {"id": 14, "label": "recipe end", "mask": "@Destination#dest$/$@Actual#0.001,1,kg$/$@TimeEnd#1/3600,1,hrs$/$, BatchNo:$@BatchNo"},
 
             {"id": 20, "label": "motherdough", "mask": "Source: @Variant1#dest,Dest.: $@Destination#dest$@Actual#0.001,1,kg$/$@Need#0.001,1,kg"},
             {"id": 21, "label": "flour", "mask": "Source: $@Variant1#dest$,Dest.: $@Destination#dest$@Actual#0.001,1,kg$/$@Need#0.001,1,kg"},
@@ -192,11 +194,18 @@
             "kPa": ["kPa","kPa","kPa","kPa","kPa"],  
             "Bar": ["Bar","Bar","Bar","Bar","Bar"]
           },
-          
+
+          "dest": ["","SF1","SF2","SF3","SF4","SF5","SF6","SF7","SF8","SF9","SF10","SF11","SF12","SF13","SF14","SF15","SF16","SF17","SF18","SF19","",
+          "MF1","MF2","MF3","","","","","","","","PF1","PF2","PF3","PF4","","","","","","",
+          "Line 1","Line 2","Line 3","Line 4","Line 5","Line 6","Line 7","Line 8","Line 9","DS 1","DS 2","DS 3","DS 4","","","","","",
+          "gully","","","","","","","",""
+
+          /*
            "dest": ["","","","","","","","","","","","MF1","MF2","MF3","","","","","","","","PF1","PF2","PF3","PF4","","","","","","",
            "SF1","SF2","SF3","SF4","SF5","SF6","SF7","SF8","SF9","SF10","SF11","SF12","SF13","SF14","SF15","SF16","SF17","SF18","SF19",
            "Line 1","Line 2","Line 3","Line 4","Line 5","Line 6","Line 7","Line 8","Line 9","DS 1","DS 2","DS 3","DS 4","","","","","",
            "gully","","","","","","","",""
+          */
           ]
         };
 
@@ -207,155 +216,7 @@
     var eventData = {          
       "events": []
     };
-    /*// zatím staticky později příjde ze serveru  
-    var eventData = {          
-          "events": [
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557488000,
-           	"TimeEnd": 0,
-           	"BatchNo": 45,
-           	"Destination": 11,
-           	"Need": 900573,
-           	"Actual": 902,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557490000,
-           	"TimeEnd": 0,
-           	"BatchNo": 46,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 1
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557492000,
-           	"TimeEnd": 0,
-           	"BatchNo": 45,
-           	"Destination": 10,
-           	"Need": 900,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557494000,
-           	"TimeEnd": 0,
-           	"BatchNo": 46,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 2
-           },
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557496000,
-           	"TimeEnd": 0,
-           	"BatchNo": 47,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Actual": 902,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557498000,
-           	"TimeEnd": 0,
-           	"BatchNo": 48,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 1
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557500000,
-           	"TimeEnd": 0,
-           	"BatchNo": 47,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557502000,
-           	"TimeEnd": 0,
-           	"BatchNo": 48,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 2
-           },
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557504000,
-           	"TimeEnd": 0,
-           	"BatchNo": 49,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Actual": 902,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557508000,
-           	"TimeEnd": 0,
-           	"BatchNo": 49,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 1,
-           	"Variant2": 0
-           },
-           {
-           	"RecordType": 10,
-           	"TimeStart": 557510000,
-           	"TimeEnd": 0,
-           	"BatchNo": 50,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 1
-           },
-           {
-           	"RecordType": 14,
-           	"TimeStart": 557512000,
-           	"TimeEnd": 0,
-           	"BatchNo": 50,
-           	"Destination": 11,
-           	"Need": 900,
-           	"Variant1": 2,
-           	"Variant2": 2
-           },
-           {
-            "RecordType": 20,
-            "TimeStart": 557311199,
-            "TimeEnd": 557312199,
-            "BatchNo": 51,
-            "Destination": 11,
-            "Need": 250,
-            "Actual": 253
-           },
-           {
-            "RecordType": 36,
-            "TimeStart": 557313199,
-            "TimeEnd": 557314199,
-            "BatchNo": 52,
-            "Destination": 31,
-            "Need": 28800,
-            "Actual": 28860,
-            "Variant1": 80,
-            "Variant2": 88
-           }
-          ]
-        };
-    */
+   
     // zatím staticky později příjde ze serveru
     var alarmsConfig = {
           "EN": [
@@ -817,6 +678,8 @@
               // přepočet počátku grafu dle kroku nové mřížky           
               beginTime = zoomStartTime - (zoomStartTime%(stepGridTime[timeAxisIdx]*60));
               getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+              getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
               // marker umístíme na konec zoom oblasti
               markerTime = beginTime + timeAxisLength[timeAxisIdx]*3600;
 
@@ -835,25 +698,29 @@
           zoomSignal("ZOOM");
         };
 
-        var url_curr = new URL(document.URL);
+        // events
+      var url_curr = new URL(document.URL);
+      
+      
+      // zacátek události
+      if ((canY > chartDef[50]["coords"][1]) && (canY < chartDef[50]["coords"][3])) {
 
-        // zacátek události
-        if ((canY > chartDef[50]["coords"][1]) && (canY < chartDef[50]["coords"][3])) {
-          for (e = 0; e < eventData.events.length; e++) {
-            if (Math.abs(eventData.events[e].TimeStart - markerTime) <= 120) {
+        for (e = 0; e < eventData.events.length; e++) {
+          if ((Math.abs(markerTime-eventData.events[e].TimeStart) <= 300) && (Math.abs(eventData.events[e].TimeEnd-markerTime) <= 300)) {
 
-              plc = url_curr.searchParams.get("plc");
+            plc = url_curr.searchParams.get("plc");
 
-              var reportWin = window.open("http://users2.diosna.cz/Report?plc=" + plc, '_blank');
-              
-              var url_e = "http://users2.diosna.cz/Report/Detail/" + eventData.events[e].BatchNo;
-              window.open(url_e, '_blank');
+            var reportWin = window.open("http://users2.diosna.cz/Report?plc=" + plc, '_blank');
+            
+            var url_e = "http://users2.diosna.cz/Report/Detail/" + eventData.events[e].BatchNo;
+            window.open(url_e, '_blank');
 
-              //reportWin.close();
-            };
+            //reportWin.close();
           };
         };
       };
+
+      };      
     };
 
     function mouseMove() {
@@ -1087,8 +954,11 @@
       };
     };
 
-    function getEventsHeader(plc,beginTime,timeAxisLength) {
+    function getEventsHeader(beginTime,timeAxisLength) {
       var eventsHeaderRequest,
+          url_curr = new URL(document.URL);          
+
+      var plc = url_curr.searchParams.get("plc");
 
       eventsHeaderRequest = "";
       eventsHeaderRequest += '{"beginTime": ' + beginTime + ', "timeAxisLength": ' + timeAxisLength + ', "tags":[]}';
@@ -1107,10 +977,8 @@
       xmlHttp.onreadystatechange = function() {
 
         if (xmlHttp.readyState == xmlHttp.DONE) {
-          
-console.log(xmlHttp.responseText);
-          eventData = JSON.parse(xmlHttp.responseText);            
-          //console.log('eventData = ' + eventData);
+
+          eventData = JSON.parse(xmlHttp.responseText);
         };        
       };
     };
@@ -1260,7 +1128,8 @@ console.log(xmlHttp.responseText);
         setMultitexts(lang);
         
         getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
-        
+        getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
         redrawScreen();      
         redrawTitle(view,lang);      
         redrawChart(view,beginTime,markerTime,timeAxisIdx);      
@@ -1689,7 +1558,7 @@ console.log(xmlHttp.responseText);
 
             						for (ec = 0; ec < eventsConfig.recordTypes.length ; ec++) {
             							if (eventsConfig.recordTypes[ec].id == eventData.events[e].RecordType) {
-            								signalStrVal = eventsConfig.recordTypes[ec].label;
+            								signalStrVal = eventsConfig.recordTypes[ec].label + " (Batch : " + eventData.events[e].BatchNo + ")";
             							};
             						};
 
@@ -1710,26 +1579,34 @@ console.log(xmlHttp.responseText);
             			else {
             				for (e = 0; e < eventData.events.length; e++) {
             					if (signals[x].eventFilter.indexOf(eventData.events[e].RecordType) != -1) {
-            						if (Math.abs(eventData.events[e].TimeStart - markerTime) <= 120) {
+            						//if (Math.abs(eventData.events[e].TimeStart - markerTime) <= 120) {
             							xPos = posX + iWidth - fieldRightAdjust - fieldValWidth + 5;
-            							yPos = posY + fieldTopAdjust + FieldPosY + 20;            							
-            							
+            							            							
             							for (ec = 0; ec < eventsConfig.recordTypes.length ;ec++) {
-            								if (eventsConfig.recordTypes[ec].id == eventData.events[e].RecordType) {
-            									signalStrVal = eventsConfig.recordTypes[ec].label;
+            								if (eventsConfig.recordTypes[ec].id == eventData.events[e].RecordType) {                              
+                              for (c=0;c<3;c++) {
+                                if (eventTmp[c].BatchNo == eventData.events[e].BatchNo) {
+                                  yPos = posY + fieldTopAdjust + FieldPosY + 15 + 15*c;
+                                  break;
+                                }
+                                else {
+                                  yPos = posY + fieldTopAdjust + FieldPosY + 15;
+                                };
+                              };
+            									signalStrVal = eventsConfig.recordTypes[ec].label + " (Batch : " + eventData.events[e].BatchNo + ")";
             								};
             							};
 
             							// vypsani textu udalosti
             							frontCanvas.font = fontLegend;
-            							frontCanvas.fillStyle = "#00FFFF";
+                          frontCanvas.fillStyle = "#FFFFFF";
             							frontCanvas.fillText(signalStrVal, xPos, yPos);
             							break;
-            						}
+            						/*}
             						else {
             							frontCanvas.fillStyle = colorBackFields;
             							frontCanvas.fillRect(posX + iWidth - 335, posY + fieldTopAdjust + FieldPosY, 315, fieldSigHeight);
-            						};
+                        };*/
             					};
             				};
             			};
@@ -1961,8 +1838,7 @@ console.log(xmlHttp.responseText);
             cc = 0,
             lastRiseTime = 0,
             lastTimeEnd = 0,
-            eventCoord = [{ "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }],
-						fin = 1;
+						fin = 1,
             k = 0,
 						i = 0;
 
@@ -2024,7 +1900,7 @@ console.log(xmlHttp.responseText);
                 };
                 break;
             	case "event":
-            		k = -1;
+                k = -1;
                 if (signals[x].eventFilter != undefined) {
                   if (signals[x].eventFilter == "all") {
                     for (e=0;e<eventData.events.length;e++) {
@@ -2032,10 +1908,9 @@ console.log(xmlHttp.responseText);
                     	dataX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
 
                     	if (eventData.events[e].RecordType == 10) {    // start receptury
-
                     		// v případě jediného nedokončeného batche inkrementujeme "k" jinak "k = 0"
                     		for (i = 0; i < 3; i++) {
-                    			fin = (fin & eventCoord[i].Fin);
+                    			fin = (fin & eventTmp[i].Fin);
                     		};
 
                     		if (fin == 0) {
@@ -2045,7 +1920,7 @@ console.log(xmlHttp.responseText);
                     			k = 0;
                     		};
 
-                    		// ochrana proti preteceni indexu pole eventCoord 
+                    		// ochrana proti preteceni indexu pole eventTmp 
                     		if (k >= 3) {
                     			k = 0;
                     		};
@@ -2069,15 +1944,15 @@ console.log(xmlHttp.responseText);
                     		signalCanvas.font = fontLegend;
                     		signalCanvas.fillText(eventTitles(e, eventData.events[e].RecordType), dataX + 11, dataY + 12.5);
 
-                    		eventCoord[k].BatchNo = eventData.events[e].BatchNo;
-                    		eventCoord[k].Fin = 0;
+                    		eventTmp[k].BatchNo = eventData.events[e].BatchNo;
+                    		eventTmp[k].Fin = 0;
 
                       }
                     	else if (eventData.events[e].RecordType == 14) {    // konec receptury
-
+                        
                         for (i=0;i<3;i++) {
-                        	if (eventCoord[i].BatchNo == eventData.events[e].BatchNo) {
-                        		eventCoord[i].Fin = 1;
+                        	if (eventTmp[i].BatchNo == eventData.events[e].BatchNo) {
+                        		eventTmp[i].Fin = 1;
 
                         		dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + i * 16) - 0.5;
                         		break;
@@ -2093,16 +1968,16 @@ console.log(xmlHttp.responseText);
                   }  
                   else {
                     for (e=0;e<eventData.events.length;e++) {
-                    	fin = 1;
+                      fin = 1;
                     	if (signals[x].eventFilter.indexOf(eventData.events[e].RecordType) != -1) {
 
                     		dataX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
 
                     		if (eventData.events[e].RecordType == 10) {    // start receptury
-
+                          
                     			// v případě jediného nedokončeného batche inkrementujeme "k" jinak "k = 0"
                     			for (i = 0; i < 3; i++) {
-                    				fin = (fin & eventCoord[i].Fin);
+                    				fin = (fin & eventTmp[i].Fin);
                     			};
                     			                                  
                     			if (fin == 0) {
@@ -2112,7 +1987,7 @@ console.log(xmlHttp.responseText);
                     				k = 0;
                     			};
 
-                    			// ochrana proti preteceni indexu pole eventCoord 
+                    			// ochrana proti preteceni indexu pole eventTmp 
                     			if (k >= 3) {
                     				k = 0;
                     			};
@@ -2123,28 +1998,39 @@ console.log(xmlHttp.responseText);
 
                     		  switch (eventData.events[e].Variant2) {
                     		  	case 0:
-                    		  		signalCanvas.fillStyle = "#00FF00";
+                              signalCanvas.fillStyle = "#00FF00";
+                              signalCanvas.StrokeStyle = "#00FF00";
                     		  		break;
                     		  	case 1:
-                    		  		signalCanvas.fillStyle = "#FFFF00";
+                              signalCanvas.fillStyle = "#FFFF00";
+                              signalCanvas.StrokeStyle = "#FFFF00";
                     		  		break;
                     		  	case 2:
-                    		  		signalCanvas.fillStyle = "#FF0000";
+                              signalCanvas.fillStyle = "#FF0000";
+                              signalCanvas.StrokeStyle = "#FF0000";
                     		  		break;
                     		  };
 
                           signalCanvas.font = fontLegend;
                     		  signalCanvas.fillText(eventTitles(e, eventData.events[e].RecordType), dataX + 11, dataY + 12.5);
 
-                    			eventCoord[k].BatchNo = eventData.events[e].BatchNo;                    			                    			
-                    			eventCoord[k].Fin = 0;
+                    			eventTmp[k].BatchNo = eventData.events[e].BatchNo;
+                    			eventTmp[k].Fin = 0;
 
                         }
                     		else if (eventData.events[e].RecordType == 14) {    // konec receptury
+                          var LengthX = 0,
+                              StartX = 0;
 
                         	for (i=0;i<3;i++) {
-                        		if (eventCoord[i].BatchNo == eventData.events[e].BatchNo) {
-                        			eventCoord[i].Fin = 1;
+                        		if (eventTmp[i].BatchNo == eventData.events[e].BatchNo) {
+
+                              eventTmp[i].Fin = 1;
+                              
+                              //StartX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - eventData.events[e].Variant3 - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
+                              StartX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
+                              //LengthX = Math.round((eventData.events[e].Variant3/3600)*(chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
+                              LengthX =  Math.round(chartWidth / timeAxisLength[timeAxisIdx]);
 
                         			dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + i * 16) - 0.5;
                         			break;
@@ -2152,9 +2038,14 @@ console.log(xmlHttp.responseText);
                         		else {
 															// konec eventu ktery zacal nekdy pred zaberem view - zatim neresim
                         			//dataY = Math.round(posY + fieldTopAdjust + FieldPosY + k * 16) - 0.5;
-                        			//break;
+                        			break;
                         		};
-                        	};
+                          };
+
+                          signalCanvas.beginPath();
+                          signalCanvas.rect(StartX-LengthX, dataY, LengthX, 16);
+                          signalCanvas.stroke();
+
                         	signalCanvas.drawImage(imgEvent, 24 + eventData.events[e].Variant2 * 8, 0, 8, 15, dataX - 7.5, dataY + 0.5, 8, 15);
                         };
                       };
@@ -2314,10 +2205,11 @@ console.log(xmlHttp.responseText);
     function eventTitles(eventDataId, recType) {
 
     	eventArray = new Array(10);
-      specifyArray = new Array(6);
+      detailArray = new Array(6);
       Column = "";
     	eventTitle = "";
-    	mask = "";
+      mask = "";
+      detailIdx = 0;
 
     	// init
     	for (t = 0; t < eventArray.length; t++) {
@@ -2335,27 +2227,36 @@ console.log(xmlHttp.responseText);
       eventTitle = "";
 			// rozbor masky
     	for (i = 0; i < eventArray.length; i++) {
+
 				// data
     		if (eventArray[i].charAt(0) == "@") {
-          // multitext
-    			mTextIdx = eventArray[i].indexOf("#");
-    			if (mTextIdx != -1) {
-    				mtextArray = eventArray[i].split("#");
-            Column = mtextArray[0].replace("@", "");
-            eventTitle += eventsConfig[mtextArray[1]][eventData.events[eventDataId][Column]];
+          // detail
+          detailIdx = eventArray[i].indexOf("#");
+          
+    			if (detailIdx != -1) {
+            // test zda nasleduje pismeno ci cislo
+            //jde o specifikaci zobrazeni ciselne hodnoty
+            if ((eventArray[i].charCodeAt(detailIdx+1) >= 48) && (eventArray[i].charCodeAt(detailIdx+1) <= 57)) {
 
-          } // cislo
-    			else {
-            valueArray = eventArray[i].split(",");
-            Column = valueArray[0].replace("@", "").toString();
-            eventTitle += (eventData.events[eventDataId][Column] * valueArray[1]).toFixed(1) + " " + getUnits(valueArray[3]);
-    			};
-    		} // text
-    		else { 
+              detailArray = eventArray[i].split("#");
+              valueArray = detailArray[1].split(",");
+              Column = detailArray[0].replace("@", "").toString();
+              eventTitle +=  " " + (eventData.events[eventDataId][Column] * valueArray[0]).toFixed(valueArray[1]) + " " + getUnits(valueArray[2]);
+            }
+            // jde o definici multitextu
+            else {
+              detailArray = eventArray[i].split("#");
+              Column = detailArray[0].replace("@", "");
+              eventTitle += eventsConfig[detailArray[1]][eventData.events[eventDataId][Column]];
+            };
+          };
+        }
+        // text
+        else { 
           eventTitle += eventArray[i];
-    		};
-    	};    	
-			return eventTitle
+        };
+      };  
+      return eventTitle
     };
 
     function getUnits(unitString) {
@@ -2722,6 +2623,8 @@ console.log(xmlHttp.responseText);
      lang = getLang();
      beginTime = agregBeginTime;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);     
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
      redrawTimeAxis(view,lang);
@@ -2734,6 +2637,8 @@ console.log(xmlHttp.responseText);
      lang = getLang();    
      timeAxisIdx = (timeAxisIdx >= 9) ? 9 : timeAxisIdx+1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
      shiftLength(timeAxisIdx);
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
@@ -2746,6 +2651,8 @@ console.log(xmlHttp.responseText);
      lang = getLang();     
      timeAxisIdx = (timeAxisIdx <= 0) ? 0 : timeAxisIdx-1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
      shiftLength(timeAxisIdx);     
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
@@ -2853,6 +2760,8 @@ console.log(xmlHttp.responseText);
      lang = getLang();     
      beginTime += 1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
      redrawTimeAxis(view,lang);
@@ -2873,7 +2782,7 @@ console.log(xmlHttp.responseText);
 
      var plc = url_curr.searchParams.get("plc");
 
-     getEventsHeader(plc,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
      getAlarmsConfig("Bread%20fermentation");
 
      lang = getLang();
@@ -2979,6 +2888,8 @@ console.log(xmlHttp.responseText);
      lang = $('#lang').val();
      timeAxisIdx = 6;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawTimeAxis(view,lang);
      redrawBeginTime(beginTime,lang);

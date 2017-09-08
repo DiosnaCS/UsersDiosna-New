@@ -127,6 +127,7 @@ namespace UsersDiosna.Controllers
         public ActionResult CancelFilter()
         {
             Session["filteredAlarms"] = null;
+            Session["filtered"] = null;
             Session["success"] = "Filter has been sucessfully canceled";
             return RedirectToAction("Index", "Menu", new { id = (int)Session["id"] });
         }

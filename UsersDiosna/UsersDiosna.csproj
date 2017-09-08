@@ -853,10 +853,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>FIlter.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\ReportDosing\Day.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ReportDosing\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>

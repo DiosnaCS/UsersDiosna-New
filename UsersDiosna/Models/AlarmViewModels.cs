@@ -28,4 +28,12 @@ namespace UsersDiosna.Alarms.Models
     {
         public List<int> alarms { get; set; }
     }
+
+    public class AlarmGraphConfig
+    {
+        public List<string> EN { get; set; }
+        public List<string> CZ { get; set; }
+        public List<string> DE { get; set; }
+        public List<string> PL { get; set; }
+    }
 }

@@ -765,10 +765,10 @@ namespace UsersDiosna.Controllers
             */
             string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
                                         "AND(\"RecordType\" = {3} OR \"RecordType\" = {4}" +
-                                        " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
-                                        " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",
-                table, from, to, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int)Operations.StepSkip, (int)Operations.RecipeEnd,
-                (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning);
+                                        " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",/*" OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
+                                        " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",*/
+                table, from, to, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int)Operations.StepSkip, (int)Operations.RecipeEnd/*,
+                (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning*/);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -788,7 +788,11 @@ namespace UsersDiosna.Controllers
                     long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
                     CRM.TimeStart = new DateTime(((630822816000000000) + timeInNanoSeconds));
                 }
-                // r[3] should be TimeEnd and TimeEnd is irrelevant for header data
+                if (r[3] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
+                    CRM.TimeEnd = new DateTime(((630822816000000000) + timeInNanoSeconds));
+                }
                 if (r[4] != DBNull.Value)
                 {
                     CRM.BatchNo = int.Parse(r[4].ToString());
@@ -1139,6 +1143,71 @@ namespace UsersDiosna.Controllers
             return data;
         }
 
+        public ReportDosing GetReportDosing(DateTime from, DateTime to, string table)
+        {
+            ReportDosing data = new ReportDosing();
+            data.Batches = new List<Dosing>();
+
+            int pkTimeFrom = ConvertDT2pkTime(from);
+            int pkTimeTo = ConvertDT2pkTime(to);
+
+            string sql = string.Format("SELECT * FROM {0} WHERE (\"TimeStart\" BETWEEN {1} AND {2}) AND (\"RecordType\"=44) ORDER BY \"TimeStart\" ASC", table, pkTimeFrom, pkTimeTo);
+            NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
+            NpgsqlDataReader r = cmd.ExecuteReader();
+
+            while (r.Read())
+            {
+                Dosing dosing = new Dosing();
+                if (r[0] != DBNull.Value)
+                {
+                    dosing.RecordNo = int.Parse(r[0].ToString());
+                }
+                //r[1] is RecordType and we know that is DosingOut
+                if (r[2] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
+                    dosing.TimeStart = new DateTime(((630822816000000000) + timeInNanoSeconds));
+                }
+                if (r[3] != DBNull.Value)
+                {
+                    long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
+                    dosing.TimeEnd = new DateTime(((630822816000000000) + timeInNanoSeconds));
+                }
+                //r[4] is BatchNo and we dont need BatchNo
+                if (r[5] != DBNull.Value)
+                {
+                    dosing.Destination = r[5].ToString();
+                }
+                //r[6] Need have no value
+                if (r[7] != DBNull.Value)
+                {
+                    if ((int)r[7] != 0)
+                        dosing.Actual = int.Parse(r[7].ToString());
+                }
+                if (r[8] != DBNull.Value)
+                {
+                    if (r[8].ToString() !="")
+                        dosing.SrcTank = r[8].ToString();
+                }
+                if (r[9] != DBNull.Value)
+                {
+                    if ((int)r[9] != 0)
+                        dosing.StartedBy = (StartedBy) int.Parse(r[9].ToString());
+                }
+                if (r[10] != DBNull.Value)
+                {
+                    if ((int)r[10] != 0)
+                        dosing.SrcBatchNo = int.Parse(r[10].ToString());
+                }
+                data.Batches.Add(dosing);
+            }
+            r.Dispose();
+            cmd.Dispose();
+            return data;
+
+            return data;
+        }
+        
         public int SelectPrevBatchNo(int BatchNo, string table) {
             //id is BatchNo
             int id = 0;

@@ -599,45 +599,53 @@ WriteLiteral("                    ");
             #line hidden
 WriteLiteral("                        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 7459), Tuple.Create("\"", 7499)
-, Tuple.Create(Tuple.Create("", 7466), Tuple.Create("/ReportDosing/", 7466), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 7459), Tuple.Create("\"", 7509)
+, Tuple.Create(Tuple.Create("", 7466), Tuple.Create("/ReportDosing/Day/", 7466), true)
             
             #line 151 "..\..\Views\Report\calender.cshtml"
-, Tuple.Create(Tuple.Create("", 7480), Tuple.Create<System.Object, System.Int32>(day
+, Tuple.Create(Tuple.Create("", 7484), Tuple.Create<System.Object, System.Int32>(day
             
             #line default
             #line hidden
-, 7480), false)
-, Tuple.Create(Tuple.Create("", 7484), Tuple.Create("/", 7484), true)
+, 7484), false)
+, Tuple.Create(Tuple.Create("", 7488), Tuple.Create("/", 7488), true)
             
             #line 151 "..\..\Views\Report\calender.cshtml"
-, Tuple.Create(Tuple.Create("", 7485), Tuple.Create<System.Object, System.Int32>(ViewBag.Month
+, Tuple.Create(Tuple.Create("", 7489), Tuple.Create<System.Object, System.Int32>(ViewBag.Month
             
             #line default
             #line hidden
-, 7485), false)
+, 7489), false)
+, Tuple.Create(Tuple.Create("", 7503), Tuple.Create("/", 7503), true)
+            
+            #line 151 "..\..\Views\Report\calender.cshtml"
+, Tuple.Create(Tuple.Create("", 7504), Tuple.Create<System.Object, System.Int32>(year
+            
+            #line default
+            #line hidden
+, 7504), false)
 );
 
 WriteLiteral(" class=\"dosing\"");
 
-WriteAttribute("title", Tuple.Create(" title=\"", 7515), Tuple.Create("\"", 7567)
-, Tuple.Create(Tuple.Create("", 7523), Tuple.Create("Total", 7523), true)
-, Tuple.Create(Tuple.Create(" ", 7528), Tuple.Create("Amount:", 7529), true)
+WriteAttribute("title", Tuple.Create(" title=\"", 7525), Tuple.Create("\"", 7577)
+, Tuple.Create(Tuple.Create("", 7533), Tuple.Create("Total", 7533), true)
+, Tuple.Create(Tuple.Create(" ", 7538), Tuple.Create("Amount:", 7539), true)
             
             #line 151 "..\..\Views\Report\calender.cshtml"
-                        , Tuple.Create(Tuple.Create(" ", 7536), Tuple.Create<System.Object, System.Int32>(dosingOut.amountSum/1000
+                                  , Tuple.Create(Tuple.Create(" ", 7546), Tuple.Create<System.Object, System.Int32>(dosingOut.amountSum/1000
             
             #line default
             #line hidden
-, 7537), false)
-, Tuple.Create(Tuple.Create(" ", 7564), Tuple.Create("kg", 7565), true)
+, 7547), false)
+, Tuple.Create(Tuple.Create(" ", 7574), Tuple.Create("kg", 7575), true)
 );
 
 WriteLiteral(">(<b>");
 
             
             #line 151 "..\..\Views\Report\calender.cshtml"
-                                                                                                                                       Write(dosingOut.count);
+                                                                                                                                                 Write(dosingOut.count);
 
             
             #line default
@@ -666,61 +674,69 @@ WriteLiteral("                    ");
             #line hidden
 WriteLiteral("                        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 7883), Tuple.Create("\"", 7925)
-, Tuple.Create(Tuple.Create("", 7890), Tuple.Create("/ReportCleaning/", 7890), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 7893), Tuple.Create("\"", 7945)
+, Tuple.Create(Tuple.Create("", 7900), Tuple.Create("/ReportCleaning/Day/", 7900), true)
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-, Tuple.Create(Tuple.Create("", 7906), Tuple.Create<System.Object, System.Int32>(day
+, Tuple.Create(Tuple.Create("", 7920), Tuple.Create<System.Object, System.Int32>(day
             
             #line default
             #line hidden
-, 7906), false)
-, Tuple.Create(Tuple.Create("", 7910), Tuple.Create("/", 7910), true)
+, 7920), false)
+, Tuple.Create(Tuple.Create("", 7924), Tuple.Create("/", 7924), true)
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-, Tuple.Create(Tuple.Create("", 7911), Tuple.Create<System.Object, System.Int32>(ViewBag.Month
+, Tuple.Create(Tuple.Create("", 7925), Tuple.Create<System.Object, System.Int32>(ViewBag.Month
             
             #line default
             #line hidden
-, 7911), false)
+, 7925), false)
+, Tuple.Create(Tuple.Create("", 7939), Tuple.Create("/", 7939), true)
+            
+            #line 158 "..\..\Views\Report\calender.cshtml"
+, Tuple.Create(Tuple.Create("", 7940), Tuple.Create<System.Object, System.Int32>(year
+            
+            #line default
+            #line hidden
+, 7940), false)
 );
 
 WriteLiteral(" class=\"cleaning\"");
 
-WriteAttribute("title", Tuple.Create(" title=\"", 7943), Tuple.Create("\"", 8063)
-, Tuple.Create(Tuple.Create("", 7951), Tuple.Create("Cleaning:", 7951), true)
+WriteAttribute("title", Tuple.Create(" title=\"", 7963), Tuple.Create("\"", 8083)
+, Tuple.Create(Tuple.Create("", 7971), Tuple.Create("Cleaning:", 7971), true)
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-                       , Tuple.Create(Tuple.Create(" ", 7960), Tuple.Create<System.Object, System.Int32>(cleaning.cleaning
+                                 , Tuple.Create(Tuple.Create(" ", 7980), Tuple.Create<System.Object, System.Int32>(cleaning.cleaning
             
             #line default
             #line hidden
-, 7961), false)
-, Tuple.Create(Tuple.Create(" ", 7979), Tuple.Create("Clean", 7980), true)
-, Tuple.Create(Tuple.Create(" ", 7985), Tuple.Create("Type:", 7986), true)
+, 7981), false)
+, Tuple.Create(Tuple.Create(" ", 7999), Tuple.Create("Clean", 8000), true)
+, Tuple.Create(Tuple.Create(" ", 8005), Tuple.Create("Type:", 8006), true)
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-                                                      , Tuple.Create(Tuple.Create(" ", 7991), Tuple.Create<System.Object, System.Int32>(cleaning.ClnType.ToString()
+                                                                , Tuple.Create(Tuple.Create(" ", 8011), Tuple.Create<System.Object, System.Int32>(cleaning.ClnType.ToString()
             
             #line default
             #line hidden
-, 7992), false)
-, Tuple.Create(Tuple.Create(" ", 8020), Tuple.Create("Started", 8021), true)
-, Tuple.Create(Tuple.Create(" ", 8028), Tuple.Create("By:", 8029), true)
+, 8012), false)
+, Tuple.Create(Tuple.Create(" ", 8040), Tuple.Create("Started", 8041), true)
+, Tuple.Create(Tuple.Create(" ", 8048), Tuple.Create("By:", 8049), true)
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-                                                                                               , Tuple.Create(Tuple.Create(" ", 8032), Tuple.Create<System.Object, System.Int32>(cleaning.StartedBy.ToString()
+                                                                                                         , Tuple.Create(Tuple.Create(" ", 8052), Tuple.Create<System.Object, System.Int32>(cleaning.StartedBy.ToString()
             
             #line default
             #line hidden
-, 8033), false)
+, 8053), false)
 );
 
 WriteLiteral(">[<b>");
 
             
             #line 158 "..\..\Views\Report\calender.cshtml"
-                                                                                                                                                                                                               Write(cleaning.destination);
+                                                                                                                                                                                                                         Write(cleaning.destination);
 
             
             #line default

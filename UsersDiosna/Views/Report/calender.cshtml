@@ -148,14 +148,14 @@
                     }
                     @if (dosingOut != null)
                     {
-                        <a href="/ReportDosing/@day/@ViewBag.Month" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
+                        <a href="/ReportDosing/Day/@day/@ViewBag.Month/@year" class="dosing" title="Total Amount: @(dosingOut.amountSum/1000) kg">(<b>@dosingOut.count</b>)</a>
                         rowDOcount += dosingOut.count;
                         rowDOamount += (dosingOut.amountSum/1000);
                         dosingOut = null;
                     }
                     @if (cleaning != null)
                     {
-                        <a href="/ReportCleaning/@day/@ViewBag.Month" class="cleaning" title="Cleaning: @cleaning.cleaning Clean Type: @cleaning.ClnType.ToString() Started By: @cleaning.StartedBy.ToString()">[<b>@cleaning.destination</b>]</a>
+                        <a href="/ReportCleaning/Day/@day/@ViewBag.Month/@year" class="cleaning" title="Cleaning: @cleaning.cleaning Clean Type: @cleaning.ClnType.ToString() Started By: @cleaning.StartedBy.ToString()">[<b>@cleaning.destination</b>]</a>
                         cleaning = null;
                     }
                 </td>

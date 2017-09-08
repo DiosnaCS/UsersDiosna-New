@@ -7,6 +7,7 @@ using System.Linq;
 using UsersDiosna.Handlers;
 using System.Threading.Tasks;
 using UsersDiosna.Report.Models;
+using UsersDiosna.Alarms.Models;
 using System.Collections.Generic;
 
 namespace UsersDiosna.Controllers
@@ -123,6 +124,8 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public async Task<JsonResult> getEventsHeader()
         {
+            int batchStart = 0;
+            int batchEnd = 0;
             StreamReader stream = new StreamReader(Request.InputStream);
             string json = stream.ReadToEnd();
             DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
@@ -141,7 +144,42 @@ namespace UsersDiosna.Controllers
             }
             ReportDBHelper db = new ReportDBHelper(DB, 2);
             DataReportModel data =  await db.SelectHeaderDataAsync(dataRequest.beginTime, dataRequest.beginTime + dataRequest.timeAxisLength, table);
-            return Json(data);
+            
+            GraphEventsData GED = new GraphEventsData();
+            GED.events = new List<ColumnGraphModel>();
+            foreach (ColumnReportModel CRM in data.Data)
+            {
+                ColumnGraphModel CGM = new ColumnGraphModel();
+
+                CGM.RecordNo = CRM.RecordNo;
+                CGM.RecordType = (int)CRM.RecordType;
+            
+                CGM.TimeStart = AlarmHelper.DateTimetTopkTime(CRM.TimeStart);
+                CGM.TimeEnd = AlarmHelper.DateTimetTopkTime(CRM.TimeEnd);
+                CGM.BatchNo = CRM.BatchNo;
+                CGM.Destination = CRM.Destination;
+                CGM.Need = CRM.Need;
+                CGM.Actual = CRM.Actual;
+
+                CGM.Variant1 = CRM.Variant1;
+                CGM.Variant2 = CRM.Variant2;
+                CGM.Variant3 = CRM.Variant3;
+                if (CGM.RecordType == 10 || CGM.RecordType == 14)
+                {
+                    if (data.Data.Exists(p=> (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo))
+                        batchStart = AlarmHelper.DateTimetTopkTime(data.Data.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart);
+                    if (data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
+                        batchEnd = AlarmHelper.DateTimetTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeEnd);
+                    if (data.Data.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo) && data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
+                        CGM.Variant3 = batchEnd - batchStart;
+                    //Duration is for George graphs in recordType 10 and 14
+                }
+                CGM.Variant4 = CRM.Variant4;
+
+                GED.events.Add(CGM);
+            }
+
+            return Json(GED); //it add data in the reguested shape to client
         }
 
         [HttpPost]
@@ -164,8 +202,43 @@ namespace UsersDiosna.Controllers
                 }
             }
             AlarmHelper AH = new AlarmHelper();
-            object data = AH.SelectAlarmsTexts(DB).Cast<object>();
-            return Json(data);
+            List<AlarmHelper.alarm_texts> data = new List<AlarmHelper.alarm_texts>();
+            AlarmGraphConfig ALG = new AlarmGraphConfig();
+             data = AH.SelectAlarmsTexts(DB);
+            bool firstEn = true;
+            bool firstCz = true;
+            bool firstDe = true;
+            bool firstPl = true;
+            foreach (AlarmHelper.alarm_texts text in data)
+            {
+                switch (text.lang) {
+                    case "en":
+                        if (firstEn)
+                            ALG.EN = new List<string>();
+                            firstEn = false;
+                        ALG.EN.Add(text.title);
+                        break;
+                    case "cz":
+                        if (firstCz)
+                            ALG.CZ = new List<string>();
+                            firstCz = false;
+                        ALG.CZ.Add(text.title);
+                        break;
+                    case "de":
+                        if (firstDe)
+                            ALG.DE = new List<string>();
+                            firstDe = false;
+                        ALG.DE.Add(text.title);
+                        break;
+                    case "pl":
+                        if (firstPl)
+                            ALG.PL = new List<string>();
+                            firstPl = false;
+                        ALG.PL.Add(text.title);
+                        break;
+                }
+            }
+            return Json(ALG);
         }
 
         [HttpPost]

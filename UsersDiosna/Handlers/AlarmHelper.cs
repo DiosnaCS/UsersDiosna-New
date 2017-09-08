@@ -26,6 +26,7 @@ namespace UsersDiosna.Handlers
         public struct alarm_texts
         {
             public short id { get; set; }
+            public string lang { get; set; }
             public string title { get; set; }
         }
 
@@ -45,7 +46,7 @@ namespace UsersDiosna.Handlers
         /// </summary>
         /// <param name="alarms">Select alarms which you defined</param>
         /// <returns></returns>
-        public List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null)
+        public List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null, string lang = "en")
         {
             NpgsqlCommand cmd;
             string whereIds = string.Empty;
@@ -62,13 +63,13 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                string sql = string.Format("SELECT title,alarm_id FROM alarm_texts WHERE (lang='en' AND plc_id=1) AND ({0})", whereIds);
+                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (lang='"+lang+"' AND plc_id=1) AND ({0})", whereIds);
                 cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand("SELECT title,alarm_id FROM alarm_texts WHERE lang='en' AND plc_id=1", conn);
+                cmd = new NpgsqlCommand("SELECT title,lang,alarm_id FROM alarm_texts WHERE lang='"+lang+"' AND plc_id=1", conn);
             }
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
@@ -153,7 +154,7 @@ namespace UsersDiosna.Handlers
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
-                alarm.title = titles[id-1].title;
+                alarm.title = titles.Single(p => p.id == id).title;
 
                 int originTime = int.Parse(dr["origin_pktime"].ToString());
                 alarm.originTime = pkTimeToDateTime(originTime);
