@@ -7,7 +7,9 @@
 		<name>Free zone</name>
 		<description/>
 	</contract>
-	<plc name="Documents">	
+	<plc name="Documents">
+		<SchemeEditor name="Scheme editor">
+		</SchemeEditor>					
 		<Download>
 			<path>\\192.168.2.40\Public\Zakazky\6_Solutions\_0_HowTo-documents</path>
 		</Download>

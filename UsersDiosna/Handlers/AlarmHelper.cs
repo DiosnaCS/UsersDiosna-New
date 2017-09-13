@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+using UsersDiosna.Alarms.Models;
 
 namespace UsersDiosna.Handlers
 {
@@ -79,6 +80,7 @@ namespace UsersDiosna.Handlers
             {
                 alarm_texts alarm = new alarm_texts();
                 alarm.title = dataReader["title"].ToString();
+                alarm.lang = dataReader["lang"].ToString();
                 alarm.id = Int16.Parse(dataReader["alarm_id"].ToString());
                 alarmList.Add(alarm);
             }
@@ -91,7 +93,7 @@ namespace UsersDiosna.Handlers
         {
             public short id { get; set; }
             public string title { get; set; }
-
+            
             public string originTime { get; set; } //JS need that with special format
             public string expiryTime { get; set; }
         }
@@ -156,9 +158,9 @@ namespace UsersDiosna.Handlers
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 alarm.title = titles.Single(p => p.id == id).title;
 
-                int originTime = int.Parse(dr["origin_pktime"].ToString());
-                alarm.originTime = pkTimeToDateTime(originTime);
+                int originTime = int.Parse(dr["origin_pktime"].ToString());                  
                 int expTime = Int32.Parse(dr["expiry_pktime"].ToString());
+                alarm.originTime = pkTimeToDateTime(originTime);
                 alarm.expiryTime = pkTimeToDateTime(expTime);
                 alarms.Add(alarm);
                 i++;
@@ -174,35 +176,36 @@ namespace UsersDiosna.Handlers
         /// <param name="count">count of alarms that you want to select</param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public async Task<List<alarm>> SelectAlarms(string DB, long pktimeFrom, long pkTimeTo)
+        public async Task<List<AlarmGraphData>> SelectAlarms(string DB, long pktimeFrom, long pkTimeTo)
         {
             int i = 0;
             string sql = string.Empty;
             string whereIds = string.Empty;
-            List<alarm> alarms = new List<alarm>();
+            List<AlarmGraphData> alarms = new List<AlarmGraphData>();
 
             List<alarm_texts> titles = SelectAlarmsTexts(DB);
 
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
-            sql = string.Format("SELECT * FROM alarm_history WHERE origin_pktime BETWEEN {0} AND {1} ORDER BY origin_pktime DESC",pktimeFrom, pkTimeTo);
+            sql = string.Format("SELECT * FROM alarm_history WHERE origin_pktime BETWEEN {0} AND {1} ORDER BY origin_pktime ASC",pktimeFrom, pkTimeTo);
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             //Prepare DataReader
             System.Data.Common.DbDataReader dr = await cmd.ExecuteReaderAsync();
             while (await dr.ReadAsync())
             {
-                alarm alarm = new alarm();
+                AlarmGraphData alarm = new AlarmGraphData();
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 alarm.title = titles[id - 1].title;
 
                 int originTime = int.Parse(dr["origin_pktime"].ToString());
-                alarm.originTime = pkTimeToDateTime(originTime);
+                
                 int expTime = Int32.Parse(dr["expiry_pktime"].ToString());
-                alarm.expiryTime = pkTimeToDateTime(expTime);
+                alarm.originTime = originTime;
+                alarm.expiryTime = expTime;
                 alarms.Add(alarm);
                 i++;
             }

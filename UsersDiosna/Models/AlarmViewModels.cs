@@ -36,4 +36,12 @@ namespace UsersDiosna.Alarms.Models
         public List<string> DE { get; set; }
         public List<string> PL { get; set; }
     }
+    public class AlarmGraphData
+    {
+        public short id { get; set; }
+        public string title { get; set; }
+
+        public int originTime { get; set; } // in pktime
+        public int expiryTime { get; set; } // in pkTime
+    }
 }

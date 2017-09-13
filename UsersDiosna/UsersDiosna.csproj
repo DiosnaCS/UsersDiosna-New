@@ -137,6 +137,9 @@
     <Reference Include="SimpleImpersonation, Version=2.0.1.27158, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SimpleImpersonation.2.0.1\lib\net40-Client\SimpleImpersonation.dll</HintPath>
     </Reference>
+    <Reference Include="Svg, Version=2.2.1.39233, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Svg.2.3.0\lib\net35\Svg.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
@@ -280,9 +283,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
+    <Compile Include="Controllers\SchemeEditorController.cs" />
     <Compile Include="Handlers\AlarmHelper.cs" />
     <Compile Include="Handlers\FileHelper.cs" />
+    <Compile Include="Handlers\SchemeEditorHandler.cs" />
     <Compile Include="Models\DownloadModels.cs" />
+    <Compile Include="Models\SchemeModels.cs" />
     <Compile Include="OldCode\AlarmController_old.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
@@ -526,6 +532,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportDosing\Day.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Day.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ReportOverview\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -540,6 +551,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Detail.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SchemeEditor\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Scheme\index.generated.cs">
       <AutoGen>True</AutoGen>
@@ -853,7 +869,14 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>FIlter.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\ReportDosing\Day.cshtml" />
+    <Content Include="Views\ReportDosing\Day.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Day.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\SchemeEditor\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

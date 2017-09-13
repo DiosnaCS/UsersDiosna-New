@@ -260,7 +260,7 @@ namespace UsersDiosna.Controllers
                     table = Session[key].ToString();
                 }
             }
-            List<AlarmHelper.alarm> data = new List<AlarmHelper.alarm>();
+            List<AlarmGraphData> data = new List<AlarmGraphData>();
             AlarmHelper AH = new AlarmHelper();
             data = await AH.SelectAlarms(DB,dataRequest.beginTime,dataRequest.beginTime + dataRequest.timeAxisLength);
             return Json(data);

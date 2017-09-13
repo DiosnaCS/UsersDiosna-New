@@ -1,0 +1,13 @@
+﻿@model UsersDiosna.Sheme.Models.SchemeEditor
+@{
+    ViewBag.Title = "Scheme Editor";
+}
+
+<h2>Index</h2>
+
+<div>
+    @Model.SvgFile.BaseUri
+  <object type="image/svg+xml" data="@Model.SvgFile.BaseUri.LocalPath">
+      Your object does not suupport SVG
+  </object>
+</div>

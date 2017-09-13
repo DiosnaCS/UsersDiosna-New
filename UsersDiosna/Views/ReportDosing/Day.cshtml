@@ -8,7 +8,7 @@
 <h4>Day of dosings</h4>
 
 <p>
-    <a class="btn-sm btn-primary" href="/ReporDosing/Day/@(Model.Day+1)/@Model.Month/@Model.Year">&lArr; Day</a> 
+    <a class="btn-sm btn-primary" href="/ReporDosing/Day/@(Model.Day-1)/@Model.Month/@Model.Year">&lArr; Day</a> 
     @thisDay.DayOfWeek @thisDay.ToShortDateString()
     <a class="btn-sm btn-primary" href="/ReporDosing/Day/@(Model.Day+1)/@Model.Month/@Model.Year">Day &rArr;</a> 
 </p>
