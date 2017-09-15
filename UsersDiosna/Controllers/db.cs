@@ -763,7 +763,7 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
                                         "AND(\"RecordType\" = {3} OR \"RecordType\" = {4}" +
                                         " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7})",/*" OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
                                         " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",*/
@@ -858,7 +858,7 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2} " +
                                         "AND(\"RecordType\" = {3} OR \"RecordType\" = {4}" +
                                         " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
                                         " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",
@@ -947,7 +947,7 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE \"BatchNo\" = {1}", table, batchNo);
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"BatchNo\" = {1}", table, batchNo);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -1041,7 +1041,7 @@ namespace UsersDiosna.Controllers
             10 => Variant3 
             11 => Variant4 
             */
-            string sql = string.Format("SELECT * FROM {0} WHERE (\"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28 ORDER BY \"TimeEnd\" ASC", table, pkTimeStart, pkTimeEnd);
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE (\"TimeStart\" > {1} AND \"TimeStart\" < {2}) AND \"RecordType\" BETWEEN 20 AND 28 ORDER BY \"TimeEnd\" ASC", table, pkTimeStart, pkTimeEnd);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -1151,7 +1151,7 @@ namespace UsersDiosna.Controllers
             int pkTimeFrom = ConvertDT2pkTime(from);
             int pkTimeTo = ConvertDT2pkTime(to);
 
-            string sql = string.Format("SELECT * FROM {0} WHERE (\"TimeStart\" BETWEEN {1} AND {2}) AND (\"RecordType\"=44) ORDER BY \"TimeStart\" ASC", table, pkTimeFrom, pkTimeTo);
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE (\"TimeStart\" BETWEEN {1} AND {2}) AND (\"RecordType\"=44) ORDER BY \"TimeStart\" ASC", table, pkTimeFrom, pkTimeTo);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -1212,7 +1212,7 @@ namespace UsersDiosna.Controllers
             //id is BatchNo
             int id = 0;
 
-            string sql = string.Format("SELECT \"BatchNo\" FROM {0} WHERE \"BatchNo\"<{1} ORDER BY \"BatchNo\" DESC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
+            string sql = string.Format("SELECT \"BatchNo\" FROM \"{0}\" WHERE \"BatchNo\"<{1} ORDER BY \"BatchNo\" DESC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -1229,7 +1229,7 @@ namespace UsersDiosna.Controllers
             //id is BatchNo
             int id = 0;
 
-            string sql = string.Format("SELECT \"BatchNo\" FROM {0} WHERE \"BatchNo\">{1} ORDER BY \"BatchNo\" ASC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
+            string sql = string.Format("SELECT \"BatchNo\" FROM \"{0}\" WHERE \"BatchNo\">{1} ORDER BY \"BatchNo\" ASC FETCH FIRST 1 ROWS ONLY", table, BatchNo);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
