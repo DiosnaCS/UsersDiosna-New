@@ -6,12 +6,12 @@
 <h2>Welcome to Diosna cloud homepage</h2>
 <div class="row">
     <h6>Select your destination / bakery</h6>
-    @{int index = 1;}
+    @{int index = 1; double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);}
     <div class="well">
-    @for (int idx = 1; idx <= (ViewBag.Count / 3); idx++)
+    @for (int idx = 1; idx <= some; idx++)
     {
         <div class="btn-group btn-group-justified">
-            @for (int i = 1; i <= 3 && (i * idx) < ViewBag.Count; i++)
+            @for (int i = 1; i <= 3 && index <= (ViewBag.Count-1); i++)
             {
                 <a href="/Menu/Index/@ViewBag.Numbers[index]" class="btn btn-primary">@ViewBag.Text[index]&rAarr;</a>
                 index++;

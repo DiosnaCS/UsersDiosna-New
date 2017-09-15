@@ -71,7 +71,7 @@ WriteLiteral(">\r\n    <h6>Select your destination / bakery</h6>\r\n");
             #line hidden
             
             #line 9 "..\..\Views\Home\Homepage.cshtml"
-      int index = 1;
+      int index = 1; double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);
             
             #line default
             #line hidden
@@ -89,7 +89,7 @@ WriteLiteral(">\r\n");
             #line hidden
             
             #line 11 "..\..\Views\Home\Homepage.cshtml"
-     for (int idx = 1; idx <= (ViewBag.Count / 3); idx++)
+     for (int idx = 1; idx <= some; idx++)
     {
 
             
@@ -109,7 +109,7 @@ WriteLiteral(">\r\n");
             #line hidden
             
             #line 14 "..\..\Views\Home\Homepage.cshtml"
-             for (int i = 1; i <= 3 && (i * idx) < ViewBag.Count; i++)
+             for (int i = 1; i <= 3 && index <= (ViewBag.Count-1); i++)
             {
 
             
@@ -117,15 +117,15 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 486), Tuple.Create("\"", 528)
-, Tuple.Create(Tuple.Create("", 493), Tuple.Create("/Menu/Index/", 493), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 535), Tuple.Create("\"", 577)
+, Tuple.Create(Tuple.Create("", 542), Tuple.Create("/Menu/Index/", 542), true)
             
             #line 16 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 505), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
+, Tuple.Create(Tuple.Create("", 554), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
             
             #line default
             #line hidden
-, 505), false)
+, 554), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -167,15 +167,15 @@ WriteLiteral(" class=\"btn-group btn-group-justified well\"");
 
 WriteLiteral(">\r\n        <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 822), Tuple.Create("\"", 860)
-, Tuple.Create(Tuple.Create("", 829), Tuple.Create("/Menu/Index/", 829), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 871), Tuple.Create("\"", 909)
+, Tuple.Create(Tuple.Create("", 878), Tuple.Create("/Menu/Index/", 878), true)
             
             #line 25 "..\..\Views\Home\Homepage.cshtml"
-, Tuple.Create(Tuple.Create("", 841), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
+, Tuple.Create(Tuple.Create("", 890), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
             
             #line default
             #line hidden
-, 841), false)
+, 890), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");

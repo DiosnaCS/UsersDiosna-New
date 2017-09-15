@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>177005</id>
+		<prefix />
+		<country>PL</country>
+		<name>Nowakowski</name>
+		<description/>
+	</contract>
+	<plc name="Yeast system">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih/10500_Nowakowski/__pic_sch_overview_PLNOW_YS__</url>
+		</scheme>		
+		<graph name="Graphs">			
+		</graph>
+		<alarm name="Alarms">
+			<dbName>Nowakowski</dbName>
+		</alarm>
+		<Download>
+			<path>/Zakazky/0_New/17_rok/177005 PL-Legionowo Nowakowski_YS/</path>
+		</Download>
+		<Upload>
+			<path>/Zakazky/0_New/17_rok/177005 PL-Legionowo Nowakowski_YS/</path>
+		</Upload>
+		<Report name="Production Calendar">
+			<dbName>Nowakowski</dbName>
+			<tableName>YS_events</tableName>
+			<congirationNumber>1</congirationNumber>
+		</Report>										
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>
