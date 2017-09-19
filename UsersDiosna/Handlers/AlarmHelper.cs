@@ -47,10 +47,11 @@ namespace UsersDiosna.Handlers
         /// </summary>
         /// <param name="alarms">Select alarms which you defined</param>
         /// <returns></returns>
-        public List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null, string lang = "en")
+        public List<alarm_texts> SelectAlarmsTexts(string DB, List<int> alarms = null, int plcID = 1)
         {
             NpgsqlCommand cmd;
             string whereIds = string.Empty;
+            string lang = "en";
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
             // Making connection with Npgsql provider
@@ -64,13 +65,13 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (lang='"+lang+"' AND plc_id=1) AND ({0})", whereIds);
+                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (lang='"+lang+"' AND plc_id={0}) AND ({1})", plcID, whereIds);
                 cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand("SELECT title,lang,alarm_id FROM alarm_texts WHERE lang='"+lang+"' AND plc_id=1", conn);
+                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE lang='"+lang+"' AND plc_id={0}",plcID),conn);
             }
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
@@ -105,14 +106,14 @@ namespace UsersDiosna.Handlers
         /// <param name="count">count of alarms that you want to select</param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public async Task<List<alarm>> SelectAlarms(string DB,int offsetPage = 0,int count = 0, List<int> ids = null)
+        public async Task<List<alarm>> SelectAlarms(string DB,int offsetPage = 0,int count = 0, List<int> ids = null,int plcID = 1)
         {
             int i = 0;
             string sql = string.Empty;
             string whereIds = string.Empty;
             List<alarm> alarms = new List<alarm>();
 
-            List<alarm_texts> titles = SelectAlarmsTexts(DB);
+            List<alarm_texts> titles = SelectAlarmsTexts(DB, null, plcID);
 
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
@@ -125,12 +126,12 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                sql = string.Format("SELECT * FROM alarm_history WHERE {0} ORDER BY origin_pktime DESC LIMIT {1}", whereIds, count);
+                sql = string.Format("SELECT * FROM alarm_history WHERE {0} AND lang plc_id={1} ORDER BY origin_pktime DESC LIMIT {2}", whereIds, plcID, count);
             }
             else
             {
                 if (count != 0)
-                    sql = string.Format("SELECT * FROM alarm_history ORDER BY origin_pktime DESC LIMIT {0}", count);
+                    sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {1}",plcID, count);
                 else
                     sql = "SELECT * FROM alarm_history ORDER BY origin_pktime DESC";
             }
@@ -142,9 +143,9 @@ namespace UsersDiosna.Handlers
                         whereIds += "alarm_id=" + id.ToString() + " OR ";
                     }
                     // Execute the query and obtain a result set                
-                    sql = string.Format("SELECT * FROM alarm_history WHERE {0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}", whereIds, count, offsetPage);
+                    sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}", plcID, whereIds, count, offsetPage);
                 }
-                sql = string.Format("SELECT * FROM alarm_history ORDER BY origin_pktime DESC LIMIT {0} OFFSET {1}", count, offsetPage);
+                sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {0} OFFSET {1}",plcID, count, offsetPage);
             }
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
@@ -170,25 +171,25 @@ namespace UsersDiosna.Handlers
         }
 
         /// <summary>
-        /// Method to get alarms
+        /// Method to get alarms async
         /// </summary>
         /// <param name="DB">db name</param>
         /// <param name="count">count of alarms that you want to select</param>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public async Task<List<AlarmGraphData>> SelectAlarms(string DB, long pktimeFrom, long pkTimeTo)
+        public async Task<List<AlarmGraphData>> SelectAlarms(string DB, long pktimeFrom, long pkTimeTo, int plcID = 1)
         {
             int i = 0;
             string sql = string.Empty;
             string whereIds = string.Empty;
             List<AlarmGraphData> alarms = new List<AlarmGraphData>();
 
-            List<alarm_texts> titles = SelectAlarmsTexts(DB);
+            List<alarm_texts> titles = SelectAlarmsTexts(DB,null, plcID);
 
             string connstring = String.Format("Server={0};Port={1};User Id={2};Password={3};Database={4};",
             "192.168.2.12", 5432, "postgres", "Nordit0276", DB);
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
-            sql = string.Format("SELECT * FROM alarm_history WHERE origin_pktime BETWEEN {0} AND {1} ORDER BY origin_pktime ASC",pktimeFrom, pkTimeTo);
+            sql = string.Format("SELECT * FROM alarm_history WHERE (origin_pktime BETWEEN {0} AND {1}) AND plc_id={2} ORDER BY origin_pktime ASC",pktimeFrom, pkTimeTo, plcID);
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
             //Prepare DataReader

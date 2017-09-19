@@ -11,9 +11,12 @@
 		<scheme name="Overview">
 			<url>http://users.nordit.cz/ih/10500_Nowakowski/__pic_sch_overview_PLNOW_YS__</url>
 		</scheme>		
-		<graph name="Graphs">			
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_PLNOW_YS.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_PLNOW_YS.ini</pathNames>			
 		</graph>
 		<alarm name="Alarms">
+			<plcID>2</plcID>
 			<dbName>Nowakowski</dbName>
 		</alarm>
 		<Download>
@@ -22,11 +25,11 @@
 		<Upload>
 			<path>/Zakazky/0_New/17_rok/177005 PL-Legionowo Nowakowski_YS/</path>
 		</Upload>
-		<Report name="Production Calendar">
+		<Report>
 			<dbName>Nowakowski</dbName>
 			<tableName>YS_events</tableName>
 			<congirationNumber>1</congirationNumber>
-		</Report>										
+		</Report>
 		<CMS name="Project Info">
 		</CMS>
 	</plc>

@@ -188,10 +188,15 @@ namespace UsersDiosna.Controllers
             StreamReader stream = new StreamReader(Request.InputStream);
             string json = stream.ReadToEnd();
             DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+            int plcID = 1;
             string DB = string.Empty;
             string table = string.Empty;
             foreach (string key in Session.Keys)
             {
+                if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    plcID = (int)Session[key];
+                }
                 if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
                 {
                     DB = Session[key].ToString();
@@ -204,7 +209,7 @@ namespace UsersDiosna.Controllers
             AlarmHelper AH = new AlarmHelper();
             List<AlarmHelper.alarm_texts> data = new List<AlarmHelper.alarm_texts>();
             AlarmGraphConfig ALG = new AlarmGraphConfig();
-             data = AH.SelectAlarmsTexts(DB);
+             data = AH.SelectAlarmsTexts(DB,null,plcID);
             bool firstEn = true;
             bool firstCz = true;
             bool firstDe = true;
@@ -249,8 +254,13 @@ namespace UsersDiosna.Controllers
             DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
             string DB = string.Empty;
             string table = string.Empty;
+            int plcID = 1;
             foreach (string key in Session.Keys)
             {
+                if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                {
+                    plcID = (int)Session[key];
+                }
                 if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
                 {
                     DB = Session[key].ToString();
@@ -262,7 +272,7 @@ namespace UsersDiosna.Controllers
             }
             List<AlarmGraphData> data = new List<AlarmGraphData>();
             AlarmHelper AH = new AlarmHelper();
-            data = await AH.SelectAlarms(DB,dataRequest.beginTime,dataRequest.beginTime + dataRequest.timeAxisLength);
+            data = await AH.SelectAlarms(DB,dataRequest.beginTime,dataRequest.beginTime + dataRequest.timeAxisLength,plcID);
             return Json(data);
         }
 

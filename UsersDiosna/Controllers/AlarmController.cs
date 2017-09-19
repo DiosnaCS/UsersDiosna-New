@@ -25,7 +25,7 @@ namespace UsersDiosna.Controllers
                 {
                     lang = Session[key].ToString();
                 }
-                if (key.Contains("plc" + Request.QueryString["name"] + Request.QueryString["plc"]))
+                if (key.Contains("plcID" + Request.QueryString["name"] + Request.QueryString["plc"]))
                 {
                     plcID = int.Parse(Session[key].ToString());
                 }
@@ -39,6 +39,11 @@ namespace UsersDiosna.Controllers
         public async Task<ActionResult> Index()
         {
             DBConnnection();
+            int plcID = 1;
+            if (int.Parse(Session["AlarmPlcID"].ToString()) != 0)
+            {
+                plcID = int.Parse(Session["AlarmPlcID"].ToString());
+            }
             List<int> alarms = new List<int>();
             if (Session["filteredAlarms"] != null)
             {
@@ -49,7 +54,7 @@ namespace UsersDiosna.Controllers
             }
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
             AlarmHelper AH = new AlarmHelper();
-            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms);
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID);
             ViewBag.page = 0;
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
             return View(model);
@@ -75,7 +80,12 @@ namespace UsersDiosna.Controllers
             }
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
             AlarmHelper AH = new AlarmHelper();
-            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms);
+            int plcID = 1;
+            if (int.Parse(Session["AlarmPlcID"].ToString()) != 0)
+            {
+                plcID = int.Parse(Session["AlarmPlcID"].ToString());
+            }
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID);
             if (model.Count == 0)
             {
                 Session["tempforview"] = "No alarms has been found";
@@ -104,13 +114,18 @@ namespace UsersDiosna.Controllers
         public ActionResult FilterCurrent()
         {
             List<int> alarms = (List<int>)Session["alarmIDs"];
+            int plcID = 1;
+            if (Session["AlarmPlcID"] != null)
+            {
+                plcID = (int)Session["AlarmPlcID"];
+            }
             if (alarms != null)
             {
                 Session["alarmIDs"] = null;
 
                 AlarmHelper AH = new AlarmHelper();
                 List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
-                model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms);
+                model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms, plcID);
                 return View("Filter", model);
             }
             Session["tempforview"] = "Problem with accesing current alarms";
@@ -119,9 +134,14 @@ namespace UsersDiosna.Controllers
 
         public ActionResult FilterAll()
         {
+            int plcID = 1;
+            if (Session["AlarmPlcID"] != null)
+            {
+                plcID = (int)Session["AlarmPlcID"];
+            }
             AlarmHelper AH = new AlarmHelper();
             List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
-            model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString());
+            model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), null, plcID);
             return View("Filter", model);
         }
         public ActionResult CancelFilter()
