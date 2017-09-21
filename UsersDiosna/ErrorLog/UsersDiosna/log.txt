@@ -882,3 +882,4 @@
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+9/20/2017 12:09:45 PM1Object reference not set to an instance of an object.   at UsersDiosna.MvcApplication.Session_OnEnd() in C:\Akce\Source-Repos\UsersDiosna\Global.asax.cs:line 69

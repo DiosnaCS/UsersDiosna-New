@@ -45,6 +45,7 @@ WriteLiteral("\r\n");
             #line 2 "..\..\Views\Shared\Error.cshtml"
   
     ViewBag.Title = "Error";
+    Server.ClearError();
 
             
             #line default
@@ -60,7 +61,7 @@ WriteLiteral(" class=\"text-danger\"");
 WriteLiteral(">Id: ");
 
             
-            #line 7 "..\..\Views\Shared\Error.cshtml"
+            #line 8 "..\..\Views\Shared\Error.cshtml"
                        Write(MvcApplication.id);
 
             
@@ -69,7 +70,7 @@ WriteLiteral(">Id: ");
 WriteLiteral(" At: ");
 
             
-            #line 7 "..\..\Views\Shared\Error.cshtml"
+            #line 8 "..\..\Views\Shared\Error.cshtml"
                                               Write(DateTime.Now.ToShortTimeString());
 
             
@@ -78,7 +79,7 @@ WriteLiteral(" At: ");
 WriteLiteral(" Happened on: ");
 
             
-            #line 7 "..\..\Views\Shared\Error.cshtml"
+            #line 8 "..\..\Views\Shared\Error.cshtml"
                                                                                              Write(DateTime.Now.ToShortDateString());
 
             

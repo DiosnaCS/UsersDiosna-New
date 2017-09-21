@@ -56,6 +56,7 @@ namespace UsersDiosna
                 }
             }
             else {
+                Server.ClearError();
                 UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
             }
         }
