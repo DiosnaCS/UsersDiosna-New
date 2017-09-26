@@ -1,14 +1,14 @@
-﻿using System.Web.Mvc;
-using UsersDiosna.Graph.Models;
-using System;
-using System.IO;
-using System.Web.Script.Serialization;
-using System.Linq;
-using UsersDiosna.Handlers;
-using System.Threading.Tasks;
-using UsersDiosna.Report.Models;
-using UsersDiosna.Alarms.Models;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using UsersDiosna.Alarms.Models;
+using UsersDiosna.Graph.Models;
+using UsersDiosna.Handlers;
+using UsersDiosna.Report.Models;
 
 namespace UsersDiosna.Controllers
 {
@@ -24,10 +24,10 @@ namespace UsersDiosna.Controllers
         {
             string path;
             if (pathConfig == null && pathNames == null && projectName == null) {
-                path = Path.physicalPath + @"\JSONconfig\" + Session["ProjectName"].ToString() + "_" + Session["pathConfig"].ToString().Substring(Session["pathConfig"].ToString().LastIndexOf(@"\") + 1) + ".json";
+                path = Path.PhysicalPath + @"\JSONconfig\" + Session["ProjectName"].ToString() + "_" + Session["pathConfig"].ToString().Substring(Session["pathConfig"].ToString().LastIndexOf(@"\") + 1) + ".json";
             }
             else {
-                path = Path.physicalPath + @"\JSONconfig\" + projectName + "_" + pathConfig.Substring(pathConfig.LastIndexOf(@"\") + 1) + ".json";
+                path = Path.PhysicalPath + @"\JSONconfig\" + projectName + "_" + pathConfig.Substring(pathConfig.LastIndexOf(@"\") + 1) + ".json";
             }
             string json;
             
@@ -58,7 +58,7 @@ namespace UsersDiosna.Controllers
                     Iniparser.FindTableName(config); //Only to find missing(all are missing) tableName
                 }
                 json = config.toJSON(config);
-                Directory.CreateDirectory(Path.physicalPath + @"\JSONconfig");
+                Directory.CreateDirectory(Path.PhysicalPath + @"\JSONconfig");
                 System.IO.File.WriteAllText(path, json);
             }
             if (pathConfig == null && pathNames == null && projectName == null)
@@ -103,6 +103,16 @@ namespace UsersDiosna.Controllers
                     GraphHandler GH = new GraphHandler();
                    
                     DataRequest dataResponse = GH.proceedSQLquery(dataRequest, config);
+                    if ((dataRequest.beginTime + dataRequest.timeAxisLength) > AlarmHelper.DateTimetTopkTime(DateTime.Now))
+                    {
+                        if (dataResponse.tags.All(p => p.vals.All(q => (q == double.MinValue || q == double.MaxValue)) == true))
+                        {
+                            for (int i = 0; i < dataResponse.tags.Count; i++)
+                            {
+                                dataResponse.tags[i].vals = null;
+                            }
+                        }
+                    }
                     data = dataResponse;
                     return Json(data, "application/json", JsonRequestBehavior.AllowGet);
                 }
@@ -112,7 +122,7 @@ namespace UsersDiosna.Controllers
                     string k = e.Message.ToString() + e.Source.ToString() + e.StackTrace.ToString();
                     string name = this.ControllerContext.RouteData.Values["controller"].ToString();
                     Error.toFile(k, name);
-                    Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                    Session["tempforview"] = Error.timestamp + "   Error " + MvcApplication.ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
                     return Json(data, "application/json", JsonRequestBehavior.AllowGet);
                 }
             }
@@ -185,9 +195,6 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public JsonResult getAlarmConfig()
         {
-            StreamReader stream = new StreamReader(Request.InputStream);
-            string json = stream.ReadToEnd();
-            DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
             int plcID = 1;
             string DB = string.Empty;
             string table = string.Empty;
@@ -249,31 +256,44 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public async Task<JsonResult> getAlarmsData()
         {
-            StreamReader stream = new StreamReader(Request.InputStream);
-            string json = stream.ReadToEnd();
-            DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
-            string DB = string.Empty;
-            string table = string.Empty;
-            int plcID = 1;
-            foreach (string key in Session.Keys)
+            try
             {
-                if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                StreamReader stream = new StreamReader(Request.InputStream);
+                string json = stream.ReadToEnd();
+                DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+                string DB = string.Empty;
+                string table = string.Empty;
+                int plcID = 1;
+                foreach (string key in Session.Keys)
                 {
-                    plcID = (int)Session[key];
+                    if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        plcID = (int)Session[key];
+                    }
+                    if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        DB = Session[key].ToString();
+                    }
+                    if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        table = Session[key].ToString();
+                    }
                 }
-                if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
-                {
-                    DB = Session[key].ToString();
-                }
-                if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
-                {
-                    table = Session[key].ToString();
-                }
+                List<AlarmGraphData> data = new List<AlarmGraphData>();
+                AlarmHelper AH = new AlarmHelper();
+                data = await AH.SelectAlarms(DB, dataRequest.beginTime, dataRequest.beginTime + dataRequest.timeAxisLength, plcID);
+                return Json(data);
+            } catch(Exception e)
+            {
+                List<AlarmGraphData> data = new List<AlarmGraphData>();
+                AlarmGraphData mesData = new AlarmGraphData();
+                mesData.title = e.Message.ToString();
+                data.Add(mesData);
+                AlarmGraphData source = new AlarmGraphData();
+                source.title = e.Source.ToString();
+                data.Add(source);
+                return Json(data);
             }
-            List<AlarmGraphData> data = new List<AlarmGraphData>();
-            AlarmHelper AH = new AlarmHelper();
-            data = await AH.SelectAlarms(DB,dataRequest.beginTime,dataRequest.beginTime + dataRequest.timeAxisLength,plcID);
-            return Json(data);
         }
 
         [HttpPost]

@@ -1,11 +1,24 @@
 ﻿
 @{
     ViewBag.Title = "Error";
+    MvcApplication.ErrorId++;
+    Exception error = Server.GetLastError();
     Server.ClearError();
 }
 
-<h3 class="text-danger">Error:</h3>
-<h3 class="text-danger">Id: @MvcApplication.id At: @DateTime.Now.ToShortTimeString() Happened on: @DateTime.Now.ToShortDateString() <br>
-    Occured so please try it again after some time</h3>
-<a class="btn bg-danger" href="/Account/Login">Please try again login for second try</a>
+<h4 class="text-danger">Error:</h4>
+<h5 class="text-danger">Id: @MvcApplication.ErrorId At: @DateTime.Now.ToShortTimeString() Happened on: @DateTime.Now.ToShortDateString() <br>
+    Occured so please try it again after some time</h5>
+   @if (error != null)
+   {
+    <div>
+        Error: @error.Message.ToString()<br>
+        Stack trace: @error.StackTrace.ToString()<br>
+        Inner exception: @error.InnerException.ToString()<br />
+        Source: @error.Source.ToString()<br />
+        HResult: @error.HResult.ToString()<br />
+        Other: @error.HelpLink.ToString()    @error.Data.ToString()<br />
+    </div>
+   }
+<a class="btn btn-danger" href="/Account/Login">Please try again login for second try</a>
 

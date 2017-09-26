@@ -9,7 +9,7 @@ namespace UsersDiosna
 {
     public class ReportHandler
     {
-        private static string path = Path.physicalPath + @"\Config";
+        private static string path = Path.PhysicalPath + @"\Config";
 
         public Dictionary<int, string> getTanknames(int congirationNumber = 1)
         {

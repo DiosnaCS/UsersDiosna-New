@@ -29,17 +29,23 @@ namespace UsersDiosna.Controllers
         [Authorize]
         public ActionResult Homepage()
         {
-            string name = User.Identity.Name;
-            XMLController XC = new XMLController();
-            string[] existingRolesForUser = Roles.GetRolesForUser();
-            List<int> Numbers = XC.GetAllConfigsProjectNumbers(existingRolesForUser);
-            ViewBag.Numbers = Numbers;
-            ViewBag.Count = Numbers.Count();
-            List<string> Texts = XC.GetAllConfigsNames(existingRolesForUser);
-            ViewBag.Text = Texts;
-            ViewBag.menuDisable = true;
+            try
+            {
+                string name = User.Identity.Name;
+                XMLController XC = new XMLController();
+                string[] existingRolesForUser = Roles.GetRolesForUser();
+                List<int> Numbers = XC.GetAllConfigsProjectNumbers(existingRolesForUser);
+                ViewBag.Numbers = Numbers;
+                ViewBag.Count = Numbers.Count();
+                List<string> Texts = XC.GetAllConfigsNames(existingRolesForUser);
+                ViewBag.Text = Texts;
+                ViewBag.menuDisable = true;
 
-            return View();
+                return View();
+            } catch(Exception e)
+            {
+                return View();
+            }
             #region old
             /*
             int id;

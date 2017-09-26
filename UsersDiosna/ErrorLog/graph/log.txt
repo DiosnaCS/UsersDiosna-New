@@ -79,3 +79,11 @@
    at UsersDiosna.Controllers.db.multipleItemSelectPostgres(String column, String table, String whereMultiple, String groupBy, String order) in C:\Akce\Source-Repos\UsersDiosna\Controllers\db.cs:line 571
    at UsersDiosna.Controllers.GraphHandler.proceedSQLquery(DataRequest dataRequest, CIniFile cConfig) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphHandler.cs:line 86
    at UsersDiosna.Controllers.GraphController.getData() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 97
+9/26/2017 8:21:50 AM1Collection was modified; enumeration operation may not execute.mscorlib   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at UsersDiosna.Controllers.GraphController.getData()
+9/26/2017 8:22:52 AM2Collection was modified; enumeration operation may not execute.mscorlib   at System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
+   at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
+   at System.Collections.Generic.List`1.Enumerator.MoveNext()
+   at UsersDiosna.Controllers.GraphController.getData()

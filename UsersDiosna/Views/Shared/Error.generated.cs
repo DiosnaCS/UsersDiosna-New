@@ -45,24 +45,26 @@ WriteLiteral("\r\n");
             #line 2 "..\..\Views\Shared\Error.cshtml"
   
     ViewBag.Title = "Error";
+    MvcApplication.ErrorId++;
+    Exception error = Server.GetLastError();
     Server.ClearError();
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h3");
+WriteLiteral("\r\n\r\n<h4");
 
 WriteLiteral(" class=\"text-danger\"");
 
-WriteLiteral(">Error:</h3>\r\n<h3");
+WriteLiteral(">Error:</h4>\r\n<h5");
 
 WriteLiteral(" class=\"text-danger\"");
 
 WriteLiteral(">Id: ");
 
             
-            #line 8 "..\..\Views\Shared\Error.cshtml"
-                       Write(MvcApplication.id);
+            #line 10 "..\..\Views\Shared\Error.cshtml"
+                       Write(MvcApplication.ErrorId);
 
             
             #line default
@@ -70,7 +72,7 @@ WriteLiteral(">Id: ");
 WriteLiteral(" At: ");
 
             
-            #line 8 "..\..\Views\Shared\Error.cshtml"
+            #line 10 "..\..\Views\Shared\Error.cshtml"
                                               Write(DateTime.Now.ToShortTimeString());
 
             
@@ -79,15 +81,103 @@ WriteLiteral(" At: ");
 WriteLiteral(" Happened on: ");
 
             
-            #line 8 "..\..\Views\Shared\Error.cshtml"
+            #line 10 "..\..\Views\Shared\Error.cshtml"
                                                                                              Write(DateTime.Now.ToShortDateString());
 
             
             #line default
             #line hidden
-WriteLiteral(" <br>\r\n    Occured so please try it again after some time</h3>\r\n<a");
+WriteLiteral(" <br>\r\n    Occured so please try it again after some time</h5>\r\n");
 
-WriteLiteral(" class=\"btn bg-danger\"");
+            
+            #line 12 "..\..\Views\Shared\Error.cshtml"
+   
+            
+            #line default
+            #line hidden
+            
+            #line 12 "..\..\Views\Shared\Error.cshtml"
+    if (error != null)
+   {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <div>\r\n        Error: ");
+
+            
+            #line 15 "..\..\Views\Shared\Error.cshtml"
+          Write(error.Message.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br>\r\n        Stack trace: ");
+
+            
+            #line 16 "..\..\Views\Shared\Error.cshtml"
+                Write(error.StackTrace.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br>\r\n        Inner exception: ");
+
+            
+            #line 17 "..\..\Views\Shared\Error.cshtml"
+                    Write(error.InnerException.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br />\r\n        Source: ");
+
+            
+            #line 18 "..\..\Views\Shared\Error.cshtml"
+           Write(error.Source.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br />\r\n        HResult: ");
+
+            
+            #line 19 "..\..\Views\Shared\Error.cshtml"
+            Write(error.HResult.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br />\r\n        Other: ");
+
+            
+            #line 20 "..\..\Views\Shared\Error.cshtml"
+          Write(error.HelpLink.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    ");
+
+            
+            #line 20 "..\..\Views\Shared\Error.cshtml"
+                                        Write(error.Data.ToString());
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<br />\r\n    </div>\r\n");
+
+            
+            #line 22 "..\..\Views\Shared\Error.cshtml"
+   }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("<a");
+
+WriteLiteral(" class=\"btn btn-danger\"");
 
 WriteLiteral(" href=\"/Account/Login\"");
 

@@ -16,7 +16,7 @@ namespace UsersDiosna.Controllers
         public ActionResult Index()
         {
             string pathToSvg = @"\Config\svg\vectorpaint.svg";
-            SvgDocument svg = SvgDocument.Open(Path.physicalPath + pathToSvg);
+            SvgDocument svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
             SchemeEditor model = new SchemeEditor();
             model.relativePath = pathToSvg.Replace(@"\", @"/");
             model.SvgFile = svg;

@@ -13,7 +13,7 @@ namespace UsersDiosna.Controllers
     [Authorize(Roles = "Download,Admin")]
     public class DownloadController :Controller
     {
-        public static String path = Path.physicalPath + @"\Config";
+        public static String path = Path.PhysicalPath + @"\Config";
         //public static string network_path = @"\\192.168.2.20\Public\0\Marek\db\";
         public static string local_path = @"C:\0\00\db\";
         List <String> ProjectNames = new List<string>();

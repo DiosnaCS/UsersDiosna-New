@@ -1,0 +1,1535 @@
+{
+  "LangDef": [
+    "EN",
+    "CZ",
+    "DE",
+    "PL"
+  ],
+  "LangEnb": [
+    "EN",
+    "PL"
+  ],
+  "TableDef": [
+    {
+      "shortName": "norm",
+      "dbIdx": 45,
+      "tabName": "arYS_norm",
+      "period": 20
+    }
+  ],
+  "NameDef": [
+    {
+      "table": "norm",
+      "column": "diMassYT1",
+      "fullName_EN": "YT1 - weight",
+      "fullName_PL": "YT1 - waga",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diMassYT2",
+      "fullName_EN": "YT2 - weight",
+      "fullName_PL": "YT2 - waga",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diSP_Dose",
+      "fullName_EN": "SP dose",
+      "fullName_PL": "SP dawka",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diWMU_Dose",
+      "fullName_EN": "WMU - dose",
+      "fullName_PL": "WMU - dawka",
+      "unit_EN": "ticks",
+      "unit_PL": "ticks"
+    },
+    {
+      "table": "norm",
+      "column": "iCircuit_Pressure",
+      "fullName_EN": "Pressure of circuit",
+      "fullName_PL": "Ciśnienie obwódu",
+      "unit_EN": "Bar",
+      "unit_PL": "Bar"
+    },
+    {
+      "table": "norm",
+      "column": "iWMU_Temp",
+      "fullName_EN": "WMU - temperature",
+      "fullName_PL": "WMU - temperatura",
+      "unit_EN": "°C",
+      "unit_PL": "°C"
+    },
+    {
+      "table": "norm",
+      "column": "iTemp_YT1",
+      "fullName_EN": "YT1 - temperature",
+      "fullName_PL": "YT1 - temperatura",
+      "unit_EN": "°C",
+      "unit_PL": "°C"
+    },
+    {
+      "table": "norm",
+      "column": "iTemp_YT2",
+      "fullName_EN": "YT2 - temperature",
+      "fullName_PL": "YT2 - temperatura",
+      "unit_EN": "°C",
+      "unit_PL": "°C"
+    },
+    {
+      "table": "norm",
+      "column": "iReturn_Temp",
+      "fullName_EN": "Return - temperature",
+      "fullName_PL": "Nawrót - temperatura",
+      "unit_EN": "°C",
+      "unit_PL": "°C"
+    },
+    {
+      "table": "norm",
+      "column": "iCirc_Status",
+      "fullName_EN": "Circuit - step",
+      "fullName_PL": "Obwód - krok"      
+    },
+    {
+      "table": "norm",
+      "column": "iDO1_Radem_Status",
+      "fullName_EN": "Dosing out 1 Rademaker - status",
+      "fullName_PL": "Dawkowanie 1 baguette - status"
+    },
+    {
+      "table": "norm",
+      "column": "iDO2_Conti_Status",
+      "fullName_EN": "Dosing out 2 Contimix - status",
+      "fullName_PL": "Dawkowanie 2 Diosna - status"
+    },
+    {
+      "table": "norm",
+      "column": "iSelTank_Curr",
+      "fullName_EN": "Selected tank (curr)",
+      "fullName_PL": "Wybrany tank (faktyczny)"
+    },
+    {
+      "table": "norm",
+      "column": "iSelTank_HMI",
+      "fullName_EN": "Selected tank (HMI)",
+      "fullName_PL": "Wybrany tank (HMI)"
+    },
+    {
+      "table": "norm",
+      "column": "iProdYT1_Step",
+      "fullName_EN": "YT1 - step",
+      "fullName_PL": "YT1 - krok"
+    },
+    {
+      "table": "norm",
+      "column": "iProdYT1_Status",
+      "fullName_EN": "YT1 - status",
+      "fullName_PL": "YT1 - status"
+    },
+    {
+      "table": "norm",
+      "column": "iProdYT2_Step",
+      "fullName_EN": "YT2 - step",
+      "fullName_PL": "YT2 - krok"
+    },
+    {
+      "table": "norm",
+      "column": "iProdYT2_Status",
+      "fullName_EN": "YT2 - status",
+      "fullName_PL": "YT2 - status"
+    },
+    {
+      "table": "norm",
+      "column": "iContainer_Step",
+      "fullName_EN": "Container - step",
+      "fullName_PL": "",
+      "unit_EN": "Bar",
+      "unit_PL": "Bar"
+    },
+    {
+      "table": "norm",
+      "column": "iContainer_Status",
+      "fullName_EN": "Container - status",
+      "fullName_PL": "Zbiornik - status"
+    },
+    {
+      "table": "norm",
+      "column": "iContainer_Dest",
+      "fullName_EN": "Container - destination",
+      "fullName_PL": "Zbiornik  - cel"
+    },
+    {
+      "table": "norm",
+      "column": "iClnTank_Dest",
+      "fullName_EN": "Clean. tank - destination",
+      "fullName_PL": "Mycie zbiornika - cel"
+    },
+    {
+      "table": "norm",
+      "column": "iClnTank_Step",
+      "fullName_EN": "Clean. tank - step",
+      "fullName_PL": "Mycie zbiornika - cel"
+    },
+    {
+      "table": "norm",
+      "column": "iClnTank_Status",
+      "fullName_EN": "Clean. tank - status",
+      "fullName_PL": "Mycie zbiornika - status"
+    },
+    {
+      "table": "norm",
+      "column": "iTankDisch_Step",
+      "fullName_EN": "Disch. tank - step",
+      "fullName_PL": "Opróżnianie zbiornika - krok"
+    },
+    {
+      "table": "norm",
+      "column": "iTankDisch_Status",
+      "fullName_EN": "Disch. tank - status",
+      "fullName_PL": "Opróżnianie zbiornika - status"
+    },
+    {
+      "table": "norm",
+      "column": "iTankDisch_Dest",
+      "fullName_EN": "Disch. tank - destination",
+      "fullName_PL": "Opróżnianie zbiornika - cel"
+    },
+    {
+      "table": "norm",
+      "column": "iClnPipes_Step",
+      "fullName_EN": "Clean. pipes - step",
+      "fullName_PL": "Mycie rur - krok"
+    },
+    {
+      "table": "norm",
+      "column": "iClnPipes_Status",
+      "fullName_EN": "Clean. pipes - status",
+      "fullName_PL": "Mycie rur - status"
+    },
+    {
+      "table": "norm",
+      "column": "iCircPump_CurrSpeed",
+      "fullName_EN": "Circ. pump - speed",
+      "fullName_PL": "Mycie pompa - prędkość",
+      "unit_EN": "Hz",
+      "unit_PL": "Hz"
+    },
+    {
+      "table": "norm",
+      "column": "iCircPump_Amper",
+      "fullName_EN": "Circ. pump - current",
+      "fullName_PL": "Mycie pompa - prąd",
+      "unit_EN": "A",
+      "unit_PL": "A"
+    },
+    {
+      "table": "norm",
+      "column": "diYT1_Water_Need",
+      "fullName_EN": "YT1 : Water - need",
+      "fullName_PL": "YT1 : Wody - potrz.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diYT1_Yeast_Need",
+      "fullName_EN": "YT1 : Yeast - need",
+      "fullName_PL": "YT1 : Drożdże - potrz.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "iYT1_Mixing_Need",
+      "fullName_EN": "YT1 : Mixing - need",
+      "fullName_PL": "YT1 : Mieszanie - potrz.",
+      "unit_EN": "min",
+      "unit_PL": "min"
+    },
+    {
+      "table": "norm",
+      "column": "diYT1_Water_Actual",
+      "fullName_EN": "YT1 : Water - actual",
+      "fullName_PL": "YT1 : Wody - aktual.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diYT1_Yeast_Actual",
+      "fullName_EN": "YT1 : Yeast - actual",
+      "fullName_PL": "YT1 : Drożdże - aktual.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "iYT1_Mixing_Actual",
+      "fullName_EN": "YT1 : Mixing - actual",
+      "fullName_PL": "YT1 : Mieszanie - aktual.",
+      "unit_EN": "min",
+      "unit_PL": "min"
+    },
+    {
+      "table": "norm",
+      "column": "diYT1_Age_Actual",
+      "fullName_EN": "YT1 - Age",
+      "fullName_PL": "YT1 - Wiek",
+      "unit_EN": "hrs",
+      "unit_PL": ""
+    },
+    {
+      "table": "norm",
+      "column": "diYT2_Water_Need",
+      "fullName_EN": "YT2 : Water - need",
+      "fullName_PL": "YT2 : Wody - potrz.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diYT2_Yeast_Need",
+      "fullName_EN": "YT2 : Yeast - need",
+      "fullName_PL": "YT2 : Drożdże - potrz.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "iYT2_Mixing_Need",
+      "fullName_EN": "YT2 : Mixing - need",
+      "fullName_PL": "YT2 : Mieszanie - potrz.",
+      "unit_EN": "min",
+      "unit_PL": "min"
+    },
+    {
+      "table": "norm",
+      "column": "diYT2_Water_Actual",
+      "fullName_EN": "YT2 : Water - actual",
+      "fullName_PL": "YT2 : Wody - aktual.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "diYT2_Yeast_Actual",
+      "fullName_EN": "YT2 : Yeast - actual",
+      "fullName_PL": "YT2 : Drożdże - aktual.",
+      "unit_EN": "kg",
+      "unit_PL": "kg"
+    },
+    {
+      "table": "norm",
+      "column": "iYT2_Mixing_Actual",
+      "fullName_EN": "YT2 : Mixing - actual",
+      "fullName_PL": "YT2 : Mieszanie - aktual.",
+      "unit_EN": "min",
+      "unit_PL": "min"
+    },
+    {
+      "table": "norm",
+      "column": "diYT2_Age_Actual",
+      "fullName_EN": "YT2 - Age",
+      "fullName_PL": "YT2 - Wiek",
+      "unit_EN": "hrs",
+      "unit_PL": ""
+    },
+    {
+      "table": "norm",
+      "column": "bCU1_Run",
+      "fullName_EN": "CU1 : running",
+      "fullName_PL": "CU1 : bieg"
+    },
+    {
+      "table": "norm",
+      "column": "bCU2_Run",
+      "fullName_EN": "CU2 : running",
+      "fullName_PL": "CU2 : bieganie"
+    },
+    {
+      "table": "norm",
+      "column": "bCU1_FanFuse",
+      "fullName_EN": "CU1 : fan fuse",
+      "fullName_PL": "CU1 : bezpiecznik wentylatora"
+    },
+    {
+      "table": "norm",
+      "column": "bCU2_FanFuse",
+      "fullName_EN": "CU2 : fan fuse",
+      "fullName_PL": "CU2 : bezpiecznik wentylatora"
+    },
+    {
+      "table": "norm",
+      "column": "bCU1_ComprFuse",
+      "fullName_EN": "CU1 : compressor fuse",
+      "fullName_PL": "CU1 : bezpiecznik kompresoru"
+    },
+    {
+      "table": "norm",
+      "column": "bCU2_ComprFuse",
+      "fullName_EN": "CU2 : compressor fuse",
+      "fullName_PL": "CU2 : bezpiecznik kompresoru"
+    },
+    {
+      "table": "norm",
+      "column": "bCU1_FreonOK",
+      "fullName_EN": "CU1 : Freon OK",
+      "fullName_PL": "CU1 : Freon OK"
+    },
+    {
+      "table": "norm",
+      "column": "bCU2_FreonOK",
+      "fullName_EN": "CU2 : Freon OK",
+      "fullName_PL": "CU2 : Freon OK"
+    },
+    {
+      "table": "norm",
+      "column": "bYT1_Lid",
+      "fullName_EN": "YT1 : Lid",
+      "fullName_PL": "YT1 : wieko"
+    },
+    {
+      "table": "norm",
+      "column": "bYT2_Lid",
+      "fullName_EN": "YT2 : Lid",
+      "fullName_PL": "YT2 : wieko"
+    }
+  ],
+  "TextlistDef": [
+    {
+      "textlist": "Status",
+      "values": [
+        {
+          "idx": 0,
+          "text_EN": "Off",
+          "text_PL": "Spoczynek"
+        },
+        {
+          "idx": 1,
+          "text_EN": "Reservation",
+          "text_PL": "Rezerwacja"
+        },
+        {
+          "idx": 2,
+          "text_EN": "Done",
+          "text_PL": "Gotowe"
+        },
+        {
+          "idx": 3,
+          "text_EN": "Running",
+          "text_PL": "Bieg"
+        },
+        {
+          "idx": 4,
+          "text_EN": "Pause",
+          "text_PL": "Pause"
+        },
+        {
+          "idx": 5,
+          "text_EN": "Hold",
+          "text_PL": "Trzymać"
+        },
+        {
+          "idx": 6,
+          "text_EN": "Interrupted(alarm)",
+          "text_PL": "Wstrzymano-alarm"
+        }
+      ]
+    },
+    {
+      "textlist": "YT_Step",
+      "values": [
+        {
+          "idx": 0,
+          "text_EN": "0",
+          "text_PL": "0"
+        },
+        {
+          "idx": 1,
+          "text_EN": "1",
+          "text_PL": "1"
+        },
+        {
+          "idx": 2,
+          "text_EN": "2",
+          "text_PL": "2"
+        },
+        {
+          "idx": 3,
+          "text_EN": "3",
+          "text_PL": "3"
+        },
+        {
+          "idx": 4,
+          "text_EN": "4",
+          "text_PL": "4"
+        },
+        {
+          "idx": 5,
+          "text_EN": "5",
+          "text_PL": "5"
+        },
+        {
+          "idx": 6,
+          "text_EN": "6",
+          "text_PL": "6"
+        },
+        {
+          "idx": 7,
+          "text_EN": "7",
+          "text_PL": "7"
+        }
+      ]
+    },
+    {
+      "textlist": "Container_Step",
+      "values": [
+        {
+          "idx": 0,
+          "text_EN": "0",
+          "text_PL": "0"
+        },
+        {
+          "idx": 1,
+          "text_EN": "1",
+          "text_PL": "1"
+        },
+        {
+          "idx": 2,
+          "text_EN": "2",
+          "text_PL": "2"
+        },
+        {
+          "idx": 3,
+          "text_EN": "3",
+          "text_PL": "3"
+        },
+        {
+          "idx": 4,
+          "text_EN": "4",
+          "text_PL": "4"
+        },
+        {
+          "idx": 5,
+          "text_EN": "5",
+          "text_PL": "5"
+        },
+        {
+          "idx": 6,
+          "text_EN": "6",
+          "text_PL": "6"
+        },
+        {
+          "idx": 7,
+          "text_EN": "7",
+          "text_PL": "7"
+        }
+      ]
+    },
+    {
+      "textlist": "Circuit_Step",
+      "values": [
+        {
+          "idx": 0,
+          "text_EN": "- undefined -",
+          "text_PL": "- undefined -"
+        },
+        {
+          "idx": 1,
+          "text_EN": "- undefined -",
+          "text_PL": "- undefined -"
+        },
+        {
+          "idx": 2,
+          "text_EN": "Filling the circuit",
+          "text_PL": "Napełnianie obwodu"
+        },
+        {
+          "idx": 3,
+          "text_EN": "Ready: pump off",
+          "text_PL": "Gotowy : pompa vypnuta"
+        },
+        {
+          "idx": 4,
+          "text_EN": "Ready: periodic ciculation",
+          "text_PL": "Gotowy : okresowy obieg"
+        },
+        {
+          "idx": 5,
+          "text_EN": "Ready: dosing to line",
+          "text_PL": "Gotowy : dozowanie do linii"
+        },
+        {
+          "idx": 6,
+          "text_EN": "Ready: post-circulation",
+          "text_PL": "Gotowy: po obiegu"
+        },
+        {
+          "idx": 9,
+          "text_EN": "Error",
+          "text_PL": "Błąd"
+        }
+      ]
+    },
+    {
+      "textlist": "SrcDest",
+      "values": [
+        {
+          "idx": 0,
+          "text_EN": "None",
+          "text_PL": "None"
+        },
+        {
+          "idx": 1,
+          "text_EN": "CR",
+          "text_PL": "CR"
+        },
+        {
+          "idx": 2,
+          "text_EN": "YT1",
+          "text_PL": "YT1"
+        },
+        {
+          "idx": 3,
+          "text_EN": "YT1_SA",
+          "text_PL": "YT1_SA"
+        },
+        {
+          "idx": 4,
+          "text_EN": "YT2",
+          "text_PL": "YT2"
+        },
+        {
+          "idx": 5,
+          "text_EN": "YT2_SA",
+          "text_PL": "YT2_SA"
+        },
+        {
+          "idx": 6,
+          "text_EN": "Circuit",
+          "text_PL": "Circuit"
+        },
+        {
+          "idx": 7,
+          "text_EN": "WMU",
+          "text_PL": "WMU"
+        },
+        {
+          "idx": 8,
+          "text_EN": "ST_ClnTankAut",
+          "text_PL": "ST_ClnTankAut"
+        },
+        {
+          "idx": 9,
+          "text_EN": "ST_Clean_Pipe",
+          "text_PL": "ST_Clean_Pipe"
+        },
+        {
+          "idx": 10,
+          "text_EN": "ST_Pump_CR",
+          "text_PL": "ST_Pump_CR"
+        },
+        {
+          "idx": 11,
+          "text_EN": "ST_DoseMixWater",
+          "text_PL": "ST_DoseMixWater"
+        },
+        {
+          "idx": 12,
+          "text_EN": "ST_ClnTankDisch",
+          "text_PL": "ST_ClnTankDisch"
+        },
+        {
+          "idx": 13,
+          "text_EN": "ST_ClnTankSystem",
+          "text_PL": "ST_ClnTankSystem"
+        },
+        {
+          "idx": 101,
+          "text_EN": "LN1",
+          "text_PL": "LN1"
+        },
+        {
+          "idx": 102,
+          "text_EN": "LN2_MixA",
+          "text_PL": "LN2_MixA"
+        },
+        {
+          "idx": 103,
+          "text_EN": "LN2_MixB",
+          "text_PL": "LN2_MixB"
+        },
+        {
+          "idx": 104,
+          "text_EN": "LN4",
+          "text_PL": "LN4"
+        },
+        {
+          "idx": 105,
+          "text_EN": "Gully YT1",
+          "text_PL": "Odpad YT1"
+        },
+        {
+          "idx": 106,
+          "text_EN": "Gully YT2",
+          "text_PL": "Odpad YT2"
+        },
+        {
+          "idx": 107,
+          "text_EN": "GullyLN1",
+          "text_PL": "Odpad LN1"
+        },
+        {
+          "idx": 108,
+          "text_EN": "GullyLN2_MixA",
+          "text_PL": "Odpad LN2_MixA"
+        },
+        {
+          "idx": 109,
+          "text_EN": "GullyLN2_MixB",
+          "text_PL": "Odpad LN2_MixB"
+        },
+        {
+          "idx": 110,
+          "text_EN": "GullyLN4",
+          "text_PL": "Odpad LN4"
+        }
+      ]
+    },
+    {
+      "textlist": "LidOpen",
+      "values": [
+        {
+          "idx": 1,
+          "text_EN": "open",
+          "text_PL": "otwarte"
+        },
+        {
+          "idx": 0,
+          "text_EN": "close",
+          "text_PL": "zamknięte"
+        }
+      ]
+    },
+    {
+      "textlist": "ClnTank_Step",
+      "values": [
+        {
+          "idx": 1,
+          "text_EN": "discharge 1",
+          "text_PL": "opróżnianie 1"
+        },
+        {
+          "idx": 2,
+          "text_EN": "water",
+          "text_PL": "woda"
+        },
+        {
+          "idx": 3,
+          "text_EN": "soaking",
+          "text_PL": "moczenie"
+        },
+        {
+          "idx": 4,
+          "text_EN": "discharge 2",
+          "text_PL": "opróżnianie 2"
+        },
+        {
+          "idx": 5,
+          "text_EN": "showering",
+          "text_PL": "opłukać"
+        },
+        {
+          "idx": 6,
+          "text_EN": "discharge 3",
+          "text_PL": "opróżnianie 3"
+        }
+      ]
+    },
+    {
+      "textlist": "ClnPipe_Step",
+      "values": [
+        {
+          "idx": 1,
+          "text_EN": "water in tank 1st",
+          "text_PL": "wodą v tank pierwszy"
+        },
+        {
+          "idx": 2,
+          "text_EN": "gully - end 1st",
+          "text_PL": "odpad - koniec pierwszy"
+        },
+        {
+          "idx": 3,
+          "text_EN": "water in tank 2nd",
+          "text_PL": "wodą v tank"
+        },
+        {
+          "idx": 4,
+          "text_EN": "into tank",
+          "text_PL": "v tank"
+        },
+        {
+          "idx": 5,
+          "text_EN": "Contimix - gully",
+          "text_PL": "Contimix - odpad"
+        },
+        {
+          "idx": 6,
+          "text_EN": "Contimix - line",
+          "text_PL": "Contimix - linia"
+        },
+        {
+          "idx": 7,
+          "text_EN": "Rademaker - gully",
+          "text_PL": "Bagietki - odpad"
+        },
+        {
+          "idx": 8,
+          "text_EN": "Rademaker - line",
+          "text_PL": "Bagietki - linia"
+        },
+        {
+          "idx": 9,
+          "text_EN": "gully - end 2nd",
+          "text_PL": "odpad - koniec druga"
+        },
+        {
+          "idx": 10,
+          "text_EN": "draining",
+          "text_PL": "wyciec"
+        }
+      ]
+    }
+  ],
+  "View": [
+    {
+      "name_EN": "Overview",
+      "name_PL": "Przegląd",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 700,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diMassYT1",
+              "color": "#FF0000",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diMassYT2",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 5000,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diWMU_Dose",
+              "color": "#00FFFF",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 60,
+          "relSize": 3,
+          "signal": [
+            { "type": "analog", "table": "norm", "column": "iWMU_Temp", "color": "#00FFFF", "decimal": 1 },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iTemp_YT1",
+              "color": "#FF0000",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iTemp_YT2",
+              "color": "#FFFF00",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iReturn_Temp",
+              "color": "#FF00FF",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 600,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Age_Actual",
+              "color": "#FF0000",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Age_Actual",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iCircuit_Pressure",
+              "color": "#00FF00",
+              "decimal": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "YT1 - operation",
+      "name_PL": "YT1 - operacja",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 700,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diMassYT1",
+              "color": "#FF0000",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 30,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iTemp_YT1",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 600,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Age_Actual",
+              "color": "#00FF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 20,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iProdYT1_Step",
+              "table": "norm",
+              "color": "#00FFFF",
+              "textlist": "YT_Step"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iProdYT1_Status",
+              "table": "norm",
+              "color": "#FF7F28",
+              "textlist": "Status"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 2,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "bYT1_Lid",
+              "table": "norm",
+              "color": "#FF00FF",
+              "textlist": "LidOpen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "YT2 - operation",
+      "name_PL": "YT2 - operacja",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 700,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diMassYT2",
+              "color": "#FF0000",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 30,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iTemp_YT2",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 600,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Age_Actual",
+              "color": "#00FF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 20,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iProdYT2_Step",
+              "table": "norm",
+              "color": "#00FFFF",
+              "textlist": "YT_Step"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iProdYT2_Status",
+              "table": "norm",
+              "color": "#FF7F28",
+              "textlist": "Status"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 2,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "bYT2_Lid",
+              "table": "norm",
+              "color": "#FF00FF",
+              "textlist": "LidOpen"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "YT1 - filling",
+      "name_PL": "YT1 - napełniania",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 500,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Water_Need",
+              "color": "#770000",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Water_Actual",
+              "color": "#FF0000",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 500,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Yeast_Need",
+              "color": "#777700",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT1_Yeast_Actual",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 20,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT1_CoolTemp_Need",
+              "color": "#00FFFF",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 120,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT1_Mixing_Need",
+              "color": "#007700",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT1_Mixing_Actual",
+              "color": "#00FF00",
+              "decimal": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "YT2 - filling",
+      "name_PL": "YT2 - napełniania",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 500,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Water_Need",
+              "color": "#770000",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Water_Actual",
+              "color": "#FF0000",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 500,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Yeast_Need",
+              "color": "#777700",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "diYT2_Yeast_Actual",
+              "color": "#FFFF00",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 20,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT2_CoolTemp_Need",
+              "color": "#00FFFF",
+              "decimal": 1
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 120,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT2_Mixing_Need",
+              "color": "#007700",
+              "decimal": 1
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iYT2_Mixing_Actual",
+              "color": "#00FF00",
+              "decimal": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "Circuit",
+      "name_PL": "Obwód",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iCirc_Status",
+              "table": "norm",
+              "color": "#FF0000",
+              "textlist": "Status"
+            },
+            {
+              "type": "multitext",
+              "column": "iSelTank_Curr",
+              "table": "norm",
+              "color": "#00FFFF",
+              "textlist": "SrcDest"
+            }
+          ]
+        },
+        {              
+          "minY": 0,
+          "maxY": 100,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iCircPump_CurrSpeed",
+              "color": "#FFFF00",
+              "decimal": 1
+            },
+            {  
+              "type": "analog",
+              "table": "norm",
+              "column": "iCircPump_Amper",
+              "color": "#FF00FF",
+              "decimal": 2
+            }           
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 1,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "iCircuit_Pressure",
+              "color": "#00FF00",
+              "decimal": 2
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 2,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iDO1_Radem_Status",
+              "table": "norm",
+              "color": "#FF0000",
+              "textlist": "Status"
+            },
+            {
+              "type": "multitext",
+              "column": "iDO2_Conti_Status",
+              "table": "norm",
+              "color": "#00FFFF",
+              "textlist": "Status"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name_EN": "Container",
+      "name_PL": "Kontener",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 15,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "multitext",
+              "column": "iContainer_Step",
+              "table": "norm",
+              "color": "#FF0000",
+              "textlist": "Container_Step"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 4,
+          "signal": [           
+            {
+              "type": "multitext",
+              "column": "iContainer_Status",
+              "table": "norm",
+              "color": "#FFFF00",
+              "textlist": "Status"
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 15,
+          "relSize": 4,
+          "signal": [            
+            {
+              "type": "multitext",
+              "column": "iContainer_Dest",
+              "table": "norm",
+              "color": "#00FFFF",
+              "textlist": "SrcDest"
+            }
+          ]
+        }
+      ]
+    }, 
+    {
+      "name_EN": "Cooling units",
+      "name_PL": "Chłodzenie",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 2,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU1_Run",
+              "color": "#FF0000",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU1_FanFuse",
+              "color": "#FFFF00",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU1_ComprFuse",
+              "color": "#00FF00",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU1_FreonOK",
+              "color": "#00FFFF",
+              "decimal": 0
+            }
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 2,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU2_Run",
+              "color": "#FF0000",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU2_FanFuse",
+              "color": "#FFFF00",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU2_ComprFuse",
+              "color": "#00FF00",
+              "decimal": 0
+            },
+            {
+              "type": "analog",
+              "table": "norm",
+              "column": "bCU2_FreonOK",
+              "color": "#00FFFF",
+              "decimal": 0
+            }
+          ]
+        }
+      ]  
+    },
+    {
+      "name_EN": "Cleaning tanks and pipes",
+      "name_PL": "Mycie zbiornika i rur",
+      "defLang": "EN",
+      "field": [
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "multitext",
+              "table": "norm",
+              "column": "iClnTank_Dest",
+              "color": "#FF0000",
+              "textlist": "SrcDest"
+            },
+            {
+              "type": "multitext",
+              "column": "iClnTank_Step",
+              "table": "norm",
+              "color": "#FFFF00",
+              "textlist": "ClnTank_Step"
+            },
+            {
+              "type": "multitext",
+              "column": "iClnTank_Status",
+              "table": "norm",
+              "color": "#00FF00",
+              "textlist": "Status"
+            }            
+          ]
+        },
+        {
+          "minY": 0,
+          "maxY": 10,
+          "relSize": 4,
+          "signal": [
+            {
+              "type": "multitext",
+              "table": "norm",
+              "column": "iClnPipes_Step",
+              "color": "#FFFF00",
+              "textlist": "ClnPipe_Step"
+            },
+            {
+              "type": "multitext",
+              "table": "norm",
+              "column": "iClnPipes_Status",
+              "color": "#00FF00",
+              "textlist": "Status"
+            }
+          ]
+        }
+      ]      
+    }
+  ]
+}

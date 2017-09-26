@@ -200,7 +200,7 @@ namespace UsersDiosna.OldCode
                 ViewBag.error = error;
                 string k = msg.Message.ToString() + msg.Source.ToString() + msg.StackTrace.ToString() + error;
                 Error.toFile(k, nameController);
-                Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                Session["tempforview"] = Error.timestamp + "   Error " + MvcApplication.ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
             }
             return View();
         }
@@ -234,7 +234,7 @@ namespace UsersDiosna.OldCode
                 ViewBag.error = error;
                 string k = msg.Message.ToString() + msg.Source.ToString() + msg.StackTrace.ToString() + error;
                 Error.toFile(k, nameController);
-                Session["tempforview"] = Error.timestamp + "   Error " + Error.id.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                Session["tempforview"] = Error.timestamp + "   Error " + MvcApplication.ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
             }
 
             return View(model);
