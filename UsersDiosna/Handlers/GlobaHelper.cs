@@ -61,6 +61,23 @@ namespace UsersDiosna
             return array;
         }
 
+        public static bool Exists<T>(T[] array, T value) //Populate an array with value of T type
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                if(array[i].GetType() == value.GetType())
+                {
+                    if (array[i].ToString() == value.ToString()) {
+                        return true;
+                    }
+                } else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
         public static List<T> Replace<T>(this List<T> list, T OldValue, T NewValue)
         {
             foreach (var value in list) {

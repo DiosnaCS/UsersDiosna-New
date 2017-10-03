@@ -57,15 +57,7 @@ namespace UsersDiosna
                 }
             }
             else {
-                Server.ClearError();
                 UsersDiosna.Error.toFile("Session_onEnd hapened with null current context", this.GetType().Name.ToString());
-                try
-                {
-                    Process.Start(@"C:\WINDOWS\system32\iisreset.exe", "/force");
-                    UsersDiosna.Error.toFile("Proccess started", this.GetType().Name.ToString());
-                } catch (Exception e) {
-                    UsersDiosna.Error.toFile("Process start error" + e.Message.ToString(), this.GetType().Name.ToString());
-                }
             }
         }
 

@@ -10,18 +10,36 @@
     ViewBag.filtered = Session["filtered"];
 }
 <h4>Alarms</h4>
-<p>
+<div>
     @if (pageLess >= 0)
     {
         <a class="btn-sm btn-primary" href="/Alarm/Page/@pageLess/">&lArr;</a>
     }
-    Page: @ViewBag.page 
+    Page: @ViewBag.page
     <a class="btn-sm btn-primary" href="/Alarm/Page/@pageMore/">&rArr;</a>
     @if (ViewBag.filtered != null)
     {
         <div class="right">
             @ViewBag.filtered
             <a class="btn-sm btn-info" href="/Alarm/CancelFilter/">Cancel current filter on alarms</a>
+        </div>
+    }
+    @if (Session["AlarmDB"].ToString() != "")
+    {
+    <div class="btn-toolbar">
+        <p>
+        <a class="btn-sm btn-primary" href="/AlarmNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from all alarms</a>
+        <a class="btn-sm btn-primary" href="/Alarm/FilterAll">Filter from all alarms</a>
+        <a class="btn-sm btn-primary" href="/Alarm/FilterCurrent">Filter from current alarms</a>
+        <a class="btn-sm btn-primary" href="/AlarmNotification/FromCurrent?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from current alarms</a>
+        </p>
+    </div>
+    }
+    else
+    {
+        <div class="btn-toolbar">
+            <a class="btn btn-default" href="/Alarm/Filter">Filter from all alarms</a>
+            <a class="btn btn-default" href="/Alarm/Filter">Filter from current alarms</a>
         </div>
     }
 </p>
@@ -46,30 +64,6 @@
     }
     @{Session["alarmIDs"] = currentAlarmIDs;}
 </table>
-@if (Session["AlarmDB"].ToString() != "")
-{
-<p class=" col-md-3 left">
-    <a class="btn btn-default" href="/AlarmNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from all alarms</a>
-</p>
-<p class=" col-md-3 left">
-    <a class="btn btn-toolbar" href="/Alarm/FilterAll">Filter from all alarms</a>
-</p>
-    <p class=" col-md-3">
-        <a class="btn btn-default" href="/Alarm/FilterCurrent">Filter from current alarms</a>
-    </p>
-<p class=" col-md-3">
-    <a class="btn btn-default" href="/AlarmNotification/FromCurrent?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from current alarms</a>
-</p>
-}
-else
-{
-    <p class=" col-md-6 left">
-        <a class="btn btn-default" href="/Alarm/Filter">Filter from all alarms</a>
-    </p>
-    <p class=" col-md-6">
-        <a class="btn btn-default" href="/Alarm/Filter">Filter from current alarms</a>
-    </p>
-}
 <script>
         function DateTime(date){
                 var d = new Date(date);

@@ -17,7 +17,7 @@ namespace UsersDiosna.Handlers
         //public static string lang { get; set; }
         //public static int plcID { get; set; }
 
-        public static int DateTimetTopkTime(DateTime DT)
+        public static int DateTimeTopkTime(DateTime DT)
         {
             long preResult = (DT.Ticks - (630836424000000000 - 13608000000000)) / 10000000;
             int result = (int)preResult;
@@ -65,13 +65,13 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (lang='"+lang+"' AND plc_id={0}) AND ({1})", plcID, whereIds);
+                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (plc_id={0} AND {1})", plcID, whereIds);
                 cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE lang='"+lang+"' AND plc_id={0}",plcID),conn);
+                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE plc_id={0}",plcID),conn);
             }
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
@@ -126,7 +126,7 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                sql = string.Format("SELECT * FROM alarm_history WHERE {0} AND lang plc_id={1} ORDER BY origin_pktime DESC LIMIT {2}", whereIds, plcID, count);
+                sql = string.Format("SELECT * FROM alarm_history WHERE {0} AND plc_id={1} ORDER BY origin_pktime DESC LIMIT {2}", whereIds, plcID, count);
             }
             else
             {
@@ -157,8 +157,13 @@ namespace UsersDiosna.Handlers
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
-                alarm.title = titles.Single(p => p.id == id).title;
-
+                if (titles.Exists(p => (p.id-1) == id))
+                {
+                    alarm.title = titles[id-1].title;
+                } else
+                {
+                    alarm.title = "Title does not match with any of alarm id in texts and in db. DB id:" + id;
+                }
                 int originTime = int.Parse(dr["origin_pktime"].ToString());                  
                 int expTime = Int32.Parse(dr["expiry_pktime"].ToString());
                 alarm.originTime = pkTimeToDateTime(originTime);
@@ -200,8 +205,14 @@ namespace UsersDiosna.Handlers
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
-                alarm.title = titles[id - 1].title;
-
+                if (titles.Exists(p => (p.id-1) == id))
+                {
+                    alarm.title = titles[id-1].title;
+                }
+                else
+                {
+                    alarm.title = "Title does not match with any of alarm id in texts and in db. DB id:" + id;
+                }
                 int originTime = int.Parse(dr["origin_pktime"].ToString());
                 
                 int expTime = Int32.Parse(dr["expiry_pktime"].ToString());

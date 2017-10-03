@@ -75,6 +75,7 @@
     // fonty
     var fontTitle = 'bold 12px MS Sans Serif',
         fontLegend = 'normal 11px MS Sans Serif',
+        fontAlarm = 'normal 10px MS Sans Serif',
         fontVals = 'bold 12px MS Sans Serif',
         fontAxis = 'normal 10px MS Sans Serif';
 
@@ -143,6 +144,8 @@
           };
           
           var eventTmp = [{ "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }, { "BatchNo": 0, "Fin": 1 }];
+
+          var alarmsForView = [{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []},{ "avgTime": 0, "id": []}];
 
     /* mask description
        mask: "Src: $@Variant1#dest$,Dest: $@Destination#dest$@Actual#0.001,1,u:kg$/ $@Need#0.001,1,u:kg"
@@ -220,16 +223,7 @@
     // zatím staticky později příjde ze serveru
     var alarmsConfig;
 
-    var alarmData = {
-        "alarms": [
-           {"id":10, "riseTime": 557305199, "expTime": 557345199},
-           {"id":11, "riseTime": 557305199, "expTime": 557345199},
-           {"id":12, "riseTime": 557305199, "expTime": 557345199},
-           {"id":13, "riseTime": 557308799, "expTime": 557355199},
-           {"id":14, "riseTime": 557305199, "expTime": 557345199},
-           {"id":15, "riseTime": 557305199, "expTime": 0}
-          ]
-        };
+    var alarmData = {"alarms": []};
 
     var titles = new Array();
 
@@ -397,7 +391,8 @@
       activeCanvasElement = $("#active_canvas");
       activeCanvas = activeCanvasElement[0].getContext('2d');      
       $('#activeCanvas').attr('width',iWidth);
-      $('#activeCanvas').attr('height',iHeight);            
+      $('#activeCanvas').attr('height',iHeight);
+
       activeCanvasElement[0].addEventListener("mousedown",mouseDown,false);
       activeCanvasElement[0].addEventListener("mousemove",mouseMove,false);
       activeCanvasElement[0].addEventListener("mouseup",mouseUp,false);      
@@ -417,7 +412,7 @@
       $('#signalCanvas').attr('width',chartWidth);
       $('#signalCanvas').attr('height',chartHeight);      
       $('#signalCanvas').attr('top',posY+fieldTopAdjust);
-      $('#signalCanvas').attr('left',posX+fieldLeftAdjust);  
+      $('#signalCanvas').attr('left',posX+fieldLeftAdjust);
 
       // pozadí grafu - mřížka
       backCanvasElement = $("#back_canvas");
@@ -435,6 +430,7 @@
       
       if (!isResize) {      
         getConfig();                
+        getAlarmConfig()
       }
       else {
         setupLayout();
@@ -523,6 +519,8 @@
     function mouseDown(event) {
     var url_e;
     var win;
+
+    event.preventDefault();
 
     mouseIsDown = true;
     
@@ -615,6 +613,7 @@
               beginTime = zoomStartTime - (zoomStartTime%(stepGridTime[timeAxisIdx]*60));
               getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
               getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+              getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
               // marker umístíme na konec zoom oblasti
               markerTime = beginTime + timeAxisLength[timeAxisIdx]*3600;
@@ -656,6 +655,7 @@
         };
       };
       */
+      
       };      
     };
 
@@ -847,6 +847,8 @@
            setupLayout();
         }
       });
+
+      getAlarmConfig();  
     };
 
     // načtení konfigurace alarmů ze serveru
@@ -862,11 +864,11 @@
         type: "post",
         success: function(data,textStatus) {
           alarmsConfig = data;
-            console.log(alarmsConfig);
         }
       });
     };    
-    
+
+    // načtení alarmů ze serveru 
     function getAlarmsData(beginTime,timeAxisLength) {
       var alarmDataRequest,
           url_curr = new URL(document.URL),
@@ -877,7 +879,7 @@
 
       var xmlHttp = new XMLHttpRequest();
       
-      var url = '/graph/getAlarmsData?plc=' + plc;
+      var url = 'graph/getAlarmsData?plc=' + plc;
         dataType: "json";
         xmlHttp.open("POST", url, true);
         xmlHttp.send(alarmDataRequest);
@@ -889,13 +891,14 @@
       xmlHttp.onreadystatechange = function() {
 
         if (xmlHttp.readyState == xmlHttp.DONE) {
-          
-          data = JSON.parse(xmlHttp.responseText.replace(/NaN/g,'null'));            
-          console.log('alarm data = ' + data);
+          if (!(xmlHttp.status == 500)) {
+          alarmData.alarms = JSON.parse(xmlHttp.responseText.replace(/NaN/g,'null'));
+          };
         };        
       };
     };
 
+    // nacteni events ze serveru - pouze 
     function getEventsHeader(beginTime,timeAxisLength) {
       var eventsHeaderRequest,
           url_curr = new URL(document.URL);          
@@ -919,8 +922,9 @@
       xmlHttp.onreadystatechange = function() {
 
         if (xmlHttp.readyState == xmlHttp.DONE) {
-
-          eventData = JSON.parse(xmlHttp.responseText);
+          if (!(xmlHttp.status == 500)) {
+            eventData = JSON.parse(xmlHttp.responseText);
+          };
         };        
       };
     };
@@ -1013,13 +1017,16 @@
       };
 
       xmlHttp.onreadystatechange = function() {
-
-        if (xmlHttp.readyState == xmlHttp.DONE) {
-          data = JSON.parse(xmlHttp.responseText.replace(/NaN/g,'null'));
           if (xmlHttp.readyState == xmlHttp.DONE) {
+            if (xmlHttp.status == 500) {
+             // window.location = "/Account/Login";  
+            };
+            if (xmlHttp.status == 302) {
+              //refresh();
+            };
           data = JSON.parse(xmlHttp.responseText.replace(/NaN/g,'null'));
             if (data.tags[0].vals == null) {
-              window.location = "/Account/Login";
+             //window.location = "/Account/Login";
             }
             else {
               setData();
@@ -1029,7 +1036,6 @@
             };
           };
         };        
-      };
     };
 
     // základní view
@@ -1071,6 +1077,7 @@
         
         getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
         getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+        getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
         redrawScreen();      
         redrawTitle(view,lang);      
@@ -1244,7 +1251,7 @@
         fieldSigHeight = 0,     
         value,
         lineCnt = 0,        
-        lastRiseTime = 0;
+        lastOriginTime = 0;
       
       // fields
       viewInfo = getViewInfo(view);      
@@ -1459,41 +1466,60 @@
           else {
             switch (signals[x].type) {
               case "alarm" :
-                for (a=0;a<alarmData.alarms.length;a++) {
-                  if (signals[x].alarmFilter.indexOf(alarmData.alarms[a].id) != -1) {
-                    if (Math.abs(alarmData.alarms[a].riseTime-markerTime) <= 120) {
-                      if ((alarmData.alarms[a].riseTime) == lastRiseTime) {
-                        k++;
-                      }
-                      else {
-                        k=0;
-                      };
+                xPos = posX+iWidth-fieldRightAdjust-fieldValWidth+5;
 
-                      xPos = posX+iWidth-fieldRightAdjust-fieldValWidth+5;
-                      yPos = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-10-k*10;                      
-
-                      signalStrVal = alarmsConfig[lang][alarmData.alarms[a].id];
-                      
-                      // vypsani textu alarmu
-                      frontCanvas.font = fontLegend;
-                      frontCanvas.fillStyle = "#FF0000";
-                      frontCanvas.fillText(signalStrVal,xPos,yPos);
-
-                      lastRiseTime = alarmData.alarms[a].riseTime;
-                      break;
+                if (signals[x].alarmFilter != undefined) {
+                  if (signals[x].alarmFilter == "all") {
+                    
+                      for (ac=0;ac<alarmsForView.length;ac++) {
+                        if (Math.abs(alarmsForView[ac].avgTime-markerTime) <= (timeAxisIdx+1)*100) {
+                          for (i=0;i<alarmsForView[ac].id.length;i++) {
+                            yPos = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-5-i*12;
+                            signalStrVal = alarmsConfig[lang][alarmsForView[ac].id[i]];
+                            // vypis textu alarmu
+                            frontCanvas.font = fontAlarm;
+                            frontCanvas.fillStyle = "#FFFFFF";
+                            frontCanvas.fillText(signalStrVal,xPos,yPos);
+                          };
+                        break;
+                        }
+                        else {
+                          frontCanvas.fillStyle = colorBackFields;
+                          frontCanvas.fillRect(posX+iWidth-335,posY+fieldTopAdjust+FieldPosY,315,fieldSigHeight);
+                        };
+                      };                      
                     }
                     else {
-                      frontCanvas.fillStyle = colorBackFields;
-                      frontCanvas.fillRect(posX+iWidth-335,posY+fieldTopAdjust+FieldPosY,315,fieldSigHeight);
+                      for (a=0;a<alarmData.alarms.length;a++) {
+                        if (signals[x].alarmFilter.indexOf(alarmData.alarms[a].id) != -1) {
+                          for (ac=0;ac<alarmsForView.length;ac++) {
+                            if (Math.abs(alarmsForView[ac].avgTime-markerTime) <= (timeAxisIdx+1)*100) {
+                              for (i=0;i<alarmsForView[ac].id.length;i++) {
+                                yPos = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-5-i*12;
+                                signalStrVal = alarmsConfig[lang][alarmsForView[ac].id[i]];
+
+                                // vypis textu alarmu
+                                frontCanvas.font = fontAlarm;
+                                frontCanvas.fillStyle = "#FFFFFF";
+                                frontCanvas.fillText(signalStrVal,xPos,yPos);
+                              };
+                            break;
+                            }
+                            else {
+                              frontCanvas.fillStyle = colorBackFields;
+                              frontCanvas.fillRect(posX+iWidth-335,posY+fieldTopAdjust+FieldPosY,315,fieldSigHeight);
+                            };
+                          };   
+                        };
+                      };
                     };
                   };
-                };
-              break;
+                break;
             	case "event":
 								if (signals[x].eventFilter != undefined) {
             			if (signals[x].eventFilter == "all") {
             				for (e = 0; e < eventData.events.length; e++) {            			
-            					if (Math.abs(eventData.events[e].TimeStart - markerTime) <= 120) {
+            					if (Math.abs(eventData.events[e].TimeStart - markerTime) <= (timeAxisIdx+1)*80) {
 
             						xPos = posX + iWidth - fieldRightAdjust - fieldValWidth + 5;
             						yPos = posY + fieldTopAdjust + FieldPosY + 20;
@@ -1515,33 +1541,25 @@
             						frontCanvas.fillStyle = colorBackFields;
             						frontCanvas.fillRect(posX + iWidth - 335, posY + fieldTopAdjust + FieldPosY, 315, fieldSigHeight);
             					};            			
-            				};
+                    };                    
             				break;
             			}
             			else {
             				for (e = 0; e < eventData.events.length; e++) {
             					if (signals[x].eventFilter.indexOf(eventData.events[e].RecordType) != -1) {
-            						if (Math.abs(eventData.events[e].TimeStart - markerTime) <= 120) {
+            						if (Math.abs(eventData.events[e].TimeStart - markerTime) <= (timeAxisIdx+1)*80) {
             							xPos = posX + iWidth - fieldRightAdjust - fieldValWidth + 5;
             							            							
             							for (ec = 0; ec < eventsConfig.recordTypes.length ;ec++) {
-            								if (eventsConfig.recordTypes[ec].id == eventData.events[e].RecordType) {                              
-                              for (c=0;c<3;c++) {
-                                if (eventTmp[c].BatchNo == eventData.events[e].BatchNo) {
-                                  yPos = posY + fieldTopAdjust + FieldPosY + 15 + 15*c;
-                                  break;
-                                }
-                                else {
-                                  yPos = posY + fieldTopAdjust + FieldPosY + 15;
-                                };
-                              };
+            								if (eventsConfig.recordTypes[ec].id == eventData.events[e].RecordType) {
+                              yPos = posY + fieldTopAdjust + FieldPosY + 15;
             									signalStrVal = eventsConfig.recordTypes[ec].label + " (Batch : " + eventData.events[e].BatchNo + ")";
             								};
             							};
 
             							// vypsani textu udalosti
             							frontCanvas.font = fontLegend;
-                          frontCanvas.fillStyle = "#FFFFFF";
+                          frontCanvas.fillStyle = "#00FFFF";
             							frontCanvas.fillText(signalStrVal, xPos, yPos);
             							break;
             						}
@@ -1600,7 +1618,7 @@
       viewInfo = getViewInfo(view);
       fieldSumRatio = viewInfo[0];
       fieldsCnt = viewInfo[1];
-      
+
       // vyčištění y-osy grafu
       frontCanvas.fillStyle = colorView;
       frontCanvas.fillRect(posX+1,posY+fieldBottomAdjust-10,39,chartHeight);
@@ -1613,7 +1631,12 @@
         // pixelů na jednotku FieldRatio
         koefFieldHeight = (chartHeight-fieldBrake*(fieldsCnt-1))/fieldSumRatio;                                
       };
-      
+
+      for (afv=0;afv<alarmsForView.length;afv++) {
+        alarmsForView[afv].avgTime = 0;
+        alarmsForView[afv].id = [];
+      };
+
       for (var field=1;field<=config.View[view]["field"].length;field++) {        
         FieldPosY = 0;
         for (var j=1;j<field;j++) {
@@ -1778,10 +1801,11 @@
             dataEndMissingY,
             idx = 0,
             cc = 0,
-            lastRiseTime = 0,
-            lastTimeEnd = 0,
+            lastOriginTime = 0,
+            lastId = 0,
 						fin = 1,
             k = 0,
+            ac = 0,
 						i = 0;
 
         signals = config.View[view]["field"][field-1]["signal"];
@@ -1794,48 +1818,69 @@
             switch (signals[x].type) {          
               case "alarm" :
                 // dekodujeme filtr
-                if (signals[x].alarmFilter != undefined) {
+               if (signals[x].alarmFilter != undefined) {
                   if (signals[x].alarmFilter == "all") {
                     for (a=0;a<alarmData.alarms.length;a++) {
-                      if ((alarmData.alarms[a].riseTime) == lastRiseTime) {
-                        k++;
+                      if (Math.abs(alarmData.alarms[a].originTime - lastOriginTime) <= (timeAxisIdx-1)*100) {
+                        k++;                        
+                        alarmsForView[ac].avgTime = Math.abs((alarmData.alarms[a].originTime + lastOriginTime)/2);
                       }
                       else {
                         k = 0;
+                        alarmsForView[ac].avgTime = lastOriginTime;
+                        ac++;
                       };
-                      
-                      dataX = Math.round(fieldLeftAdjust + ((alarmData.alarms[a].riseTime - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]))+0.5;                            
-                      dataY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-15-k*10;
-                      
+                      alarmsForView[ac].id[k] = alarmData.alarms[a].id;
+
+                      dataX = Math.round(fieldLeftAdjust + ((alarmData.alarms[a].originTime - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]))+0.5;
+                      dataY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-8-k*10;
+
                       // vykreslení kulicky
                       signalCanvas.fillStyle = "#FF0000";
-                      signalCanvas.arc(dataX,dataY,3,0,2*Math.PI)
+                      signalCanvas.arc(dataX,dataY,3,0,2*Math.PI);
                       signalCanvas.fill();
                       signalCanvas.closePath();
-                      
-                      lastRiseTime = alarmData.alarms[a].riseTime;                   
-                    };                        
+
+                      alarmsForView[ac].avgTime =  alarmData.alarms[a].originTime;
+
+                      lastOriginTime = alarmData.alarms[a].originTime;
+                      lastId = alarmData.alarms[a].id;
+                    };
+                    
                   }
                   else {
                     for (a=0;a<alarmData.alarms.length;a++) {
                       if (signals[x].alarmFilter.indexOf(alarmData.alarms[a].id) != -1) {
-                        if ((alarmData.alarms[a].riseTime) == lastRiseTime) {
+                        if (Math.abs(alarmData.alarms[a].originTime - lastOriginTime) <= (timeAxisIdx-1)*100) {
                           k++;
+                          alarmsForView[ac].avgTime = Math.abs((alarmData.alarms[a].originTime + lastOriginTime)/2);
                         }
                         else {
                           k = 0;
+                          alarmsForView[ac].avgTime = lastOriginTime;
+                          if (ac < alarmsForView.length) {
+                            ac++;  
+                          }
+                          else {
+                            ac = alarmsForView.length;
+                          };                         
                         };
-                        
-                        dataX = Math.round(fieldLeftAdjust + ((alarmData.alarms[a].riseTime - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]))+0.5;                            
-                        dataY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-15-k*10;
-                        
+
+                        alarmsForView[ac].id[k] = alarmData.alarms[a].id;
+  
+                        dataX = Math.round(fieldLeftAdjust + ((alarmData.alarms[a].originTime - beginTime)/3600)*(chartWidth/timeAxisLength[timeAxisIdx]))+0.5;
+                        dataY = posY+fieldTopAdjust+FieldPosY+fieldSigHeight-8-k*10;
+  
                         // vykreslení kulicky
                         signalCanvas.fillStyle = "#FF0000";
                         signalCanvas.arc(dataX,dataY,3,0,2*Math.PI);
                         signalCanvas.fill();
                         signalCanvas.closePath();
-                        
-                        lastRiseTime = alarmData.alarms[a].riseTime;
+  
+                        alarmsForView[ac].avgTime =  alarmData.alarms[a].originTime;
+  
+                        lastOriginTime = alarmData.alarms[a].originTime;
+                        lastId = alarmData.alarms[a].id;
                       };
                     };
                   };
@@ -1848,63 +1893,73 @@
                     for (e=0;e<eventData.events.length;e++) {
                     	fin = 1;
                     	dataX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
+                      
+                      if (eventData.events[e].RecordType == 10) {    // start receptury
+                        
+                        // v případě jediného nedokončeného batche inkrementujeme "k" jinak "k = 0"
+                        for (i = 0; i < 3; i++) {
+                          fin = (fin & eventTmp[i].Fin);
+                        };
+                                                          
+                        if (fin == 0) {
+                          k++;
+                        }
+                        else {
+                          k = 0;
+                        };
 
-                    	if (eventData.events[e].RecordType == 10) {    // start receptury
-                    		// v případě jediného nedokončeného batche inkrementujeme "k" jinak "k = 0"
-                    		for (i = 0; i < 3; i++) {
-                    			fin = (fin & eventTmp[i].Fin);
-                    		};
+                        // ochrana proti preteceni indexu pole eventTmp 
+                        if (k >= 3) {
+                          k = 0;
+                        };
 
-                    		if (fin == 0) {
-                    			k++;
-                    		}
-                    		else {
-                    			k = 0;
-                    		};
+                        dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + k * 16) - 0.5;
 
-                    		// ochrana proti preteceni indexu pole eventTmp 
-                    		if (k >= 3) {
-                    			k = 0;
-                    		};
+                        signalCanvas.drawImage(imgEvent, eventData.events[e].Variant2 * 8, 0, 8, 15, dataX + 0.5, dataY + 0.5, 8, 15);
 
-                    		dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + k * 16) - 0.5;
+                        switch (eventData.events[e].Variant2) {
+                          case 0:
+                            signalCanvas.fillStyle = "#00FF00";
+                            signalCanvas.StrokeStyle = "#00FF00";
+                            break;
+                          case 1:
+                            signalCanvas.fillStyle = "#FFFF00";
+                            signalCanvas.StrokeStyle = "#FFFF00";
+                            break;
+                          case 2:
+                            signalCanvas.fillStyle = "#FF0000";
+                            signalCanvas.StrokeStyle = "#FF0000";
+                            break;
+                        };
 
-                    		signalCanvas.drawImage(imgEvent, eventData.events[e].Variant2 * 8, 0, 8, 15, dataX + 0.5, dataY + 0.5, 8, 15);
+                        signalCanvas.font = fontLegend;
+                        signalCanvas.fillText(eventTitles(e, eventData.events[e].RecordType), dataX + 11, dataY + 12.5);
 
-                    		switch (eventData.events[e].Variant2) {
-                    			case 0:
-                    				signalCanvas.fillStyle = "#00FF00";
-                    				break;
-                    			case 1:
-                    				signalCanvas.fillStyle = "#FFFF00";
-                    				break;
-                    			case 2:
-                    				signalCanvas.fillStyle = "#FF0000";
-                    				break;
-                    		};
-
-                    		signalCanvas.font = fontLegend;
-                    		signalCanvas.fillText(eventTitles(e, eventData.events[e].RecordType), dataX + 11, dataY + 12.5);
-
-                    		eventTmp[k].BatchNo = eventData.events[e].BatchNo;
-                    		eventTmp[k].Fin = 0;
+                        eventTmp[k].BatchNo = eventData.events[e].BatchNo;
+                        eventTmp[k].Fin = 0;
 
                       }
-                    	else if (eventData.events[e].RecordType == 14) {    // konec receptury
-                        
+                      else if (eventData.events[e].RecordType == 14) {    // konec receptury
+                        var LengthX = 0,
+                            StartX = 0;
+
                         for (i=0;i<3;i++) {
-                        	if (eventTmp[i].BatchNo == eventData.events[e].BatchNo) {
-                        		eventTmp[i].Fin = 1;
+                          if (eventTmp[i].BatchNo == eventData.events[e].BatchNo) {
+                            eventTmp[i].Fin = 1;
 
-                        		dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + i * 16) - 0.5;
-                        		break;
-                        	}
-                        	else {
-                        	};
-                        };
-                          
-                        signalCanvas.drawImage(imgEvent, 24 + eventData.events[e].Variant2 * 8, 0, 8, 15, dataX - 7.5, dataY + 0.5, 8, 15);
+                            StartX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - eventData.events[e].Variant3 - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
+                            LengthX = Math.round((eventData.events[e].Variant3/3600)*(chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
 
+                            dataY = Math.round(posY + fieldTopAdjust + FieldPosY + 5 + i * 16) - 0.5;
+
+                            signalCanvas.beginPath();
+                            signalCanvas.rect(StartX, dataY, LengthX, 16);
+                            signalCanvas.stroke();
+                            signalCanvas.closePath();
+
+                            signalCanvas.drawImage(imgEvent, 24 + eventData.events[e].Variant2 * 8, 0, 8, 15, dataX - 7.5, dataY + 0.5, 8, 15);
+                          };
+                        };  
                       };
                     };
                   }  
@@ -1967,8 +2022,6 @@
                         	for (i=0;i<3;i++) {
                         		if (eventTmp[i].BatchNo == eventData.events[e].BatchNo) {
                               eventTmp[i].Fin = 1;
-
-                              console.log(eventTmp[i].BatchNo);
 
                               StartX = Math.round(fieldLeftAdjust + ((eventData.events[e].TimeStart - eventData.events[e].Variant3 - beginTime) / 3600) * (chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
                               LengthX = Math.round((eventData.events[e].Variant3/3600)*(chartWidth / timeAxisLength[timeAxisIdx])) - 0.5;
@@ -2563,8 +2616,9 @@
      view = $('#group').val();
      lang = getLang();
      beginTime = agregBeginTime;
-     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);     
+     getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
@@ -2579,6 +2633,7 @@
      timeAxisIdx = (timeAxisIdx >= 9) ? 9 : timeAxisIdx+1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      shiftLength(timeAxisIdx);
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
@@ -2593,6 +2648,7 @@
      timeAxisIdx = (timeAxisIdx <= 0) ? 0 : timeAxisIdx-1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      shiftLength(timeAxisIdx);     
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
@@ -2702,6 +2758,7 @@
      beginTime += 1;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawBeginTime(beginTime,lang);
@@ -2720,12 +2777,10 @@
      lastGroup = view;
      
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      var plc = url_curr.searchParams.get("plc");
-
-     getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
-     getAlarmConfig();
-     getAlarmsData();
 
      lang = getLang();
      redrawScreen();
@@ -2736,6 +2791,8 @@
      redrawLegend(view,lang);
      redrawBeginTime(beginTime,lang);
      drawCursor(markerTime);
+
+     $('#settings').focus();
    };
 
    function changeLang() {
@@ -2831,6 +2888,7 @@
      timeAxisIdx = 6;
      getData(view,beginTime,timeAxisLength[timeAxisIdx]*3600);
      getEventsHeader(beginTime,timeAxisLength[timeAxisIdx]*3600);
+     getAlarmsData(beginTime,timeAxisLength[timeAxisIdx]*3600);
 
      redrawChart(view,beginTime,markerTime,timeAxisIdx);
      redrawTimeAxis(view,lang);

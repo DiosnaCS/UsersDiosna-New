@@ -593,13 +593,17 @@ namespace UsersDiosna.Controllers
         /// <param name="whereMultiple">string where condition - function result</param>
         /// <param name="groupBy">string groupBy condition - function result</param>
         /// <param name="order">string orderBy condition - function result</param>
-        /// <returns></returns>
-        public async Task<List<object[]>> multipleItemSelectPostgresAsync(string[] columns, string table, string whereMultiple = null, string groupBy = null, string order = null)
+        /// <returns>List of rows of data</returns>
+        public async Task<List<object[]>> multipleItemSelectPostgresAsync(string columns, string table, string whereMultiple = null, string groupBy = null, string order = null)
         {
             string sql = null;
             List<object[]> result = new List<object[]>();
-            if (connection.FullState == System.Data.ConnectionState.Closed)
+            if (connection.FullState != System.Data.ConnectionState.Open)
             {
+                await connection.OpenAsync();
+            }
+            if (connection.FullState != ConnectionState.Open) {
+                connection.Dispose();
                 connection.Open();
             }
             if (whereMultiple == null)

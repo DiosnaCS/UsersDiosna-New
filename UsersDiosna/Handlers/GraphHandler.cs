@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using UsersDiosna.Graph.Models;
 using UsersDiosna.Controllers;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace UsersDiosna.Handlers
 {
@@ -51,7 +53,7 @@ namespace UsersDiosna.Handlers
         }
         #endregion
         private static string dbConfigPath = @"C:\Akce\Users\Config\grafy.ini";
-        public DataRequest proceedSQLquery(DataRequest dataRequest, CIniFile cConfig)
+        public async Task<DataRequest> proceedSQLquery(DataRequest dataRequest, CIniFile cConfig)
         {
             config = cConfig;
             getDbConfig();
@@ -86,9 +88,22 @@ namespace UsersDiosna.Handlers
                     db opennedDbConn = openDbList.Find(x => x.dbIdx == tabledef.dbIdx);
                     string where = db.whereMultiple(conditions1, Operators, conditions2);
                     string order = db.order("\"UTC\"", "ASC");
-                    objects = opennedDbConn.multipleItemSelectPostgres("\"UTC\"," + columns, "\"" + tabledef.tabName + "\"", where, null, order);
+                    try
+                    {
+                        objects = await opennedDbConn.multipleItemSelectPostgresAsync("\"UTC\"," + columns, "\"" + tabledef.tabName + "\"", where, null, order);
+                    } catch (Exception e)
+                    {
+                        string k = "SQL problem: " + e.Message.ToString() + e.Source.ToString() + e.StackTrace.ToString();
+                        Error.toFile(k, this.GetType().Name.ToString());
+                    }
                     //readResponse(objects, dataRequest, tagsPos, tabledef);
-                    readResponseforTable(objects, tagsPos, period, dataRequest, tabledef);
+                    //if (objects.Exists(p => p.Any(q => q.GetType() == typeof(DBNull))) == false) {
+                        readResponseforTable(objects, tagsPos, period, dataRequest, tabledef);
+                    //} else
+                    //{
+                     //   string k = "contains DBNull in the response";
+                     //   Error.toFile(k, this.GetType().Name.ToString());
+                    //}
                 }
                 columns = null;
                 tagsPos.Clear();
@@ -139,8 +154,11 @@ namespace UsersDiosna.Handlers
                             vals_agreg.Reverse();
                             for (int j = 1; j < (objectsArray.Length); j++)
                             {
-                                double value = Convert.ToDouble(vals_agreg[0][j]);
-                                dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
+                                if (vals_agreg[0][j] != DBNull.Value)
+                                {
+                                    double value = Convert.ToDouble(vals_agreg[0][j]);
+                                    dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
+                                }
                             }
                             buffPos++;
                             vals_agreg.Clear();
@@ -173,8 +191,11 @@ namespace UsersDiosna.Handlers
                             vals_agreg.Reverse();
                             for (int j = 1; j < (objectsArray.Length); j++)
                             {
-                                double value = Convert.ToDouble(vals_agreg[0][j]);
-                                dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
+                                if (vals_agreg[0][j] != DBNull.Value)
+                                {
+                                    double value = Convert.ToDouble(vals_agreg[0][j]);
+                                    dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
+                                }
                             }
                             i--;
                             buffPos++;

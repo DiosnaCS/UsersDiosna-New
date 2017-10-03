@@ -90,10 +90,13 @@ namespace UsersDiosna.Controllers
             return View();
         }
         [HttpPost]
-        public JsonResult getData()
+        public async Task<JsonResult> getData(string json = null)
         {
             StreamReader stream = new StreamReader(Request.InputStream);
-            string json = stream.ReadToEnd();
+            if (json == null)
+            {
+                json = stream.ReadToEnd();
+            }
             if (json != "")
             {
                 object data = new object();
@@ -102,10 +105,10 @@ namespace UsersDiosna.Controllers
                 {
                     GraphHandler GH = new GraphHandler();
                    
-                    DataRequest dataResponse = GH.proceedSQLquery(dataRequest, config);
-                    if ((dataRequest.beginTime + dataRequest.timeAxisLength) > AlarmHelper.DateTimetTopkTime(DateTime.Now))
+                    DataRequest dataResponse = await GH.proceedSQLquery(dataRequest, config);
+                    if ((dataRequest.beginTime + dataRequest.timeAxisLength) <= AlarmHelper.DateTimeTopkTime(DateTime.Now))
                     {
-                        if (dataResponse.tags.All(p => p.vals.All(q => (q == double.MinValue || q == double.MaxValue)) == true))
+                        if (dataResponse.tags.All(p => p.vals.All(q => (q == double.MaxValue)) == true))
                         {
                             for (int i = 0; i < dataResponse.tags.Count; i++)
                             {
@@ -164,8 +167,8 @@ namespace UsersDiosna.Controllers
                 CGM.RecordNo = CRM.RecordNo;
                 CGM.RecordType = (int)CRM.RecordType;
             
-                CGM.TimeStart = AlarmHelper.DateTimetTopkTime(CRM.TimeStart);
-                CGM.TimeEnd = AlarmHelper.DateTimetTopkTime(CRM.TimeEnd);
+                CGM.TimeStart = AlarmHelper.DateTimeTopkTime(CRM.TimeStart);
+                CGM.TimeEnd = AlarmHelper.DateTimeTopkTime(CRM.TimeEnd);
                 CGM.BatchNo = CRM.BatchNo;
                 CGM.Destination = CRM.Destination;
                 CGM.Need = CRM.Need;
@@ -177,9 +180,9 @@ namespace UsersDiosna.Controllers
                 if (CGM.RecordType == 10 || CGM.RecordType == 14)
                 {
                     if (data.Data.Exists(p=> (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo))
-                        batchStart = AlarmHelper.DateTimetTopkTime(data.Data.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart);
+                        batchStart = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart);
                     if (data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
-                        batchEnd = AlarmHelper.DateTimetTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeEnd);
+                        batchEnd = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeEnd);
                     if (data.Data.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo) && data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
                         CGM.Variant3 = batchEnd - batchStart;
                     //Duration is for George graphs in recordType 10 and 14
@@ -195,62 +198,75 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public JsonResult getAlarmConfig()
         {
-            int plcID = 1;
-            string DB = string.Empty;
-            string table = string.Empty;
-            foreach (string key in Session.Keys)
+            try
             {
-                if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                int plcID = 1;
+                string DB = string.Empty;
+                string table = string.Empty;
+                foreach (string key in Session.Keys)
                 {
-                    plcID = (int)Session[key];
+                    if (key.Contains("plcID") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        plcID = int.Parse(Session[key].ToString());
+                    }
+                    if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        DB = Session[key].ToString();
+                    }
+                    if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
+                    {
+                        table = Session[key].ToString();
+                    }
                 }
-                if (key.Contains("dbName") && key.Contains(Request.QueryString["plc"].ToString()))
+                AlarmHelper AH = new AlarmHelper();
+                List<AlarmHelper.alarm_texts> data = new List<AlarmHelper.alarm_texts>();
+                AlarmGraphConfig ALG = new AlarmGraphConfig();
+                data = AH.SelectAlarmsTexts(DB, null, plcID);
+                bool firstEn = true;
+                bool firstCz = true;
+                bool firstDe = true;
+                bool firstPl = true;
+                foreach (AlarmHelper.alarm_texts text in data)
                 {
-                    DB = Session[key].ToString();
-                }
-                if (key.Contains("tableName") && key.Contains(Request.QueryString["plc"].ToString()))
-                {
-                    table = Session[key].ToString();
-                }
-            }
-            AlarmHelper AH = new AlarmHelper();
-            List<AlarmHelper.alarm_texts> data = new List<AlarmHelper.alarm_texts>();
-            AlarmGraphConfig ALG = new AlarmGraphConfig();
-             data = AH.SelectAlarmsTexts(DB,null,plcID);
-            bool firstEn = true;
-            bool firstCz = true;
-            bool firstDe = true;
-            bool firstPl = true;
-            foreach (AlarmHelper.alarm_texts text in data)
-            {
-                switch (text.lang) {
-                    case "en":
-                        if (firstEn)
-                            ALG.EN = new List<string>();
+                    switch (text.lang)
+                    {
+                        case "en":
+                            if (firstEn)
+                                ALG.EN = new List<string>();
                             firstEn = false;
-                        ALG.EN.Add(text.title);
-                        break;
-                    case "cz":
-                        if (firstCz)
-                            ALG.CZ = new List<string>();
+                            ALG.EN.Add(text.title);
+                            break;
+                        case "cs":
+                            if (firstCz)
+                                ALG.CZ = new List<string>();
                             firstCz = false;
-                        ALG.CZ.Add(text.title);
-                        break;
-                    case "de":
-                        if (firstDe)
-                            ALG.DE = new List<string>();
+                            ALG.CZ.Add(text.title);
+                            break;
+                        case "de":
+                            if (firstDe)
+                                ALG.DE = new List<string>();
                             firstDe = false;
-                        ALG.DE.Add(text.title);
-                        break;
-                    case "pl":
-                        if (firstPl)
-                            ALG.PL = new List<string>();
+                            ALG.DE.Add(text.title);
+                            break;
+                        case "pl":
+                            if (firstPl)
+                                ALG.PL = new List<string>();
                             firstPl = false;
-                        ALG.PL.Add(text.title);
-                        break;
+                            ALG.PL.Add(text.title);
+                            break;
+                        default:
+                            if (firstEn)
+                                ALG.EN = new List<string>();
+                            firstEn = false;
+                            ALG.EN.Add(text.title);
+                            break;
+                    }
                 }
+                return Json(ALG);
+            } catch(Exception e)
+            {
+                return null;
             }
-            return Json(ALG);
         }
 
         [HttpPost]
