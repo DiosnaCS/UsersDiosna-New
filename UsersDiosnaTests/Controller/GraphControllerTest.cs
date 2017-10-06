@@ -1,12 +1,9 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UsersDiosna.Graph.Models;
-using UsersDiosna;
-using UsersDiosna.Handlers;
 using System.Web.Script.Serialization;
 using UsersDiosna.Controllers;
-using System.Web.Mvc;
 using System.Net;
+using System.Text;
 
 namespace UsersDiosna.Tests
 {
@@ -16,7 +13,7 @@ namespace UsersDiosna.Tests
         [TestMethod]
         public void getData()
         {
-            for (int iteratation = 0; iteratation < 2000; iteratation++) {
+            for (int iteratation = 0; iteratation < 3; iteratation++) {
                 //var data = new DataRequest();
                 //data.beginTime = AlarmHelper.DateTimeTopkTime(DateTime.Today);
                 //data.timeAxisLength = 172800;
@@ -26,9 +23,8 @@ namespace UsersDiosna.Tests
                 request.Method = "POST"; //make an HTTP POST
                 using (var streamWriter = request.GetRequestStream())
                 {
-                    JavaScriptSerializer serializer = new JavaScriptSerializer();
-                    var resToWrite = serializer.Deserialize<DataRequest>(json);
-                    streamWriter.Write(resToWrite);
+                   byte[] jsonBytes =  Encoding.ASCII.GetBytes(json);
+                    streamWriter.Write(jsonBytes, 0, jsonBytes.Length);
                     streamWriter.Flush();
                     streamWriter.Close();
                 }
@@ -39,7 +35,7 @@ namespace UsersDiosna.Tests
                 }
                 var test = new GraphController();
 
-                Assert.AreNotEqual(data, test.getData(json));
+                Assert.AreNotEqual(data, test.getData());
                 var data2 = new JavaScriptSerializer().Deserialize<DataRequest>(json);
                 for (int j = 0; j < data.tags.Count; j++)
                 {
@@ -47,7 +43,7 @@ namespace UsersDiosna.Tests
                     data2.tags[j].vals = Extension.Populate(data2.tags[j].vals, double.MaxValue);
                 }
 
-                Assert.AreNotEqual(data2, test.getData(json));
+                Assert.AreNotEqual(data2, test.getData());
             }
         }
     }

@@ -27,6 +27,7 @@
     @if (Session["AlarmDB"].ToString() != "")
     {
     <div class="btn-toolbar">
+        <br>
         <p>
         <a class="btn-sm btn-primary" href="/AlarmNotification/All?name=@Request.QueryString["name"]&plc=@Request.QueryString["plc"]">Notification from all alarms</a>
         <a class="btn-sm btn-primary" href="/Alarm/FilterAll">Filter from all alarms</a>

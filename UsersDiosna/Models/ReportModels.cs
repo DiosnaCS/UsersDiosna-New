@@ -128,6 +128,27 @@ namespace UsersDiosna.Report.Models
         manual = 1
     }
 
+    public enum FillType {
+        automatic = 0,
+        manual = 1,
+        byRest = 2
+    }
+
+    public enum WaterSource {
+        WMU = 0,
+        cleaningWater = 1,
+    }
+
+    public enum RcpType {
+        predough = 0,
+        motherdough = 1
+    }
+
+    public enum Cause {
+        userInterrupt = 0,
+        alarm = 1
+    }
+
     public enum ClnType {
         none = -1,
         automatic = 0,

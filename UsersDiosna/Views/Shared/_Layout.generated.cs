@@ -335,7 +335,7 @@ WriteLiteral("    <div");
 
 WriteLiteral(" class=\"container body-content\"");
 
-WriteLiteral(" id=\"container-body\"");
+WriteLiteral("  id=\"container-body\"");
 
 WriteLiteral(@">
         <script>

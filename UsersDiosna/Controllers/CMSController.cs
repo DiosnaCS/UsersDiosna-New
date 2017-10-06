@@ -10,7 +10,7 @@ using UsersDiosna.Handlers;
 
 namespace UsersDiosna.Controllers
 {
-    [Authorize(Roles = "CMS")]
+    [Authorize(Roles = "View")]
     public class CMSController : Controller
     {
         // GET: CMS
@@ -86,6 +86,7 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/CreateSection/
+        [Authorize(Roles = "CMS")]
         public ActionResult CreateSection()
         {
             SectionModel addmodel = new SectionModel();
@@ -96,8 +97,9 @@ namespace UsersDiosna.Controllers
                                     
             return View(addmodel);
         }
-        
+
         // POST: CMS/CreateSection
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddSection(SectionModel collection)
@@ -117,6 +119,7 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/EditSection/5
+        [Authorize(Roles = "CMS")]
         public ActionResult EditSection(int id)
         {
             CMSHandler CMSH = new CMSHandler();
@@ -142,6 +145,7 @@ namespace UsersDiosna.Controllers
         }
 
         // POST: CMS/EditSection/5
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         public ActionResult EditSection(int id, SectionModel collection)
         {
@@ -167,12 +171,14 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/DeleteSection/5
+        [Authorize(Roles = "CMS")]
         public ActionResult DeleteSection(int id)
         {
             return View();
         }
 
         // POST: CMS/DeleteSection/5
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteSection(int id, SectionModel collection)
@@ -223,6 +229,7 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/Create
+        [Authorize(Roles = "CMS")]
         public ActionResult CreateArticle()
         {
             CMSHandler CMSH = new CMSHandler();
@@ -237,6 +244,7 @@ namespace UsersDiosna.Controllers
         }
 
         // POST: CMS/CreateArticle
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddArticle(ArticleModel collection)
@@ -261,6 +269,7 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/EditArticle/5
+        [Authorize(Roles = "CMS")]
         public ActionResult EditArticle(int id)
         {
             CMSHandler CMSH = new CMSHandler();
@@ -290,6 +299,7 @@ namespace UsersDiosna.Controllers
         }
 
         // POST: CMS/EditArticle/5
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditArticle(int id, ArticleModel collection)
@@ -319,12 +329,14 @@ namespace UsersDiosna.Controllers
         }
 
         // GET: CMS/DeleteArticle/5
+        [Authorize(Roles = "CMS")]
         public ActionResult DeleteArticle (int id)
         {
             return View();
         }
 
         // POST: CMS/DeleteArticle/5
+        [Authorize(Roles = "CMS")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteArticle(int id, FormCollection collection)

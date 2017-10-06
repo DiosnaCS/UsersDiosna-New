@@ -30,6 +30,18 @@ namespace ASP
     using UsersDiosna;
     using UsersDiosna.Controllers;
     
+    #line 3 "..\..\Views\Report\Detail.cshtml"
+    using UsersDiosna.Handlers;
+    
+    #line default
+    #line hidden
+    
+    #line 2 "..\..\Views\Report\Detail.cshtml"
+    using UsersDiosna.Report.Models;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/Report/Detail.cshtml")]
     public partial class _Views_Report_Detail_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<UsersDiosna.Report.Models.ColumnReportModel>>
@@ -39,15 +51,19 @@ namespace ASP
         }
         public override void Execute()
         {
+WriteLiteral("\r\n");
+
             
-            #line 3 "..\..\Views\Report\Detail.cshtml"
+            #line 5 "..\..\Views\Report\Detail.cshtml"
   
     ViewBag.Title = "Detail";
     int BatchNo = ViewBag.BatchNo;
     int needSum = 0;
     int doneSum = 0;
+    string Variant1, Variant2, Variant3, Varaiant4;
     string need;
     string done;
+    string dynamicRowStyle = "";
 
             
             #line default
@@ -56,21 +72,21 @@ WriteLiteral("\r\n\r\n<h4>Batch Detail</h4>\r\n\r\n<p>\r\n    <a");
 
 WriteLiteral(" class=\"btn-primary btn-xs\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 286), Tuple.Create("\"", 322)
-, Tuple.Create(Tuple.Create("", 293), Tuple.Create("/Report/GetPrevBatch/", 293), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 436), Tuple.Create("\"", 472)
+, Tuple.Create(Tuple.Create("", 443), Tuple.Create("/Report/GetPrevBatch/", 443), true)
             
-            #line 15 "..\..\Views\Report\Detail.cshtml"
-, Tuple.Create(Tuple.Create("", 314), Tuple.Create<System.Object, System.Int32>(BatchNo
+            #line 19 "..\..\Views\Report\Detail.cshtml"
+, Tuple.Create(Tuple.Create("", 464), Tuple.Create<System.Object, System.Int32>(BatchNo
             
             #line default
             #line hidden
-, 314), false)
+, 464), false)
 );
 
 WriteLiteral(">Previouse batch</a> Batch number: ");
 
             
-            #line 15 "..\..\Views\Report\Detail.cshtml"
+            #line 19 "..\..\Views\Report\Detail.cshtml"
                                                                                                     Write(BatchNo);
 
             
@@ -80,173 +96,307 @@ WriteLiteral(" <a");
 
 WriteLiteral(" class=\"btn-primary btn-xs\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 396), Tuple.Create("\"", 432)
-, Tuple.Create(Tuple.Create("", 403), Tuple.Create("/Report/GetNextBatch/", 403), true)
-            
-            #line 15 "..\..\Views\Report\Detail.cshtml"
-                                                                                            , Tuple.Create(Tuple.Create("", 424), Tuple.Create<System.Object, System.Int32>(BatchNo
-            
-            #line default
-            #line hidden
-, 424), false)
-);
-
-WriteLiteral(">Next batch</a>\r\n    <br>\r\n    <p>\r\n        <h4>Batch info</h4>\r\n        Destinat" +
-"ion: ");
-
+WriteAttribute("href", Tuple.Create(" href=\"", 546), Tuple.Create("\"", 582)
+, Tuple.Create(Tuple.Create("", 553), Tuple.Create("/Report/GetNextBatch/", 553), true)
             
             #line 19 "..\..\Views\Report\Detail.cshtml"
-                Write(ViewBag.Destination);
+                                                                                            , Tuple.Create(Tuple.Create("", 574), Tuple.Create<System.Object, System.Int32>(BatchNo
+            
+            #line default
+            #line hidden
+, 574), false)
+);
+
+WriteLiteral(">Next batch</a>\r\n    <br>\r\n    <p>\r\n        <h4>Batch info</h4>\r\n        <div");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">Destination:</div> ");
+
+            
+            #line 23 "..\..\Views\Report\Detail.cshtml"
+                                            Write(ViewBag.Destination);
 
             
             #line default
             #line hidden
-WriteLiteral("<br>\r\n        Batch: ");
+WriteLiteral("<br>\r\n        <div");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">Batch number:</div> ");
 
             
-            #line 20 "..\..\Views\Report\Detail.cshtml"
-          Write(ViewBag.BatchNo);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("<br>\r\n        Number of interuts: ");
-
-            
-            #line 21 "..\..\Views\Report\Detail.cshtml"
-                       Write(ViewBag.InteruptedCounts);
+            #line 24 "..\..\Views\Report\Detail.cshtml"
+                                             Write(ViewBag.BatchNo);
 
             
             #line default
             #line hidden
-WriteLiteral("<br>\r\n        Number of skips: ");
+WriteLiteral("<br>\r\n        <div");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">Number of interuts:</div> ");
 
             
-            #line 22 "..\..\Views\Report\Detail.cshtml"
-                    Write(ViewBag.NumberOfStepsSkipped);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("<br>\r\n    </p>\r\n</p>\r\n<table");
-
-WriteLiteral(" class=\"table table-striped table-hover\"");
-
-WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n            Operation\r\n        </th>\r\n        <th>\r\n  " +
-"          Start at ");
-
-            
-            #line 31 "..\..\Views\Report\Detail.cshtml"
-                Write(Model.Min(p => p.TimeStart.ToShortDateString()));
+            #line 25 "..\..\Views\Report\Detail.cshtml"
+                                                   Write(ViewBag.InteruptedCounts);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n            Ended at ");
+WriteLiteral("<br>\r\n        <div");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">Number of skips:</div> ");
 
             
-            #line 34 "..\..\Views\Report\Detail.cshtml"
-                Write(Model.Max(p => p.TimeStart.ToShortDateString()));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 37 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Need));
+            #line 26 "..\..\Views\Report\Detail.cshtml"
+                                                Write(ViewBag.NumberOfStepsSkipped);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("<br>\r\n        <div");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"col-md-3\"");
 
-            
-            #line 40 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Actual));
+WriteLiteral(">Started:</div> ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        \r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 44 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Variant1));
+            #line 27 "..\..\Views\Report\Detail.cshtml"
+                                        Write(Model.Min(p => p.TimeStart.ToShortDateString()));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("<br />\r\n        <div");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"col-md-3\"");
 
-            
-            #line 47 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Variant2));
+WriteLiteral(">Ended:</div> ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 50 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Variant3));
+            #line 28 "..\..\Views\Report\Detail.cshtml"
+                                      Write(Model.Max(p => p.TimeStart.ToShortDateString()));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("<br />\r\n    </p>\r\n</p>\r\n<div");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"table-responsive\"");
+
+WriteLiteral(">\r\n<table");
+
+WriteLiteral(" class=\"table table-responsive table-condensed\"");
+
+WriteLiteral(@">
+    <tr>
+        <th>
+            Operation
+        </th>
+        <th>
+            Start time 
+        </th>
+        <th>
+            End
+        </th>
+        <th>
+            Need
+        </th>
+        <th>
+            Actual
+        </th>
+        <th>
+            Info
+        </th>
+    </tr>
+
+");
 
             
-            #line 53 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayNameFor(model => model.Variant4));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n    </tr>\r\n\r\n");
-
-            
-            #line 57 "..\..\Views\Report\Detail.cshtml"
+            #line 54 "..\..\Views\Report\Detail.cshtml"
  foreach (var item in Model) {
+        
+            
+            #line default
+            #line hidden
+            
+            #line 55 "..\..\Views\Report\Detail.cshtml"
+           dynamicRowStyle = ""; 
+            
+            #line default
+            #line hidden
+            
+            #line 55 "..\..\Views\Report\Detail.cshtml"
+                                  
+        
+            
+            #line default
+            #line hidden
+            
+            #line 56 "..\..\Views\Report\Detail.cshtml"
+         if ((int)item.RecordType > 9 && (int)item.RecordType < 15)
+        {
+            
+            
+            #line default
+            #line hidden
+            
+            #line 58 "..\..\Views\Report\Detail.cshtml"
+             if (item.RecordType == Operations.StatusInfo || item.RecordType == Operations.Continue || item.RecordType == Operations.Interrupt)
+            {
+                dynamicRowStyle = "<tr>";
+                
+            
+            #line default
+            #line hidden
+            
+            #line 61 "..\..\Views\Report\Detail.cshtml"
+                 if (item.RecordType == Operations.Continue || item.RecordType == Operations.Interrupt)
+                {
+                    dynamicRowStyle = "<tr style=\"background-color: beige\">";
+                }
+            
+            #line default
+            #line hidden
+            
+            #line 64 "..\..\Views\Report\Detail.cshtml"
+                 
+                
+            
+            #line default
+            #line hidden
+            
+            #line 65 "..\..\Views\Report\Detail.cshtml"
+           Write(Html.Raw(dynamicRowStyle));
 
             
             #line default
             #line hidden
-WriteLiteral("    <tr>\r\n        <td>\r\n");
+            
+            #line 65 "..\..\Views\Report\Detail.cshtml"
+                                          
+            }
+            else
+            {
+                dynamicRowStyle = "<tr style=\"background-color: darkseagreen\"><i>"; 
+            
+            #line default
+            #line hidden
+            
+            #line 69 "..\..\Views\Report\Detail.cshtml"
+                                                                                 Write(Html.DisplayFor(modelItem => item.RecordType));
 
+            
+            #line default
+            #line hidden
+            
+            #line 69 "..\..\Views\Report\Detail.cshtml"
+                                                                                                                                    
+                
+            
+            #line default
+            #line hidden
+            
+            #line 70 "..\..\Views\Report\Detail.cshtml"
+           Write(Html.Raw(dynamicRowStyle));
+
+            
+            #line default
+            #line hidden
+            
+            #line 70 "..\..\Views\Report\Detail.cshtml"
+                                          
+            }
+            
+            #line default
+            #line hidden
+            
+            #line 71 "..\..\Views\Report\Detail.cshtml"
+             
+        } else
+        {
+            
+            
+            #line default
+            #line hidden
+            
+            #line 74 "..\..\Views\Report\Detail.cshtml"
+       Write(Html.Raw("<tr>"));
+
+            
+            #line default
+            #line hidden
+            
+            #line 74 "..\..\Views\Report\Detail.cshtml"
+                             ;
+        }
+            
+            #line default
+            #line hidden
+            
+            #line 75 "..\..\Views\Report\Detail.cshtml"
+         
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <td>\r\n");
+
+            
+            #line 77 "..\..\Views\Report\Detail.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 77 "..\..\Views\Report\Detail.cshtml"
+             if ((int)item.RecordType > 9 && (int)item.RecordType < 15)
+            {
+                
+            
+            #line default
+            #line hidden
+            
+            #line 79 "..\..\Views\Report\Detail.cshtml"
+           Write(Html.Raw("\t"));
+
+            
+            #line default
+            #line hidden
+            
+            #line 79 "..\..\Views\Report\Detail.cshtml"
+                               ;
+            }
+
+            
+            #line default
+            #line hidden
 WriteLiteral("            ");
 
             
-            #line 60 "..\..\Views\Report\Detail.cshtml"
+            #line 81 "..\..\Views\Report\Detail.cshtml"
        Write(Html.DisplayFor(modelItem => item.RecordType));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n        </td>\r\n");
+
+WriteLiteral("        <td>\r\n");
 
             
-            #line 63 "..\..\Views\Report\Detail.cshtml"
+            #line 84 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 63 "..\..\Views\Report\Detail.cshtml"
+            #line 84 "..\..\Views\Report\Detail.cshtml"
               string timeStartForView = item.TimeStart.ToShortTimeString();
             
             #line default
@@ -256,22 +406,24 @@ WriteLiteral("\r\n");
 WriteLiteral("            ");
 
             
-            #line 64 "..\..\Views\Report\Detail.cshtml"
+            #line 85 "..\..\Views\Report\Detail.cshtml"
        Write(timeStartForView);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n        </td>\r\n");
+
+WriteLiteral("        <td>\r\n");
 
             
-            #line 67 "..\..\Views\Report\Detail.cshtml"
+            #line 88 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 67 "..\..\Views\Report\Detail.cshtml"
+            #line 88 "..\..\Views\Report\Detail.cshtml"
               string timeEndForView = item.TimeEnd.ToShortTimeString();
             
             #line default
@@ -281,27 +433,29 @@ WriteLiteral("\r\n");
 WriteLiteral("            ");
 
             
-            #line 68 "..\..\Views\Report\Detail.cshtml"
+            #line 89 "..\..\Views\Report\Detail.cshtml"
        Write(timeEndForView);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n        </td>\r\n");
+
+WriteLiteral("        <td>\r\n");
 
             
-            #line 71 "..\..\Views\Report\Detail.cshtml"
+            #line 92 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 71 "..\..\Views\Report\Detail.cshtml"
-             if( (int)item.RecordType > 31 && (int)item.RecordType < 39) {
+            #line 92 "..\..\Views\Report\Detail.cshtml"
+             if ((int)item.RecordType > 31 && (int)item.RecordType < 39) {
                 TimeSpan spanN = new TimeSpan((item.Need * 10000000));
-                need = spanN.ToString();
+                need = (int)spanN.TotalHours + " h " + (int)spanN.Minutes +" m " + (int)spanN.Seconds + " s";
             } else {
-                if ((int)item.RecordType > 21 && (int)item.RecordType > 29)
+                if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
                 {
                     needSum += item.Need;
                 }
@@ -314,30 +468,48 @@ WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 81 "..\..\Views\Report\Detail.cshtml"
-       Write(need);
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-            
-            #line 84 "..\..\Views\Report\Detail.cshtml"
-            
+            #line 102 "..\..\Views\Report\Detail.cshtml"
+             if (item.Need != 0)
+            {
+                
             
             #line default
             #line hidden
             
-            #line 84 "..\..\Views\Report\Detail.cshtml"
+            #line 104 "..\..\Views\Report\Detail.cshtml"
+           Write(need);
+
+            
+            #line default
+            #line hidden
+            
+            #line 104 "..\..\Views\Report\Detail.cshtml"
+                     
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </td>\r\n");
+
+WriteLiteral("        <td>\r\n");
+
+            
+            #line 108 "..\..\Views\Report\Detail.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 108 "..\..\Views\Report\Detail.cshtml"
              if ((int)item.RecordType > 31 && (int)item.RecordType < 39)
             {
                 TimeSpan spanD = new TimeSpan((item.Actual * 10000000));
-                done = spanD.ToString();
+                done = (int)spanD.TotalHours + " h " + (int)spanD.Minutes + " m " + (int)spanD.Seconds + " s";
             }
             else
             {
-                if ((int)item.RecordType > 21 && (int)item.RecordType > 29)
+                if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
                 {
                     doneSum += item.Actual;
                 }
@@ -350,138 +522,175 @@ WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 97 "..\..\Views\Report\Detail.cshtml"
-       Write(done);
+            #line 121 "..\..\Views\Report\Detail.cshtml"
+             if (item.Actual != 0)
+            {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        \r\n        <td>\r\n");
+WriteLiteral("                <b>");
+
+            
+            #line 123 "..\..\Views\Report\Detail.cshtml"
+              Write(done);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</b>\r\n");
+
+            
+            #line 124 "..\..\Views\Report\Detail.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </td>\r\n");
+
+            
+            #line 126 "..\..\Views\Report\Detail.cshtml"
+
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <td>\r\n");
+
+            
+            #line 128 "..\..\Views\Report\Detail.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 128 "..\..\Views\Report\Detail.cshtml"
+              string info = ReportHandler.getInfoColumn(item);
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n");
 
 WriteLiteral("            ");
 
             
-            #line 101 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Variant1));
+            #line 129 "..\..\Views\Report\Detail.cshtml"
+       Write(info);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("\r\n        </td>\r\n");
 
             
-            #line 104 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Variant2));
+            #line 131 "..\..\Views\Report\Detail.cshtml"
+
+        
+            
+            #line default
+            #line hidden
+            
+            #line 132 "..\..\Views\Report\Detail.cshtml"
+         if (item.RecordType == Operations.RecipeStart || item.RecordType == Operations.RecipeEnd)
+        {
+            dynamicRowStyle = "</i></tr>";
+        }
+        else {
+            dynamicRowStyle = "</tr>";
+        }
+            
+            #line default
+            #line hidden
+            
+            #line 138 "..\..\Views\Report\Detail.cshtml"
+         
+        
+            
+            #line default
+            #line hidden
+            
+            #line 139 "..\..\Views\Report\Detail.cshtml"
+   Write(Html.Raw(dynamicRowStyle));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
             
-            #line 107 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Variant3));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 110 "..\..\Views\Report\Detail.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Variant4));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n    </tr>\r\n");
-
-            
-            #line 113 "..\..\Views\Report\Detail.cshtml"
+            #line 139 "..\..\Views\Report\Detail.cshtml"
+                                  
 }
 
             
             #line default
             #line hidden
-WriteLiteral("    <tr>\r\n        <td>\r\n            <b>Summary</b>\r\n        </td>\r\n        <td>\r\n" +
-"            <b>Length of starts in minutes ");
+WriteLiteral("</table>\r\n</div>\r\n<p>\r\n    <h4>Batch summary</h4>\r\n    <div");
+
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">RCP duration:</div> ");
 
             
-            #line 119 "..\..\Views\Report\Detail.cshtml"
-                                             
-                long startDiff = Model.Max(p => p.TimeStart.Ticks) - Model.Min(p => p.TimeStart.Ticks);
-                int minutesStartDiff = (int) TimeSpan.FromTicks(startDiff).TotalMinutes; 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("               ");
-
-            
-            #line 122 "..\..\Views\Report\Detail.cshtml"
-          Write(minutesStartDiff);
-
+            #line 145 "..\..\Views\Report\Detail.cshtml"
+                                                
+        var startTime = Model.Min(p => p.TimeStart.Ticks);
+        var endTime = Model.Max(p => p.TimeEnd.Ticks);
+        var diff = endTime - startTime;
+        TimeSpan duration = TimeSpan.FromTicks(diff);
+        int durationDays = (int)duration.Days;
+        int durationHours = (int)duration.Hours;
+        int durationMinutes = (int)duration.Minutes;
+    
             
             #line default
             #line hidden
-WriteLiteral(" \r\n            </b>\r\n        </td>\r\n        <td>\r\n            <b>\r\n              " +
-"  Length of ends in minutes ");
+WriteLiteral("\r\n    <b>");
 
             
-            #line 127 "..\..\Views\Report\Detail.cshtml"
-                                            
-                    long endDiff = Model.Max(p => p.TimeEnd.Ticks) - Model.Min(p => p.TimeEnd.Ticks);
-                    int minutesEndDiff = (int) TimeSpan.FromTicks(endDiff).TotalMinutes; 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("                ");
-
-            
-            #line 130 "..\..\Views\Report\Detail.cshtml"
-           Write(minutesEndDiff);
+            #line 154 "..\..\Views\Report\Detail.cshtml"
+  Write(durationDays);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n            </b>\r\n        </td>\r\n        <td>\r\n            <b>\r\n");
-
-WriteLiteral("                ");
+WriteLiteral(" d ");
 
             
-            #line 135 "..\..\Views\Report\Detail.cshtml"
-            Write(needSum/1000);
+            #line 154 "..\..\Views\Report\Detail.cshtml"
+                  Write(durationHours);
 
             
             #line default
             #line hidden
-WriteLiteral(" kg\r\n            </b>\r\n        </td>\r\n        <td>\r\n            <b>\r\n");
-
-WriteLiteral("                ");
+WriteLiteral(" h ");
 
             
-            #line 140 "..\..\Views\Report\Detail.cshtml"
-            Write(doneSum/1000);
+            #line 154 "..\..\Views\Report\Detail.cshtml"
+                                   Write(durationMinutes);
 
             
             #line default
             #line hidden
-WriteLiteral(" kg\r\n            </b>\r\n        </td>\r\n    </tr>\r\n</table>\r\n<p>\r\n    <a");
+WriteLiteral(" m</b><br />\r\n    <div");
 
-WriteLiteral(" class=\"btn-primary btn-xs\"");
+WriteLiteral(" class=\"col-md-3\"");
+
+WriteLiteral(">Total amount dosed: </div>");
+
+            
+            #line 155 "..\..\Views\Report\Detail.cshtml"
+                                                Write(doneSum/1000);
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" kg\r\n</p>\r\n<p>\r\n    <a");
+
+WriteLiteral(" class=\"btn-primary btn-sm\"");
 
 WriteLiteral(" href=\"/Report/\"");
 
-WriteLiteral(">Back to calender</a>\r\n</p>");
+WriteLiteral(">Back to calendar</a>\r\n</p>");
 
         }
     }

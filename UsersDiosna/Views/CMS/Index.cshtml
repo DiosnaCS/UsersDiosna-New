@@ -19,7 +19,7 @@
 <table class="table table-striped table-condensed table-hover table-responsive">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.bakeryId)
+            Bakery
         </th>
         <th>
             @Html.DisplayNameFor(model => model.DateTime)
@@ -84,9 +84,11 @@
             @Html.DisplayFor(modelItem => item.Section.Name)
         </td>
         <td>
-            @Html.ActionLink("Edit", "EditArticle", new { id=item.Id }) |
-            @Html.ActionLink("Details", "DetailArticle", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id })
+            @if (User.IsInRole("CMS")) { 
+                <span> @Html.ActionLink("Edit", "EditArticle", new { id=item.Id }) |</span>
+                <span>@Html.ActionLink("Details", "DetailArticle", new { id=item.Id }) |</span>
+                <span>@Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id })</span>
+            }
         </td>
     </tr>
 }

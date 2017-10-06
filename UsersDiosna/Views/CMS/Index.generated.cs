@@ -98,18 +98,7 @@ WriteLiteral(">\r\n<table");
 
 WriteLiteral(" class=\"table table-striped table-condensed table-hover table-responsive\"");
 
-WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 22 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.bakeryId));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n            Bakery\r\n        </th>\r\n        <th>\r\n");
 
 WriteLiteral("            ");
 
@@ -327,41 +316,63 @@ WriteLiteral("            ");
             #line hidden
 WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
 
-WriteLiteral("            ");
-
             
             #line 87 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.ActionLink("Edit", "EditArticle", new { id=item.Id }));
+            
+            
+            #line default
+            #line hidden
+            
+            #line 87 "..\..\Views\CMS\Index.cshtml"
+             if (User.IsInRole("CMS")) { 
 
             
             #line default
             #line hidden
-WriteLiteral(" |\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("                <span> ");
 
             
             #line 88 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.ActionLink("Details", "DetailArticle", new { id=item.Id }));
+                  Write(Html.ActionLink("Edit", "EditArticle", new { id=item.Id }));
 
             
             #line default
             #line hidden
-WriteLiteral(" |\r\n");
+WriteLiteral(" |</span>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                <span>");
 
             
             #line 89 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id }));
+                 Write(Html.ActionLink("Details", "DetailArticle", new { id=item.Id }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n    </tr>\r\n");
+WriteLiteral(" |</span>\r\n");
+
+WriteLiteral("                <span>");
 
             
-            #line 92 "..\..\Views\CMS\Index.cshtml"
+            #line 90 "..\..\Views\CMS\Index.cshtml"
+                 Write(Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</span>\r\n");
+
+            
+            #line 91 "..\..\Views\CMS\Index.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </td>\r\n    </tr>\r\n");
+
+            
+            #line 94 "..\..\Views\CMS\Index.cshtml"
 }
 
             

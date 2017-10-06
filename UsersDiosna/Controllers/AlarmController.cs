@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace UsersDiosna.Controllers
 {
+    [Authorize(Roles = "View")]
     public class AlarmController : Controller
     {
         public void DBConnnection()
