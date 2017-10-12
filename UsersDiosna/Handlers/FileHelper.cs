@@ -6,11 +6,72 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
+using UsersDiosna.Controllers;
 
 namespace UsersDiosna.Handlers
 {
     public class FileHelper
     {
+        /// <summary>
+        /// Method to select all mask for current bakery
+        /// </summary>
+        /// <returns>List<string> masks</returns>
+        public List<string> selectMasks(int id, string[] roles)
+        {
+            db db = new db();
+            string mask;
+            List<string> masks = new List<string>();
+            string someName = "maskRole='" + roles[0] + "'";
+            for (int i = 1; i <= (roles.Count() - 1); i++)
+            {
+                someName += " OR maskRole='" + roles[i] + "'";
+            }
+            string where = "bakeryId=" + id + " AND (" + someName + ")";
+            List<object> objectList = db.multipleItemSelect("maskFile", "mask_directory", where);
+            foreach (object o in objectList)
+            {
+                mask = o.ToString();
+                masks.Add(mask);
+            }
+            return masks;
+        }
+        /// <summary>
+        /// method to select roles for all masks
+        /// </summary>
+        /// <param>bakery id</param>
+        /// <returns>List<string> maskRoles</returns>
+        public List<string> selectMasksRoles(int id)
+        {
+            db db = new db();
+            string maskRole;
+            List<string> masksRoles = new List<string>();
+            List<object> objectList = db.multipleItemSelect("maskRole", "mask_directory", "bakeryId='" + id + "'");
+            foreach (object o in objectList)
+            {
+                maskRole = o.ToString();
+                masksRoles.Add(maskRole);
+            }
+            return masksRoles;
+        }
+        /// <summary>
+        /// Method to select all masks names
+        /// </summary>
+        /// <param>bakery id</param>
+        /// <returns>List<string> masksNames</returns>
+        public List<string> selectMasksNames(int id)
+        {
+            db db = new db();
+            string maskName;
+            List<string> masksNames = new List<string>();
+            List<object> objectList = db.multipleItemSelect("maskName", "mask_directory", "bakeryId='" + id + "'");
+            foreach (object o in objectList)
+            {
+                maskName = o.ToString();
+                masksNames.Add(maskName);
+            }
+            return masksNames;
+        }
+ 
         public byte[] DownloadFile(string relativePath, string fileName, string downloadPath = "")
         {
             try
@@ -31,7 +92,6 @@ namespace UsersDiosna.Handlers
             Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 return null;
             }
-            
         }
 
         /*
@@ -49,7 +109,7 @@ namespace UsersDiosna.Handlers
                 }
             } else {
                 if (maskFile.Count( f => f == '/') >= 1) {
-                    directoryMask = "/" + maskFile.Substring(maskFile.IndexOf('/'), maskFile.LastIndexOf('/') + 1);
+                    directoryMask = "/" + maskFile.Substring(0, maskFile.LastIndexOf('/') + 1);
 
                 }
             }

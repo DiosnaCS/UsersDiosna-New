@@ -1,96 +1,112 @@
 ﻿@model IEnumerable<UsersDiosna.Models.Article>
-
+@using UsersDiosna.Handlers
 @{
     ViewBag.Title = "List of Articles";
+    string lastSectionName = "";
+    string fileName = "";
 }
 
-<h2>List of articles to current</h2>
-<p>
-    @Html.ActionLink("Create new Section", "CreateSection",new { }, new { @class = "btn btn-xs btn-primary" })
-</p>
-<p>
-    @Html.ActionLink("Create new Article", "CreateArticle", new { }, new { @class = "btn btn-xs btn-primary" })
-</p>
-<p>
-    @Html.ActionLink("List of sections", "Sections",new { }, new { @class = "btn btn-xs btn-primary" })
-    @*filterSection($.("searchSecions").)*@
-</p>
-<input type="text" class="form-control" id="searchArticle" onkeyup="filterArticle()" placeholder="search for articles">
-<table class="table table-striped table-condensed table-hover table-responsive">
-    <tr>
-        <th>
-            Bakery
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Header)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Text)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Amount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.HoursSpend)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Attachment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            Section @Html.DisplayNameFor(model => model.Section.Name).ToString().ToLower()
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.bakeryId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Author)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Header)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Text)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Amount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.HoursSpend)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Attachment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Section.Name)
-        </td>
-        <td>
-            @if (User.IsInRole("CMS")) { 
-                <span> @Html.ActionLink("Edit", "EditArticle", new { id=item.Id }) |</span>
-                <span>@Html.ActionLink("Details", "DetailArticle", new { id=item.Id }) |</span>
-                <span>@Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id })</span>
-            }
-        </td>
-    </tr>
+<h3>List of articles for this bakery</h3>
+@if (User.IsInRole("CMS"))
+{
+    <p>
+        @Html.ActionLink("Create new Section", "CreateSection", new { }, new { @class = "btn btn-xs btn-primary" })
+    </p>
+    <p>
+        @Html.ActionLink("Create new Article", "CreateArticle", new { }, new { @class = "btn btn-xs btn-primary" })
+    </p>
+    <p>
+        @Html.ActionLink("List of sections", "Sections", new { }, new { @class = "btn btn-xs btn-primary" })
+    </p>
 }
+@*<input type="text" class="form-control" id="searchArticle" onkeyup="filterArticle()" placeholder="search for articles">*@
+@if (Model != null) {
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered table-hover table-responsive">
+            <tr>
+                <th>
+                    Created
+                </th>
+                <th>
+                    Aut.
+                </th>
+                <th>
+                    Subj.
+                </th>
+                <th>
+                    Content
+                </th>
+                <th>
+                    Costs
+                </th>
+                <th>
+                    Hs.
+                </th>
+                <th>
+                    Attachment
+                </th>
+                <th>
+                    Attachment description
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                if (item.Section.Name != lastSectionName)
+                {
+                <tr>
+                    @{ 
+                        lastSectionName = item.Section.Name;
+                    }
+                    <td><h5>@Html.DisplayFor(modelItem => item.Section.Name)</h5></td>
+                </tr>
+                }
+                <tr class="small">
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.DateTime.ToString(), 40, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.Header, 40, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.Text, 15, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.Amount, 10, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.HoursSpend.ToString(), 10, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        @{if (item.Attachment != null)
+                            {
+                                fileName = item.Attachment;
+                            }
+                        }
+                        <a href="@item.Attachment" title="/Download/downloadFile?nameFile=@fileName">Download</a>
+                    </td>
+                    <td>
+                        @Html.Raw(CMSHandler.maxLength(item.Description, 150, "/CMS/DetailArticle/" + item.Id))
+                    </td>
+                    <td>
+                        <span> @Html.ActionLink("Edit", "EditArticle", new { id = item.Id })</span>
+                        @if (User.IsInRole("CMS"))
+                        {
 
-</table>
+                            <span> | @Html.ActionLink("Details", "DetailArticle", new { id = item.Id }) |</span>
+                            <span>@Html.ActionLink("Delete", "DeleteArticle", new { id = item.Id })</span>
+                        }
+                    </td>
+                </tr>
+             }
+        </table>
+    </div>
+}
+else {
+    <div class="col-md-offset-3">
+       <h4><b>No articles to this bakery has been found</b></h4>
+    </div>
+}

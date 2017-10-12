@@ -11,11 +11,52 @@ namespace UsersDiosna.Handlers
     public class CMSHandler
     {
         /// <summary>
+        /// Extension to check that string is not too long for view in the table
+        /// </summary>
+        /// <param name="toCheck"></param>
+        /// <param name="maxLength"></param>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static string maxLength(string toCheck, int maxLength, string url = null)
+        {
+            if (toCheck != null)
+            {
+                if (toCheck.Length > maxLength)
+                {
+                    if (toCheck.LastIndexOf(" ") != -1)
+                    {
+                        toCheck = toCheck.Substring(0, maxLength);
+                        if (url != null)
+                        {
+                            toCheck += string.Format("<a href=\"{0}\"><b>...</b></a>", url);
+                        }
+                    }
+                }
+            }
+            return toCheck;
+        }
+        /// <summary>
+        /// Returns getbakeryName from bakjeryId
+        /// </summary>
+        /// <param name="bakeryId">int bakeryId</param>
+        /// <returns>string bakeryName</returns>
+        public string getBakeryName(int bakeryId)
+        {
+            string bakeryName = bakeryId.ToString();
+            AddRoleDataContext roles = new AddRoleDataContext();
+            //ReleName is bakeryId and Description is bakery name
+            if (roles.aspnet_Roles.Single(p => p.RoleName == bakeryId.ToString()).Description.Length > 0) 
+            {
+                bakeryName = roles.aspnet_Roles.Single(p => p.RoleName == bakeryId.ToString()).Description;
+            }
+            return bakeryName;
+        }
+        /// <summary>
         /// To Get dropdown list of sections to choose one
         /// </summary>
         /// <param name="bakeryId">Id of the bakery from session state</param>
         /// <returns>List of dropdownlist items (for model)</returns>
-        public List<SelectListItem> GetDropDownListSections(int bakeryId, string selected = null)
+        public List<SelectListItem> getDropDownListSections(int bakeryId, string selected = null)
         {
             CMSDataContext db = new CMSDataContext();
             List<SelectListItem> Sections = new List<SelectListItem>();
@@ -38,7 +79,7 @@ namespace UsersDiosna.Handlers
         /// </summary>
         /// <param name="bakeryId">Id of the bakery from session state</param>
         /// <returns>List of dropdownlist items (for model)</returns>
-        public List<SelectListItem> GetDropDownListBakeryIDs(int? bakerySelected = null)
+        public List<SelectListItem> getDropDownListBakeryIDs(int? bakerySelected = null)
         {
             int bakeryId;
             List<SelectListItem> IDs = new List<SelectListItem>();
@@ -73,7 +114,7 @@ namespace UsersDiosna.Handlers
         /// To Get dropdown list of roles to choose one
         /// </summary>
         /// <returns>List of dropdownlist items (for model)</returns>
-        public List<SelectListItem> GetDropDownListRoles(string selected = null)
+        public List<SelectListItem> getDropDownListRoles(string selected = null)
         {
             int bakeryId;
             bool first = true;
@@ -98,6 +139,31 @@ namespace UsersDiosna.Handlers
                 first = false;
             }
             return rolesList;
+        }
+
+        /// <summary>
+        /// Get dropdown list for all files in download section 
+        /// </summary>
+        /// <param name="networkPath"></param>
+        /// <returns></returns>
+        public List<SelectListItem> getDropDownListFiles(int id, string networkPath, string[] roles)
+        {
+            List<SelectListItem> list = new List<SelectListItem>();
+            List<string> files = new List<string>();
+            FileHelper fileHelper = new FileHelper();
+            List<string> masks = new List<string>();
+            masks = fileHelper.selectMasks(id, roles);
+            foreach (string mask in masks) {
+                files = fileHelper.findFilesOnServer(networkPath, mask);
+                foreach (string filePath in files)
+                {
+                    SelectListItem item = new SelectListItem();
+                    item.Value = filePath;
+                    item.Text = filePath.Substring(filePath.LastIndexOf('/')+1);
+                    list.Add(item);
+                }
+            }
+            return list;
         }
     }
 }

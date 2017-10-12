@@ -42,3 +42,5 @@
 8/22/2017 12:25:04 PMThe user name or password is incorrect
 8/22/2017 12:26:52 PMThe user name or password is incorrect
 8/24/2017 3:52:38 PMThe SaveAs method is configured to require a rooted path, and the path 'homepage.png' is not rooted.
+10/10/2017 12:10:08 PM5The remote server returned an error: (550) File unavailable (e.g., file not found, no access).
+10/10/2017 1:51:24 PM1The remote server returned an error: (550) File unavailable (e.g., file not found, no access).

@@ -153,7 +153,7 @@ WriteLiteral("                ");
 
             
             #line 28 "..\..\Views\CMS\EditSection.cshtml"
-           Write(Html.EditorFor(model => model.BakeryId, new { htmlAttributes = new { @class = "form-control" } }));
+           Write(Html.DropDownListFor(model => model.BakeryId, Model.Ids, new { @class = "form-control" } ));
 
             
             #line default
@@ -194,7 +194,7 @@ WriteLiteral("                ");
 
             
             #line 36 "..\..\Views\CMS\EditSection.cshtml"
-           Write(Html.EditorFor(model => model.Role, new { htmlAttributes = new { @class = "form-control" } }));
+           Write(Html.DropDownListFor(model => model.Role, Model.Roles,  new { @class = "form-control" } ));
 
             
             #line default

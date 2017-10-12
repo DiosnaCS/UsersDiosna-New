@@ -70,173 +70,212 @@ WriteLiteral(" onkeyup=\"filterSection()\"");
 
 WriteLiteral(" placeholder=\"search for sections\"");
 
-WriteLiteral(">\r\n<table");
-
-WriteLiteral(" class=\"table\"");
-
-WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral(">\r\n");
 
             
-            #line 15 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayNameFor(model => model.Name));
+            #line 12 "..\..\Views\CMS\Sections.cshtml"
+ if (Model != null)
+{
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("    <table");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"table table-condensed table-bordered table-hover table-responsive\"");
 
-            
-            #line 18 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayNameFor(model => model.Description));
+WriteLiteral(">\r\n        <tr>\r\n            <th>\r\n");
 
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 21 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayNameFor(model => model.ArticleId));
+            #line 17 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.DisplayNameFor(model => model.Name));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("\r\n            </th>\r\n            <th>\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 24 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayNameFor(model => model.Role));
+WriteLiteral("                ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 27 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayNameFor(model => model.BakeryId));
+            #line 20 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.DisplayNameFor(model => model.Description));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th></th>\r\n    </tr>\r\n\r\n");
+WriteLiteral("\r\n            </th>\r\n            <th>\r\n");
+
+WriteLiteral("                ");
 
             
-            #line 32 "..\..\Views\CMS\Sections.cshtml"
- foreach (var item in Model) {
-
-            
-            #line default
-            #line hidden
-WriteLiteral("    <tr>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 35 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Name));
+            #line 23 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.DisplayNameFor(model => model.ArticleId));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </th>\r\n            <th>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
+
+            
+            #line 26 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.DisplayNameFor(model => model.Role));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </th>\r\n            <th>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 29 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.DisplayNameFor(model => model.BakeryId));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </th>\r\n            <th></th>\r\n        </tr>\r\n\r\n");
+
+            
+            #line 34 "..\..\Views\CMS\Sections.cshtml"
+    
+            
+            #line default
+            #line hidden
+            
+            #line 34 "..\..\Views\CMS\Sections.cshtml"
+     foreach (var item in Model)
+    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <tr>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
 
             
             #line 38 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Description));
+           Write(Html.DisplayFor(modelItem => item.Name));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
             #line 41 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayFor(modelItem => item.ArticleId));
+           Write(Html.DisplayFor(modelItem => item.Description));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
             #line 44 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Role));
+           Write(Html.DisplayFor(modelItem => item.ArticleId));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
             #line 47 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.DisplayFor(modelItem => item.BakeryId));
+           Write(Html.DisplayFor(modelItem => item.Role));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
             #line 50 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.ActionLink("Edit", "EditSection", new { id=item.Id }));
+           Write(Html.DisplayFor(modelItem => item.BakeryId));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n            </td>\r\n            <td>\r\n");
+
+WriteLiteral("                ");
+
+            
+            #line 53 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.ActionLink("Edit", "EditSection", new { id = item.Id }));
 
             
             #line default
             #line hidden
 WriteLiteral(" |\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                ");
 
             
-            #line 51 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.ActionLink("Details", "DetailSection", new { id=item.Id }));
+            #line 54 "..\..\Views\CMS\Sections.cshtml"
+           Write(Html.ActionLink("Details", "DetailSection", new { id = item.Id }));
 
             
             #line default
             #line hidden
 WriteLiteral(" |\r\n");
 
-WriteLiteral("            ");
-
-            
-            #line 52 "..\..\Views\CMS\Sections.cshtml"
-       Write(Html.ActionLink("Delete", "DeleteSection", new { id=item.Id }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n    </tr>\r\n");
+WriteLiteral("                ");
 
             
             #line 55 "..\..\Views\CMS\Sections.cshtml"
-}
+           Write(Html.ActionLink("Delete", "DeleteSection", new { id = item.Id }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</table>\r\n");
+WriteLiteral("\r\n            </td>\r\n        </tr>\r\n");
 
+            
+            #line 58 "..\..\Views\CMS\Sections.cshtml"
+    }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n    </table>\r\n");
+
+            
+            #line 61 "..\..\Views\CMS\Sections.cshtml"
+}
+else
+{
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <div");
+
+WriteLiteral(" class=\"col-md-offset-3\"");
+
+WriteLiteral(">\r\n        <h4><b>No sections to this bakery has been found</b></h4>\r\n    </div>\r" +
+"\n");
+
+            
+            #line 67 "..\..\Views\CMS\Sections.cshtml"
+}
+            
+            #line default
+            #line hidden
         }
     }
 }

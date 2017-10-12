@@ -13,11 +13,20 @@ namespace UsersDiosna.Controllers
     [Authorize(Roles = "View")]
     public class CMSController : Controller
     {
+        private static string network_path { get; set; }
         // GET: CMS
         public ActionResult Index()
         {
             try
             {
+                string sessionID = "pathDownload" + Request.QueryString["plc"];
+                foreach (string sessionKey in Session.Keys)
+                {
+                    if(sessionKey == sessionID)
+                    {
+                        network_path = Session[sessionID].ToString();
+                    }
+                }
                 CMSDataContext db = new CMSDataContext();
                 List<Article> ArticleData = new List<Article>();
                 List<Section> SectionData = new List<Section>();
@@ -92,8 +101,8 @@ namespace UsersDiosna.Controllers
             SectionModel addmodel = new SectionModel();
             CMSHandler CMSH = new CMSHandler();
             //Get dropdowns lists of roles and bakery ids
-            addmodel.Ids = CMSH.GetDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
-            addmodel.Roles = CMSH.GetDropDownListRoles();
+            addmodel.Ids = CMSH.getDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
+            addmodel.Roles = CMSH.getDropDownListRoles();
                                     
             return View(addmodel);
         }
@@ -139,7 +148,8 @@ namespace UsersDiosna.Controllers
             sectionModel.Description = sectionToEdit.Description;
 
             //getdropdown list of roles and select previous role as a default
-            sectionModel.Roles = CMSH.GetDropDownListRoles(sectionToEdit.Role);
+            sectionModel.Ids = CMSH.getDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
+            sectionModel.Roles = CMSH.getDropDownListRoles(sectionToEdit.Role);
 
             return View(sectionModel);
         }
@@ -236,10 +246,16 @@ namespace UsersDiosna.Controllers
             ArticleModel addmodel = new ArticleModel();
             
             CMSDataContext db = new CMSDataContext();
-            addmodel.Ids = CMSH.GetDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
+            List<SelectListItem> files = new List<SelectListItem>();
+            //Gets the files to attach from downloads when they are present
+            if (network_path != null)
+            {
+                files = CMSH.getDropDownListFiles((int)Session["id"], network_path.ToString(), Roles.GetRolesForUser());
+            }
+            ViewBag.FilesToAttach = files;
 
-            
-            addmodel.Sections = CMSH.GetDropDownListSections(int.Parse(Session["id"].ToString()));
+            addmodel.Ids = CMSH.getDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
+            addmodel.Sections = CMSH.getDropDownListSections(int.Parse(Session["id"].ToString()));
             return View(addmodel);
         }
 
@@ -259,6 +275,7 @@ namespace UsersDiosna.Controllers
             article.Text = collection.Text;
             article.Amount = collection.Amount;
             article.HoursSpend = collection.HoursSpend;
+            article.Attachment = collection.Attachment;
             article.Description = collection.Description;
             article.SectionId = collection.SectionId;
             //Add section into db
@@ -293,7 +310,8 @@ namespace UsersDiosna.Controllers
             articleModel.Description = articleToEdit.Description;
 
             //getdropdown list and select article's section name as a default
-            articleModel.Sections = CMSH.GetDropDownListSections(int.Parse(Session["id"].ToString()), articleToEdit.Section.Name);
+            articleModel.Ids = CMSH.getDropDownListBakeryIDs(int.Parse(Session["id"].ToString()));
+            articleModel.Sections = CMSH.getDropDownListSections(int.Parse(Session["id"].ToString()), articleToEdit.Section.Name);
 
             return View(articleModel);
         }

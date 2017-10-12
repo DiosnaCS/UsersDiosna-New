@@ -30,6 +30,12 @@ namespace ASP
     using UsersDiosna;
     using UsersDiosna.Controllers;
     
+    #line 2 "..\..\Views\CMS\Index.cshtml"
+    using UsersDiosna.Handlers;
+    
+    #line default
+    #line hidden
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/CMS/Index.cshtml")]
     public partial class _Views_CMS_Index_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<UsersDiosna.Models.Article>>
@@ -43,319 +49,298 @@ namespace ASP
             #line 3 "..\..\Views\CMS\Index.cshtml"
   
     ViewBag.Title = "List of Articles";
+    string lastSectionName = "";
+    string fileName = "";
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>List of articles to current</h2>\r\n<p>\r\n");
-
-WriteLiteral("    ");
+WriteLiteral("\r\n\r\n<h3>List of articles for this bakery</h3>\r\n");
 
             
-            #line 9 "..\..\Views\CMS\Index.cshtml"
-Write(Html.ActionLink("Create new Section", "CreateSection",new { }, new { @class = "btn btn-xs btn-primary" }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n</p>\r\n<p>\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 12 "..\..\Views\CMS\Index.cshtml"
-Write(Html.ActionLink("Create new Article", "CreateArticle", new { }, new { @class = "btn btn-xs btn-primary" }));
+            #line 10 "..\..\Views\CMS\Index.cshtml"
+ if (User.IsInRole("CMS"))
+{
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</p>\r\n<p>\r\n");
+WriteLiteral("    <p>\r\n");
 
-WriteLiteral("    ");
-
-            
-            #line 15 "..\..\Views\CMS\Index.cshtml"
-Write(Html.ActionLink("List of sections", "Sections",new { }, new { @class = "btn btn-xs btn-primary" }));
+WriteLiteral("        ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n    ");
-
-WriteLiteral("\r\n</p>\r\n<input");
-
-WriteLiteral(" type=\"text\"");
-
-WriteLiteral(" class=\"form-control\"");
-
-WriteLiteral(" id=\"searchArticle\"");
-
-WriteLiteral(" onkeyup=\"filterArticle()\"");
-
-WriteLiteral(" placeholder=\"search for articles\"");
-
-WriteLiteral(">\r\n<table");
-
-WriteLiteral(" class=\"table table-striped table-condensed table-hover table-responsive\"");
-
-WriteLiteral(">\r\n    <tr>\r\n        <th>\r\n            Bakery\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 25 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.DateTime));
+            #line 13 "..\..\Views\CMS\Index.cshtml"
+   Write(Html.ActionLink("Create new Section", "CreateSection", new { }, new { @class = "btn btn-xs btn-primary" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("\r\n    </p>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("    <p>\r\n");
 
-            
-            #line 28 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Author));
+WriteLiteral("        ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 31 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Header));
+            #line 16 "..\..\Views\CMS\Index.cshtml"
+   Write(Html.ActionLink("Create new Article", "CreateArticle", new { }, new { @class = "btn btn-xs btn-primary" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
+WriteLiteral("\r\n    </p>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("    <p>\r\n");
 
-            
-            #line 34 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Text));
+WriteLiteral("        ");
 
             
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 37 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Amount));
+            #line 19 "..\..\Views\CMS\Index.cshtml"
+   Write(Html.ActionLink("List of sections", "Sections", new { }, new { @class = "btn btn-xs btn-primary" }));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("\r\n    </p>\r\n");
 
             
-            #line 40 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.HoursSpend));
+            #line 21 "..\..\Views\CMS\Index.cshtml"
+}
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
             
-            #line 43 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Attachment));
+            #line 22 "..\..\Views\CMS\Index.cshtml"
+                                                                                                                           
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n");
-
-WriteLiteral("            ");
-
             
-            #line 46 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayNameFor(model => model.Description));
+            #line 23 "..\..\Views\CMS\Index.cshtml"
+ if (Model != null) {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th>\r\n            Section ");
+WriteLiteral("    <div");
+
+WriteLiteral(" class=\"table-responsive\"");
+
+WriteLiteral(">\r\n        <table");
+
+WriteLiteral(" class=\"table table-condensed table-bordered table-hover table-responsive\"");
+
+WriteLiteral(@">
+            <tr>
+                <th>
+                    Created
+                </th>
+                <th>
+                    Aut.
+                </th>
+                <th>
+                    Subj.
+                </th>
+                <th>
+                    Content
+                </th>
+                <th>
+                    Costs
+                </th>
+                <th>
+                    Hs.
+                </th>
+                <th>
+                    Attachment
+                </th>
+                <th>
+                    Attachment description
+                </th>
+                <th></th>
+            </tr>
+");
 
             
-            #line 49 "..\..\Views\CMS\Index.cshtml"
-               Write(Html.DisplayNameFor(model => model.Section.Name).ToString().ToLower());
+            #line 53 "..\..\Views\CMS\Index.cshtml"
+            
+            
+            #line default
+            #line hidden
+            
+            #line 53 "..\..\Views\CMS\Index.cshtml"
+             foreach (var item in Model)
+            {
+                if (item.Section.Name != lastSectionName)
+                {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </th>\r\n        <th></th>\r\n    </tr>\r\n\r\n");
+WriteLiteral("                <tr>\r\n");
 
             
-            #line 54 "..\..\Views\CMS\Index.cshtml"
- foreach (var item in Model) {
+            #line 58 "..\..\Views\CMS\Index.cshtml"
+                    
+            
+            #line default
+            #line hidden
+            
+            #line 58 "..\..\Views\CMS\Index.cshtml"
+                       
+                        lastSectionName = item.Section.Name;
+                    
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                    <td><h5>");
+
+            
+            #line 61 "..\..\Views\CMS\Index.cshtml"
+                       Write(Html.DisplayFor(modelItem => item.Section.Name));
 
             
             #line default
             #line hidden
-WriteLiteral("    <tr>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 57 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.bakeryId));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
-
-            
-            #line 60 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.DateTime));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("</h5></td>\r\n                </tr>\r\n");
 
             
             #line 63 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Author));
+                }
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("                <tr");
 
-WriteLiteral("            ");
+WriteLiteral(" class=\"small\"");
+
+WriteLiteral(">\r\n                    <td>\r\n");
+
+WriteLiteral("                        ");
 
             
             #line 66 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Header));
+                   Write(Html.Raw(CMSHandler.maxLength(item.DateTime.ToString(), 40, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                        ");
 
             
             #line 69 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Text));
+                   Write(Html.DisplayFor(modelItem => item.Author));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                        ");
 
             
             #line 72 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Amount));
+                   Write(Html.Raw(CMSHandler.maxLength(item.Header, 40, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                        ");
 
             
             #line 75 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.HoursSpend));
+                   Write(Html.Raw(CMSHandler.maxLength(item.Text, 15, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                        ");
 
             
             #line 78 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Attachment));
+                   Write(Html.Raw(CMSHandler.maxLength(item.Amount, 10, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
-WriteLiteral("            ");
+WriteLiteral("                        ");
 
             
             #line 81 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Description));
+                   Write(Html.Raw(CMSHandler.maxLength(item.HoursSpend.ToString(), 10, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
             
             #line 84 "..\..\Views\CMS\Index.cshtml"
-       Write(Html.DisplayFor(modelItem => item.Section.Name));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n        </td>\r\n        <td>\r\n");
-
-            
-            #line 87 "..\..\Views\CMS\Index.cshtml"
-            
+                        
             
             #line default
             #line hidden
             
-            #line 87 "..\..\Views\CMS\Index.cshtml"
-             if (User.IsInRole("CMS")) { 
-
+            #line 84 "..\..\Views\CMS\Index.cshtml"
+                          if (item.Attachment != null)
+                            {
+                                fileName = item.Attachment;
+                            }
+                        
             
             #line default
             #line hidden
-WriteLiteral("                <span> ");
+WriteLiteral("\r\n                        <a");
 
-            
-            #line 88 "..\..\Views\CMS\Index.cshtml"
-                  Write(Html.ActionLink("Edit", "EditArticle", new { id=item.Id }));
-
-            
-            #line default
-            #line hidden
-WriteLiteral(" |</span>\r\n");
-
-WriteLiteral("                <span>");
-
+WriteAttribute("href", Tuple.Create(" href=\"", 3242), Tuple.Create("\"", 3265)
             
             #line 89 "..\..\Views\CMS\Index.cshtml"
-                 Write(Html.ActionLink("Details", "DetailArticle", new { id=item.Id }));
+, Tuple.Create(Tuple.Create("", 3249), Tuple.Create<System.Object, System.Int32>(item.Attachment
+            
+            #line default
+            #line hidden
+, 3249), false)
+);
+
+WriteAttribute("title", Tuple.Create(" title=\"", 3266), Tuple.Create("\"", 3315)
+, Tuple.Create(Tuple.Create("", 3274), Tuple.Create("/Download/downloadFile?nameFile=", 3274), true)
+            
+            #line 89 "..\..\Views\CMS\Index.cshtml"
+          , Tuple.Create(Tuple.Create("", 3306), Tuple.Create<System.Object, System.Int32>(fileName
+            
+            #line default
+            #line hidden
+, 3306), false)
+);
+
+WriteLiteral(">Download</a>\r\n                    </td>\r\n                    <td>\r\n");
+
+WriteLiteral("                        ");
+
+            
+            #line 92 "..\..\Views\CMS\Index.cshtml"
+                   Write(Html.Raw(CMSHandler.maxLength(item.Description, 150, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
             #line hidden
-WriteLiteral(" |</span>\r\n");
-
-WriteLiteral("                <span>");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        <s" +
+"pan> ");
 
             
-            #line 90 "..\..\Views\CMS\Index.cshtml"
-                 Write(Html.ActionLink("Delete", "DeleteArticle", new { id=item.Id }));
+            #line 95 "..\..\Views\CMS\Index.cshtml"
+                          Write(Html.ActionLink("Edit", "EditArticle", new { id = item.Id }));
 
             
             #line default
@@ -363,23 +348,81 @@ WriteLiteral("                <span>");
 WriteLiteral("</span>\r\n");
 
             
-            #line 91 "..\..\Views\CMS\Index.cshtml"
-            }
+            #line 96 "..\..\Views\CMS\Index.cshtml"
+                        
+            
+            #line default
+            #line hidden
+            
+            #line 96 "..\..\Views\CMS\Index.cshtml"
+                         if (User.IsInRole("CMS"))
+                        {
+
 
             
             #line default
             #line hidden
-WriteLiteral("        </td>\r\n    </tr>\r\n");
+WriteLiteral("                            <span> | ");
 
             
-            #line 94 "..\..\Views\CMS\Index.cshtml"
+            #line 99 "..\..\Views\CMS\Index.cshtml"
+                                Write(Html.ActionLink("Details", "DetailArticle", new { id = item.Id }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral(" |</span>\r\n");
+
+WriteLiteral("                            <span>");
+
+            
+            #line 100 "..\..\Views\CMS\Index.cshtml"
+                             Write(Html.ActionLink("Delete", "DeleteArticle", new { id = item.Id }));
+
+            
+            #line default
+            #line hidden
+WriteLiteral("</span>\r\n");
+
+            
+            #line 101 "..\..\Views\CMS\Index.cshtml"
+                        }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("                    </td>\r\n                </tr>\r\n");
+
+            
+            #line 104 "..\..\Views\CMS\Index.cshtml"
+             }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </table>\r\n    </div>\r\n");
+
+            
+            #line 107 "..\..\Views\CMS\Index.cshtml"
 }
+else {
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n</table>\r\n");
+WriteLiteral("    <div");
 
+WriteLiteral(" class=\"col-md-offset-3\"");
+
+WriteLiteral(">\r\n       <h4><b>No articles to this bakery has been found</b></h4>\r\n    </div>\r\n" +
+"");
+
+            
+            #line 112 "..\..\Views\CMS\Index.cshtml"
+}
+            
+            #line default
+            #line hidden
         }
     }
 }

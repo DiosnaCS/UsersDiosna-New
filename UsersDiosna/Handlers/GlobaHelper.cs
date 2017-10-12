@@ -52,6 +52,7 @@ namespace UsersDiosna
     }
 
     public static class Extension {
+
         public static T[] Populate<T>(this T[] array, T value) //Populate an array with value of T type
         {
             for (int i = 0; i < array.Length; i++)
@@ -61,7 +62,7 @@ namespace UsersDiosna
             return array;
         }
 
-        public static bool Exists<T>(T[] array, T value) //Populate an array with value of T type
+        public static bool Exists<T>(T[] array, T value) //chack if exists a value in the array 
         {
             for (int i = 0; i < array.Length; i++)
             {
