@@ -6,7 +6,7 @@
     string fileName = "";
 }
 
-<h3>List of articles for this bakery</h3>
+<h3>List of articles</h3>
 @if (User.IsInRole("CMS"))
 {
     <p>
@@ -81,15 +81,14 @@
                         @Html.Raw(CMSHandler.maxLength(item.HoursSpend.ToString(), 10, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
-                        @{if (item.Attachment != null)
+                        @if (item.Attachment != null)
+                        {
+                            if (item.Attachment.Contains('/'))
                             {
-                                if (item.Attachment.Contains('/'))
-                                {
-                                    fileName = item.Attachment.Substring(item.Attachment.LastIndexOf('/'));
-                                }
+                                fileName = item.Attachment.Substring(item.Attachment.LastIndexOf('/'));
                             }
+                            <a href="/Download/downloadFile?nameFile=@item.Attachment" title="@fileName">Download</a>
                         }
-                        <a href="/Download/downloadFile?nameFile=@item.Attachment" title="@fileName">Download</a>
                     </td>
                     <td>
                         @Html.Raw(CMSHandler.maxLength(item.Description, 20, "/CMS/DetailArticle/" + item.Id))

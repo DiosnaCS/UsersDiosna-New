@@ -71,7 +71,7 @@ namespace UsersDiosna
                     if (item.Variant3 != 0)
                         info += string.Format(" Batch number: {0}", item.Variant3);
                     if (item.Variant4 != 0)
-                        info += string.Format(" Current temp.: {0} °C", item.Variant4);
+                        info += string.Format(" Current temp.: {0}.{1} °C", (item.Variant4 / 10), (item.Variant4 % 10));
                     return info;
                 case 21:
                     if (item.Variant1 != 0)
@@ -81,7 +81,7 @@ namespace UsersDiosna
                     if (item.Variant3 != 0)
                         info += string.Format(" Source batch number: {0}", item.Variant3);
                     if (item.Variant4 != 0)
-                        info += string.Format(" Current temp.: {0} °C", item.Variant4);
+                        info += string.Format(" Current temp.: {0}.{1} °C", (item.Variant4 / 10), (item.Variant4 % 10));
                     return info;
                 case 22:
                     if (item.Variant1 != 0)
@@ -89,9 +89,9 @@ namespace UsersDiosna
                     if (item.Variant2 != 0)
                         info += string.Format(" Filling type: {0}", (FillType)item.Variant2);
                     if (item.Variant3 != 0)
-                        info += string.Format(" Need temp.: {0} °C", item.Variant3);
+                        info += string.Format(" Need temp.: {0}.{1} °C", (item.Variant3 / 10), (item.Variant3 % 10));
                     if (item.Variant4 != 0)
-                        info += string.Format(" Current temp.: {0} °C", item.Variant4);
+                        info += string.Format(" Current temp.: {0}.{1} °C", (item.Variant4 / 10), (item.Variant4 % 10));
                     return info;
                 case 23:
                     if (item.Variant2 != 0)
@@ -151,7 +151,7 @@ namespace UsersDiosna
                     return info;
                 case 35:
                     if (item.Variant1 != 0)
-                        info += string.Format("Need temp.: {0} °C", item.Variant1);
+                        info += string.Format("Need temp.: {0}.{1} °C", (item.Variant1 / 10), (item.Variant1 % 10));
                     if (item.Variant3 != 0)
                         info += string.Format(" FWD speed: pause {0} s run {1} s", (int)(item.Variant3/10000), item.Variant3 % 10000);
                     if (item.Variant4 != 0)
@@ -159,9 +159,9 @@ namespace UsersDiosna
                     return info;
                 case 36:
                     if (item.Variant1 != 0)
-                        info += string.Format("Need temp.: {0} °C", item.Variant1);
+                        info += string.Format("Need temp.: {0}.{1} °C", (item.Variant1 / 10), (item.Variant1 % 10));
                     if (item.Variant2 != 0)
-                        info += string.Format(" End temp.: {0} °C", item.Variant2);
+                        info += string.Format(" End temp.: {0}.{1} °C", (item.Variant2 / 10), (item.Variant2 % 10));
                     if (item.Variant3 != 0)
                         info += string.Format(" FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
                     if (item.Variant4 != 0)
@@ -175,7 +175,7 @@ namespace UsersDiosna
                     return info;
                 case 39:
                     if (item.Variant1 != 0)
-                        info += string.Format("Current temp.: {0} °C", item.Variant1);
+                        info += string.Format("Current temp.: {0}.{1} °C", (item.Variant1 / 10), (item.Variant1 % 10));
                     if (item.Variant2 != 0)
                         info += string.Format(" Current ph: {0} ", item.Variant2);
                     if (item.Variant3 != 0)
@@ -198,7 +198,7 @@ namespace UsersDiosna
 
                 default:
                     if (item.Variant1 != 0)
-                        info += string.Format("Source tank: {0} °C", item.Variant1);
+                        info += string.Format("Source tank: {0} ", item.Variant1);
                     if (item.Variant2 != 0)
                         info += string.Format(" Started by: {0} ",(StartedBy) item.Variant2);
                     if (item.Variant3 != 0)

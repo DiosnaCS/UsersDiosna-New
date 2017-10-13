@@ -51,7 +51,7 @@ WriteLiteral("\r\n\r\n<h4>Index of Admin used only for links:</h4>\r\n\r\n");
 
             
             #line 8 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Add Role", "AddRole", "Admin"));
+Write(Html.ActionLink("Add Role to sytem", "AddRole", "Admin"));
 
             
             #line default
@@ -60,7 +60,7 @@ WriteLiteral("<br>\r\n");
 
             
             #line 9 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Remove Role", "RemoveRole", "Admin"));
+Write(Html.ActionLink("Remove Role from system", "RemoveRole", "Admin"));
 
             
             #line default
@@ -69,7 +69,7 @@ WriteLiteral("<br>\r\n");
 
             
             #line 10 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Add user to role", "AddUser", "Admin"));
+Write(Html.ActionLink("Add user to specific role", "AddUser", "Admin"));
 
             
             #line default
@@ -78,7 +78,7 @@ WriteLiteral("<br>\r\n");
 
             
             #line 11 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Remove User", "RemoveUser", "Admin"));
+Write(Html.ActionLink("Remove Role from user", "RemoveUser", "Admin"));
 
             
             #line default
@@ -87,7 +87,7 @@ WriteLiteral("<br>\r\n");
 
             
             #line 12 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Add Mask", "AddMask", "Admin"));
+Write(Html.ActionLink("Add Mask to system", "AddMask", "Admin"));
 
             
             #line default
@@ -96,7 +96,7 @@ WriteLiteral("<br>\r\n");
 
             
             #line 13 "..\..\Views\Admin\Index.cshtml"
-Write(Html.ActionLink("Remove Mask", "RemoveMask", "Admin"));
+Write(Html.ActionLink("Remove Mask form system", "RemoveMask", "Admin"));
 
             
             #line default

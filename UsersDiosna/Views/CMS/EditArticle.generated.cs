@@ -47,7 +47,7 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>EditArticle</h2>\r\n\r\n");
+WriteLiteral("\r\n\r\n<h2>Edit Article</h2>\r\n\r\n");
 
             
             #line 9 "..\..\Views\CMS\EditArticle.cshtml"
@@ -76,12 +76,12 @@ WriteLiteral("    <div");
 
 WriteLiteral(" class=\"form-horizontal\"");
 
-WriteLiteral(">\r\n        <h4>ArticleModel</h4>\r\n        <hr />\r\n");
+WriteLiteral(">\r\n        <hr />\r\n");
 
 WriteLiteral("        ");
 
             
-            #line 16 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 15 "..\..\Views\CMS\EditArticle.cshtml"
    Write(Html.ValidationSummary(true, "", new { @class = "text-danger" }));
 
             
@@ -96,7 +96,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 18 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 17 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.bakeryId, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -111,7 +111,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 20 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 19 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.DropDownListFor(model => model.bakeryId, Model.Ids, new { @class = "form-control" }));
 
             
@@ -122,7 +122,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 21 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 20 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.bakeryId, "", new { @class = "text-danger" }));
 
             
@@ -137,7 +137,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 26 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 25 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.Header, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -152,7 +152,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 28 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 27 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -163,7 +163,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 29 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 28 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" }));
 
             
@@ -178,7 +178,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 34 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 33 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -193,7 +193,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 36 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 35 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -204,7 +204,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 37 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 36 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" }));
 
             
@@ -219,7 +219,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 42 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 41 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -234,7 +234,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 44 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 43 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -245,7 +245,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 45 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 44 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" }));
 
             
@@ -260,7 +260,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 50 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 49 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.HoursSpend, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -275,7 +275,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 52 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 51 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.HoursSpend, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -286,7 +286,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 53 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 52 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.HoursSpend, "", new { @class = "text-danger" }));
 
             
@@ -301,7 +301,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 58 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 57 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.Attachment, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -316,7 +316,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 60 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 59 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.Attachment, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -327,7 +327,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 61 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 60 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.Attachment, "", new { @class = "text-danger" }));
 
             
@@ -342,7 +342,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 66 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 65 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -357,7 +357,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 68 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 67 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } }));
 
             
@@ -368,7 +368,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 69 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 68 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" }));
 
             
@@ -383,7 +383,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 74 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 73 "..\..\Views\CMS\EditArticle.cshtml"
        Write(Html.LabelFor(model => model.SectionId, htmlAttributes: new { @class = "control-label col-md-2" }));
 
             
@@ -398,7 +398,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 76 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 75 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.DropDownListFor(model => model.SectionId, Model.Sections, new { @class = "form-control" }));
 
             
@@ -409,7 +409,7 @@ WriteLiteral("\r\n");
 WriteLiteral("                ");
 
             
-            #line 77 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 76 "..\..\Views\CMS\EditArticle.cshtml"
            Write(Html.ValidationMessageFor(model => model.SectionId, "", new { @class = "text-danger" }));
 
             
@@ -434,7 +434,7 @@ WriteLiteral(" class=\"btn btn-default\"");
 WriteLiteral(" />\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
 
             
-            #line 87 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 86 "..\..\Views\CMS\EditArticle.cshtml"
 }
 
             
@@ -445,7 +445,7 @@ WriteLiteral("\r\n<div>\r\n");
 WriteLiteral("    ");
 
             
-            #line 90 "..\..\Views\CMS\EditArticle.cshtml"
+            #line 89 "..\..\Views\CMS\EditArticle.cshtml"
 Write(Html.ActionLink("Back to List", "Index"));
 
             

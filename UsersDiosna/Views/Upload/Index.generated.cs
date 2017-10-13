@@ -43,6 +43,7 @@ namespace ASP
             #line 2 "..\..\Views\Upload\Index.cshtml"
   
     ViewBag.Title = "Index";
+    string pathFile = "";
 
             
             #line default
@@ -50,7 +51,7 @@ namespace ASP
 WriteLiteral("\r\n\r\n<h2>Index of Upload System</h2>\r\n");
 
             
-            #line 7 "..\..\Views\Upload\Index.cshtml"
+            #line 8 "..\..\Views\Upload\Index.cshtml"
 Write(ViewBag.message);
 
             
@@ -59,7 +60,7 @@ Write(ViewBag.message);
 WriteLiteral("\r\n");
 
             
-            #line 8 "..\..\Views\Upload\Index.cshtml"
+            #line 9 "..\..\Views\Upload\Index.cshtml"
  using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
 
@@ -75,7 +76,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("        ");
 
             
-            #line 11 "..\..\Views\Upload\Index.cshtml"
+            #line 12 "..\..\Views\Upload\Index.cshtml"
    Write(Html.TextBoxFor(m => m.File, new { type = "file" }));
 
             
@@ -90,7 +91,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("            ");
 
             
-            #line 13 "..\..\Views\Upload\Index.cshtml"
+            #line 14 "..\..\Views\Upload\Index.cshtml"
        Write(Html.ValidationMessageFor(m => m.File));
 
             
@@ -99,13 +100,13 @@ WriteLiteral("            ");
 WriteLiteral("\r\n");
 
             
-            #line 14 "..\..\Views\Upload\Index.cshtml"
+            #line 15 "..\..\Views\Upload\Index.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 14 "..\..\Views\Upload\Index.cshtml"
+            #line 15 "..\..\Views\Upload\Index.cshtml"
              if (ViewBag.plcName == null)
             {
                 
@@ -113,14 +114,14 @@ WriteLiteral("\r\n");
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Upload\Index.cshtml"
+            #line 17 "..\..\Views\Upload\Index.cshtml"
            Write(Html.HiddenFor(m => m.plcName, new { Value = Request.QueryString["plc"].ToString() }));
 
             
             #line default
             #line hidden
             
-            #line 16 "..\..\Views\Upload\Index.cshtml"
+            #line 17 "..\..\Views\Upload\Index.cshtml"
                                                                                                       
             }
             else {
@@ -129,14 +130,14 @@ WriteLiteral("\r\n");
             #line default
             #line hidden
             
-            #line 19 "..\..\Views\Upload\Index.cshtml"
+            #line 20 "..\..\Views\Upload\Index.cshtml"
            Write(Html.HiddenFor(m => m.plcName, new { Value = ViewBag.plcName }));
 
             
             #line default
             #line hidden
             
-            #line 19 "..\..\Views\Upload\Index.cshtml"
+            #line 20 "..\..\Views\Upload\Index.cshtml"
                                                                                 
             }
 
@@ -164,7 +165,7 @@ WriteLiteral(" value=\"Upload File\"");
 WriteLiteral(" />\r\n        </div>\r\n    </div>\r\n");
 
             
-            #line 28 "..\..\Views\Upload\Index.cshtml"
+            #line 29 "..\..\Views\Upload\Index.cshtml"
 }
 
             
@@ -190,7 +191,7 @@ WriteLiteral(" id=\"filePathToView2\"");
 WriteLiteral(">\r\n</div>\r\n<h3>9_Public</h3>\r\n");
 
             
-            #line 43 "..\..\Views\Upload\Index.cshtml"
+            #line 44 "..\..\Views\Upload\Index.cshtml"
   
     int i = 0;
 
@@ -200,7 +201,7 @@ WriteLiteral(">\r\n</div>\r\n<h3>9_Public</h3>\r\n");
 WriteLiteral("\r\n");
 
             
-            #line 46 "..\..\Views\Upload\Index.cshtml"
+            #line 47 "..\..\Views\Upload\Index.cshtml"
  if (ViewBag.fileList != null)
 {
     foreach (string file in ViewBag.fileList)
@@ -218,26 +219,13 @@ WriteLiteral(">\r\n");
 WriteLiteral("                ");
 
             
-            #line 51 "..\..\Views\Upload\Index.cshtml"
+            #line 52 "..\..\Views\Upload\Index.cshtml"
            Write(file);
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n                <a");
-
-WriteAttribute("href", Tuple.Create(" href=\"", 1601), Tuple.Create("\"", 1645)
-, Tuple.Create(Tuple.Create("", 1608), Tuple.Create("/Download/downloadFile?nameFile=", 1608), true)
-            
-            #line 52 "..\..\Views\Upload\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1640), Tuple.Create<System.Object, System.Int32>(file
-            
-            #line default
-            #line hidden
-, 1640), false)
-);
-
-WriteLiteral(">Download</a>\r\n");
+WriteLiteral("\r\n");
 
             
             #line 53 "..\..\Views\Upload\Index.cshtml"
@@ -247,6 +235,35 @@ WriteLiteral(">Download</a>\r\n");
             #line hidden
             
             #line 53 "..\..\Views\Upload\Index.cshtml"
+                   
+                    pathFile = file.Substring(file.LastIndexOf('/')+1);
+                
+            
+            #line default
+            #line hidden
+WriteLiteral("\r\n                <a");
+
+WriteAttribute("href", Tuple.Create(" href=\"", 1741), Tuple.Create("\"", 1789)
+, Tuple.Create(Tuple.Create("", 1748), Tuple.Create("/Download/downloadFile?nameFile=", 1748), true)
+            
+            #line 56 "..\..\Views\Upload\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1780), Tuple.Create<System.Object, System.Int32>(pathFile
+            
+            #line default
+            #line hidden
+, 1780), false)
+);
+
+WriteLiteral(">Download</a>\r\n");
+
+            
+            #line 57 "..\..\Views\Upload\Index.cshtml"
+                
+            
+            #line default
+            #line hidden
+            
+            #line 57 "..\..\Views\Upload\Index.cshtml"
                  if (file.Contains(".pdf") || file.Contains(".txt"))
                 {
 
@@ -255,16 +272,16 @@ WriteLiteral(">Download</a>\r\n");
             #line hidden
 WriteLiteral("                    <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1772), Tuple.Create("\"", 1823)
-, Tuple.Create(Tuple.Create("", 1779), Tuple.Create("/Download/downloadFile?nameFile=", 1779), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 1916), Tuple.Create("\"", 1971)
+, Tuple.Create(Tuple.Create("", 1923), Tuple.Create("/Download/downloadFile?nameFile=", 1923), true)
             
-            #line 55 "..\..\Views\Upload\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1811), Tuple.Create<System.Object, System.Int32>(file
+            #line 59 "..\..\Views\Upload\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1955), Tuple.Create<System.Object, System.Int32>(pathFile
             
             #line default
             #line hidden
-, 1811), false)
-, Tuple.Create(Tuple.Create("", 1816), Tuple.Create("&View=1", 1816), true)
+, 1955), false)
+, Tuple.Create(Tuple.Create("", 1964), Tuple.Create("&View=1", 1964), true)
 );
 
 WriteLiteral(">View</a>");
@@ -272,7 +289,7 @@ WriteLiteral(">View</a>");
 WriteLiteral("<br>\r\n");
 
             
-            #line 56 "..\..\Views\Upload\Index.cshtml"
+            #line 60 "..\..\Views\Upload\Index.cshtml"
                 }
                 else
                 {
@@ -283,7 +300,7 @@ WriteLiteral("<br>\r\n");
 WriteLiteral("                    <br>\r\n");
 
             
-            #line 60 "..\..\Views\Upload\Index.cshtml"
+            #line 64 "..\..\Views\Upload\Index.cshtml"
                 }
 
             
@@ -292,7 +309,7 @@ WriteLiteral("                    <br>\r\n");
 WriteLiteral("            </div>\r\n");
 
             
-            #line 62 "..\..\Views\Upload\Index.cshtml"
+            #line 66 "..\..\Views\Upload\Index.cshtml"
         i++;
     }
 }
@@ -308,7 +325,7 @@ WriteLiteral(" class=\"has-error\"");
 WriteLiteral(">No files has been found</div>\r\n");
 
             
-            #line 67 "..\..\Views\Upload\Index.cshtml"
+            #line 71 "..\..\Views\Upload\Index.cshtml"
 }
             
             #line default

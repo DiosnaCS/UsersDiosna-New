@@ -437,6 +437,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DeleteSection.cshtml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CMS\DetailArticle.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetailArticle.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CMS\DetailSection.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DetailSection.cshtml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CMS\EditArticle.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -878,8 +888,14 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\CMS\DetailArticle.cshtml" />
-    <Content Include="Views\CMS\DetailSection.cshtml" />
+    <Content Include="Views\CMS\DetailArticle.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DetailArticle.generated.cs</LastGenOutput>
+    </Content>
+    <Content Include="Views\CMS\DetailSection.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>DetailSection.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

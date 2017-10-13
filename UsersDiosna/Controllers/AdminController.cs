@@ -29,7 +29,18 @@ namespace UsersDiosna.Controllers
 
         public ActionResult  AddMask()
         {
-            ViewBag.roles = Roles.GetAllRoles();
+            AddRoleDataContext context = new AddRoleDataContext();
+            List<string> roleList = new List<string>();
+            foreach (string role in Roles.GetAllRoles())
+            {
+                string roleDescription = context.aspnet_Roles.Single(p => p.RoleName == role.ToString()).Description;
+                if (roleDescription != null)
+                {
+                   roleDescription = role;
+                }
+                roleList.Add(roleDescription);
+            }
+            ViewBag.roles = roleList;
             db db = new db();
             List<string> stringList = new List<string>();
             List<object> objectList = db.multipleItemSelect("maskFile", maskTable, "bakeryId='" + Session["id"] + "'");

@@ -13,9 +13,9 @@
         @mask<br>
     }
     <b>All roles in the system:</b><br>
-    @foreach (string role in ViewBag.roles)
+    @foreach (var role in ViewBag.roles)
     {
-        @role<br>
+        @role <br>
     }
 </div>
 @using (Html.BeginForm("AddMaskForm", "Admin", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))

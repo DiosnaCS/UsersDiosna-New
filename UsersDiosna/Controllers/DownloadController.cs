@@ -39,6 +39,7 @@ namespace UsersDiosna.Controllers
                 List<string> masks = FH.selectMasks((int)Session["id"], Roles.GetRolesForUser());
                 foreach (string maskFile in masks)
                 {
+                    mask = maskFile;
                     if (maskFile.Contains('\\'))
                         mask = maskFile.Replace('\\', '/');
                     Regex regex = new Regex('^' + mask.Replace(".", "[.]").Replace("*", ".*").Replace("?", ".") + '$'); //regex of mask
@@ -92,7 +93,7 @@ namespace UsersDiosna.Controllers
             }
             else
             {
-                Session["tempforview"] = "Error: You dont hsave a permission to download this file";
+                Session["tempforview"] = "Error: You dont have a permission to download this file";
             }
         }
 

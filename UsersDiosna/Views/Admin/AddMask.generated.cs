@@ -104,7 +104,7 @@ WriteLiteral("    <b>All roles in the system:</b><br>\r\n");
             #line hidden
             
             #line 16 "..\..\Views\Admin\AddMask.cshtml"
-     foreach (string role in ViewBag.roles)
+     foreach (var role in ViewBag.roles)
     {
         
             
@@ -117,7 +117,7 @@ WriteLiteral("    <b>All roles in the system:</b><br>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("<br>\r\n");
+WriteLiteral(" <br>\r\n");
 
             
             #line 19 "..\..\Views\Admin\AddMask.cshtml"
