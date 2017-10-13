@@ -13,19 +13,23 @@ namespace UsersDiosna.Controllers
     [Authorize(Roles = "View")]
     public class CMSController : Controller
     {
-        private static string network_path { get; set; }
         // GET: CMS
         public ActionResult Index()
         {
             try
             {
+                string path = "";
                 string sessionID = "pathDownload" + Request.QueryString["plc"];
                 foreach (string sessionKey in Session.Keys)
                 {
                     if(sessionKey == sessionID)
                     {
-                        network_path = Session[sessionID].ToString();
+                        path = Session[sessionID].ToString();
                     }
+                }
+                if (path != "")
+                {
+                    Session["network_path"] = path;
                 }
                 CMSDataContext db = new CMSDataContext();
                 List<Article> ArticleData = new List<Article>();
@@ -41,6 +45,7 @@ namespace UsersDiosna.Controllers
                         ArticleData.AddRange(db.Articles.Where(p => (p.bakeryId == int.Parse(Session["id"].ToString())) && p.SectionId == section.Id).ToList());
                     }
                 }
+
             return View(ArticleData);
             }
             catch (Exception e)
@@ -248,9 +253,9 @@ namespace UsersDiosna.Controllers
             CMSDataContext db = new CMSDataContext();
             List<SelectListItem> files = new List<SelectListItem>();
             //Gets the files to attach from downloads when they are present
-            if (network_path != null)
+            if (Session["network_path"] != null)
             {
-                files = CMSH.getDropDownListFiles((int)Session["id"], network_path.ToString(), Roles.GetRolesForUser());
+                files = CMSH.getDropDownListFiles((int)Session["id"], Session["network_path"].ToString(), Roles.GetRolesForUser());
             }
             ViewBag.FilesToAttach = files;
 

@@ -509,7 +509,7 @@ WriteLiteral("\r\n");
             
             #line default
             #line hidden
-WriteLiteral("        <p>\r\n        \r\n            <a");
+WriteLiteral("        <p>\r\n            <br>\r\n            <a");
 
 WriteLiteral(" class=\"btn btn-primary btn-xs\"");
 

@@ -34,10 +34,13 @@ namespace UsersDiosna.Controllers
                 FileHelper FH = new FileHelper();
 
                 //Check the privilage to download from that mask
-                bool hasAccess = false; 
+                bool hasAccess = false;
+                string mask = "";
                 List<string> masks = FH.selectMasks((int)Session["id"], Roles.GetRolesForUser());
-                foreach (string mask in masks)
+                foreach (string maskFile in masks)
                 {
+                    if (maskFile.Contains('\\'))
+                        mask = maskFile.Replace('\\', '/');
                     Regex regex = new Regex('^' + mask.Replace(".", "[.]").Replace("*", ".*").Replace("?", ".") + '$'); //regex of mask
                     if (regex.IsMatch(nameFile)){
                         hasAccess = true;

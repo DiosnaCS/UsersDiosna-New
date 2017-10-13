@@ -23,30 +23,30 @@
 @if (Model != null) {
     <div class="table-responsive">
         <table class="table table-condensed table-bordered table-hover table-responsive">
-            <tr>
-                <th>
+            <tr >
+                <th class="col-md-2"style="text-align: center;" title="Date and time when was it created">
                     Created
                 </th>
-                <th>
+                <th style="text-align: center;" title="Author">
                     Aut.
                 </th>
-                <th>
+                <th style="text-align: center;" title="Subject">
                     Subj.
                 </th>
-                <th>
+                <th style="text-align: center;" class="col-md-4" title="Article text">
                     Content
                 </th>
-                <th>
+                <th style="text-align: center;" title="Cots of our services">
                     Costs
                 </th>
-                <th>
+                <th style="text-align: center;" title="Hours spend">
                     Hs.
                 </th>
-                <th>
+                <th style="text-align: center;" class="col-md-1" >
                     Attachment
                 </th>
-                <th>
-                    Attachment description
+                <th style="text-align: center;" title="Attachment description">
+                    Desciption
                 </th>
                 <th></th>
             </tr>
@@ -58,7 +58,7 @@
                     @{ 
                         lastSectionName = item.Section.Name;
                     }
-                    <td><h5>@Html.DisplayFor(modelItem => item.Section.Name)</h5></td>
+                    <td colspan="5" style="border-left:0px; border-right: 0px;"><h4><u>@Html.DisplayFor(modelItem => item.Section.Name)</u></h4></td>
                 </tr>
                 }
                 <tr class="small">
@@ -72,7 +72,7 @@
                         @Html.Raw(CMSHandler.maxLength(item.Header, 40, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
-                        @Html.Raw(CMSHandler.maxLength(item.Text, 15, "/CMS/DetailArticle/" + item.Id))
+                        @Html.Raw(CMSHandler.maxLength(item.Text, 55, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
                         @Html.Raw(CMSHandler.maxLength(item.Amount, 10, "/CMS/DetailArticle/" + item.Id))
@@ -83,20 +83,23 @@
                     <td>
                         @{if (item.Attachment != null)
                             {
-                                fileName = item.Attachment;
+                                if (item.Attachment.Contains('/'))
+                                {
+                                    fileName = item.Attachment.Substring(item.Attachment.LastIndexOf('/'));
+                                }
                             }
                         }
-                        <a href="@item.Attachment" title="/Download/downloadFile?nameFile=@fileName">Download</a>
+                        <a href="/Download/downloadFile?nameFile=@item.Attachment" title="@fileName">Download</a>
                     </td>
                     <td>
-                        @Html.Raw(CMSHandler.maxLength(item.Description, 150, "/CMS/DetailArticle/" + item.Id))
+                        @Html.Raw(CMSHandler.maxLength(item.Description, 20, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
-                        <span> @Html.ActionLink("Edit", "EditArticle", new { id = item.Id })</span>
+                        <span> @Html.ActionLink("Details", "DetailArticle", new { id = item.Id }) </span>
                         @if (User.IsInRole("CMS"))
                         {
-
-                            <span> | @Html.ActionLink("Details", "DetailArticle", new { id = item.Id }) |</span>
+                            <span>| @Html.ActionLink("Edit", "EditArticle", new { id = item.Id }) |</span>
+                            
                             <span>@Html.ActionLink("Delete", "DeleteArticle", new { id = item.Id })</span>
                         }
                     </td>
