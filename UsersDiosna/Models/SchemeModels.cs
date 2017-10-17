@@ -14,4 +14,15 @@ namespace UsersDiosna.Sheme.Models
         /// </summary>
         public SvgDocument SvgFile {get; set; }
     }
+    public class SchemeValue
+    {
+        public string tableName { get; set; }
+        public string columnName { get; set; }
+    }
+    public class ResponseValue
+    {
+        public string tableName { get; set; }
+        public string columnName { get; set; }
+        public object value { get; set; }
+    }
 }

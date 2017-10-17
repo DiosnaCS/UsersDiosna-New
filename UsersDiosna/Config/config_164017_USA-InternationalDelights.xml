@@ -40,5 +40,8 @@
 		</Report>
 		<CMS name="Project Info">
 		</CMS>
+		<SchemeEditor>
+			<pathScheme>\Config\svg\scheme.svg</pathScheme>
+		</SchemeEditor>
 	</plc>
 </configuration>

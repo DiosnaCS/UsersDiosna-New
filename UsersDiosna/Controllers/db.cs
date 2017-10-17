@@ -290,27 +290,36 @@ namespace UsersDiosna.Controllers
         {
             object result = new object();
 
+            if (connection.FullState == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+
             if (where == null)
             {
                 //SqlCommand cmd = new SqlCommand("SELECT " + column + " FROM "+ table, conn);
-                string sql = string.Format("SELECT {0} FROM {1}", column, table);
+                string sql = string.Format("SELECT \"{0}\" FROM \"{1}\" ORDER BY \"UTC\" DESC LIMIT 1", column, table);
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 NpgsqlDataReader r = cmd.ExecuteReader();
                 while (r.Read())
                 {
                     result = r.GetValue(0);
                 }
+                r.Close();
+                cmd.Dispose();
             }
             else
             {
                 //SqlCommand cmd = new SqlCommand("SELECT " + column + " FROM "+ table +" WHERE " + where, conn);
-                string sql = string.Format("SELECT {0} FROM {1} WHERE {2}", column, table, where);
+                string sql = string.Format("SELECT \"{0}\" FROM \"{1}\" WHERE {2}", column, table, where);
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 NpgsqlDataReader r = cmd.ExecuteReader();
                 while (r.Read())
                 {
                     result = r.GetValue(0);
                 }
+                r.Close();
+                cmd.Dispose();
             }
 
             return result;
@@ -322,7 +331,7 @@ namespace UsersDiosna.Controllers
             if (whereMultiple == null)
             {
                 //SqlCommand cmd = new SqlCommand("SELECT " + column + " FROM "+ table, conn);
-                string sql = string.Format("SELECT {0} FROM {1}", column, table);
+                string sql = string.Format("SELECT \"{0}\" FROM \"{1}\"", column, table);
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 NpgsqlDataReader r = cmd.ExecuteReader();
                 while (r.Read())
@@ -333,7 +342,7 @@ namespace UsersDiosna.Controllers
             else
             {
                 //SqlCommand cmd = new SqlCommand("SELECT " + column + " FROM "+ table +" WHERE " + where, conn);
-                string sql = string.Format("SELECT {0} FROM {1} WHERE {2}", column, table, whereMultiple);
+                string sql = string.Format("SELECT \"{0}\" FROM \"{1}\" WHERE {2}", column, table, whereMultiple);
                 NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
                 NpgsqlDataReader r = cmd.ExecuteReader();
                 while (r.Read())

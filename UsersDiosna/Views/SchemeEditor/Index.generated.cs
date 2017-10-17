@@ -47,13 +47,24 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>Index</h2>\r\n\r\n<div>\r\n");
+WriteLiteral("\r\n\r\n<h2>New scheme</h2>\r\n<script");
+
+WriteAttribute("src", Tuple.Create(" src=\"", 121), Tuple.Create("\"", 150)
+, Tuple.Create(Tuple.Create("", 127), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/NewSchemes.js")
+, 127), false)
+);
+
+WriteLiteral(" ></script>\r\n<div");
+
+WriteLiteral(" onclick=\"getValues()\"");
+
+WriteLiteral(">\r\n");
 
 WriteLiteral("    ");
 
             
             #line 9 "..\..\Views\SchemeEditor\Index.cshtml"
-Write(Model.SvgFile.BaseUri);
+Write(Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath))));
 
             
             #line default
@@ -62,14 +73,14 @@ WriteLiteral("\r\n  <object");
 
 WriteLiteral(" type=\"image/svg+xml\"");
 
-WriteAttribute("data", Tuple.Create(" data=\"", 176), Tuple.Create("\"", 215)
+WriteAttribute("data", Tuple.Create(" data=\"", 292), Tuple.Create("\"", 318)
             
             #line 10 "..\..\Views\SchemeEditor\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 183), Tuple.Create<System.Object, System.Int32>(Model.SvgFile.BaseUri.LocalPath
+, Tuple.Create(Tuple.Create("", 299), Tuple.Create<System.Object, System.Int32>(Model.relativePath
             
             #line default
             #line hidden
-, 183), false)
+, 299), false)
 );
 
 WriteLiteral(">\r\n      Your object does not suupport SVG\r\n  </object>\r\n</div>");

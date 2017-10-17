@@ -7,20 +7,86 @@ using Svg;
 using UsersDiosna.Handlers;
 using System.Drawing;
 using UsersDiosna.Sheme.Models;
+using System.Threading.Tasks;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace UsersDiosna.Controllers
 {
+    [Authorize(Roles="Admin")]
     public class SchemeEditorController : Controller
     {
+        private SvgDocument svg { get; set; } 
+
         // GET: SchemeEditor
         public ActionResult Index()
         {
-            string pathToSvg = @"\Config\svg\vectorpaint.svg";
-            SvgDocument svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
-            SchemeEditor model = new SchemeEditor();
-            model.relativePath = pathToSvg.Replace(@"\", @"/");
-            model.SvgFile = svg;
-            return View(model);
+            string pathToSvg = null;
+            foreach( string key in Session.Keys)
+            {
+                if (key.Contains("pathScheme"))
+                {
+                    pathToSvg = Session[key].ToString();
+                }
+            }
+            //string pathToSvg = @"\Config\svg\scheme.svg";
+            if (pathToSvg != null)
+            {
+                svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
+
+                SchemeEditor model = new SchemeEditor();
+                model.relativePath = pathToSvg.Replace(@"\", @"/");
+                model.SvgFile = svg;
+                return View(model);
+            }
+            else
+            {
+                Session["tempforview"] = "Problem with finding this svg path";
+                return RedirectToAction("Index", "Menu");
+            }
+        }
+
+        public async Task<string> DrawLine(int startX, int startY, int endX, int endY, float width)
+        {
+            SvgLine line = new SvgLine();
+            line.StartX = startX;
+            line.StartY = startY;
+            line.EndX = endX;
+            line.EndY = endY;
+            SvgUnit svgUnit = new SvgUnit(width);
+            line.StrokeWidth = svgUnit;
+            string lineXML = line.GetXML();
+            string  svgXML = svg.GetXML();
+            Response.ContentType = "text/xml";
+            return svgXML;
+        }
+        public async Task<JsonResult> getData()
+        {
+            StreamReader stream = new StreamReader(Request.InputStream);
+            object data = new object();
+            List<ResponseValue> responseList = new List<ResponseValue>();
+            string json = stream.ReadToEnd();
+            if (json != "")
+            {
+                List<SchemeValue> list = new JavaScriptSerializer().Deserialize<List<SchemeValue>>(json);
+                if (list.Count != 0)
+                {
+                    List<string> dbNames = XMLHandler.readTag("dbName", (int)Session["id"]);
+                    db db = new db(dbNames[0], 12);
+                    foreach (var schemeValue in list)
+                    {
+                        object value = db.singleItemSelectPostgres(schemeValue.columnName, schemeValue.tableName, null);
+                        ResponseValue responseValue = new ResponseValue();
+                        responseValue.tableName = schemeValue.tableName;
+                        responseValue.columnName = schemeValue.columnName;
+                        responseValue.value = value;
+                        responseList.Add(responseValue);
+                    }
+                    db.connection.Close();
+                    data = responseList;
+                }
+            }
+            return Json(data, "application/json", JsonRequestBehavior.AllowGet);
         }
     }
 }
