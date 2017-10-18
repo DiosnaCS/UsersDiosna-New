@@ -283,7 +283,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
-    <Compile Include="Controllers\SchemeEditorController.cs" />
+    <Compile Include="Controllers\NewSchemesController.cs" />
     <Compile Include="Handlers\AlarmHelper.cs" />
     <Compile Include="Handlers\FileHelper.cs" />
     <Compile Include="Handlers\SchemeEditorHandler.cs" />
@@ -562,7 +562,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Detail.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SchemeEditor\Index.generated.cs">
+    <Compile Include="Views\NewSchemes\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
@@ -885,7 +885,7 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Day.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\SchemeEditor\Index.cshtml">
+    <Content Include="Views\NewSchemes\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
     </Content>

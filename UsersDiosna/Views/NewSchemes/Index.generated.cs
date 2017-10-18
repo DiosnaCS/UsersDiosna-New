@@ -31,16 +31,16 @@ namespace ASP
     using UsersDiosna.Controllers;
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
-    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/SchemeEditor/Index.cshtml")]
-    public partial class _Views_SchemeEditor_Index_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.Sheme.Models.SchemeEditor>
+    [System.Web.WebPages.PageVirtualPathAttribute("~/Views/NewSchemes/Index.cshtml")]
+    public partial class _Views_NewSchemes_Index_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.Sheme.Models.SchemeEditor>
     {
-        public _Views_SchemeEditor_Index_cshtml()
+        public _Views_NewSchemes_Index_cshtml()
         {
         }
         public override void Execute()
         {
             
-            #line 2 "..\..\Views\SchemeEditor\Index.cshtml"
+            #line 2 "..\..\Views\NewSchemes\Index.cshtml"
   
     ViewBag.Title = "Scheme Editor";
 
@@ -63,7 +63,7 @@ WriteLiteral(">\r\n");
 WriteLiteral("    ");
 
             
-            #line 9 "..\..\Views\SchemeEditor\Index.cshtml"
+            #line 9 "..\..\Views\NewSchemes\Index.cshtml"
 Write(Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath))));
 
             
@@ -75,7 +75,7 @@ WriteLiteral(" type=\"image/svg+xml\"");
 
 WriteAttribute("data", Tuple.Create(" data=\"", 292), Tuple.Create("\"", 318)
             
-            #line 10 "..\..\Views\SchemeEditor\Index.cshtml"
+            #line 10 "..\..\Views\NewSchemes\Index.cshtml"
 , Tuple.Create(Tuple.Create("", 299), Tuple.Create<System.Object, System.Int32>(Model.relativePath
             
             #line default

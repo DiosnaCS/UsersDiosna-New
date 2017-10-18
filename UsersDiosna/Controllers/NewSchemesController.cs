@@ -14,7 +14,7 @@ using System.Web.Script.Serialization;
 namespace UsersDiosna.Controllers
 {
     [Authorize(Roles="Admin")]
-    public class SchemeEditorController : Controller
+    public class NewSchemesController : Controller
     {
         private SvgDocument svg { get; set; } 
 
@@ -45,28 +45,13 @@ namespace UsersDiosna.Controllers
                 return RedirectToAction("Index", "Menu");
             }
         }
-
-        public async Task<string> DrawLine(int startX, int startY, int endX, int endY, float width)
-        {
-            SvgLine line = new SvgLine();
-            line.StartX = startX;
-            line.StartY = startY;
-            line.EndX = endX;
-            line.EndY = endY;
-            SvgUnit svgUnit = new SvgUnit(width);
-            line.StrokeWidth = svgUnit;
-            string lineXML = line.GetXML();
-            string  svgXML = svg.GetXML();
-            Response.ContentType = "text/xml";
-            return svgXML;
-        }
         public async Task<JsonResult> getData()
         {
             StreamReader stream = new StreamReader(Request.InputStream);
             object data = new object();
             List<ResponseValue> responseList = new List<ResponseValue>();
             string json = stream.ReadToEnd();
-            if (json != "")
+            if (json != "[]" || json != null || json != "")
             {
                 List<SchemeValue> list = new JavaScriptSerializer().Deserialize<List<SchemeValue>>(json);
                 if (list.Count != 0)
@@ -85,8 +70,13 @@ namespace UsersDiosna.Controllers
                     db.connection.Close();
                     data = responseList;
                 }
+                return Json(data, "application/json", JsonRequestBehavior.AllowGet);
             }
-            return Json(data, "application/json", JsonRequestBehavior.AllowGet);
+            else
+            {
+                return Json(data);
+            }
+            
         }
     }
 }

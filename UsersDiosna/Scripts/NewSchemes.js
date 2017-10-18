@@ -11,6 +11,8 @@ class Value {
         this.columnName = columnName;
     }
 };
+
+//Function to get all text values
 function getValues() {    
     var nameValues = [];
     $('.value').each(function (index) {
@@ -39,7 +41,7 @@ function getValues() {
         }
     });   
 }
-
+//Function to set all dynamic texts
 function setValues(values) {
     console.log("set value");
     console.log(values);
@@ -55,3 +57,6 @@ function setValues(values) {
         console.log(document.getElementById(id));
     }
 }
+
+//
+function get
