@@ -40,8 +40,13 @@
 		</Report>
 		<CMS name="Project Info">
 		</CMS>
-		<SchemeEditor>
+		<NewScheme>
 			<pathScheme>\Config\svg\scheme.svg</pathScheme>
+		</NewScheme>
+		<SchemeEditor>
+			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
+			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\step.txt</pathCfg2>
+			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>
 </configuration>

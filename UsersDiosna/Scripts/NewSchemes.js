@@ -57,6 +57,3 @@ function setValues(values) {
         console.log(document.getElementById(id));
     }
 }
-
-//
-function get

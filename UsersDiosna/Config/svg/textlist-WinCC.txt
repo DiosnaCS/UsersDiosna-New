@@ -1,0 +1,93 @@
+0	--- off ---
+1	Reservation
+2	Done
+3	Running
+4	Pause
+5	Hold
+6	Interrupted (alarm)
+
+
+
+0	None
+1	Tank SF1
+2	Tank SF2
+3	Tank SF3
+4	Tank SF4
+5	Tank SF5
+6	Tank SF6
+7	Tank SF7
+8	Tank SF8
+9	Tank SF9
+10	Tank SF10
+11	Tank SF11
+12	Tank SF12
+13	LN1
+14	LN2
+15	DS1 (man.point)
+16	Gully
+17	Pipe1
+18	Pipe2
+19	Pipe3
+20	ST_Trans1
+21	ST_Trans2
+22	ST_Trans3
+23	ST_Pig1
+24	ST_Pig2
+25	ST_Pig3
+26	ST_ClnTank_Aut
+27	ST_ClnTank_Man
+28	ST_ClnTank_Shower
+29	ST_ClnTank_Chem
+30	MP
+31	DP_InverterA
+32	DP_InverterB
+33	DP_InverterC
+34	WaterDose
+35	WaterCleanLN
+36	WaterCleanTankAut
+37	WaterCleanTankMan
+38	Water PIG1
+39	Water PIG2
+40	Water PIG3
+41	ST_Clean_Pipe1
+42	ST_Clean_Pipe2
+43	ST_Clean_Pipe3
+44	ST_Line_Discharge
+45	ST_Flour
+46	ST_Line_Shower
+47	ST_Piper2
+48	ST_Piper3
+49	ST_YeastConti
+50	ST_MaltConti
+51	ST_FlourConti
+52	ST_Clean_MP_Aut
+53	ST_Clean_MP_Flood
+90	PIG_Home
+100	Manual start (clean tank AUTO)
+101	Manual start (clean tank MAN)
+102	Manual start (clean tank SHOWER)
+103	Manual start (clean tank CHEM)
+104	Owner - Dosing out (line1)
+105	Manual start (Pipe 1)
+106	Manual start (Pipe 2)
+107	Manual start (Pipe 3)
+108	Manual start (PIG1)
+109	Manual start (PIG2)
+110	Manual start (PIG3)
+111	Manual start Pipe2 from DS1
+112	Manual start Pipe3 from DS1
+113	Manual start (clean Pipe1)
+114	Manual start (clean Pipe2)
+115	Manual start (clean Pipe3)
+116	Manual start (shower Line1)
+117	Manual start (discharge Line1)
+118	Manual start (water WMU1)
+119	idOWN_DO_LN1
+120	idOWN_DO_LN2
+121	idOWN_DO_Man
+122	idOWN_ManWater
+123	idOWN_ClnMP_Aut
+124	idOWN_ClnMP_Flood
+125	Manual start (clean yeast)
+126	Manual start (clean LN1)
+127	Manual start (clean LN2)

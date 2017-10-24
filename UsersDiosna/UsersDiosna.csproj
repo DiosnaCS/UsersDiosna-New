@@ -284,6 +284,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\NewSchemesController.cs" />
+    <Compile Include="Controllers\SchemeEditorController.cs" />
     <Compile Include="Handlers\AlarmHelper.cs" />
     <Compile Include="Handlers\FileHelper.cs" />
     <Compile Include="Handlers\SchemeEditorHandler.cs" />
@@ -900,6 +901,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SchemeEditor\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>

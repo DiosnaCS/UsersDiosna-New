@@ -32,10 +32,11 @@ namespace UsersDiosna.Controllers
             //string pathToSvg = @"\Config\svg\scheme.svg";
             if (pathToSvg != null)
             {
+                pathToSvg = pathToSvg.Replace(@"\", @"/");
                 svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
 
                 SchemeEditor model = new SchemeEditor();
-                model.relativePath = pathToSvg.Replace(@"\", @"/");
+                model.relativePath = pathToSvg;
                 model.SvgFile = svg;
                 return View(model);
             }

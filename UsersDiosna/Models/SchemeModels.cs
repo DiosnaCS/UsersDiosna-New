@@ -3,6 +3,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Web;
 using System.Web.Mvc;
 using Svg;
+using System.Drawing;
+using System.Xml.Serialization;
 
 namespace UsersDiosna.Sheme.Models
 {
@@ -24,5 +26,26 @@ namespace UsersDiosna.Sheme.Models
         public string tableName { get; set; }
         public string columnName { get; set; }
         public object value { get; set; }
+    }
+    public class TextlistItem
+    {
+        [XmlAttribute]
+        public int index { get; set; }
+        [XmlAttribute]
+        public string value { get; set; }
+        [XmlAttribute]
+        public string bgColor { get; set; }
+        [XmlAttribute]
+        public string textColor { get; set; }
+    }
+    public class Textlist
+    {
+        [XmlAttribute]
+        public string name { get; set; }
+        public List<TextlistItem> values { get; set; }
+    }
+    public class GraphiclistValue
+    {
+        public int id { get; set; }
     }
 }

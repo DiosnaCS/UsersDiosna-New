@@ -1,0 +1,7 @@
+0	--- off ---
+1	Reservation
+2	Done
+3	Running
+4	Pause
+5	Hold
+6	Interrupted (alarm)

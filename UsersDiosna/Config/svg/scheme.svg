@@ -7,8 +7,14 @@
   <text xml:space="preserve" y="430.8442" x="1017.7095" transform="matrix(5.03757 0 0 2.73277 -4251.81 -866.974)" text-anchor="middle" stroke-width="0" stroke="#000000" fill="#000000" font-size="4px" font-family="Broadway" id="arWS_norm.diSF1_AgeOld" class="value" some="5">0,0</text>
   <text xml:space="preserve" y="424.5319" x="1023.6648" transform="matrix(5.03757 0 0 2.73277 -4274.51 -771.157)" text-anchor="middle" stroke-width="0" stroke="#000000" fill="#000000" font-size="5px" font-family="Calibri" id="arWS_norm.diSF2_AgeOld" class="value">0,0</text>
   <text xml:space="preserve" y="456.6421" x="1023.0693" transform="matrix(5.03757 0 0 2.73277 -4278.26 -979.657)" text-anchor="middle" stroke-width="0" stroke="#000000" fill="#000000" font-size="5px" font-family="Sans-serif" id="arWS_norm.diMF1_AgeOld" class="value">0,0</text>
-  <text y="356.6421" x="923.0693" fill="purple" stroke="green">0.0</text>
-  <rect y="356.6421" x="923.0693" width="50" height="25">0.0</rect>
+ </g>
+</svg>
+<svg width="1280" height="960" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <title>second svg</title>
+ <g class="sec">
+  <title>Layer 2</title>
+  <rect y="356.6421" x="923.0693" width="50" height="25"></rect>
+<text y="356.6421" x="923.0693" fill="purple" stroke="green">50.0</text>
   <config>
 	<number id="54" column="iPH" table="norm" format="0.00" />
 	<multitext id="5">
@@ -16,5 +22,5 @@
 		<text id="52" value="2">2.0</text>
 	</multitext>
    </config>
- </g>
+</g>
 </svg>
