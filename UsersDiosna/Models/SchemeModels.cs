@@ -42,10 +42,18 @@ namespace UsersDiosna.Sheme.Models
     {
         [XmlAttribute]
         public string name { get; set; }
-        public List<TextlistItem> values { get; set; }
+        public List<TextlistItem> items { get; set; }
     }
-    public class GraphiclistValue
+    public class GraphiclistItem
     {
-        public int id { get; set; }
+        [XmlAttribute]
+        public int index { get; set; }
+        [XmlAttribute]
+        public string path { get; set; }
+    }
+    public class Graphiclist
+    {
+        public string name { get; set; }
+        public List<GraphiclistItem> items { get; set; }
     }
 }

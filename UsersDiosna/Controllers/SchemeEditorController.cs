@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml.Serialization;
+using UsersDiosna.Handlers;
 using UsersDiosna.Sheme.Models;
 
 namespace UsersDiosna.Controllers
@@ -15,13 +16,24 @@ namespace UsersDiosna.Controllers
         // GET: SchemeEditor
         public ActionResult Index()
         {
+            int i = 0;
             List<string> pathesToCfg = new List<string>();
             string pathSvgCfg = null;
+            string subGraphicDir = null;
+            List<string> pathGraphicCfg = new List<string>();
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("pathCfg"))
                 {
                     pathesToCfg.Add(Session[key].ToString());
+                }
+                if (key.Contains("subGraphicDir"))
+                {
+                   subGraphicDir = Session[key].ToString();
+                }
+                if (key.Contains("pathGraphicCfg"))
+                {
+                    pathGraphicCfg.Add(Session[key].ToString());
                 }
                 if (key.Contains("pathSvgCfg"))
                 {
@@ -29,38 +41,23 @@ namespace UsersDiosna.Controllers
                 }
             }
 
-            /*if (System.IO.File.ReadAllLines(pathToCfg).Length != 0)
+            if (pathGraphicCfg != null)
             {
-                string[] lines = System.IO.File.ReadAllLines(pathToCfg);
-                foreach(string line in lines)
-                {
-                    string[] splittedArray = line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
-                }
-            }*/
-            foreach (string path in pathesToCfg)
+                SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg);
+            }
+            else
             {
-                var file = System.IO.File.ReadAllLines(path).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
-                var textlistItems = file.Where(line => line.Length != 0).ToList();
-                Textlist textlist = new Textlist();
-                textlist.values = new List<TextlistItem>();
-                foreach(var item in textlistItems)
-                {
-                    TextlistItem textlistItem = new TextlistItem();
-                    textlistItem.index = int.Parse(item[0]);
-                    textlistItem.value = item[1];
-                    textlistItem.bgColor = ColorTranslator.ToHtml(Color.White);
-                    textlistItem.textColor = ColorTranslator.ToHtml(Color.Black);
-                    textlist.values.Add(textlistItem);
-                }
-                string textlistName = path.Substring(path.LastIndexOf("\\")+1, path.LastIndexOf(".") - path.LastIndexOf("\\"));
-                textlist.name = textlistName;
-                XmlSerializer serializer = new XmlSerializer(typeof(Textlist));
-                using (TextWriter writer = new StreamWriter(pathSvgCfg))
-                {
-                    serializer.Serialize(writer, textlist);
-                }
+                Session["tempforview"] = "Config files pathes are not present in config";
+            }
+            if (pathSvgCfg != null)
+            {
+                SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg);
+            }
+            else
+            {
+                Session["tempforview"] = "Config files pathes are not present in config";
             }
             return View();
         }
     }
-}  
+}   
