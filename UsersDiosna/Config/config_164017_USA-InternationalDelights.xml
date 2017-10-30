@@ -46,6 +46,8 @@
 		<SchemeEditor>
 			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
 			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\step.txt</pathCfg2>
+			<subGraphicDir>\valve\</subGraphicDir>
+			<pathGraphicCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
 			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>

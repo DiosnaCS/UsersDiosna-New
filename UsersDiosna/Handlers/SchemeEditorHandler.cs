@@ -55,7 +55,7 @@ namespace UsersDiosna.Handlers
         {
             foreach (string pathCfg in pathGraphicCfg)
             {
-                var lines = System.IO.File.ReadAllLines(pathCfg).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
+                var lines = System.IO.File.ReadAllLines(pathCfg).Select(line => line.Split(new char[] { '\t' }));
                 var graphiclistItems = lines.Where(line => line.Length != 0).ToList();
                 Graphiclist graphiclist = new Graphiclist();
                 foreach (var item in graphiclistItems)
@@ -68,7 +68,8 @@ namespace UsersDiosna.Handlers
                     }
                     else
                     {
-                        string[] path = Directory.GetFiles(pathCfg + subGraphicDir, graphiclistItem.index + ".*");
+                        string mask = "*_" + graphiclistItem.index + "*";
+                        string[] path = Directory.GetFiles(pathCfg.Substring(0, pathCfg.LastIndexOf("\\")) + subGraphicDir,mask);
                         graphiclistItem.path = path[0];
                     }
                     graphiclist.items.Add(graphiclistItem);
