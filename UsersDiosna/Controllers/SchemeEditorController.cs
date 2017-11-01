@@ -19,7 +19,8 @@ namespace UsersDiosna.Controllers
             int i = 0;
             List<string> pathesToCfg = new List<string>();
             string pathSvgCfg = null;
-            string subGraphicDir = null;
+            List<string> ageBarsPathes = null;
+            List<string> subGraphicDir = null;
             List<string> pathGraphicCfg = new List<string>();
             foreach (string key in Session.Keys)
             {
@@ -29,7 +30,7 @@ namespace UsersDiosna.Controllers
                 }
                 if (key.Contains("subGraphicDir"))
                 {
-                   subGraphicDir = Session[key].ToString();
+                   subGraphicDir.Add(Session[key].ToString());
                 }
                 if (key.Contains("pathGraphicCfg"))
                 {
@@ -40,23 +41,37 @@ namespace UsersDiosna.Controllers
                     pathSvgCfg = Session[key].ToString();
                 }
             }
+            
+            if (ageBarsPathes != null)
+            {
+                foreach (string ageBarPath in ageBarsPathes)
+                {
 
-            if (pathGraphicCfg != null)
+                }
+            }
+            else
+            {
+                Session["tempforview"] = "Config files pathes are not present in bakery config";
+            }
+
+            if (pathGraphicCfg != null && subGraphicDir != null && pathGraphicCfg != null)
             {
                 SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg);
             }
             else
             {
-                Session["tempforview"] = "Config files pathes are not present in config";
+                Session["tempforview"] = "Config files pathes are not present in bakery config";
             }
-            if (pathSvgCfg != null)
+
+            if (pathSvgCfg != null && pathesToCfg != null)
             {
                 SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg);
             }
             else
             {
-                Session["tempforview"] = "Config files pathes are not present in config";
+                Session["tempforview"] = "Config files pathes are not present in bakery config";
             }
+
             return View();
         }
     }

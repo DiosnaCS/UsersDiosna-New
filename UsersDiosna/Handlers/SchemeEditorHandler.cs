@@ -51,30 +51,49 @@ namespace UsersDiosna.Handlers
             return document;
         }
 
-        public static void getGraphicLists(string pathSvgCfg, string subGraphicDir, List<string> pathGraphicCfg)
+        public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg)
         {
-            foreach (string pathCfg in pathGraphicCfg)
+            foreach (string subDir in subGraphicDir)
             {
-                var lines = System.IO.File.ReadAllLines(pathCfg).Select(line => line.Split(new char[] { '\t' }));
-                var graphiclistItems = lines.Where(line => line.Length != 0).ToList();
-                Graphiclist graphiclist = new Graphiclist();
-                foreach (var item in graphiclistItems)
+                foreach (string pathCfg in pathGraphicCfg)
                 {
-                    GraphiclistItem graphiclistItem = new GraphiclistItem();
-                    graphiclistItem.index = int.Parse(item[0]);
-                    if (item.Length > 1)
+                    var lines = System.IO.File.ReadAllLines(pathCfg).Select(line => line.Split(new char[] { '\t' }));
+                    var graphiclistItems = lines.Where(line => line.Length != 0).ToList();
+                    Graphiclist graphiclist = new Graphiclist();
+                    graphiclist.items = new List<GraphiclistItem>();
+                    foreach (var item in graphiclistItems)
                     {
-                        graphiclistItem.path = item[1];
+                        GraphiclistItem graphiclistItem = new GraphiclistItem();
+                        graphiclistItem.index = int.Parse(item[0]);
+                        if (item.Length > 1)
+                        {
+                            graphiclistItem.path = item[1];
+                        }
+                        else
+                        {
+                            string mask;
+                            if (graphiclistItem.index < 10)
+                            {
+                                mask = "*_0" + graphiclistItem.index + "*";
+                            }
+                            else
+                            {
+                                mask = "*_" + graphiclistItem.index + "*";
+                            }
+                            string[] path = Directory.GetFiles(pathCfg.Substring(0, pathCfg.LastIndexOf("\\")) + subDir, mask);
+                            if (path.Length == 0)
+                            {
+                                throw new Exception();
+                            }
+                            else
+                            {
+                                graphiclistItem.path = path[0];
+                            }
+                        }
+                        graphiclist.items.Add(graphiclistItem);
+                        graphiclist.name = subDir;
                     }
-                    else
-                    {
-                        string mask = "*_" + graphiclistItem.index + "*";
-                        string[] path = Directory.GetFiles(pathCfg.Substring(0, pathCfg.LastIndexOf("\\")) + subGraphicDir,mask);
-                        graphiclistItem.path = path[0];
-                    }
-                    graphiclist.items.Add(graphiclistItem);
-                    graphiclist.name = subGraphicDir;
-                    XmlSerializer serializer = new XmlSerializer(typeof(Textlist));
+                    XmlSerializer serializer = new XmlSerializer(typeof(Graphiclist));
                     using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
                     {
                         serializer.Serialize(writer, graphiclist);
@@ -96,8 +115,14 @@ namespace UsersDiosna.Handlers
                     TextlistItem textlistItem = new TextlistItem();
                     textlistItem.index = int.Parse(item[0]);
                     textlistItem.value = item[1];
-                    textlistItem.bgColor = ColorTranslator.ToHtml(Color.White);
-                    textlistItem.textColor = ColorTranslator.ToHtml(Color.Black);
+                    if (item.Length > 2)
+                    {
+
+                    } else
+                    {
+                        textlistItem.bgColor = ColorTranslator.ToHtml(Color.White);
+                        textlistItem.textColor = ColorTranslator.ToHtml(Color.Black);
+                    }
                     textlist.items.Add(textlistItem);
                 }
                 string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\"));
