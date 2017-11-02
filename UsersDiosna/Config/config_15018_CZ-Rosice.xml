@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <contract>
+    <id>15018</id>
+    <country>CZ</country>
+    <name>Rosice</name>
+  </contract>
+  <plc name="BF">
+    <scheme name="Overview">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_overview_CZROS_BF__</url>
+    </scheme>
+    <scheme name="MF1">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_MF1_operation_CZROS_BF__</url>
+    </scheme>
+    <scheme name="MF2">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_MF2_operation_CZROS_BF__</url>
+    </scheme>
+    <scheme name="PF1">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_PF1_operation_CZROS_BF__</url>
+    </scheme>
+    <scheme name="PF2">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_PF2_operation_CZROS_BF__</url>
+    </scheme>
+    <scheme name="PF3">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_PF3_operation_CZROS_BF__</url>
+    </scheme>
+    <scheme name="SF">
+      <url>http://users.nordit.cz/ih2/10610_Rosice/__pic_sch_SF_operation_CZROS_BF__</url>
+    </scheme>
+    <graph name="Graphs">
+        <pathConfig>C:\Akce\java\grafy_cfg_CZROS_BF.ini</pathConfig>
+        <pathNames>C:\Akce\java\grafy_names_CZROS.ini</pathNames>
+    </graph>
+    <alarm name="Alarms">
+        <dbName>Rosice</dbName>
+    </alarm>
+    <Download>
+	<path>/Zakazky/0_New/15_rok/15017_CZ-Rosice_Chlebová fermentace/</path>
+    </Download>
+    <Upload>
+	<path>/Zakazky/0_New/15_rok/15017_CZ-Rosice_Chlebová fermentace/9_Public/</path>
+    </Upload>
+    <CMS name="Project info">
+    </CMS>
+  </plc>
+</configuration>

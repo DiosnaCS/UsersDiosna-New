@@ -58,10 +58,10 @@ namespace UsersDiosna.Handlers
                 foreach (string pathCfg in pathGraphicCfg)
                 {
                     var lines = System.IO.File.ReadAllLines(pathCfg).Select(line => line.Split(new char[] { '\t' }));
-                    var graphiclistItems = lines.Where(line => line.Length != 0).ToList();
+                    List<string[]> graphiclistItems = lines.Where(line => line.Length != 0).ToList();
                     Graphiclist graphiclist = new Graphiclist();
                     graphiclist.items = new List<GraphiclistItem>();
-                    foreach (var item in graphiclistItems)
+                    foreach (string[] item in graphiclistItems)
                     {
                         GraphiclistItem graphiclistItem = new GraphiclistItem();
                         graphiclistItem.index = int.Parse(item[0]);
@@ -107,10 +107,10 @@ namespace UsersDiosna.Handlers
             foreach (string path in pathesToCfg)
             {
                 var file = System.IO.File.ReadAllLines(path).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
-                var textlistItems = file.Where(line => line.Length != 0).ToList();
+                List<string[]> textlistItems = file.Where(line => line.Length != 0).ToList();
                 Textlist textlist = new Textlist();
                 textlist.items = new List<TextlistItem>();
-                foreach (var item in textlistItems)
+                foreach (string[] item in textlistItems)
                 {
                     TextlistItem textlistItem = new TextlistItem();
                     textlistItem.index = int.Parse(item[0]);

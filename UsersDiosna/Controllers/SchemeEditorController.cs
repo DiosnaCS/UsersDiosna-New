@@ -19,14 +19,23 @@ namespace UsersDiosna.Controllers
             int i = 0;
             List<string> pathesToCfg = new List<string>();
             string pathSvgCfg = null;
-            List<string> ageBarsPathes = null;
-            List<string> subGraphicDir = null;
+            string dynValuesCfg = null;
+            string ageBarsCfgPath = null;
+            List<string> subGraphicDir = new List<string>();
             List<string> pathGraphicCfg = new List<string>();
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("pathCfg"))
                 {
                     pathesToCfg.Add(Session[key].ToString());
+                }
+                if (key.Contains("dynValuesCfg"))
+                {
+                    dynValuesCfg = Session[key].ToString();
+                }
+                if (key.Contains("ageBarsCfgPath"))
+                {
+                    ageBarsCfgPath = Session[key].ToString();
                 }
                 if (key.Contains("subGraphicDir"))
                 {
@@ -41,12 +50,53 @@ namespace UsersDiosna.Controllers
                     pathSvgCfg = Session[key].ToString();
                 }
             }
-            
-            if (ageBarsPathes != null)
-            {
-                foreach (string ageBarPath in ageBarsPathes)
-                {
 
+            if (dynValuesCfg != null)
+            {
+                var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }));
+                List<string[]> dynValueList = lines.Where(line => line.Length != 0).ToList();
+                List<DynValue> values = new List<DynValue>();
+                foreach (string[] dynValue in dynValueList)
+                {
+                    DynValue value = new DynValue();
+
+                    value.index = int.Parse(dynValue[0]);
+                    value.table = dynValue[1];
+                    value.column = dynValue[2];
+                    value.ratio = int.Parse(dynValue[3]);
+                    value.offset = int.Parse(dynValue[4]);
+                    value.unit = dynValue[5];
+                    value.textColor = dynValue[6];
+
+                    values.Add(value);
+                }
+                XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
+                using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
+                {
+                    serializer.Serialize(writer, values);
+                }
+            }
+            // Important ageBar age is not included in agegBar config 
+            if (ageBarsCfgPath != null)
+            {
+                var lines = System.IO.File.ReadAllLines(ageBarsCfgPath).Select(line => line.Split(new char[] { '\t' }));
+                List<string[]> ageBars = lines.Where(line => line.Length != 0).ToList();
+                List<AgeBar> ageBarList = new List<AgeBar>();
+                foreach (string[] ageBar in ageBars)
+                {
+                    AgeBar AB = new AgeBar();
+
+                    AB.maxAge = int.Parse(ageBar[0]);
+                    AB.firstColor = ageBar[1];
+                    AB.secondColor = ageBar[2];
+                    AB.thirdColor = ageBar[3];
+
+                    ageBarList.Add(AB);
+                }
+                XmlSerializer serializer = new XmlSerializer(typeof(List<AgeBar>));
+                using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
+                {
+                    serializer.Serialize(writer, ageBarList);
                 }
             }
             else

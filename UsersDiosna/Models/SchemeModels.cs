@@ -27,6 +27,35 @@ namespace UsersDiosna.Sheme.Models
         public string columnName { get; set; }
         public object value { get; set; }
     }
+
+    public class DynValue
+    {
+        [XmlAttribute]
+        public int index { get; set; }
+        [XmlAttribute]
+        public string table { get; set; }
+        [XmlAttribute]
+        public string column { get; set; }
+        [XmlAttribute]
+        public int ratio { get; set; }
+        [XmlAttribute]
+        public int offset { get; set; }
+        [XmlAttribute]
+        public string unit { get; set; }
+        [XmlAttribute]
+        public string textColor { get; set; }
+    }
+    public class AgeBar
+    {
+        [XmlAttribute]
+        public int maxAge { get; set; }
+        [XmlAttribute]
+        public string firstColor { get; set; }
+        [XmlAttribute]
+        public string secondColor { get; set; }
+        [XmlAttribute]
+        public string thirdColor { get; set; }
+    }
     public class TextlistItem
     {
         [XmlAttribute]
