@@ -31,7 +31,7 @@ namespace UsersDiosna.Sheme.Models
     public class DynValue
     {
         [XmlAttribute]
-        public int index { get; set; }
+        public int id { get; set; }
         [XmlAttribute]
         public string table { get; set; }
         [XmlAttribute]
@@ -48,11 +48,21 @@ namespace UsersDiosna.Sheme.Models
     public class AgeBar
     {
         [XmlAttribute]
+        public int id { get; set; }
+        [XmlAttribute]
+        public string table { get; set; }
+        [XmlAttribute]
+        public string column { get; set; }
+        [XmlAttribute]
         public int maxAge { get; set; }
         [XmlAttribute]
         public string firstColor { get; set; }
         [XmlAttribute]
+        public int firstLimit { get; set; }
+        [XmlAttribute]
         public string secondColor { get; set; }
+        [XmlAttribute]
+        public int secLimit { get; set; }
         [XmlAttribute]
         public string thirdColor { get; set; }
     }

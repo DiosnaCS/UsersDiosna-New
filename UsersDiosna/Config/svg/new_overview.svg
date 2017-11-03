@@ -14,11 +14,6 @@
    id="svg3721"
    sodipodi:docname="new_overview.svg"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
-   <config>
-   <multitext name="textlistStatus">
-     <item name="">
-   </multitext>
-   </config>
   <metadata
      id="metadata3727">
     <rdf:RDF>
@@ -71,142 +66,141 @@
      transform="translate(10.486567,14.617639)">
     <title
        id="title3716">Layer 1</title>
-    <image
-       xlink:href="c:\Users\chode\Pictures\overview_scheme_changed.png"
-       height="499"
-       width="1092"
-       y="0"
-       x="0"
-       id="svg_2" />
-    <rect
-       style="fill:#0000ff;fill-opacity:1;stroke-width:1.04826748"
-       id="weightBar"
-       width="25.73974"
-       height="148.08305"
-       x="589.47223"
-       y="163.22144"
-       ry="0"
-       inkscape:label="" />
   </g>
+  <image
+     xlink:href="c:\Users\chode\Pictures\overview_scheme_changed.png"
+     height="499"
+     width="1092"
+     y="0"
+     x="0"
+     id="svg_2" />
+  <rect
+     style="fill:#0000ff;fill-opacity:1;stroke-width:1.04826748"
+     id="weightBar"
+     width="25.73974"
+     height="148.08305"
+     x="589.47223"
+     y="163.22144"
+     ry="0"
+     inkscape:label="" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:21.01344681px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.43273497"
-     x="778.34906"
-     y="210.04459"
+     x="763.88965"
+     y="197.47385"
      id="weight"
      transform="scale(0.87908146,1.137551)"
      inkscape:label=""><tspan
        sodipodi:role="line"
-       id="weightSpan"
-       x="778.34906"
-       y="210.04459"
+       id="10"
+       x="763.88965"
+       y="197.47385"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.43273497">0.0</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:21.01344681px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.43273497"
-     x="776.98602"
-     y="232.04813"
+     x="762.52661"
+     y="219.47739"
      id="fermTemp"
      transform="scale(0.87908146,1.137551)"
      inkscape:label=""><tspan
        sodipodi:role="line"
-       id="fermTempSpan"
-       x="776.98602"
-       y="232.04813"
+       id="11"
+       x="762.52661"
+       y="219.47739"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.43273497">0.0</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:21.01344681px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.43273497"
-     x="777.53534"
-     y="253.36006"
+     x="763.07593"
+     y="240.78932"
      id="phTemp"
      transform="scale(0.87908146,1.137551)"
      inkscape:label=""><tspan
        sodipodi:role="line"
-       id="phTempSpan"
-       x="777.53534"
-       y="253.36006"
+       id="12"
+       x="763.07593"
+       y="240.78932"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.43273497">0.0</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:21.01344681px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.43273497"
-     x="776.81238"
-     y="273.47324"
+     x="762.35297"
+     y="260.9025"
      id="pH"
      transform="scale(0.87908146,1.137551)"
      inkscape:label=""><tspan
        sodipodi:role="line"
-       id="tspan3729-60"
-       x="776.81238"
-       y="273.47324"
+       id="13"
+       x="762.35297"
+       y="260.9025"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.43273497">0.0</tspan></text>
   <rect
      id="textlistStatus-1"
      width="242.14436"
      height="30.50638"
-     x="554.83472"
-     y="100.20869"
-     fill="#00f500"
+     x="544.0304"
+     y="85.591049"
      style="fill:#00f500;fill-opacity:1"
      inkscape:label="#rect3785" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     x="639.71832"
-     y="121.63066"
+     x="628.914"
+     y="107.01302"
      id="textStatus_1"
      inkscape:label=""><tspan
        sodipodi:role="line"
        id="tspan4592"
-       x="639.71832"
-       y="121.63066">Running</tspan></text>
+       x="628.914"
+       y="107.01302">Running</tspan></text>
   <rect
      style="fill:#99cc00;fill-opacity:0.91959797;stroke-width:1.01635659"
      id="textlistFerm-1"
      width="242.77991"
      height="35.590752"
-     x="555.15259"
-     y="387.7948"
+     x="544.66602"
+     y="373.49493"
      inkscape:label="" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     x="636.20013"
-     y="411.78098"
+     x="625.71356"
+     y="397.48111"
      id="textFerm-1"
      inkscape:label=""><tspan
        sodipodi:role="line"
        id="tspan4592-7"
-       x="636.20013"
-       y="411.78098">Storage</tspan></text>
+       x="625.71356"
+       y="397.48111">Storage</tspan></text>
   <rect
      id="AgeBar"
      width="240.87332"
      height="22.244238"
-     x="555.15253"
-     y="424.9744"
+     x="544.66595"
+     y="410.67453"
      style="fill:#00f500;fill-opacity:1;stroke-width:0.85166854"
      inkscape:label="" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     x="641.42041"
-     y="469.23853"
+     x="630.93384"
+     y="454.93866"
      id="textAgeBar"
      inkscape:label=""><tspan
        sodipodi:role="line"
        id="ageBarSpan"
-       x="641.42041"
-       y="469.23853">0.0 hrs</tspan>
-  <text
-     xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-     x="615.51367"
-     y="382.07489"
-     id="textRcpName"
-     inkscape:label=""><tspan
-       sodipodi:role="line"
-       id="RecipeNameSpan"
-       x="615.51367"
-       y="382.07489">Recipe name</tspan></text>
+       x="605.0271"
+       y="-14.299865">0.0 hrs</tspan><text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:18.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="605.0271"
+       y="367.77502"
+       id="textRcpName"
+       inkscape:label=""><tspan
+         sodipodi:role="line"
+         id="RecipeNameSpan"
+         x="605.0271"
+         y="367.77502">Recipe name</tspan></text>
+</text>
 </svg>

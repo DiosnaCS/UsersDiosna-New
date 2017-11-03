@@ -92,6 +92,7 @@ namespace UsersDiosna.Handlers
                         }
                         graphiclist.items.Add(graphiclistItem);
                         graphiclist.name = subDir;
+                        graphiclist.name = graphiclist.name.Replace("/", string.Empty);
                     }
                     XmlSerializer serializer = new XmlSerializer(typeof(Graphiclist));
                     using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
@@ -125,7 +126,7 @@ namespace UsersDiosna.Handlers
                     }
                     textlist.items.Add(textlistItem);
                 }
-                string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\"));
+                string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\")-1W);
                 textlist.name = textlistName;
                 XmlSerializer serializer = new XmlSerializer(typeof(Textlist));
                 using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
@@ -133,6 +134,11 @@ namespace UsersDiosna.Handlers
                     serializer.Serialize(writer, textlist);
                 }
             }
+        }
+
+        public void serialize<T>()
+        {
+            
         }
     }
 }

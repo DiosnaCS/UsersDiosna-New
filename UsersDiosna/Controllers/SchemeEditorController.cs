@@ -23,6 +23,7 @@ namespace UsersDiosna.Controllers
             string ageBarsCfgPath = null;
             List<string> subGraphicDir = new List<string>();
             List<string> pathGraphicCfg = new List<string>();
+            List<AgeBar> ageBarList = new List<AgeBar>();
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("pathCfg"))
@@ -53,14 +54,14 @@ namespace UsersDiosna.Controllers
 
             if (dynValuesCfg != null)
             {
-                var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }));
+                var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
                 List<string[]> dynValueList = lines.Where(line => line.Length != 0).ToList();
                 List<DynValue> values = new List<DynValue>();
                 foreach (string[] dynValue in dynValueList)
                 {
                     DynValue value = new DynValue();
 
-                    value.index = int.Parse(dynValue[0]);
+                    value.id = int.Parse(dynValue[0]);
                     value.table = dynValue[1];
                     value.column = dynValue[2];
                     value.ratio = int.Parse(dynValue[3]);
@@ -79,24 +80,24 @@ namespace UsersDiosna.Controllers
             // Important ageBar age is not included in agegBar config 
             if (ageBarsCfgPath != null)
             {
-                var lines = System.IO.File.ReadAllLines(ageBarsCfgPath).Select(line => line.Split(new char[] { '\t' }));
+                var lines = System.IO.File.ReadAllLines(ageBarsCfgPath).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
                 List<string[]> ageBars = lines.Where(line => line.Length != 0).ToList();
-                List<AgeBar> ageBarList = new List<AgeBar>();
+                
                 foreach (string[] ageBar in ageBars)
                 {
                     AgeBar AB = new AgeBar();
 
-                    AB.maxAge = int.Parse(ageBar[0]);
-                    AB.firstColor = ageBar[1];
-                    AB.secondColor = ageBar[2];
-                    AB.thirdColor = ageBar[3];
+                    AB.id = int.Parse(ageBar[0]);
+                    AB.table = ageBar[1];
+                    AB.column = ageBar[2];
+                    AB.maxAge = int.Parse(ageBar[3]);
+                    AB.firstColor = ageBar[4];
+                    AB.firstLimit = int.Parse(ageBar[5]);
+                    AB.secondColor = ageBar[6];
+                    AB.secLimit = int.Parse(ageBar[7]);
+                    AB.thirdColor = ageBar[8];
 
                     ageBarList.Add(AB);
-                }
-                XmlSerializer serializer = new XmlSerializer(typeof(List<AgeBar>));
-                using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
-                {
-                    serializer.Serialize(writer, ageBarList);
                 }
             }
             else
@@ -121,7 +122,6 @@ namespace UsersDiosna.Controllers
             {
                 Session["tempforview"] = "Config files pathes are not present in bakery config";
             }
-
             return View();
         }
     }

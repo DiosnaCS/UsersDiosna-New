@@ -44,6 +44,8 @@
 			<pathScheme>\Config\svg\scheme.svg</pathScheme>
 		</NewScheme>
 		<SchemeEditor>
+			<dynValuesCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
+			<ageBarsCfgPath>c:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
 			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
 			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\step.txt</pathCfg2>
 			<subGraphicDir>\valve\</subGraphicDir>

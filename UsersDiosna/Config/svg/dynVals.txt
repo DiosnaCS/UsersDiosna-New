@@ -1,0 +1,4 @@
+10	diSF2_Weight	arWS_norm	1000	0	kg	black
+11	iSF2_Temp	arWS_norm	1	0	°C	black
+12	iSF2_Temp_Bottom	arWS_norm	1	0	°C	black
+13	iSF2_pH	arWS_norm	1	0	pH	black
