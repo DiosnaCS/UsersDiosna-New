@@ -898,10 +898,10 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>DetailSection.generated.cs</LastGenOutput>
     </Content>
+    <Content Include="Views\SchemeEditor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\SchemeEditor\" />
     <Folder Include="Views\Security\" />
   </ItemGroup>
   <ItemGroup>

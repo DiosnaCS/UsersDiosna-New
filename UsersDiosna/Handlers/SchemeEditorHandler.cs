@@ -12,45 +12,6 @@ namespace UsersDiosna.Handlers
 {
     public class SchemeEditorHandler
     {
-        /// <summary>
-        /// The maximum image size supported.
-        /// </summary>
-        public static Size MaximumSize { get; set; }
-
-        /// <summary>
-        /// Converts an SVG file to a Bitmap image.
-        /// </summary>
-        /// <param name="filePath">The full path of the SVG image.</param>
-        /// <returns>Returns the converted Bitmap image.</returns>
-        public static Bitmap GetBitmapFromSVG(string filePath)
-        {
-            SvgDocument document = GetSvgDocument(filePath);
-
-            Bitmap bmp = document.Draw();
-            return bmp;
-        }
-
-        /// <summary>
-        /// Gets a SvgDocument for manipulation using the path provided.
-        /// </summary>
-        /// <param name="filePath">The path of the Bitmap image.</param>
-        /// <returns>Returns the SVG Document.</returns>
-        public static SvgDocument GetSvgDocument(string filePath)
-        {
-            SvgDocument document = SvgDocument.Open(filePath);
-            return document;
-        }
-
-        private static SvgDocument AdjustSize(SvgDocument document)
-        {
-            if (document.Height > MaximumSize.Height)
-            {
-                document.Width = (int)((document.Width / (double)document.Height) * MaximumSize.Height);
-                document.Height = MaximumSize.Height;
-            }
-            return document;
-        }
-
         public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg)
         {
             foreach (string subDir in subGraphicDir)
@@ -126,7 +87,7 @@ namespace UsersDiosna.Handlers
                     }
                     textlist.items.Add(textlistItem);
                 }
-                string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\")-1W);
+                string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\")-1);
                 textlist.name = textlistName;
                 XmlSerializer serializer = new XmlSerializer(typeof(Textlist));
                 using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
@@ -136,9 +97,58 @@ namespace UsersDiosna.Handlers
             }
         }
 
-        public void serialize<T>()
+        public static void getAgeBar(string pathSvgCfg, string ageBarsCfgPath, List<AgeBar> ageBarList)
         {
+            var lines = System.IO.File.ReadAllLines(ageBarsCfgPath).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
+            List<string[]> ageBars = lines.Where(line => line.Length != 0).ToList();
+
+            foreach (string[] ageBar in ageBars)
+            {
+                AgeBar AB = new AgeBar();
+
+                AB.id = int.Parse(ageBar[0]);
+                AB.table = ageBar[1];
+                AB.column = ageBar[2];
+                AB.maxAge = int.Parse(ageBar[3]);
+                AB.firstColor = ageBar[4];
+                AB.firstLimit = int.Parse(ageBar[5]);
+                AB.secondColor = ageBar[6];
+                AB.secLimit = int.Parse(ageBar[7]);
+                AB.thirdColor = ageBar[8];
+
+                ageBarList.Add(AB);
+            }
+            XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
+            using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
+            {
+                serializer.Serialize(writer, ageBarList);
+            }
+        }
+
+        public static void getDynValues(string pathSvgCfg, string dynValuesCfg, List<DynValue> values)
+        {
+            var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
+            List<string[]> dynValueList = lines.Where(line => line.Length != 0).ToList();
             
+            foreach (string[] dynValue in dynValueList)
+            {
+                DynValue value = new DynValue();
+
+                value.id = int.Parse(dynValue[0]);
+                value.table = dynValue[1];
+                value.column = dynValue[2];
+                value.ratio = int.Parse(dynValue[3]);
+                value.offset = int.Parse(dynValue[4]);
+                value.unit = dynValue[5];
+                value.textColor = dynValue[6];
+
+                values.Add(value);
+            }
+            XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
+            using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
+            {
+                serializer.Serialize(writer, values);
+            }
         }
     }
 }

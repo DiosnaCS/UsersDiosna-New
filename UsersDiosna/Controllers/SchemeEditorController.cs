@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Svg;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -13,19 +14,26 @@ namespace UsersDiosna.Controllers
 {
     public class SchemeEditorController : Controller
     {
+        private SvgDocument svg { get; set; }
         // GET: SchemeEditor
         public ActionResult Index()
         {
-            int i = 0;
+            List<string> valuesforView = new List<string>();
             List<string> pathesToCfg = new List<string>();
             string pathSvgCfg = null;
             string dynValuesCfg = null;
             string ageBarsCfgPath = null;
+            string pathToSvg = null;
             List<string> subGraphicDir = new List<string>();
             List<string> pathGraphicCfg = new List<string>();
             List<AgeBar> ageBarList = new List<AgeBar>();
+            List<DynValue> values = new List<DynValue>();
             foreach (string key in Session.Keys)
             {
+                if (key.Contains("pathScheme"))
+                {
+                    pathToSvg = Session[key].ToString();
+                }
                 if (key.Contains("pathCfg"))
                 {
                     pathesToCfg.Add(Session[key].ToString());
@@ -51,78 +59,66 @@ namespace UsersDiosna.Controllers
                     pathSvgCfg = Session[key].ToString();
                 }
             }
-
-            if (dynValuesCfg != null)
+            SchemeEditor model = new SchemeEditor();
+            if (pathToSvg != null)
             {
-                var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
-                List<string[]> dynValueList = lines.Where(line => line.Length != 0).ToList();
-                List<DynValue> values = new List<DynValue>();
-                foreach (string[] dynValue in dynValueList)
-                {
-                    DynValue value = new DynValue();
+                pathToSvg = pathToSvg.Replace(@"\", @"/");
+                svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
 
-                    value.id = int.Parse(dynValue[0]);
-                    value.table = dynValue[1];
-                    value.column = dynValue[2];
-                    value.ratio = int.Parse(dynValue[3]);
-                    value.offset = int.Parse(dynValue[4]);
-                    value.unit = dynValue[5];
-                    value.textColor = dynValue[6];
-
-                    values.Add(value);
-                }
-                XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
-                using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
-                {
-                    serializer.Serialize(writer, values);
-                }
-            }
-            // Important ageBar age is not included in agegBar config 
-            if (ageBarsCfgPath != null)
-            {
-                var lines = System.IO.File.ReadAllLines(ageBarsCfgPath).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
-                List<string[]> ageBars = lines.Where(line => line.Length != 0).ToList();
                 
-                foreach (string[] ageBar in ageBars)
+                model.relativePath = pathToSvg;
+                model.SvgFile = svg;
+            }
+            else
+            {
+                Session["tempforview"] = "Problem with finding this svg path";
+                return RedirectToAction("Index", "Menu");
+            }
+            if (dynValuesCfg != null || ageBarsCfgPath != null || pathGraphicCfg != null)
+            {
+                if (dynValuesCfg != null)
                 {
-                    AgeBar AB = new AgeBar();
-
-                    AB.id = int.Parse(ageBar[0]);
-                    AB.table = ageBar[1];
-                    AB.column = ageBar[2];
-                    AB.maxAge = int.Parse(ageBar[3]);
-                    AB.firstColor = ageBar[4];
-                    AB.firstLimit = int.Parse(ageBar[5]);
-                    AB.secondColor = ageBar[6];
-                    AB.secLimit = int.Parse(ageBar[7]);
-                    AB.thirdColor = ageBar[8];
-
-                    ageBarList.Add(AB);
+                    SchemeEditorHandler.getDynValues(pathSvgCfg, dynValuesCfg, values);
+                    foreach (DynValue value in values)
+                    {
+                        string valueToView = "";
+                        valueToView += value.id + " \t" + value.column + " " + value.table;
+                        valuesforView.Add(valueToView);
+                    }
                 }
-            }
-            else
-            {
-                Session["tempforview"] = "Config files pathes are not present in bakery config";
-            }
+                // Important ageBar age is not included in agegBar config 
+                if (ageBarsCfgPath != null)
+                {
+                    SchemeEditorHandler.getAgeBar(pathSvgCfg, ageBarsCfgPath, ageBarList);
+                }
+                else
+                {
+                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                }
 
-            if (pathGraphicCfg != null && subGraphicDir != null && pathGraphicCfg != null)
-            {
-                SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg);
-            }
-            else
-            {
-                Session["tempforview"] = "Config files pathes are not present in bakery config";
-            }
+                if (pathGraphicCfg != null && subGraphicDir != null && pathGraphicCfg != null)
+                {
+                    SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg);
+                }
+                else
+                {
+                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                }
 
-            if (pathSvgCfg != null && pathesToCfg != null)
-            {
-                SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg);
+                if (pathSvgCfg != null && pathesToCfg != null)
+                {
+                    SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg);
+                }
+                else
+                {
+                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                }
+                return View(model);
             }
             else
             {
-                Session["tempforview"] = "Config files pathes are not present in bakery config";
+                return View("form", model);
             }
-            return View();
         }
     }
 }   

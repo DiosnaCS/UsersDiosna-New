@@ -1,0 +1,11 @@
+﻿@model UsersDiosna.Sheme.Models.SchemeEditor
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4>Scheme Editor</h4>
+@Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
+<object type="image/svg+xml" data="@Model.relativePath">
+    Your object does not suupport SVG
+</object>
