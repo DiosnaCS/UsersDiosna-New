@@ -9,7 +9,6 @@ using UsersDiosna.Handlers;
 
 namespace UsersDiosna.Controllers
 {
-    [Authorize(Roles = "Upload,Admin")]
     public class UploadController : Controller
     {
         // GET: Upload
@@ -58,7 +57,7 @@ namespace UsersDiosna.Controllers
                 }
             catch (Exception e)
             {
-                ViewBag.message = "Problem with finding uploads to this bakery.";
+                ViewBag.message = "Problem with finding uploads to this bakery or you dont have enough permission to see uploads check by admin";
                 Error.toFile(e.Message.ToString(), this.GetType().Name.ToString());
                 Session["tempforview"] = Error.timestamp + "   Error " + MvcApplication.ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
                 return View();
@@ -66,6 +65,7 @@ namespace UsersDiosna.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Upload,Admin")]
         public ActionResult UploadFile(UploadFile model)
         {
             

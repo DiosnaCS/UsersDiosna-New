@@ -79,17 +79,13 @@ namespace UsersDiosna.Controllers
                 if (dynValuesCfg != null)
                 {
                     SchemeEditorHandler.getDynValues(pathSvgCfg, dynValuesCfg, values);
-                    foreach (DynValue value in values)
-                    {
-                        string valueToView = "";
-                        valueToView += value.id + " \t" + value.column + " " + value.table;
-                        valuesforView.Add(valueToView);
-                    }
                 }
                 // Important ageBar age is not included in agegBar config 
                 if (ageBarsCfgPath != null)
                 {
                     SchemeEditorHandler.getAgeBar(pathSvgCfg, ageBarsCfgPath, ageBarList);
+                    model.SchemeAgeBars = ageBarList;
+
                 }
                 else
                 {

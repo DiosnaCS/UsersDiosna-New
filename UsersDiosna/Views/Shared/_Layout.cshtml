@@ -85,7 +85,7 @@
             Session["success"] = null;
         }
         @RenderBody()
-        @if (Session["types"] != null && ViewBag.menuDisable != true)
+        @if (Session["types"] != null && ViewBag.menuDisable != true && ViewBag.legend != null)
         {
         <p id="legend">
             <br>
@@ -97,7 +97,6 @@
                     @ViewBag.legend
                 </div>
             </div>
-        
         </p>
         }
     </div>

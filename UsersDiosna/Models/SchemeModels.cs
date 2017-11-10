@@ -15,6 +15,8 @@ namespace UsersDiosna.Sheme.Models
         /// Svg model 
         /// </summary>
         public SvgDocument SvgFile {get; set; }
+        public List<DynValue> SchemeTags { get; set; }
+        public List<AgeBar> SchemeAgeBars { get; set; }
     }
     public class SchemeValue
     {

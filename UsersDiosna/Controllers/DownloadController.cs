@@ -11,7 +11,7 @@ using System.Text.RegularExpressions;
 
 namespace UsersDiosna.Controllers
 {
-    [Authorize(Roles = "Download,Admin")]
+    
     public class DownloadController :Controller
     {
         public static String path = Path.PhysicalPath + @"\Config";
@@ -25,6 +25,7 @@ namespace UsersDiosna.Controllers
          * @param void, @return void
          * Method for download a file
          */
+        [Authorize(Roles = "Upload,Admin")]
         public void downloadFile() {
                 WebClient client = new WebClient();
                 String absoultePathToFile = null;
@@ -97,6 +98,7 @@ namespace UsersDiosna.Controllers
             }
         }
 
+        
         public ActionResult Index()
         {
             try {
