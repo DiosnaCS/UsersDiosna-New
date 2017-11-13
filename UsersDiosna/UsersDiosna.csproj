@@ -478,10 +478,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Home\Homepage.generated.cs">
+    <Compile Include="Views\Home\GuestZone.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Homepage.cshtml</DependentUpon>
+      <DependentUpon>GuestZone.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\Home\Index.generated.cs">
       <AutoGen>True</AutoGen>
@@ -763,9 +763,6 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>RemoveMask.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Alarm_Old\_Content.cshtml">
-      <LastGenOutput>_Content.generated.cs</LastGenOutput>
-    </Content>
     <Content Include="Views\Alarm\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
@@ -794,9 +791,9 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>index.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Home\Homepage.cshtml">
+    <Content Include="Views\Home\GuestZone.cshtml">
       <Generator>RazorGenerator</Generator>
-      <LastGenOutput>Homepage.generated.cs</LastGenOutput>
+      <LastGenOutput>GuestZone.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\XML\Index.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -805,9 +802,6 @@
     <Content Include="Views\Upload\Index.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>Index.generated.cs</LastGenOutput>
-    </Content>
-    <Content Include="Views\Alarm_Old\_Form.cshtml">
-      <LastGenOutput>_Form.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\AlarmNotification\All.cshtml">
       <Generator>RazorGenerator</Generator>
@@ -877,7 +871,6 @@
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>_LayoutMenu.generated.cs</LastGenOutput>
     </Content>
-    <Content Include="Views\Alarm_Old\Index.cshtml" />
     <Content Include="Views\Alarm\FIlter.cshtml">
       <Generator>RazorGenerator</Generator>
       <LastGenOutput>FIlter.generated.cs</LastGenOutput>

@@ -31,15 +31,15 @@ namespace UsersDiosna.Handlers
             public string title { get; set; }
         }
 
-        public static string pkTimeToDateTime(long timeForFormat)
+        public static DateTime pkTimeToDateTime(long timeForFormat)
         {
             long timeInNanoSeconds = (timeForFormat * 10000000);
             //TimeSpan converted = TimeSpan.FromSeconds(timeForFormat);
             DateTime DateTime = new DateTime(((630836424000000000 - 13608000000000) + timeInNanoSeconds));
             //DateTime DateTime = new DateTime(years, months, days, hours, minutes, seconds);
-            CultureInfo cultureInfo = new CultureInfo("en-US");
-            string sDateTime = DateTime.ToString("yyyy-MM-dd h:mm tt", cultureInfo);
-            return sDateTime;
+            //CultureInfo cultureInfo = new CultureInfo("en-US");
+            //string sDateTime = DateTime.ToString("yyyy-MM-dd h:mm tt", cultureInfo);
+            return DateTime;
         }
 
         /// <summary>
@@ -95,8 +95,8 @@ namespace UsersDiosna.Handlers
             public short id { get; set; }
             public string title { get; set; }
             
-            public string originTime { get; set; } //JS need that with special format
-            public string expiryTime { get; set; }
+            public DateTime originTime { get; set; } //JS need that with special format
+            public DateTime expiryTime { get; set; }
         }
                
         /// <summary>

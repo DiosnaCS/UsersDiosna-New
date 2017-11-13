@@ -14,21 +14,6 @@ namespace UsersDiosna.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.menuDisable = true;
-            return View();
-        }
-        public ActionResult News()
-        {
-            return View();
-        }
-        public ActionResult Compatibility()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public ActionResult Homepage()
-        {
             try
             {
                 string name = User.Identity.Name;
@@ -42,10 +27,26 @@ namespace UsersDiosna.Controllers
                 ViewBag.menuDisable = true;
 
                 return View();
-            } catch(Exception e)
+            }
+            catch (Exception e)
             {
                 return View();
             }
+        }
+        public ActionResult News()
+        {
+            return View();
+        }
+        public ActionResult Compatibility()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult GuestZone()
+        {
+            ViewBag.menuDisable = true;
+            return View();
             #region old
             /*
             int id;
