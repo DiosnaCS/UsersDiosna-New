@@ -75,7 +75,7 @@ WriteLiteral(" href=\"http://www.diosna.com/\"");
 
 WriteLiteral(">\r\n        <img");
 
-WriteLiteral(" src=\"../img/diosna.jpg\"");
+WriteLiteral(" src=\"../img/diosna.png\"");
 
 WriteLiteral(" class=\"img-rounded\"");
 
@@ -87,7 +87,7 @@ WriteLiteral(" href=\"http://www.isernhaeger.de/\"");
 
 WriteLiteral(">\r\n        <img");
 
-WriteLiteral(" src=\"../img/isernhager.png\"");
+WriteLiteral(" src=\"../img/logo_mail.jpg\"");
 
 WriteLiteral(" class=\"img-rounded\"");
 

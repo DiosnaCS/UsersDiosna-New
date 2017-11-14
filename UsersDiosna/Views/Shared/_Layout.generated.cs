@@ -170,7 +170,7 @@ WriteLiteral("                ");
 
             
             #line 26 "..\..\Views\Shared\_Layout.cshtml"
-           Write(Html.ActionLink("Home", "Homepage", "Home", new { area = "" }, new { @class = "navbar-brand" }));
+           Write(Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }));
 
             
             #line default
@@ -503,7 +503,7 @@ WriteLiteral("\r\n");
             #line hidden
             
             #line 88 "..\..\Views\Shared\_Layout.cshtml"
-         if (Session["types"] != null && ViewBag.menuDisable != true)
+         if (Session["types"] != null && ViewBag.menuDisable != true && ViewBag.legend != null)
         {
 
             
@@ -544,10 +544,10 @@ WriteLiteral("                    ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n                </div>\r\n            </div>\r\n        \r\n        </p>\r\n");
+WriteLiteral("\r\n                </div>\r\n            </div>\r\n        </p>\r\n");
 
             
-            #line 102 "..\..\Views\Shared\_Layout.cshtml"
+            #line 101 "..\..\Views\Shared\_Layout.cshtml"
         }
 
             
@@ -556,13 +556,13 @@ WriteLiteral("\r\n                </div>\r\n            </div>\r\n        \r\n  
 WriteLiteral("    </div>\r\n");
 
             
-            #line 104 "..\..\Views\Shared\_Layout.cshtml"
+            #line 103 "..\..\Views\Shared\_Layout.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 104 "..\..\Views\Shared\_Layout.cshtml"
+            #line 103 "..\..\Views\Shared\_Layout.cshtml"
       
         Session["tempforview"] = null;
     
@@ -574,7 +574,7 @@ WriteLiteral("\r\n    <footer>\r\n    </footer>\r\n");
 WriteLiteral("    ");
 
             
-            #line 109 "..\..\Views\Shared\_Layout.cshtml"
+            #line 108 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/jquery"));
 
             
@@ -585,7 +585,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 110 "..\..\Views\Shared\_Layout.cshtml"
+            #line 109 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/bootstrap"));
 
             
@@ -596,7 +596,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 111 "..\..\Views\Shared\_Layout.cshtml"
+            #line 110 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             
@@ -607,7 +607,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 112 "..\..\Views\Shared\_Layout.cshtml"
+            #line 111 "..\..\Views\Shared\_Layout.cshtml"
 Write(Scripts.Render("~/bundles/notification"));
 
             
@@ -618,7 +618,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 113 "..\..\Views\Shared\_Layout.cshtml"
+            #line 112 "..\..\Views\Shared\_Layout.cshtml"
 Write(RenderSection("scripts", required: false));
 
             

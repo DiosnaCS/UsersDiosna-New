@@ -55,7 +55,7 @@ namespace UsersDiosna.Controllers
         {
             ViewBag.ReturnUrl = returnUrl;
             if (User.Identity.IsAuthenticated == true)
-                return RedirectToAction("Homepage", "Home");
+                return RedirectToAction("Index", "Home");
             return View();
         }
 
@@ -76,7 +76,7 @@ namespace UsersDiosna.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToAction("Homepage","Home");
+                    return RedirectToAction("Index","Home");
                case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
@@ -112,7 +112,7 @@ namespace UsersDiosna.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Homepage", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             //}

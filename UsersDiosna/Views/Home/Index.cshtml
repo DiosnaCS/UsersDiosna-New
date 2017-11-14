@@ -2,6 +2,14 @@
 @using System.Web.Mvc
 @{
     ViewBag.Title = "Home - Diosna cloud";
+    bool hasKBAse = false;
+    foreach (dynamic projectNumber in ViewBag.Numbers)
+    {
+        if(projectNumber == 10000) {
+            hasKBAse = true;
+            break;
+        }
+    }
 }
 <h2>Welcome to Diosna cloud homepage</h2>
 <div class="row">
@@ -20,10 +28,13 @@
             <p></p>
         }
     </div>
-    <h6>Read general or project specific articles in our knowledge base</h6>
-    <div class="btn-group btn-group-justified well">
-        <a href="/Menu/Index/@ViewBag.Numbers[0]" class="btn btn-primary">Knowledge Base&rAarr;</a>
-    </div>
+    @if (hasKBAse == true)
+    {
+    <h6>Read general or project specific articles in our knowledge base</h6>   
+        <div class="btn-group btn-group-justified well">
+            <a href="/Menu/Index/@ViewBag.Numbers[0]" class="btn btn-primary">Knowledge Base&rAarr;</a>
+        </div>
+    }
     <p></p>
     <h6>Go to the guest zone (login not necessary)</h6>
     <div class="btn-group btn-group-justified well">

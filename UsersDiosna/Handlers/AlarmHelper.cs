@@ -155,6 +155,7 @@ namespace UsersDiosna.Handlers
             {
                 alarm alarm = new alarm();
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
+                alarm.id++;
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id-1) == id))
@@ -203,6 +204,7 @@ namespace UsersDiosna.Handlers
             {
                 AlarmGraphData alarm = new AlarmGraphData();
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
+                alarm.id++;
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id-1) == id))

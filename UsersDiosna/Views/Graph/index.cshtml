@@ -14,7 +14,11 @@
       <input id="reset" style="height: 26px; width: 50px;" type="button" value=">0<" onClick="resetValue(value)"/>
       <input id="refresh"style="height: 26px; width: 60px;" type="button" value="refresh" onClick="refresh()"/>
       <label for="group">group:</label>
-      <select id="group" style="height: 26px; width: 210px;" onChange="changeGroup(value)" tabindex="1" method="get">        
+      <!--[if IE]>
+      <select id="group" style="height: 26px; width: 210px;" onChange="changeGroup(-1)" tabindex="1" method="get">
+      </select>
+      <![endif]-->
+      <select id="group" style="height: 26px; width: 210px;" onChange="changeGroup(value)" tabindex="1" method="get">
       </select>
       <input id="lang" style="height: 26px; width: 75px;" type="button" value="lang:EN" onClick="changeLang()"/>
       <input id="zone" style="text-align: left; height: 26px; width: 120px;" type="button" value="zone:CET" onClick="changeZone(value)"/>

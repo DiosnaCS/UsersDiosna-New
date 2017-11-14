@@ -91,6 +91,8 @@ WriteLiteral(" onClick=\"fwdShift()\"");
 
 WriteLiteral("/>\r\n      <input");
 
+WriteLiteral(" id=\"narrow\"");
+
 WriteLiteral(" style=\"height: 26px; width: 45px;\"");
 
 WriteLiteral(" type=\"button\"");
@@ -101,7 +103,9 @@ WriteLiteral(" onClick=\"narrow()\"");
 
 WriteLiteral("/>\r\n      <input");
 
-WriteLiteral(" style=\"height: 26px; width: 45px;\"");
+WriteLiteral(" id=\"extend\"");
+
+WriteLiteral("style=\"height: 26px; width: 45px;\"");
 
 WriteLiteral(" type=\"button\"");
 
@@ -111,7 +115,9 @@ WriteLiteral(" onClick=\"extend()\"");
 
 WriteLiteral("/>\r\n      <input");
 
-WriteLiteral(" style=\"height: 26px; width: 50px;\"");
+WriteLiteral(" id=\"backDay\"");
+
+WriteLiteral("style=\"height: 26px; width: 50px;\"");
 
 WriteLiteral(" type=\"button\"");
 
@@ -121,7 +127,9 @@ WriteLiteral(" onClick=\"backDay()\"");
 
 WriteLiteral("/>\r\n      <input");
 
-WriteLiteral(" style=\"height: 26px; width: 50px;\"");
+WriteLiteral(" id=\"fwdDay\"");
+
+WriteLiteral("style=\"height: 26px; width: 50px;\"");
 
 WriteLiteral(" type=\"button\"");
 
@@ -143,7 +151,9 @@ WriteLiteral(" onClick=\"zoomSignal(value)\"");
 
 WriteLiteral("/>\r\n      <input");
 
-WriteLiteral(" style=\"height: 26px; width: 50px;\"");
+WriteLiteral(" id=\"date\"");
+
+WriteLiteral("style=\"height: 26px; width: 50px;\"");
 
 WriteLiteral(" type=\"button\"");
 
@@ -165,7 +175,9 @@ WriteLiteral(" onClick=\"resetValue(value)\"");
 
 WriteLiteral("/>\r\n      <input");
 
-WriteLiteral(" style=\"height: 26px; width: 60px;\"");
+WriteLiteral(" id=\"refresh\"");
+
+WriteLiteral("style=\"height: 26px; width: 60px;\"");
 
 WriteLiteral(" type=\"button\"");
 
@@ -177,7 +189,9 @@ WriteLiteral("/>\r\n      <label");
 
 WriteLiteral(" for=\"group\"");
 
-WriteLiteral(">group:</label>\r\n      <select");
+WriteLiteral(">group:</label>\r\n      <!--[if IE]>\r\n      <select id=\"group\" style=\"height: 26px" +
+"; width: 210px;\" onChange=\"changeGroup(-1)\" tabindex=\"1\" method=\"get\">\r\n      </" +
+"select>\r\n      <![endif]-->\r\n      <select");
 
 WriteLiteral(" id=\"group\"");
 
@@ -189,7 +203,7 @@ WriteLiteral(" tabindex=\"1\"");
 
 WriteLiteral(" method=\"get\"");
 
-WriteLiteral(">        \r\n      </select>\r\n      <input");
+WriteLiteral(">\r\n      </select>\r\n      <input");
 
 WriteLiteral(" id=\"lang\"");
 
@@ -213,17 +227,8 @@ WriteLiteral(" value=\"zone:CET\"");
 
 WriteLiteral(" onClick=\"changeZone(value)\"");
 
-WriteLiteral("/>\r\n      <input");
-
-WriteLiteral(" style=\"height: 26px; width: 50px;\"");
-
-WriteLiteral(" type=\"button\"");
-
-WriteLiteral(" value=\"mode\"");
-
-WriteLiteral(" onClick=\"chartMode()\"");
-
-WriteLiteral("/>\r\n      <input");
+WriteLiteral("/>\r\n      <!-- <input id=\"mode\" style=\"height: 26px; width: 50px;\" type=\"button\" " +
+"value=\"mode\" onClick=\"chartMode()\"/> -->\r\n      <input");
 
 WriteLiteral(" id=\"settings\"");
 
@@ -235,7 +240,7 @@ WriteLiteral(" value=\"settings\"");
 
 WriteLiteral(" onClick=\"settings(value)\"");
 
-WriteLiteral("/>\r\n      <input");
+WriteLiteral("/>      \r\n      <input");
 
 WriteLiteral(" id=\"default\"");
 
@@ -262,6 +267,29 @@ WriteLiteral(" style=\"position: absolute; top: 105px; left: 250px; background-c
 "-index: 0; visibility: hidden\"");
 
 WriteLiteral(">\r\n    </div>\r\n\r\n    <div");
+
+WriteLiteral(" id=\"message\"");
+
+WriteLiteral(" style=\"position: absolute; top: 86px; left: 400px; height: 19px; width: 700px; b" +
+"ackground-color: #F0F0F0; z-index: 50;\"");
+
+WriteLiteral(">\r\n      <span");
+
+WriteLiteral(" style=\"text-align: left; font-weight: 700; color:#FF0000; margin-left: 15px;\"");
+
+WriteLiteral("></span>\r\n      <input");
+
+WriteLiteral(" id=\"reload\"");
+
+WriteLiteral(" style=\"float: right; height: 19px; width: 50px; font-size: 9pt\"");
+
+WriteLiteral(" type=\"button\"");
+
+WriteLiteral(" value=\"reload\"");
+
+WriteLiteral(" onClick=\"reload()\"");
+
+WriteLiteral("/>\r\n    </div>\r\n\r\n    <div");
 
 WriteLiteral(" id=\"graph_content\"");
 
@@ -396,7 +424,15 @@ WriteLiteral(" style=\"display: none;\"");
 
 WriteLiteral(" src=\"/img/signal_visible.png\"");
 
-WriteLiteral(" />     \r\n    </div>\r\n  \r\n    <script");
+WriteLiteral(" />\r\n     <img");
+
+WriteLiteral(" id=\"event_point\"");
+
+WriteLiteral(" style=\"display: none;\"");
+
+WriteLiteral(" src=\"/img/event_point.png\"");
+
+WriteLiteral(" />\r\n    </div>\r\n  \r\n    <script");
 
 WriteLiteral(" src=\"/js/jquery-latest.js\"");
 
