@@ -148,7 +148,7 @@ WriteLiteral("                ");
 
             
             #line 24 "..\..\Views\Shared\_LayoutMenu.cshtml"
-           Write(Html.ActionLink("Guest Zone", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" }));
+           Write(Html.ActionLink("Guest Zone", "GuestZone", "Home", new { area = "" }, new { @class = "navbar-brand" }));
 
             
             #line default

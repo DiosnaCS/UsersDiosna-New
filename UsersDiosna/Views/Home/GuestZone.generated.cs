@@ -75,7 +75,7 @@ WriteLiteral(" href=\"http://www.diosna.com/\"");
 
 WriteLiteral(">\r\n        <img");
 
-WriteLiteral(" src=\"../img/diosna.png\"");
+WriteLiteral(" src=\"../img/diosna.jpg\"");
 
 WriteLiteral(" class=\"img-rounded\"");
 

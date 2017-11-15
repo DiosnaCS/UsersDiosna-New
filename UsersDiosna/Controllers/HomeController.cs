@@ -12,6 +12,7 @@ namespace UsersDiosna.Controllers
 {
     public class HomeController : Controller
     {
+        [Authorize]
         public ActionResult Index()
         {
             try
@@ -42,7 +43,6 @@ namespace UsersDiosna.Controllers
             return View();
         }
 
-        [Authorize]
         public ActionResult GuestZone()
         {
             ViewBag.menuDisable = true;

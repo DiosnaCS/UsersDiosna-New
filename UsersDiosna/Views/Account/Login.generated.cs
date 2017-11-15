@@ -258,7 +258,7 @@ WriteLiteral(" class=\"btn-group btn-group-justified\"");
 
 WriteLiteral(">\r\n        <a");
 
-WriteLiteral(" href=\"/Home/\"");
+WriteLiteral(" href=\"/Home/GuestZone\"");
 
 WriteLiteral(" class=\"btn btn-primary\"");
 

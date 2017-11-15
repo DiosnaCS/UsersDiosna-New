@@ -67,9 +67,8 @@
 </table>
 <script>
         function DateTime(date){
-                var d = new Date(date);
-                var offset = d.getTimezoneOffset();
-                var offseted_miliseconds = d.getTime() - (offset*60000);
+                var offset = date.getTimezoneOffset();
+                var offseted_miliseconds = date.getTime() - (offset*60000);
                 var DateTime = new Date(offseted_miliseconds);
                 var localDateTime = DateTime.toLocaleString();
                 return localDateTime;
@@ -78,9 +77,21 @@
 @for (int i = 0; i < Model.Count; i++)
 {
     <script>
-            var date = "@Model[i].originTime";
-            console.log(date);
-            var expDate = "@Model[i].expiryTime";
+        var year = @Model[i].originTime.Year;
+        var month = @Model[i].originTime.Month;
+        var day = @Model[i].originTime.Day;
+        var hour = @Model[i].originTime.Hour;
+        var minute = @Model[i].originTime.Minute;
+        var second = @Model[i].originTime.Second;
+        var date = new Date(year, month, day, hour, minute, second, 0);
+        console.log(date);
+                var yearExp = @Model[i].expiryTime.Year;
+                var monthExp = @Model[i].expiryTime.Month;
+                var dayExp = @Model[i].expiryTime.Day;
+                var hourExp = @Model[i].expiryTime.Hour;
+                var minuteExp = @Model[i].expiryTime.Minute;
+                var secondExp = @Model[i].expiryTime.Second;
+                var expDate = new Date(yearExp, monthExp, dayExp, hourExp, minuteExp, secondExp, 0);
 
             var localDateTime = DateTime(date);
             document.getElementById("date_" + "@i").innerHTML = localDateTime;
