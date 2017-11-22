@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <contract>
+    <id>164016</id>
+    <country>RU</country>
+    <name>Tscheremuski</name>
+  </contract>
+  <plc name="Megaline">
+    <graph name="Graphs">
+	<pathConfig>C:\Akce\java\grafy_cfg_RUTSCH_ML.ini</pathConfig>
+	<pathNames>C:\Akce\java\grafy_names_RUTSCH_ML.ini</pathNames>
+    </graph>
+    <alarm name="Alarms">
+        <dbName>Tscheremuschki</dbName>
+    </alarm>
+  </plc>
+  <plc name="Aroma">    
+    <graph name="Graphs">
+	<pathConfig>C:\Akce\java\grafy_cfg_RUTSCH_AR.ini</pathConfig>
+	<pathNames>C:\Akce\java\grafy_names_RUTSCH_AR.ini</pathNames>
+    </graph>
+    <alarm name="Alarms">
+        <dbName>Tscheremuschki</dbName>
+    </alarm>
+  </plc>
+</configuration>

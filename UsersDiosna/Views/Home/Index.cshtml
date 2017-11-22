@@ -10,13 +10,19 @@
             break;
         }
     }
+    int index;
+    if (hasKBAse == true) {
+        index = 1;
+    } else {
+        index = 0;
+    }
+    double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);
 }
 <h2>Welcome to Diosna cloud homepage</h2>
 <div class="row">
     <h6>Select your destination / bakery</h6>
-    @{int index = 1; double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);}
     <div class="well">
-        @for (int idx = 1; idx <= some; idx++)
+        @for (int idx = index; idx <= some; idx++)
         {
             <div class="btn-group btn-group-justified">
                 @for (int i = 1; i <= 3 && index <= (ViewBag.Count - 1); i++)

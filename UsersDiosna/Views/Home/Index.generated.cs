@@ -61,6 +61,13 @@ namespace ASP
             break;
         }
     }
+    int index;
+    if (hasKBAse == true) {
+        index = 1;
+    } else {
+        index = 0;
+    }
+    double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);
 
             
             #line default
@@ -69,35 +76,21 @@ WriteLiteral("\r\n<h2>Welcome to Diosna cloud homepage</h2>\r\n<div");
 
 WriteLiteral(" class=\"row\"");
 
-WriteLiteral(">\r\n    <h6>Select your destination / bakery</h6>\r\n");
-
-            
-            #line 17 "..\..\Views\Home\Index.cshtml"
-    
-            
-            #line default
-            #line hidden
-            
-            #line 17 "..\..\Views\Home\Index.cshtml"
-      int index = 1; double some = Math.Ceiling((double)ViewBag.Numbers.Count / 3);
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n    <div");
+WriteLiteral(">\r\n    <h6>Select your destination / bakery</h6>\r\n    <div");
 
 WriteLiteral(" class=\"well\"");
 
 WriteLiteral(">\r\n");
 
             
-            #line 19 "..\..\Views\Home\Index.cshtml"
+            #line 25 "..\..\Views\Home\Index.cshtml"
         
             
             #line default
             #line hidden
             
-            #line 19 "..\..\Views\Home\Index.cshtml"
-         for (int idx = 1; idx <= some; idx++)
+            #line 25 "..\..\Views\Home\Index.cshtml"
+         for (int idx = index; idx <= some; idx++)
         {
 
             
@@ -110,13 +103,13 @@ WriteLiteral(" class=\"btn-group btn-group-justified\"");
 WriteLiteral(">\r\n");
 
             
-            #line 22 "..\..\Views\Home\Index.cshtml"
+            #line 28 "..\..\Views\Home\Index.cshtml"
                 
             
             #line default
             #line hidden
             
-            #line 22 "..\..\Views\Home\Index.cshtml"
+            #line 28 "..\..\Views\Home\Index.cshtml"
                  for (int i = 1; i <= 3 && index <= (ViewBag.Count - 1); i++)
                 {
 
@@ -125,15 +118,15 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                    <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 758), Tuple.Create("\"", 800)
-, Tuple.Create(Tuple.Create("", 765), Tuple.Create("/Menu/Index/", 765), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 850), Tuple.Create("\"", 892)
+, Tuple.Create(Tuple.Create("", 857), Tuple.Create("/Menu/Index/", 857), true)
             
-            #line 24 "..\..\Views\Home\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 777), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
+            #line 30 "..\..\Views\Home\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 869), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[index]
             
             #line default
             #line hidden
-, 777), false)
+, 869), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -141,7 +134,7 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">");
 
             
-            #line 24 "..\..\Views\Home\Index.cshtml"
+            #line 30 "..\..\Views\Home\Index.cshtml"
                                                                                      Write(ViewBag.Text[index]);
 
             
@@ -150,7 +143,7 @@ WriteLiteral(">");
 WriteLiteral("&rAarr;</a>\r\n");
 
             
-            #line 25 "..\..\Views\Home\Index.cshtml"
+            #line 31 "..\..\Views\Home\Index.cshtml"
                     index++;
                 }
 
@@ -162,7 +155,7 @@ WriteLiteral("            </div>\r\n");
 WriteLiteral("            <p></p>\r\n");
 
             
-            #line 29 "..\..\Views\Home\Index.cshtml"
+            #line 35 "..\..\Views\Home\Index.cshtml"
         }
 
             
@@ -171,13 +164,13 @@ WriteLiteral("            <p></p>\r\n");
 WriteLiteral("    </div>\r\n");
 
             
-            #line 31 "..\..\Views\Home\Index.cshtml"
+            #line 37 "..\..\Views\Home\Index.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 31 "..\..\Views\Home\Index.cshtml"
+            #line 37 "..\..\Views\Home\Index.cshtml"
      if (hasKBAse == true)
     {
 
@@ -193,15 +186,15 @@ WriteLiteral(" class=\"btn-group btn-group-justified well\"");
 
 WriteLiteral(">\r\n            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1160), Tuple.Create("\"", 1198)
-, Tuple.Create(Tuple.Create("", 1167), Tuple.Create("/Menu/Index/", 1167), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 1252), Tuple.Create("\"", 1290)
+, Tuple.Create(Tuple.Create("", 1259), Tuple.Create("/Menu/Index/", 1259), true)
             
-            #line 35 "..\..\Views\Home\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1179), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
+            #line 41 "..\..\Views\Home\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 1271), Tuple.Create<System.Object, System.Int32>(ViewBag.Numbers[0]
             
             #line default
             #line hidden
-, 1179), false)
+, 1271), false)
 );
 
 WriteLiteral(" class=\"btn btn-primary\"");
@@ -209,7 +202,7 @@ WriteLiteral(" class=\"btn btn-primary\"");
 WriteLiteral(">Knowledge Base&rAarr;</a>\r\n        </div>\r\n");
 
             
-            #line 37 "..\..\Views\Home\Index.cshtml"
+            #line 43 "..\..\Views\Home\Index.cshtml"
     }
 
             

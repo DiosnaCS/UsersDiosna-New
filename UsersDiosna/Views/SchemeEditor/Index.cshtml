@@ -1,11 +1,14 @@
 ﻿@model UsersDiosna.Sheme.Models.SchemeEditor
-
+@using UsersDiosna.Sheme.Models
 @{
     ViewBag.Title = "Scheme editor";
 }
 
 <h4>Scheme Editor</h4>
-@Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath))) 
+@foreach(DynValue val in Model.SchemeTags) {
+
+}
+@Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
 <br>Second svg
 <object type="image/svg+xml" data="@Model.relativePath">
     Your object does not suupport SVG

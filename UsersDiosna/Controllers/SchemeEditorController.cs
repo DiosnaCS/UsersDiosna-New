@@ -85,7 +85,6 @@ namespace UsersDiosna.Controllers
                 {
                     SchemeEditorHandler.getAgeBar(pathSvgCfg, ageBarsCfgPath, ageBarList);
                     model.SchemeAgeBars = ageBarList;
-
                 }
                 else
                 {
