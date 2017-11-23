@@ -27,18 +27,20 @@ function hideShowCleaning() {
         $(".cleaning").show();
     }
 }
-bMenuIsHide == false;
-function menuHide(bMenuIsHide) {
+var bMenuIsHide;
+function menuHide() {
     if (bMenuIsHide == true) {
         $('#container-body').css('margin-left', 150);
         $('#menuHiding').text("Hide menu");
         $('.sidenav').show();
+        bMenuIsHide = false;
         $('#top_menu').css('left', $('.sidenav').width() + 20);
         $('#graph_content').css('left', $('.sidenav').width() + 20);
     } else {
         $('#container-body').css('margin-left', 0);
         $('#menuHiding').text("Show menu");
         $('.sidenav').hide();
+        bMenuIsHide = true;
         $('#top_menu').css('left', 10);
         $('#graph_content').css('left', 10);
         $(window).css('width', windowWidth() - 1);

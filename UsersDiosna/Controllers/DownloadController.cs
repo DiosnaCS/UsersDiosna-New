@@ -54,7 +54,10 @@ namespace UsersDiosna.Controllers
 
             if (hasAccess == true)
             {
-                nameFile = nameFile.Substring(nameFile.LastIndexOf('/') + 1);
+                if (network_path.Contains("/9_Public/"))
+                {
+                    nameFile = nameFile.Substring(nameFile.LastIndexOf('/') + 1);
+                }
                 if (absoultePathToFile == null)
                 {
                     Session["tempforview"] = "Error: Your file has been not found";
