@@ -109,7 +109,7 @@ namespace UsersDiosna.Controllers
             Session["filteredAlarms"] = alarms;
             Session["success"] = "Filter on following alarms has been set: " + stringAlarms;
             Session["filtered"] = stringAlarms;
-            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"]});
+            return RedirectToAction("Index", "Alarm");
         }        
         
         public ActionResult FilterCurrent()
@@ -130,7 +130,7 @@ namespace UsersDiosna.Controllers
                 return View("Filter", model);
             }
             Session["tempforview"] = "Problem with accesing current alarms";
-            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"] });
+            return RedirectToAction("Index", "Alarm");
         }
 
         public ActionResult FilterAll()
@@ -150,7 +150,7 @@ namespace UsersDiosna.Controllers
             Session["filteredAlarms"] = null;
             Session["filtered"] = null;
             Session["success"] = "Filter has been sucessfully canceled";
-            return RedirectToAction("Index", "Menu", new { id = (int)Session["id"] });
+            return RedirectToAction("Index", "Alarm");
         }
     }
 }

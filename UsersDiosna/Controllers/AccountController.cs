@@ -56,6 +56,7 @@ namespace UsersDiosna.Controllers
             ViewBag.ReturnUrl = returnUrl;
             if (User.Identity.IsAuthenticated == true)
                 return RedirectToAction("Index", "Home");
+            ViewBag.menuDisable = true;
             return View();
         }
 

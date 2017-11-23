@@ -16,5 +16,5 @@ namespace UsersDiosna.Upload.Models
         public HttpPostedFileBase File { get; set; }
 
         public string plcName {get; set;}
-    }
+    } 
 }

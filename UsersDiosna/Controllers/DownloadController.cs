@@ -25,7 +25,7 @@ namespace UsersDiosna.Controllers
          * @param void, @return void
          * Method for download a file
          */
-        [Authorize(Roles = "Upload,Admin")]
+        [Authorize]
         public void downloadFile() {
                 WebClient client = new WebClient();
                 String absoultePathToFile = null;
@@ -54,6 +54,7 @@ namespace UsersDiosna.Controllers
 
             if (hasAccess == true)
             {
+                nameFile = nameFile.Substring(nameFile.LastIndexOf('/') + 1);
                 if (absoultePathToFile == null)
                 {
                     Session["tempforview"] = "Error: Your file has been not found";
@@ -98,7 +99,7 @@ namespace UsersDiosna.Controllers
             }
         }
 
-        
+        [Authorize(Roles = "Download")]
         public ActionResult Index()
         {
             try {

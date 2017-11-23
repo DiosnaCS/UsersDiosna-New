@@ -29,30 +29,11 @@ namespace UsersDiosna.Controllers
 
                 List<string> fileList = new List<string>();
                 Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
+                for(int i= 0;i < fileList.Count;i++)
+                {
+                    fileList[i] = "/9_Public/" + fileList[i];
+                }
                 ViewBag.fileList = fileList;
-
-                /*
-                files = Directory.GetFiles(ServerPath + @"9_Public\", "*.*");
-                List<string> fileList = new List<string>();
-                    List<string> fileNames = new List<string>();
-                    int index;
-                    string help_string_file;
-                    string help_string_file_path;
-                    foreach (string file in files) {
-                        index = file.LastIndexOf(@"\");
-                        help_string_file = file.Substring(index+1);
-                        help_string_file_path = @"9_public\" + help_string_file;
-                        fileList.Add(help_string_file);
-                        fileNames.Add(help_string_file_path);
-                    }
-                    if (Session["tempforview"] != null)
-                    {
-                        ViewBag.message = Session["success"];
-                        Session["tempforview"] = null;
-                    }
-                    ViewBag.fileName = fileList;
-                    ViewBag.files = fileNames;
-                */
                 return View();
                 }
             catch (Exception e)

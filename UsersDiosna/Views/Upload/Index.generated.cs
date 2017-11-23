@@ -43,7 +43,7 @@ namespace ASP
             #line 2 "..\..\Views\Upload\Index.cshtml"
   
     ViewBag.Title = "Index";
-    string pathFile = "";
+    string fileName = "";
 
             
             #line default
@@ -216,42 +216,42 @@ WriteLiteral(" class=\"list-group-item-text\"");
 
 WriteLiteral(">\r\n");
 
-WriteLiteral("                ");
-
             
             #line 52 "..\..\Views\Upload\Index.cshtml"
-           Write(file);
-
+                
+            
+            #line default
+            #line hidden
+            
+            #line 52 "..\..\Views\Upload\Index.cshtml"
+                   
+                    fileName = file.Substring(file.LastIndexOf('/')+1);
+                
             
             #line default
             #line hidden
 WriteLiteral("\r\n");
 
+WriteLiteral("                ");
+
             
-            #line 53 "..\..\Views\Upload\Index.cshtml"
-                
-            
-            #line default
-            #line hidden
-            
-            #line 53 "..\..\Views\Upload\Index.cshtml"
-                   
-                    pathFile = file.Substring(file.LastIndexOf('/')+1);
-                
+            #line 55 "..\..\Views\Upload\Index.cshtml"
+           Write(fileName);
+
             
             #line default
             #line hidden
 WriteLiteral("\r\n                <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1741), Tuple.Create("\"", 1789)
-, Tuple.Create(Tuple.Create("", 1748), Tuple.Create("/Download/downloadFile?nameFile=", 1748), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 1745), Tuple.Create("\"", 1789)
+, Tuple.Create(Tuple.Create("", 1752), Tuple.Create("/Download/downloadFile?nameFile=", 1752), true)
             
             #line 56 "..\..\Views\Upload\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1780), Tuple.Create<System.Object, System.Int32>(pathFile
+, Tuple.Create(Tuple.Create("", 1784), Tuple.Create<System.Object, System.Int32>(file
             
             #line default
             #line hidden
-, 1780), false)
+, 1784), false)
 );
 
 WriteLiteral(">Download</a>\r\n");
@@ -272,16 +272,16 @@ WriteLiteral(">Download</a>\r\n");
             #line hidden
 WriteLiteral("                    <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 1916), Tuple.Create("\"", 1971)
+WriteAttribute("href", Tuple.Create(" href=\"", 1916), Tuple.Create("\"", 1967)
 , Tuple.Create(Tuple.Create("", 1923), Tuple.Create("/Download/downloadFile?nameFile=", 1923), true)
             
             #line 59 "..\..\Views\Upload\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 1955), Tuple.Create<System.Object, System.Int32>(pathFile
+, Tuple.Create(Tuple.Create("", 1955), Tuple.Create<System.Object, System.Int32>(file
             
             #line default
             #line hidden
 , 1955), false)
-, Tuple.Create(Tuple.Create("", 1964), Tuple.Create("&View=1", 1964), true)
+, Tuple.Create(Tuple.Create("", 1960), Tuple.Create("&View=1", 1960), true)
 );
 
 WriteLiteral(">View</a>");

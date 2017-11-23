@@ -80,7 +80,7 @@ namespace UsersDiosna.Handlers
                     relativePath.Substring(1);
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://remote.diosna.cz/" + relativePath + fileName);
                 request.Method = WebRequestMethods.Ftp.DownloadFile;
-                request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276");
+                request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276","FILESERVER3");
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
                 MemoryStream ms = new MemoryStream();

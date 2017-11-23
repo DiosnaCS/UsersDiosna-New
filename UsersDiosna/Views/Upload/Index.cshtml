@@ -1,7 +1,7 @@
 ﻿@model UsersDiosna.Upload.Models.UploadFile
 @{
     ViewBag.Title = "Index";
-    string pathFile = "";
+    string fileName = "";
 }
 
 <h2>Index of Upload System</h2>
@@ -49,14 +49,14 @@
     foreach (string file in ViewBag.fileList)
     {
             <div class="list-group-item-text">
-                @file
                 @{ 
-                    pathFile = file.Substring(file.LastIndexOf('/')+1);
+                    fileName = file.Substring(file.LastIndexOf('/')+1);
                 }
-                <a href="/Download/downloadFile?nameFile=@pathFile">Download</a>
+                @fileName
+                <a href="/Download/downloadFile?nameFile=@file">Download</a>
                 @if (file.Contains(".pdf") || file.Contains(".txt"))
                 {
-                    <a href="/Download/downloadFile?nameFile=@pathFile&View=1">View</a><br>
+                    <a href="/Download/downloadFile?nameFile=@file&View=1">View</a><br>
                 }
                 else
                 {

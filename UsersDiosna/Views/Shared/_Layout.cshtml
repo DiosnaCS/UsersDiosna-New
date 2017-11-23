@@ -41,8 +41,7 @@
                 @if (Session["types"] != null && ViewBag.menuDisable != true)
                 {
                     <ul class="nav navbar-nav">
-                        <li onclick="menuShow()" style="cursor: pointer; cursor: hand;"><a id="menuShow"></a></li>
-                        <li onclick="menuHide()" style="cursor: pointer; cursor: hand;"><a id="menuHide">Hide Menu</a></li>
+                        <li onclick="menuHide()" style="cursor: pointer; cursor: hand;"><a id="menuHiding">Hide Menu</a></li>
                     </ul>
                 }
                 @Html.Partial("_LoginPartial")
