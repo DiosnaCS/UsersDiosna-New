@@ -34,6 +34,7 @@ function menuHide() {
         $('#menuHiding').text("Hide menu");
         $('.sidenav').show();
         bMenuIsHide = false;
+        $('#instruction').show();
         $('#top_menu').css('left', $('.sidenav').width() + 20);
         $('#graph_content').css('left', $('.sidenav').width() + 20);
     } else {
@@ -41,6 +42,7 @@ function menuHide() {
         $('#menuHiding').text("Show menu");
         $('.sidenav').hide();
         bMenuIsHide = true;
+        $('#instruction').hide();
         $('#top_menu').css('left', 10);
         $('#graph_content').css('left', 10);
         $(window).css('width', windowWidth() - 1);

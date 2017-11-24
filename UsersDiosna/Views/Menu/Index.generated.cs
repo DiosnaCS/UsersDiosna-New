@@ -62,7 +62,11 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h4>&lAarr; Choose one link from the menu</h4>");
+WriteLiteral("\r\n<h4");
+
+WriteLiteral(" id=\"instruction\"");
+
+WriteLiteral(">&lAarr; Choose one link from the menu</h4>");
 
         }
     }
