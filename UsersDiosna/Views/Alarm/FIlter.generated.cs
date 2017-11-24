@@ -78,16 +78,42 @@ WriteLiteral("        <table");
 WriteLiteral(" class=\"table table-striped table-bordered table-condensed table-hover\"");
 
 WriteLiteral(">\r\n            <tr>\r\n                <th></th>\r\n                <th>Id</th>\r\n    " +
-"            <th>Alarm Label</th>\r\n            </tr>\r\n");
+"            <th>Alarm Label</th>\r\n            </tr>\r\n            <div");
+
+WriteLiteral(" class=\"form-group\"");
+
+WriteLiteral(">\r\n                <div");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">\r\n                    <input");
+
+WriteLiteral(" type=\"submit\"");
+
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
+
+WriteLiteral(" value=\"Create new filter\"");
+
+WriteLiteral(" />\r\n                </div>\r\n                <div");
+
+WriteLiteral(" class=\"col-md-10\"");
+
+WriteLiteral(">\r\n                    <a");
+
+WriteLiteral(" href=\"/Alarm/\"");
+
+WriteLiteral(" class=\"btn btn-default btn-sm\"");
+
+WriteLiteral(">Back</a>\r\n                </div>\r\n            </div>\r\n");
 
             
-            #line 19 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 27 "..\..\Views\Alarm\FIlter.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 19 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 27 "..\..\Views\Alarm\FIlter.cshtml"
              foreach (AlarmHelper.alarm_texts Alarm in Model)
             {
 
@@ -98,14 +124,14 @@ WriteLiteral("                <tr>\r\n                    <td><input");
 
 WriteLiteral(" type=\"checkbox\"");
 
-WriteAttribute("name", Tuple.Create(" name=\"", 763), Tuple.Create("\"", 779)
+WriteAttribute("name", Tuple.Create(" name=\"", 1131), Tuple.Create("\"", 1147)
             
-            #line 22 "..\..\Views\Alarm\FIlter.cshtml"
-, Tuple.Create(Tuple.Create("", 770), Tuple.Create<System.Object, System.Int32>(Alarm.id
+            #line 30 "..\..\Views\Alarm\FIlter.cshtml"
+, Tuple.Create(Tuple.Create("", 1138), Tuple.Create<System.Object, System.Int32>(Alarm.id
             
             #line default
             #line hidden
-, 770), false)
+, 1138), false)
 );
 
 WriteLiteral(">");
@@ -113,7 +139,7 @@ WriteLiteral(">");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 23 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 31 "..\..\Views\Alarm\FIlter.cshtml"
                    Write(Alarm.id);
 
             
@@ -122,7 +148,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                    <td>");
 
             
-            #line 24 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 32 "..\..\Views\Alarm\FIlter.cshtml"
                    Write(Alarm.title);
 
             
@@ -131,7 +157,7 @@ WriteLiteral("</td>\r\n                    <td>");
 WriteLiteral("</td>\r\n                </tr>\r\n");
 
             
-            #line 26 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 34 "..\..\Views\Alarm\FIlter.cshtml"
             }
 
             
@@ -145,20 +171,27 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n                <div");
 
-WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
+WriteLiteral(" class=\"col-md-2\"");
 
 WriteLiteral(">\r\n                    <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(" value=\"Create new filter\"");
+WriteLiteral("\" value=\"Create new filter\" />\r\n                </div>\r\n                <div clas" +
+"s=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
 
-WriteLiteral(" />\r\n                </div>\r\n            </div>\r\n");
+WriteLiteral(" class=\"btn btn-default btn-sm\"");
+
+WriteLiteral(">Back</a>\r\n");
+
+WriteLiteral("                </div>\r\n");
+
+WriteLiteral("            </div>\r\n");
 
             
-            #line 34 "..\..\Views\Alarm\FIlter.cshtml"
+            #line 45 "..\..\Views\Alarm\FIlter.cshtml"
     }
 
             

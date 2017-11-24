@@ -17,84 +17,86 @@
             graphName = name;
         }
     }
-
+    var list = Model.ToList();
 }
 
 <h4>Notification center</h4>
-<div class="row">
-    <p class="col-md-4 col-md-offset-2">
-        <a class="btn btn-default" href="/AlarmNotification/All?name=@alarmName&plc=@ViewBag.plc[0]">Notification alarms</a>
-    </p><p class="col-md-4 col-md-offset-2">
-        <a class="btn btn-default" href="/GraphNotification/Index?name=@graphName&plc=@ViewBag.plc[0]">Notification PLC tags</a>
-    </p>
-</div>
-<table class="table col-md-1">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProjectName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BakeryID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Definition)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimestampCreated)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Active)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Detail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Occurred)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <th>Actions</th>
-    </tr>
-
-    @foreach (var item in Model)
+    @if (list.Count >= 1)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BakeryID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Definition)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimestampCreated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Active)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Occurred)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
+        <table class="table col-md-1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProjectName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BakeryID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Definition)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TimestampCreated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Active)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Detail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Occurred)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>Actions</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProjectName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BakeryID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Definition)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TimestampCreated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Active)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Detail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Occurred)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-warning">
+            You don't have defined any notifications<br>
+        </div>
     }
 
-</table>

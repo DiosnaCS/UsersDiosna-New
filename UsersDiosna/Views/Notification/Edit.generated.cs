@@ -596,37 +596,35 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n            <div");
 
-WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
+WriteLiteral(" class=\"col-md-2\"");
 
 WriteLiteral(">\r\n                <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" value=\"Save\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" \" value=\"Save Notification\" />\r\n            </div>\r\n            <div class=\"col-" +
+"md-10\">\r\n                <a href=\"/Notification/\"");
 
-WriteLiteral(" />\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
+WriteLiteral(" class=\"btn btn-default btn-sm\"");
+
+WriteLiteral(">Back to list</a>\r\n");
+
+WriteLiteral("            </div>\r\n");
+
+WriteLiteral("        </div>\r\n");
+
+WriteLiteral("    </div>\r\n");
 
             
-            #line 119 "..\..\Views\Notification\Edit.cshtml"
+            #line 122 "..\..\Views\Notification\Edit.cshtml"
 }
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n<div>\r\n");
-
-WriteLiteral("    ");
-
-            
-            #line 122 "..\..\Views\Notification\Edit.cshtml"
-Write(Html.ActionLink("Back to List", "Index"));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n</div>\r\n");
+WriteLiteral("\r\n");
 
         }
     }

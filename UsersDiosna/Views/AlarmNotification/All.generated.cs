@@ -141,20 +141,33 @@ WriteLiteral(" class=\"form-group\"");
 
 WriteLiteral(">\r\n            <div");
 
-WriteLiteral(" class=\"col-md-offset-2 col-md-10\"");
+WriteLiteral(" class=\"form-group\"");
 
-WriteLiteral(">\r\n                <input");
+WriteLiteral(">\r\n                <div");
+
+WriteLiteral(" class=\"col-md-2\"");
+
+WriteLiteral(">\r\n                    <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(" value=\"Create new notification\"");
+WriteLiteral(" \" value=\"Save Notification\" />\r\n                </div>\r\n                <div cla" +
+"ss=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
 
-WriteLiteral(" />\r\n            </div>\r\n        </div>\r\n");
+WriteLiteral(" class=\"btn btn-default btn-sm\"");
+
+WriteLiteral(">Back</a>\r\n");
+
+WriteLiteral("                </div>\r\n");
+
+WriteLiteral("             </div>\r\n");
+
+WriteLiteral("        </div>\r\n");
 
             
-            #line 33 "..\..\Views\AlarmNotification\All.cshtml"
+            #line 38 "..\..\Views\AlarmNotification\All.cshtml"
        }
 
             

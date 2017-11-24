@@ -20,8 +20,9 @@
     @if (ViewBag.filtered != null)
     {
         <div class="right">
+            <br>
             @ViewBag.filtered
-            <a class="btn-sm btn-info" href="/Alarm/CancelFilter/">Cancel current filter on alarms</a>
+            <a class="btn-sm btn-info" href="/Alarm/CancelFilter/">Reset current filter on alarms</a>
         </div>
     }
     @if (Session["AlarmDB"].ToString() != "")
