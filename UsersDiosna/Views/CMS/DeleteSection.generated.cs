@@ -180,7 +180,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Delete\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" /> |\r\n");
 

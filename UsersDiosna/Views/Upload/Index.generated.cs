@@ -158,7 +158,7 @@ WriteLiteral(">\r\n            <input");
 
 WriteLiteral(" type=\"submit\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" value=\"Upload File\"");
 

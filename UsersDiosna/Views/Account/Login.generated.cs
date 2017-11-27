@@ -229,7 +229,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Log in\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" />\r\n                    </div>\r\n                </div>\r\n");
 

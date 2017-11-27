@@ -125,7 +125,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Change Theme\"");
 
-WriteLiteral(" class=\"btn btn-default\"");
+WriteLiteral(" class=\"btn btn-success\"");
 
 WriteLiteral(" />\r\n        </div>\r\n    </div>\r\n");
 
