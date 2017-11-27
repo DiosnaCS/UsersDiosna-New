@@ -12,7 +12,7 @@ namespace UsersDiosna.Handlers
 {
     public class SchemeEditorHandler
     {
-        public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg)
+        public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg, List<Graphiclist> graphicLists)
         {
             foreach (string subDir in subGraphicDir)
             {
@@ -64,7 +64,7 @@ namespace UsersDiosna.Handlers
             }
         }
 
-        public static void getTextlists(List<string> pathesToCfg, string pathSvgCfg)
+        public static void getTextlists(List<string> pathesToCfg, string pathSvgCfg, List<Textlist> textLists)
         {
             foreach (string path in pathesToCfg)
             {

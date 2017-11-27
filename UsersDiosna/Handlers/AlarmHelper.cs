@@ -158,9 +158,9 @@ namespace UsersDiosna.Handlers
                 alarm.id++;
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
-                if (titles.Exists(p => (p.id-1) == id))
+                if (titles.Exists(p => (p.id) == id))
                 {
-                    alarm.title = titles[id-1].title;
+                    alarm.title = titles[id].title;
                 } else
                 {
                     alarm.title = "Title does not match with any of alarm id in texts and in db. DB id:" + id;
@@ -204,7 +204,7 @@ namespace UsersDiosna.Handlers
             {
                 AlarmGraphData alarm = new AlarmGraphData();
                 alarm.id = short.Parse(dr["alarm_id"].ToString());
-                alarm.id++;
+//                alarm.id++;
                 int id = alarm.id;
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id-1) == id))

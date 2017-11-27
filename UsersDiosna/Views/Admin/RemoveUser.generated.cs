@@ -175,7 +175,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Send\"");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-success active\"");
 
 WriteLiteral(" />\r\n        </div>\r\n    </div>\r\n");
 

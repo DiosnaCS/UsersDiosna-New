@@ -18,6 +18,7 @@ namespace UsersDiosna.Controllers
         // GET: SchemeEditor
         public ActionResult Index()
         {
+            
             List<string> valuesforView = new List<string>();
             List<string> pathesToCfg = new List<string>();
             string pathSvgCfg = null;
@@ -28,6 +29,8 @@ namespace UsersDiosna.Controllers
             List<string> pathGraphicCfg = new List<string>();
             List<AgeBar> ageBarList = new List<AgeBar>();
             List<DynValue> values = new List<DynValue>();
+            List<Textlist> textLists = new List<Textlist>();
+            List<Graphiclist> graphicLists = new List<Graphiclist>();
             foreach (string key in Session.Keys)
             {
                 if (key.Contains("pathScheme"))
@@ -79,6 +82,7 @@ namespace UsersDiosna.Controllers
                 if (dynValuesCfg != null)
                 {
                     SchemeEditorHandler.getDynValues(pathSvgCfg, dynValuesCfg, values);
+                    model.SchemeTags = values;
                 }
                 // Important ageBar age is not included in agegBar config 
                 if (ageBarsCfgPath != null)
@@ -93,7 +97,9 @@ namespace UsersDiosna.Controllers
 
                 if (pathGraphicCfg != null && subGraphicDir != null && pathGraphicCfg != null)
                 {
-                    SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg);
+                    
+                    SchemeEditorHandler.getGraphicLists(pathSvgCfg, subGraphicDir, pathGraphicCfg, graphicLists);
+                    model.SchemeGraphicsList = graphicLists;
                 }
                 else
                 {
@@ -102,7 +108,8 @@ namespace UsersDiosna.Controllers
 
                 if (pathSvgCfg != null && pathesToCfg != null)
                 {
-                    SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg);
+                    SchemeEditorHandler.getTextlists(pathesToCfg, pathSvgCfg, textLists);
+                    model.SchemeTextlist = textLists;
                 }
                 else
                 {
