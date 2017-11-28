@@ -8,7 +8,7 @@
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 @foreach (DynValue val in Model.SchemeTags) {
-   <span>Table:</span> <input type="text" name="@val.id" value="@val.table" />
+   <span>Table:</span> <input type="text" name="tableEdit_@val.id" value="@val.table" /><span>Table:</span> <input type="text" name="columnEdit_@val.id" value="@val.column" />
 }
 @Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
 <br>Second svg
