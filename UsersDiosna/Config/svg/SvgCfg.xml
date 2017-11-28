@@ -123,4 +123,16 @@
     <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
     <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
   </items>
-</Textlist>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="diSF2_Weight" column="arWS_norm" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="iSF2_Temp" column="arWS_norm" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="iSF2_Temp_Bottom" column="arWS_norm" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="iSF2_pH" column="arWS_norm" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="diSF2_Weight" column="arWS_norm" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="iSF2_Temp" column="arWS_norm" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="iSF2_Temp_Bottom" column="arWS_norm" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="iSF2_pH" column="arWS_norm" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue>

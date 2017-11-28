@@ -260,13 +260,13 @@ WriteLiteral(" class=\"btn-toolbar\"");
 
 WriteLiteral(">\r\n            <a");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" href=\"/Alarm/Filter\"");
 
 WriteLiteral(">Filter from all alarms</a>\r\n            <a");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" href=\"/Alarm/Filter\"");
 

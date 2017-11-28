@@ -229,7 +229,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Log in\"");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" />\r\n                    </div>\r\n                </div>\r\n");
 
@@ -260,7 +260,7 @@ WriteLiteral(">\r\n        <a");
 
 WriteLiteral(" href=\"/Home/GuestZone\"");
 
-WriteLiteral(" class=\"btn btn-primary\"");
+WriteLiteral(" class=\"btn btn-primary \"");
 
 WriteLiteral(">Guest Zone</a>\r\n    </div>\r\n</div>\r\n");
 

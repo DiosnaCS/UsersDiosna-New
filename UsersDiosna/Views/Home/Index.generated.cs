@@ -229,7 +229,7 @@ WriteLiteral(" class=\"col-md-4\"");
 WriteLiteral(">\r\n        <h2>Compatibility</h2>\r\n        <p>\r\n            Compatible with chrom" +
 "e<br>\r\n        </p>\r\n        <p><a");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" href=\"http://users.diosn.cz/Home/Compatibility/\"");
 
@@ -249,7 +249,7 @@ WriteLiteral(@">
         </p>
         <p><a");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" href=\"http://users.diosna.cz/Home/News/\"");
 
@@ -260,7 +260,7 @@ WriteLiteral(" class=\"col-md-4\"");
 WriteLiteral(">\r\n        <h2>Link to old version:</h2>\r\n        <p>If you need old users click " +
 "below</p>\r\n        <p><a");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" href=\"http://users.nordit.cz/\"");
 

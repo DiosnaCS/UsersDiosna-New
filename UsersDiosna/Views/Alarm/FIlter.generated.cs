@@ -102,7 +102,7 @@ WriteLiteral(">\r\n                    <a");
 
 WriteLiteral(" href=\"/Alarm/\"");
 
-WriteLiteral(" class=\"btn btn-success btn-sm\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
 WriteLiteral(">Back</a>\r\n                </div>\r\n            </div>\r\n");
 
@@ -182,7 +182,7 @@ WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 WriteLiteral("\" value=\"Create new filter\" />\r\n                </div>\r\n                <div clas" +
 "s=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
 
-WriteLiteral(" class=\"btn btn-success btn-sm\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
 WriteLiteral(">Back</a>\r\n");
 

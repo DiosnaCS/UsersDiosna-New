@@ -49,7 +49,7 @@
 			<pathScheme>\Config\svg\scheme.svg</pathScheme>
 		</NewScheme>
 		<SchemeEditor>
-			<pathScheme>\Config\svg\scheme.svg</pathScheme>
+			<pathScheme>\Config\svg\new_overview.svg</pathScheme>
 			<dynValuesCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
 			<ageBarsCfgPath>c:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
 			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>

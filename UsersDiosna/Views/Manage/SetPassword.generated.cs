@@ -188,7 +188,7 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" value=\"Set password\"");
 
-WriteLiteral(" class=\"btn btn-success\"");
+WriteLiteral(" class=\"btn btn-primary\"");
 
 WriteLiteral(" />\r\n        </div>\r\n    </div>\r\n");
 

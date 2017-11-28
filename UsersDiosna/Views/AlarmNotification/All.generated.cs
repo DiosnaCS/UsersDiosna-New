@@ -156,7 +156,7 @@ WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 WriteLiteral(" \" value=\"Save Notification\" />\r\n                </div>\r\n                <div cla" +
 "ss=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
 
-WriteLiteral(" class=\"btn btn-success btn-sm\"");
+WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
 WriteLiteral(">Back</a>\r\n");
 

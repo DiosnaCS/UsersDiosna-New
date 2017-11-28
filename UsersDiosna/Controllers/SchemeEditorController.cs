@@ -65,7 +65,11 @@ namespace UsersDiosna.Controllers
             SchemeEditor model = new SchemeEditor();
             if (pathToSvg != null)
             {
-                pathToSvg = pathToSvg.Replace(@"\", @"/");
+                //pathToSvg = pathToSvg.Replace(@"\", @"/");
+                if(pathToSvg.IndexOf(@"\") == 0)
+                {
+                    pathToSvg = pathToSvg.Substring(1);
+                }
                 svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
 
                 

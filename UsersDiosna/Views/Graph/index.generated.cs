@@ -73,7 +73,7 @@ WriteLiteral(" style=\"height: 26px; width: 50px;\"");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" value=\"<--\"");
+WriteLiteral(" value=\"-24h\"");
 
 WriteLiteral(" onClick=\"backShift()\"");
 
@@ -85,7 +85,7 @@ WriteLiteral(" style=\"height: 26px; width: 50px;\"");
 
 WriteLiteral(" type=\"button\"");
 
-WriteLiteral(" value=\"-->\"");
+WriteLiteral(" value=\"+24h\"");
 
 WriteLiteral(" onClick=\"fwdShift()\"");
 
@@ -189,9 +189,7 @@ WriteLiteral("/>\r\n      <label");
 
 WriteLiteral(" for=\"group\"");
 
-WriteLiteral(">group:</label>\r\n      <!--[if IE]>\r\n      <select id=\"group\" style=\"height: 26px" +
-"; width: 210px;\" onChange=\"changeGroup(-1)\" tabindex=\"1\" method=\"get\">\r\n      </" +
-"select>\r\n      <![endif]-->\r\n      <select");
+WriteLiteral(">group:</label>\r\n      <select");
 
 WriteLiteral(" id=\"group\"");
 
@@ -203,7 +201,7 @@ WriteLiteral(" tabindex=\"1\"");
 
 WriteLiteral(" method=\"get\"");
 
-WriteLiteral(">\r\n      </select>\r\n      <input");
+WriteLiteral(">        \r\n      </select>\r\n      <input");
 
 WriteLiteral(" id=\"lang\"");
 
@@ -215,20 +213,49 @@ WriteLiteral(" value=\"lang:EN\"");
 
 WriteLiteral(" onClick=\"changeLang()\"");
 
-WriteLiteral("/>\r\n      <input");
+WriteLiteral("/>\r\n     <!-- <input id=\"zone\" style=\"text-align: left; height: 26px; width: 120p" +
+"x;\" type=\"button\" value=\"zone:CET\" onClick=\"changeZone(value)\"/> -->\r\n      <lab" +
+"el");
+
+WriteLiteral(" for=\"zone\"");
+
+WriteLiteral(">zone:</label>\r\n      <select");
 
 WriteLiteral(" id=\"zone\"");
 
-WriteLiteral(" style=\"text-align: left; height: 26px; width: 120px;\"");
+WriteLiteral(" style=\"height: 26px; width: 90px;\"");
 
-WriteLiteral(" type=\"button\"");
+WriteLiteral(" onChange=\"changeZone(value)\"");
 
-WriteLiteral(" value=\"zone:CET\"");
+WriteLiteral(" tabindex=\"1\"");
 
-WriteLiteral(" onClick=\"changeZone(value)\"");
+WriteLiteral(" method=\"get\"");
 
-WriteLiteral("/>\r\n      <!-- <input id=\"mode\" style=\"height: 26px; width: 50px;\" type=\"button\" " +
-"value=\"mode\" onClick=\"chartMode()\"/> -->\r\n      <input");
+WriteLiteral(">\r\n        <option");
+
+WriteLiteral(" value=\"UTC\"");
+
+WriteLiteral(" selected=\"selected\"");
+
+WriteLiteral(">UTC</option>\r\n        <option");
+
+WriteLiteral(" value=\"CET\"");
+
+WriteLiteral(">CET</option>\r\n        <option");
+
+WriteLiteral(" value=\"Moscow\"");
+
+WriteLiteral(">Moscow</option>\r\n        <option");
+
+WriteLiteral(" value=\"Japan\"");
+
+WriteLiteral(">Japan</option>\r\n        <option");
+
+WriteLiteral(" value=\"New York\"");
+
+WriteLiteral(">New York</option>\r\n      </select>\r\n      <!-- <input id=\"mode\" style=\"height: 2" +
+"6px; width: 50px;\" type=\"button\" value=\"mode\" onClick=\"chartMode()\"/> -->\r\n     " +
+" <input");
 
 WriteLiteral(" id=\"settings\"");
 
