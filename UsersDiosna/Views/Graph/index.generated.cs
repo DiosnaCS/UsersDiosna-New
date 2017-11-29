@@ -195,7 +195,7 @@ WriteLiteral(" id=\"group\"");
 
 WriteLiteral(" style=\"height: 26px; width: 210px;\"");
 
-WriteLiteral(" onChange=\"changeGroup(value)\"");
+WriteLiteral(" onChange=\"changeGroup(this.value)\"");
 
 WriteLiteral(" tabindex=\"1\"");
 
@@ -225,7 +225,7 @@ WriteLiteral(" id=\"zone\"");
 
 WriteLiteral(" style=\"height: 26px; width: 90px;\"");
 
-WriteLiteral(" onChange=\"changeZone(value)\"");
+WriteLiteral(" onChange=\"changeZone(this.value)\"");
 
 WriteLiteral(" tabindex=\"1\"");
 

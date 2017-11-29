@@ -7,11 +7,51 @@
 <h4>Scheme Editor</h4>
 @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-@foreach (DynValue val in Model.SchemeTags) {
-   <span>Table:</span> <input type="text" name="tableEdit_@val.id" value="@val.table" /><span>Table:</span> <input type="text" name="columnEdit_@val.id" value="@val.column" />
-}
+
+    foreach (DynValue val in Model.SchemeTags)
+    {
+        <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@val.id" aria-expanded="false">
+            Dynamic value of tag: @val.column
+        </a>
+
+        <div class="collapse" id="@val.id">
+            <div class="card card-block">
+                <div class="form-inline">
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@val.id" value="@val.table" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@val.id" value="@val.column" />
+                    <span class="col-sm-1">Ratio:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioEdit_@val.id" value="@val.ratio" />
+                    <span class="col-sm-1">Offset:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@val.id" value="@val.offset" />
+                    <span class="col-sm-1">Unit:</span> <input type="text" class="col-sm-1  form-control input-xs" name="unitEdit_@val.id" value="@val.unit" />
+                    <span class="col-sm-1">Text color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="textColorEdit_@val.id" value="@val.textColor" />
+                    <br />
+                </div>
+            </div>
+        </div>
+    }
+    <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#addDynVal" aria-expanded="false">
+        Add new dynamic value
+    </a>
+
+        <div class="collapse" id="addDynVal">
+            <div class="card card-block">
+                <div class="form-inline">
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableNew" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnNew"/>
+                    <span class="col-sm-1">Ratio:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioNew" />
+                    <span class="col-sm-1">Offset:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetNew" />
+                    <span class="col-sm-1">Unit:</span> <input type="text" class="col-sm-1  form-control input-xs" name="unitNew"  />
+                    <span class="col-sm-1">Text color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="textColorNew" />
+                    <br />
+                </div>
+            </div>
+        </div>
+
 @Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
-<br>Second svg
-<object type="image/svg+xml" data="@Model.relativePath">
-    Your object does not suupport SVG
-</object>
+@*
+    <br>Second svg
+    <object type="image/svg+xml" data="@Model.relativePath">
+        Your object does not suupport SVG
+    </object>
+*@
+
+}

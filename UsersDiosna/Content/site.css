@@ -28,6 +28,13 @@
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
     box-shadow: 3px 3px 4px grey;
 }
+.input-xs {
+    height: 12px;
+    padding: 1px 2px;
+    font-size: 10px;
+    line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
+    border-radius: 3px;
+}
 
 .projectName {
     margin-left: -8%;

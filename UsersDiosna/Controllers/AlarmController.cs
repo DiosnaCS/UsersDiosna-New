@@ -38,8 +38,7 @@ namespace UsersDiosna.Controllers
 
         // GET: Alarm
         public async Task<ActionResult> Index()
-        {
-            DBConnnection();
+        {            
             int plcID = 1;
             if (int.Parse(Session["AlarmPlcID"].ToString()) != 0)
             {

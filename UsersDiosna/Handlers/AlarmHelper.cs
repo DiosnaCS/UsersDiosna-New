@@ -26,6 +26,7 @@ namespace UsersDiosna.Handlers
 
         public struct alarm_texts
         {
+            public short plcID { get; set; }
             public short id { get; set; }
             public string lang { get; set; }
             public string title { get; set; }
@@ -65,13 +66,13 @@ namespace UsersDiosna.Handlers
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
                 // Execute the query and obtain a result set                
-                string sql = string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE (plc_id={0} AND {1})", plcID, whereIds);
+                string sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1})", plcID, whereIds);
                 cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id FROM alarm_texts WHERE plc_id={0}",plcID),conn);
+                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0}", plcID),conn);
             }
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();
@@ -83,6 +84,7 @@ namespace UsersDiosna.Handlers
                 alarm.title = dataReader["title"].ToString();
                 alarm.lang = dataReader["lang"].ToString();
                 alarm.id = Int16.Parse(dataReader["alarm_id"].ToString());
+                alarm.plcID = Int16.Parse(dataReader["plc_id"].ToString());
                 alarmList.Add(alarm);
             }
             //We need to close connection to select texts
@@ -159,7 +161,7 @@ namespace UsersDiosna.Handlers
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id) == id))
                 {
-                    alarm.title = titles.Single(p=>p.id == id).title;
+                    alarm.title = titles.Single(p=>p.id == id && p.plcID == plcID).title;
                 } else
                 {
                     alarm.title = "Title does not match with any of alarm id in texts and in db. DB id:" + id;
@@ -208,7 +210,7 @@ namespace UsersDiosna.Handlers
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id) == id))
                 {
-                    alarm.title = titles.Single(p => p.id == id).title;
+                    alarm.title = titles.Single(p => p.id == id && p.plcID == plcID).title;
                 }
                 else
                 {

@@ -118,7 +118,7 @@ namespace UsersDiosna.Handlers
 
                 ageBarList.Add(AB);
             }
-            XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
+            XmlSerializer serializer = new XmlSerializer(typeof(List<AgeBar>));
             using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
             {
                 serializer.Serialize(writer, ageBarList);
@@ -135,8 +135,8 @@ namespace UsersDiosna.Handlers
                 DynValue value = new DynValue();
 
                 value.id = int.Parse(dynValue[0]);
-                value.table = dynValue[1];
-                value.column = dynValue[2];
+                value.column = dynValue[1];
+                value.table = dynValue[2];
                 value.ratio = int.Parse(dynValue[3]);
                 value.offset = int.Parse(dynValue[4]);
                 value.unit = dynValue[5];
