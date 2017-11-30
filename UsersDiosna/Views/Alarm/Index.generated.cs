@@ -401,7 +401,8 @@ WriteLiteral(@"
 <script>
         function DateTime(date){
                 var offset = date.getTimezoneOffset();
-                var offseted_miliseconds = date.getTime() - (offset*60000);
+                console.log(offset);
+                var offseted_miliseconds = date.getTime() - (offset * 60000);
                 var DateTime = new Date(offseted_miliseconds);
                 var localDateTime = DateTime.toLocaleString();
                 return localDateTime;
@@ -410,7 +411,7 @@ WriteLiteral(@"
 ");
 
             
-            #line 78 "..\..\Views\Alarm\Index.cshtml"
+            #line 79 "..\..\Views\Alarm\Index.cshtml"
  for (int i = 0; i < Model.Count; i++)
 {
 
@@ -420,7 +421,7 @@ WriteLiteral(@"
 WriteLiteral("    <script>\r\n        var year = ");
 
             
-            #line 81 "..\..\Views\Alarm\Index.cshtml"
+            #line 82 "..\..\Views\Alarm\Index.cshtml"
               Write(Model[i].originTime.Year);
 
             
@@ -429,16 +430,16 @@ WriteLiteral("    <script>\r\n        var year = ");
 WriteLiteral(";\r\n        var month = ");
 
             
-            #line 82 "..\..\Views\Alarm\Index.cshtml"
+            #line 83 "..\..\Views\Alarm\Index.cshtml"
                Write(Model[i].originTime.Month);
 
             
             #line default
             #line hidden
-WriteLiteral(";\r\n        var day = ");
+WriteLiteral(";\r\n        console.log(month);\r\n        var day = ");
 
             
-            #line 83 "..\..\Views\Alarm\Index.cshtml"
+            #line 85 "..\..\Views\Alarm\Index.cshtml"
              Write(Model[i].originTime.Day);
 
             
@@ -447,7 +448,7 @@ WriteLiteral(";\r\n        var day = ");
 WriteLiteral(";\r\n        var hour = ");
 
             
-            #line 84 "..\..\Views\Alarm\Index.cshtml"
+            #line 86 "..\..\Views\Alarm\Index.cshtml"
               Write(Model[i].originTime.Hour);
 
             
@@ -456,7 +457,7 @@ WriteLiteral(";\r\n        var hour = ");
 WriteLiteral(";\r\n        var minute = ");
 
             
-            #line 85 "..\..\Views\Alarm\Index.cshtml"
+            #line 87 "..\..\Views\Alarm\Index.cshtml"
                 Write(Model[i].originTime.Minute);
 
             
@@ -465,17 +466,17 @@ WriteLiteral(";\r\n        var minute = ");
 WriteLiteral(";\r\n        var second = ");
 
             
-            #line 86 "..\..\Views\Alarm\Index.cshtml"
+            #line 88 "..\..\Views\Alarm\Index.cshtml"
                 Write(Model[i].originTime.Second);
 
             
             #line default
             #line hidden
-WriteLiteral(";\r\n        var date = new Date(year, month, day, hour, minute, second, 0);\r\n     " +
-"   console.log(date);\r\n                var yearExp = ");
+WriteLiteral(";\r\n        var date = new Date(year, month-1, day, hour, minute, second, 0);\r\n   " +
+"     console.log(date);\r\n                var yearExp = ");
 
             
-            #line 89 "..\..\Views\Alarm\Index.cshtml"
+            #line 91 "..\..\Views\Alarm\Index.cshtml"
                          Write(Model[i].expiryTime.Year);
 
             
@@ -484,7 +485,7 @@ WriteLiteral(";\r\n        var date = new Date(year, month, day, hour, minute, s
 WriteLiteral(";\r\n                var monthExp = ");
 
             
-            #line 90 "..\..\Views\Alarm\Index.cshtml"
+            #line 92 "..\..\Views\Alarm\Index.cshtml"
                           Write(Model[i].expiryTime.Month);
 
             
@@ -493,7 +494,7 @@ WriteLiteral(";\r\n                var monthExp = ");
 WriteLiteral(";\r\n                var dayExp = ");
 
             
-            #line 91 "..\..\Views\Alarm\Index.cshtml"
+            #line 93 "..\..\Views\Alarm\Index.cshtml"
                         Write(Model[i].expiryTime.Day);
 
             
@@ -502,7 +503,7 @@ WriteLiteral(";\r\n                var dayExp = ");
 WriteLiteral(";\r\n                var hourExp = ");
 
             
-            #line 92 "..\..\Views\Alarm\Index.cshtml"
+            #line 94 "..\..\Views\Alarm\Index.cshtml"
                          Write(Model[i].expiryTime.Hour);
 
             
@@ -511,7 +512,7 @@ WriteLiteral(";\r\n                var hourExp = ");
 WriteLiteral(";\r\n                var minuteExp = ");
 
             
-            #line 93 "..\..\Views\Alarm\Index.cshtml"
+            #line 95 "..\..\Views\Alarm\Index.cshtml"
                            Write(Model[i].expiryTime.Minute);
 
             
@@ -520,18 +521,18 @@ WriteLiteral(";\r\n                var minuteExp = ");
 WriteLiteral(";\r\n                var secondExp = ");
 
             
-            #line 94 "..\..\Views\Alarm\Index.cshtml"
+            #line 96 "..\..\Views\Alarm\Index.cshtml"
                            Write(Model[i].expiryTime.Second);
 
             
             #line default
             #line hidden
-WriteLiteral(";\r\n                var expDate = new Date(yearExp, monthExp, dayExp, hourExp, min" +
-"uteExp, secondExp, 0);\r\n\r\n            var localDateTime = DateTime(date);\r\n     " +
-"       document.getElementById(\"date_\" + \"");
+WriteLiteral(";\r\n                var expDate = new Date(yearExp, monthExp-1, dayExp, hourExp, m" +
+"inuteExp, secondExp, 0);\r\n\r\n            var localDateTime = DateTime(date);\r\n   " +
+"         document.getElementById(\"date_\" + \"");
 
             
-            #line 98 "..\..\Views\Alarm\Index.cshtml"
+            #line 100 "..\..\Views\Alarm\Index.cshtml"
                                           Write(i);
 
             
@@ -541,7 +542,7 @@ WriteLiteral("\").innerHTML = localDateTime;\r\n            var localExpDateTime
 "e);\r\n            document.getElementById(\"expDate_\" + \"");
 
             
-            #line 100 "..\..\Views\Alarm\Index.cshtml"
+            #line 102 "..\..\Views\Alarm\Index.cshtml"
                                              Write(i);
 
             
@@ -550,7 +551,7 @@ WriteLiteral("\").innerHTML = localDateTime;\r\n            var localExpDateTime
 WriteLiteral("\").innerHTML = localExpDateTime;\r\n    </script>\r\n");
 
             
-            #line 102 "..\..\Views\Alarm\Index.cshtml"
+            #line 104 "..\..\Views\Alarm\Index.cshtml"
 }
 
             

@@ -38,12 +38,19 @@ namespace UsersDiosna.Controllers
 
         // GET: Alarm
         public async Task<ActionResult> Index()
-        {            
+        {
+            DBConnnection();
             int plcID = 1;
-            if (int.Parse(Session["AlarmPlcID"].ToString()) != 0)
+            string lang = "en";
+            if (Session["AlarmPlcID"] != null)
             {
                 plcID = int.Parse(Session["AlarmPlcID"].ToString());
             }
+            if (Session["AlarmLang"] != null)
+            {
+                if (Session["AlarmLang"].ToString().Length >= 2)
+                    lang = Session["AlarmLang"].ToString();
+            }            
             List<int> alarms = new List<int>();
             if (Session["filteredAlarms"] != null)
             {
@@ -54,7 +61,7 @@ namespace UsersDiosna.Controllers
             }
             List<AlarmHelper.alarm> model = new List<AlarmHelper.alarm>();
             AlarmHelper AH = new AlarmHelper();
-            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID);
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID, lang);
             ViewBag.page = 0;
             ViewBag.legend = "Notification from current alarms means only from the unique ones \n Other occurence of the alarm would not viewed";
             return View(model);
@@ -64,6 +71,7 @@ namespace UsersDiosna.Controllers
         public async Task<ActionResult> Page(int page = 0, int count = 30)
         {
             List<int> alarms = new List<int>();
+            string lang = "en";
             if (Session["filteredAlarms"] != null)
             {
                 alarms = (List<int>)Session["filteredAlarms"];
@@ -85,7 +93,12 @@ namespace UsersDiosna.Controllers
             {
                 plcID = int.Parse(Session["AlarmPlcID"].ToString());
             }
-            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID);
+            if (Session["AlarmLang"] != null)
+            {
+                if (Session["AlarmLang"].ToString().Length >= 2)
+                    lang = Session["AlarmLang"].ToString();
+            }
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID, lang);
             if (model.Count == 0)
             {
                 Session["tempforview"] = "No alarms has been found";
@@ -115,9 +128,15 @@ namespace UsersDiosna.Controllers
         {
             List<int> alarms = (List<int>)Session["alarmIDs"];
             int plcID = 1;
+            string lang = "en";
             if (Session["AlarmPlcID"] != null)
             {
                 plcID = (int)Session["AlarmPlcID"];
+            }
+            if (Session["AlarmLang"] != null)
+            {
+                if (Session["AlarmLang"].ToString().Length >= 2)
+                    lang = Session["AlarmLang"].ToString();
             }
             if (alarms != null)
             {
@@ -125,7 +144,7 @@ namespace UsersDiosna.Controllers
 
                 AlarmHelper AH = new AlarmHelper();
                 List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
-                model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms, plcID);
+                model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), alarms, plcID, lang);
                 return View("Filter", model);
             }
             Session["tempforview"] = "Problem with accesing current alarms";
@@ -135,13 +154,19 @@ namespace UsersDiosna.Controllers
         public ActionResult FilterAll()
         {
             int plcID = 1;
+            string lang = "en";
             if (Session["AlarmPlcID"] != null)
             {
                 plcID = (int)Session["AlarmPlcID"];
             }
+            if (Session["AlarmLang"] != null)
+            {
+                if (Session["AlarmLang"].ToString().Length >= 2)
+                    lang = Session["AlarmLang"].ToString();
+            }
             AlarmHelper AH = new AlarmHelper();
             List<AlarmHelper.alarm_texts> model = new List<AlarmHelper.alarm_texts>();
-            model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), null, plcID);
+            model = AH.SelectAlarmsTexts(Session["AlarmDB"].ToString(), null, plcID, lang);
             return View("Filter", model);
         }
         public ActionResult CancelFilter()

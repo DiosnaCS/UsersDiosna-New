@@ -21,6 +21,7 @@
     </graph>
     <alarm name="Alarms">
         <dbName>Tscheremuschki</dbName>
+	<plcID>2</plcID>
     </alarm>
   </plc>
 </configuration>

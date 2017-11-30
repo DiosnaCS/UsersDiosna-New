@@ -53,5 +53,49 @@
         Your object does not suupport SVG
     </object>
 *@
+    foreach (AgeBar ageBar in Model.SchemeAgeBars)
+    {
+        <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@ageBar.id" aria-expanded="false">
+            Dynamic ageBarue of tag: @ageBar.column
+        </a>
 
+        <div class="collapse" id="@ageBar.id">
+            <div class="card card-block">
+                <div class="form-inline">
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@ageBar.id" ageBarue="@ageBar.table" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@ageBar.id" ageBarue="@ageBar.column" />
+                    <span class="col-sm-1">Max. Age:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioEdit_@ageBar.id" ageBarue="@ageBar.maxAge" />
+                    <span class="col-sm-1">First color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.firstColor" />
+                    <span class="col-sm-1">Second limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.firstLimit" />
+                    <span class="col-sm-1">Second color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.secondColor" />
+                    <span class="col-sm-1">Third limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.secLimit" />
+                    <span class="col-sm-1">Third color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.thirdColor" />
+                    <br />
+                </div>
+            </div>
+        </div>
+}
+
+    foreach (Graphiclist grapphicList in Model.SchemeGraphicsList)
+    {
+        <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@graphicList.id" aria-expanded="false">
+            Dynamic graphicListue of tag: @graphicList.column
+        </a>
+
+            <div class="collapse" id="@graphicList.id">
+                <div class="card card-block">
+                    <div class="form-inline">
+                        <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@graphicList.id" graphicListue="@graphicList.table" />
+                        <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@graphicList.id" graphicListue="@graphicList.column" />
+                        <span class="col-sm-1">Max. Age:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioEdit_@graphicList.id" graphicListue="@graphicList.maxAge" />
+                        <span class="col-sm-1">First color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.firstColor" />
+                        <span class="col-sm-1">Second limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.firstLimit" />
+                        <span class="col-sm-1">Second color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.secondColor" />
+                        <span class="col-sm-1">Third limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.secLimit" />
+                        <span class="col-sm-1">Third color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.thirdColor" />
+                        <br />
+                    </div>
+                </div>
+            </div>
+    }
 }

@@ -32,6 +32,7 @@
         <pathNames>C:\Akce\java\grafy_names_CZROS.ini</pathNames>
     </graph>
     <alarm name="Alarms">
+	<lang>cs</lang>
         <dbName>Rosice</dbName>
     </alarm>
     <Download>

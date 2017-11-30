@@ -84,6 +84,8 @@ namespace UsersDiosna.Sheme.Models
     public class Textlist
     {
         [XmlAttribute]
+        public int id { get; set; }
+        [XmlAttribute]
         public string name { get; set; }
         public List<TextlistItem> items { get; set; }
     }
@@ -92,11 +94,22 @@ namespace UsersDiosna.Sheme.Models
         [XmlAttribute]
         public int index { get; set; }
         [XmlAttribute]
+        public string table { get; set; }
+        [XmlAttribute]
+        public string column { get; set; }
+        [XmlAttribute]
         public string path { get; set; }
     }
     public class Graphiclist
     {
+        [XmlAttribute]
+        public int id { get; set; }
+        [XmlAttribute]
         public string name { get; set; }
+        [XmlAttribute]
+        public string table { get; set; }
+        [XmlAttribute]
+        public string column { get; set; }
         public List<GraphiclistItem> items { get; set; }
     }
 }
