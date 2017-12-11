@@ -53,7 +53,8 @@ namespace UsersDiosna.Handlers
             NpgsqlCommand cmd;
             string whereIds = string.Empty;
             string langWhere = string.Empty;
-            if(lang == null)
+            string sql = string.Empty;
+            if (lang == null)
             {
                 langWhere = "";
             }
@@ -73,14 +74,29 @@ namespace UsersDiosna.Handlers
                     whereIds += "alarm_id=" + id.ToString() + " OR ";
                 }
                 whereIds = whereIds.Substring(0, whereIds.Length - 4);
-                // Execute the query and obtain a result set                
-                string sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1} AND lang='{2}')", plcID, whereIds, lang);
+                // Execute the query and obtain a result set          
+                if (langWhere == "")
+                {
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1})", plcID, whereIds);
+                }
+                else
+                {
+                   sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1} AND lang='{2}')", plcID, whereIds, lang);
+                }
                 cmd = new NpgsqlCommand(sql, conn);
             }
             else
             {
                 // Execute the query and obtain a result set                
-                cmd = new NpgsqlCommand(string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0} AND lang='{1}'", plcID, lang),conn);
+                if (langWhere == "")
+                {
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0}", plcID);
+                }
+                else
+                {
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0} AND lang='{1}'", plcID, lang);
+                }
+                cmd = new NpgsqlCommand(sql,conn);
             }
             //Prepare DataReader
             NpgsqlDataReader dataReader = cmd.ExecuteReader();

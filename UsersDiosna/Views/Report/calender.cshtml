@@ -27,14 +27,16 @@
     int rowDOamountOverall = 0;
     */
     int year = ViewBag.year;
+    int yearOnButtonLeft = year;
+    int yearOnButtonRight = year;
     int monthLess = ViewBag.Month - 1;
     int monthMore = ViewBag.Month + 1;
     if (monthLess < 1) {
-        year--;
+        yearOnButtonLeft--;
         monthLess = 12;
     }
     if (monthMore > 12) {
-        year++;
+        yearOnButtonRight++;
         monthMore = 1;
     }
     ViewHeaderDosingOut dosingOut = null;
@@ -47,7 +49,7 @@
 
 <h4>Calender</h4>
 <div class=" col-md-12">
-    <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@year">-1 month</a> Month: @monthName @year <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@year">+1 month</a>
+    <a class="btn-primary btn-xs" href="/Report/Month/@monthLess/@yearOnButtonLeft">-1 month</a> Month: @monthName @year <a class="btn-primary btn-xs" href="/Report/Month/@monthMore/@yearOnButtonRight">+1 month</a>
     <p></p>
 </div>
 <div class=" col-md-12">

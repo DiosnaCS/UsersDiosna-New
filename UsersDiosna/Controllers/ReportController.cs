@@ -17,6 +17,8 @@ namespace UsersDiosna.Controllers
         // GET: ReportCalender
         public ActionResult Index()
         {
+            int monthAdded = 1;
+            int yearAdded = 1;
             const int startDay = 1;
             tankNames = new Dictionary<int, string>();
             string DB = string.Empty;
@@ -42,8 +44,18 @@ namespace UsersDiosna.Controllers
             Session["ReportConfigrationNumber"] = cfNum;
             int month = DateTime.Now.Month;
             int year = DateTime.Now.Year;
+            if (month == 12)
+            {
+                monthAdded = 1;
+                yearAdded = year + 1;
+            }
+            else
+            {
+                monthAdded = month + 1;
+                yearAdded = year;
+            }
             DateTime thisMonthStart = new DateTime(year, month, startDay,0,0,0);
-            DateTime thisMontEnd = new DateTime(year, month+1, startDay,0,0,0);
+            DateTime thisMontEnd = new DateTime(yearAdded, monthAdded, startDay,0,0,0);
             ReportHandler RH = new ReportHandler();
             if(cfNum != 0)
                 tankNames = RH.getTanknames(cfNum);
@@ -66,12 +78,23 @@ namespace UsersDiosna.Controllers
 
         public ActionResult Month(int month, int year)
         {
+            int monthAdded = 1;
+            int yearAdded = 1;
             const int startDay = 1;
-
+            if (month == 12)
+            {
+                monthAdded = 1;
+                yearAdded = year + 1;
+            }
+            else
+            {
+                monthAdded = month + 1;
+                yearAdded = year;
+            }
             //int month = DateTime.Now.Month;
             //int year = DateTime.Now.Year;
             DateTime thisMonthStart = new DateTime(year, month, startDay, 0, 0, 0);
-            DateTime thisMontEnd = new DateTime(year, month + 1, startDay, 0, 0, 0);
+            DateTime thisMontEnd = new DateTime(year, monthAdded, startDay, 0, 0, 0);
             ReportHandler RH = new ReportHandler();
 
             ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
