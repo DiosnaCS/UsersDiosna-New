@@ -86,6 +86,10 @@ namespace UsersDiosna.Sheme.Models
         [XmlAttribute]
         public int id { get; set; }
         [XmlAttribute]
+        public string table { get; set; }
+        [XmlAttribute]
+        public string column { get; set; }
+        [XmlAttribute]
         public string name { get; set; }
         public List<TextlistItem> items { get; set; }
     }

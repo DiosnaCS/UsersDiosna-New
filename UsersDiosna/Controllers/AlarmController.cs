@@ -98,7 +98,7 @@ namespace UsersDiosna.Controllers
                 if (Session["AlarmLang"].ToString().Length >= 2)
                     lang = Session["AlarmLang"].ToString();
             }
-            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), 0, 30, alarms, plcID, lang);
+            model = await AH.SelectAlarms(Session["AlarmDB"].ToString(), page, 30, alarms, plcID, lang);
             if (model.Count == 0)
             {
                 Session["tempforview"] = "No alarms has been found";

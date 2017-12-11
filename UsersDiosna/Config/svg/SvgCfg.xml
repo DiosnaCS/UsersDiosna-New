@@ -6560,4 +6560,1564 @@
     <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
     <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
   </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfDynValue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DynValue id="10" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+  <DynValue id="11" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="12" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+  <DynValue id="13" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
+</ArrayOfDynValue><?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAgeBar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AgeBar id="101" table="diSF2_AgeOld" column="arWS_norm" maxAge="14400" firstColor="green" firstLimit="3600" secondColor="yellow" secLimit="7200" thirdColor="gray" />
+  <AgeBar id="102" table="diSF2_Weight" column="arWS_norm" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+</ArrayOfAgeBar><?xml version="1.0" encoding="utf-8"?>
+<Graphiclist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="\valve\">
+  <items>
+    <GraphiclistItem index="0" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+    <GraphiclistItem index="1" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+    <GraphiclistItem index="2" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+    <GraphiclistItem index="3" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+    <GraphiclistItem index="4" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+    <GraphiclistItem index="5" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+    <GraphiclistItem index="6" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+    <GraphiclistItem index="7" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+    <GraphiclistItem index="8" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+    <GraphiclistItem index="10" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+    <GraphiclistItem index="11" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+    <GraphiclistItem index="12" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+    <GraphiclistItem index="13" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+    <GraphiclistItem index="14" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+    <GraphiclistItem index="15" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+    <GraphiclistItem index="16" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+    <GraphiclistItem index="17" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+    <GraphiclistItem index="18" path="c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+  </items>
+</Graphiclist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="dest_names">
+  <items>
+    <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
+    <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
+    <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
+    <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
+    <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
+    <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
+    <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
+    <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
+    <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
+    <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
+    <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
+    <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
+    <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
+    <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
+    <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
+    <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
+    <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
+    <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
+    <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
+    <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
+    <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
+    <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
+    <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
+    <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
+    <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
+    <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
+    <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
+    <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
+    <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
+    <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
+    <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
+    <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
+    <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
+    <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
+    <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
+    <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
+    <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
+    <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
+    <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
+    <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
+    <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
+    <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
+    <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
+    <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
+    <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
+    <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
+    <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
+    <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
+    <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
+    <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
+    <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
+    <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
+    <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
+  </items>
+</Textlist><?xml version="1.0" encoding="utf-8"?>
+<Textlist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="0" name="step">
+  <items>
+    <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+    <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
+    <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+    <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+    <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+    <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+    <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+  </items>
 </Textlist>

@@ -169,9 +169,9 @@ namespace UsersDiosna.Handlers
                         whereIds += "alarm_id=" + id.ToString() + " OR ";
                     }
                     // Execute the query and obtain a result set                
-                    sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}", plcID, whereIds, count, offsetPage);
+                    sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}", plcID, whereIds, count * offsetPage);
                 }
-                sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {0} OFFSET {1}",plcID, count, offsetPage);
+                sql = string.Format("SELECT * FROM alarm_history WHERE plc_id={0} ORDER BY origin_pktime DESC LIMIT {1} OFFSET {2}",plcID, count, count * offsetPage);
             }
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand(sql, conn);
@@ -202,7 +202,7 @@ namespace UsersDiosna.Handlers
         }
 
         /// <summary>
-        /// Method to get alarms async
+        /// Method to get alarms async for notifications
         /// </summary>
         /// <param name="DB">db name</param>
         /// <param name="count">count of alarms that you want to select</param>

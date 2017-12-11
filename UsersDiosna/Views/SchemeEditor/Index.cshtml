@@ -76,10 +76,10 @@
         </div>
 }
 
-    foreach (Graphiclist grapphicList in Model.SchemeGraphicsList)
+    foreach (Graphiclist graphicList in Model.SchemeGraphicsList)
     {
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@graphicList.id" aria-expanded="false">
-            Dynamic graphicListue of tag: @graphicList.column
+            Dynamic graphicList of tag: @graphicList.column
         </a>
 
             <div class="collapse" id="@graphicList.id">
@@ -87,15 +87,35 @@
                     <div class="form-inline">
                         <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@graphicList.id" graphicListue="@graphicList.table" />
                         <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@graphicList.id" graphicListue="@graphicList.column" />
-                        <span class="col-sm-1">Max. Age:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioEdit_@graphicList.id" graphicListue="@graphicList.maxAge" />
-                        <span class="col-sm-1">First color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.firstColor" />
-                        <span class="col-sm-1">Second limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.firstLimit" />
-                        <span class="col-sm-1">Second color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.secondColor" />
-                        <span class="col-sm-1">Third limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.secLimit" />
-                        <span class="col-sm-1">Third color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@graphicList.id" graphicListue="@graphicList.thirdColor" />
+                        @for (int i=0; i < graphicList.items.Count; i++) {
+                            <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@graphicList.id" graphicListue="@graphicList.items[i].index" />
+                            <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@graphicList.id" graphicListue="@graphicList.items[i].path" />
+                        }
                         <br />
                     </div>
                 </div>
             </div>
+    }
+
+    foreach (Textlist textList in Model.SchemeTextlist)
+    {
+        <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@textList.id" aria-expanded="false">
+            Dynamic textList of tag: @textList.column
+        </a>
+
+        <div class="collapse" id="@textList.id">
+            <div class="card card-block">
+                <div class="form-inline">
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@textList.id" textListue="@textList.table" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@textList.id" textListue="@textList.column" />
+                    @for (int i = 0; i < textList.items.Count; i++)
+                    {
+                        <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@textList.id" textListue="@textList.items[i].index" />
+                            <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@textList.id" textListue="@textList.items[i].path" />
+                    }
+                    <br />
+                </div>
+            </div>
+        </div>
     }
 }

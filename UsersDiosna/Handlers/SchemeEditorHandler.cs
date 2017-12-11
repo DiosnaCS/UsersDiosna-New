@@ -12,7 +12,7 @@ namespace UsersDiosna.Handlers
 {
     public class SchemeEditorHandler
     {
-        public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg, List<Graphiclist> graphicLists)
+        public static void getGraphicLists(string pathSvgCfg, List<string> subGraphicDir, List<string> pathGraphicCfg,List<Graphiclist> graphicLists)
         {
             foreach (string subDir in subGraphicDir)
             {
@@ -60,6 +60,7 @@ namespace UsersDiosna.Handlers
                     {
                         serializer.Serialize(writer, graphiclist);
                     }
+                    graphicLists.Add(graphiclist);
                 }
             }
         }
@@ -94,6 +95,7 @@ namespace UsersDiosna.Handlers
                 {
                     serializer.Serialize(writer, textlist);
                 }
+                textLists.Add(textlist);
             }
         }
 
