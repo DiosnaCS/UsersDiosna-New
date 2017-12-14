@@ -1341,3 +1341,7 @@
 11/30/2017 2:34:50 PM1Session_onEnd hapened with null current context
 12/5/2017 2:46:53 PM1Session_onEnd hapened with null current context
 12/11/2017 5:37:34 PM1Session_onEnd hapened with null current context
+12/12/2017 10:02:46 AM1Session_onEnd hapened with null current context
+12/12/2017 11:13:04 AM2Session_onEnd hapened with null current context
+12/12/2017 11:13:24 AM3Session_onEnd hapened with null current context
+12/14/2017 1:56:45 PM1Session_onEnd hapened with null current context

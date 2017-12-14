@@ -109,8 +109,8 @@ namespace UsersDiosna.Handlers
                 AgeBar AB = new AgeBar();
 
                 AB.id = int.Parse(ageBar[0]);
-                AB.table = ageBar[1];
-                AB.column = ageBar[2];
+                AB.column = ageBar[1];
+                AB.table = ageBar[2];
                 AB.maxAge = int.Parse(ageBar[3]);
                 AB.firstColor = ageBar[4];
                 AB.firstLimit = int.Parse(ageBar[5]);

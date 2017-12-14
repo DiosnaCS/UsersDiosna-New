@@ -56,7 +56,7 @@
     foreach (AgeBar ageBar in Model.SchemeAgeBars)
     {
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@ageBar.id" aria-expanded="false">
-            Dynamic ageBarue of tag: @ageBar.column
+            Age Bar from tag: @ageBar.column
         </a>
 
         <div class="collapse" id="@ageBar.id">
@@ -79,7 +79,7 @@
     foreach (Graphiclist graphicList in Model.SchemeGraphicsList)
     {
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@graphicList.id" aria-expanded="false">
-            Dynamic graphicList of tag: @graphicList.column
+            GraphicList for tag: @graphicList.column
         </a>
 
             <div class="collapse" id="@graphicList.id">
@@ -100,7 +100,7 @@
     foreach (Textlist textList in Model.SchemeTextlist)
     {
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@textList.id" aria-expanded="false">
-            Dynamic textList of tag: @textList.column
+            TextList binded on tag: @textList.column
         </a>
 
         <div class="collapse" id="@textList.id">
@@ -111,7 +111,9 @@
                     @for (int i = 0; i < textList.items.Count; i++)
                     {
                         <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@textList.id" textListue="@textList.items[i].index" />
-                            <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@textList.id" textListue="@textList.items[i].path" />
+                        <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@textList.id" textListue="@textList.items[i].value" />
+                        <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@textList.id" textListue="@textList.items[i].textColor" />
+                        <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@textList.id" textListue="@textList.items[i].bgColor" />
                     }
                     <br />
                 </div>

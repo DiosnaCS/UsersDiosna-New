@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
 using System.Xml.Serialization;
 using UsersDiosna.Handlers;
 using UsersDiosna.Sheme.Models;
@@ -35,26 +36,9 @@ namespace UsersDiosna.Controllers
             getConfigPathes(pathesToCfg, ref pathSvgCfg, ref dynValuesCfg, ref ageBarsCfgPath, ref pathToSvg, subGraphicDir, pathGraphicCfg);
 
             SchemeEditor model = new SchemeEditor();
-            if (pathToSvg != null)
-            {
-                //pathToSvg = pathToSvg.Replace(@"\", @"/");
-                if (pathToSvg.IndexOf(@"\") == 0)
-                {
-                    pathToSvg = pathToSvg.Substring(1);
-                }
-                svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
-
-
-                model.relativePath = pathToSvg;
-                model.SvgFile = svg;
-            }
-            else
-            {
-                Session["tempforview"] = "Problem with finding this svg path";
-                return RedirectToAction("Index", "Menu");
-            }
             if (dynValuesCfg != null || ageBarsCfgPath != null || pathGraphicCfg != null)
             {
+                System.IO.File.Delete(pathSvgCfg);
                 if (dynValuesCfg != null)
                 {
                     SchemeEditorHandler.getDynValues(pathSvgCfg, dynValuesCfg, values);
@@ -90,6 +74,29 @@ namespace UsersDiosna.Controllers
                 else
                 {
                     Session["tempforview"] = "Config files pathes are not present in bakery config";
+                }
+                if (pathToSvg != null)
+                {
+                    //pathToSvg = pathToSvg.Replace(@"\", @"/");
+                    if (pathToSvg.IndexOf(@"\") == 0)
+                    {
+                        pathToSvg = pathToSvg.Substring(1);
+                    }
+
+                    svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
+
+                    string SvgXml = svg.GetXML();
+                    string ConfigXml = System.IO.File.ReadAllText(pathSvgCfg);
+                    
+                    SvgDocument newSvg = new SvgDocument();
+                    System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, ConfigXml + SvgXml);
+                    model.relativePath = pathToSvg;
+                    model.SvgFile = svg;
+                }
+                else
+                {
+                    Session["tempforview"] = "Problem with finding this svg";
+                    return RedirectToAction("Index", "Menu");
                 }
                 return View(model);
             }
