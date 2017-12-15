@@ -31,7 +31,6 @@
 .input-xs {
     height: 12px;
     padding: 1px 2px;
-    font-size: 10px;
     line-height: 1.5; /* If Placeholder of the input is moved up, rem/modify this. */
     border-radius: 3px;
 }
