@@ -55,11 +55,6 @@ namespace UsersDiosna.Handlers
                         graphiclist.name = subDir;
                         graphiclist.name = graphiclist.name.Replace("/", string.Empty);
                     }
-                    XmlSerializer serializer = new XmlSerializer(typeof(Graphiclist));
-                    using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
-                    {
-                        serializer.Serialize(writer, graphiclist);
-                    }
                     graphicLists.Add(graphiclist);
                 }
             }
@@ -90,11 +85,6 @@ namespace UsersDiosna.Handlers
                 }
                 string textlistName = path.Substring(path.LastIndexOf("\\") + 1, path.LastIndexOf(".") - path.LastIndexOf("\\")-1);
                 textlist.name = textlistName;
-                XmlSerializer serializer = new XmlSerializer(typeof(Textlist));
-                using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
-                {
-                    serializer.Serialize(writer, textlist);
-                }
                 textLists.Add(textlist);
             }
         }
@@ -108,9 +98,7 @@ namespace UsersDiosna.Handlers
             {
                 AgeBar AB = new AgeBar();
 
-                AB.id = int.Parse(ageBar[0]);
-                AB.column = ageBar[1];
-                AB.table = ageBar[2];
+                AB.id = ageBar[0];
                 AB.maxAge = int.Parse(ageBar[3]);
                 AB.firstColor = ageBar[4];
                 AB.firstLimit = int.Parse(ageBar[5]);
@@ -119,11 +107,6 @@ namespace UsersDiosna.Handlers
                 AB.thirdColor = ageBar[8];
 
                 ageBarList.Add(AB);
-            }
-            XmlSerializer serializer = new XmlSerializer(typeof(List<AgeBar>));
-            using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
-            {
-                serializer.Serialize(writer, ageBarList);
             }
         }
 
@@ -136,20 +119,45 @@ namespace UsersDiosna.Handlers
             {
                 DynValue value = new DynValue();
 
-                value.id = int.Parse(dynValue[0]);
-                value.column = dynValue[1];
-                value.table = dynValue[2];
-                value.ratio = int.Parse(dynValue[3]);
-                value.offset = int.Parse(dynValue[4]);
-                value.unit = dynValue[5];
-                value.textColor = dynValue[6];
+                value.id = dynValue[0];
+                //value.column = dynValue[1];
+                //value.table = dynValue[2];
+                value.ratio = int.Parse(dynValue[1]);
+                value.offset = int.Parse(dynValue[2]);
+                value.unit = dynValue[3];
+                value.textColor = dynValue[4];
 
                 values.Add(value);
             }
-            XmlSerializer serializer = new XmlSerializer(typeof(List<DynValue>));
-            using (TextWriter writer = new StreamWriter(pathSvgCfg, append: true))
+        }
+
+        public static void getBindingTags(string pathSvgCfg, string bindingTagsCfg, List<SchemeValue> bindingTagList)
+        {
+            List<string> lines = System.IO.File.ReadAllLines(bindingTagsCfg).ToList();
+
+            //lines.ForEach(line => line.Where(p => char.IsWhiteSpace(p)).Select(q => line.Replace(q, '\t')));
+            //List<string[]> bindingList = lines.Select(eachLine => eachLine.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries)).ToList();
+
+            //Changing whiteSpaces to tabulators and split via tabulators and all empty parts throw away            
+            List<string[]> bindingList = lines.Select(eachLine => eachLine.Split((char[]) null, StringSplitOptions.RemoveEmptyEntries)).ToList();
+            foreach (string[] dynValue in bindingList)
             {
-                serializer.Serialize(writer, values);
+                SchemeValue bindingTag = new SchemeValue();
+
+                bindingTag.id = dynValue[0];
+                bindingTag.columnName = dynValue[1];
+                bindingTag.tableName = dynValue[2];
+                bindingTag.Type = dynValue[3];
+                bindingTagList.Add(bindingTag);
+            }
+        }
+
+        public static void writeToXML(string pathSvgCfg, SchemeEditor editor)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(SchemeEditor));
+            using (StringWriter writer = new StringWriter())
+            {
+                serializer.Serialize(writer, editor);
             }
         }
     }

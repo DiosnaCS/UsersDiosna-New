@@ -1,2 +1,2 @@
-101	diSF2_AgeOld	arWS_norm	14400	green	3600	yellow	7200	gray
+101	diSF2_AgeOld	arWS_norm	14400	green	36000	yellow	72000	gray
 102	diSF2_Weight	arWS_norm	3000000		blue	3000000		blue	3000000 	blue 

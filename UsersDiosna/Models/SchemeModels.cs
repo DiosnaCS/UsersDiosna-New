@@ -14,16 +14,33 @@ namespace UsersDiosna.Sheme.Models
         /// <summary>
         /// Svg model 
         /// </summary>
-        public SvgDocument SvgFile {get; set; }
+        public SvgDocument SvgFile { get; set; }
+        public List<SchemeValue> BindingTags { get; set; }
         public List<DynValue> SchemeTags { get; set; }
         public List<AgeBar> SchemeAgeBars { get; set; }
         public List<Graphiclist> SchemeGraphicsList { get; set; }
         public List<Textlist> SchemeTextlist { get; set; }
     }
+
+    public class SchemeEditorXML
+    {
+        public List<SchemeValue> BindingTags { get; set; }
+        public List<DynValue> SchemeTags { get; set; }
+        public List<AgeBar> SchemeAgeBars { get; set; }
+        public List<Graphiclist> SchemeGraphicsList { get; set; }
+        public List<Textlist> SchemeTextlist { get; set; }
+
+    }
     public class SchemeValue
     {
+        [XmlAttribute]
+        public string id { get; set; }
+        [XmlAttribute]
         public string tableName { get; set; }
+        [XmlAttribute]
         public string columnName { get; set; }
+        [XmlAttribute]
+        public string Type { get; set; }
     }
     public class ResponseValue
     {
@@ -35,7 +52,7 @@ namespace UsersDiosna.Sheme.Models
     public class DynValue
     {
         [XmlAttribute]
-        public int id { get; set; }
+        public string id { get; set; }
         [XmlAttribute]
         public string table { get; set; }
         [XmlAttribute]
@@ -52,11 +69,7 @@ namespace UsersDiosna.Sheme.Models
     public class AgeBar
     {
         [XmlAttribute]
-        public int id { get; set; }
-        [XmlAttribute]
-        public string table { get; set; }
-        [XmlAttribute]
-        public string column { get; set; }
+        public string id { get; set; }
         [XmlAttribute]
         public int maxAge { get; set; }
         [XmlAttribute]
@@ -84,11 +97,7 @@ namespace UsersDiosna.Sheme.Models
     public class Textlist
     {
         [XmlAttribute]
-        public int id { get; set; }
-        [XmlAttribute]
-        public string table { get; set; }
-        [XmlAttribute]
-        public string column { get; set; }
+        public string id { get; set; }
         [XmlAttribute]
         public string name { get; set; }
         public List<TextlistItem> items { get; set; }
@@ -107,13 +116,9 @@ namespace UsersDiosna.Sheme.Models
     public class Graphiclist
     {
         [XmlAttribute]
-        public int id { get; set; }
+        public string id { get; set; }
         [XmlAttribute]
         public string name { get; set; }
-        [XmlAttribute]
-        public string table { get; set; }
-        [XmlAttribute]
-        public string column { get; set; }
         public List<GraphiclistItem> items { get; set; }
     }
 }

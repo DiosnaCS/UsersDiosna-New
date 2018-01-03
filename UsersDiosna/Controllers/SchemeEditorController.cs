@@ -26,14 +26,16 @@ namespace UsersDiosna.Controllers
             string dynValuesCfg = null;
             string ageBarsCfgPath = null;
             string pathToSvg = null;
+            string bindingTagsCfg = null;
             List<string> subGraphicDir = new List<string>();
             List<string> pathGraphicCfg = new List<string>();
             List<AgeBar> ageBarList = new List<AgeBar>();
             List<DynValue> values = new List<DynValue>();
             List<Textlist> textLists = new List<Textlist>();
             List<Graphiclist> graphicLists = new List<Graphiclist>();
+            List<SchemeValue> bindingTagList = new List<SchemeValue>();
 
-            getConfigPathes(pathesToCfg, ref pathSvgCfg, ref dynValuesCfg, ref ageBarsCfgPath, ref pathToSvg, subGraphicDir, pathGraphicCfg);
+            getConfigPathes(pathesToCfg, ref pathSvgCfg, ref dynValuesCfg, ref bindingTagsCfg, ref ageBarsCfgPath, ref pathToSvg, subGraphicDir, pathGraphicCfg);
 
             SchemeEditor model = new SchemeEditor();
             if (dynValuesCfg != null || ageBarsCfgPath != null || pathGraphicCfg != null)
@@ -42,6 +44,11 @@ namespace UsersDiosna.Controllers
                 if (dynValuesCfg != null)
                 {
                     SchemeEditorHandler.getDynValues(pathSvgCfg, dynValuesCfg, values);
+                    model.SchemeTags = values;
+                }
+                if (bindingTagsCfg != null)
+                {
+                    SchemeEditorHandler.getBindingTags(pathSvgCfg, bindingTagsCfg, bindingTagList);
                     model.SchemeTags = values;
                 }
                 // Important ageBar age is not included in agegBar config 
@@ -82,7 +89,8 @@ namespace UsersDiosna.Controllers
                     {
                         pathToSvg = pathToSvg.Substring(1);
                     }
-
+                    //write whole SchemeEditor model to xml
+                    SchemeEditorHandler.writeToXML(pathSvgCfg, model);
                     svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
 
                     string SvgXml = svg.GetXML();
@@ -95,9 +103,12 @@ namespace UsersDiosna.Controllers
                 }
                 else
                 {
+                    //write whole SchemeEditor model to xml
+                    SchemeEditorHandler.writeToXML(pathSvgCfg, model);
                     Session["tempforview"] = "Problem with finding this svg";
                     return RedirectToAction("Index", "Menu");
                 }
+                
                 return View(model);
             }
             else
@@ -106,7 +117,7 @@ namespace UsersDiosna.Controllers
             }
         }
 
-        private void getConfigPathes(List<string> pathesToCfg, ref string pathSvgCfg, ref string dynValuesCfg, ref string ageBarsCfgPath, ref string pathToSvg, List<string> subGraphicDir, List<string> pathGraphicCfg)
+        private void getConfigPathes(List<string> pathesToCfg, ref string pathSvgCfg, ref string dynValuesCfg, ref string bindingTagsCfg,  ref string ageBarsCfgPath, ref string pathToSvg, List<string> subGraphicDir, List<string> pathGraphicCfg)
         {
             foreach (string key in Session.Keys)
             {
@@ -121,6 +132,10 @@ namespace UsersDiosna.Controllers
                 if (key.Contains("dynValuesCfg"))
                 {
                     dynValuesCfg = Session[key].ToString();
+                }
+                if (key.Contains("bindingTagsCfg"))
+                {
+                    bindingTagsCfg = Session[key].ToString();
                 }
                 if (key.Contains("ageBarsCfgPath"))
                 {

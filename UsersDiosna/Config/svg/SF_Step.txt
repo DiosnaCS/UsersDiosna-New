@@ -1,0 +1,14 @@
+0 0:Off
+1 1:Initialisation
+2 2:Showering
+3 3:Flour and water dosing
+4 4:Mixing 1
+5 5:Motherdough_dosing
+6 6:Motherdough_dosing
+7 7:Mixing2
+8 8:Fermentation
+9 9:Cooling
+10 10:Storage
+11 11:Pumping_to_MF1
+12 12:Cleaning
+13 13:-END-
