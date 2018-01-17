@@ -87,3 +87,8 @@
    at System.Collections.Generic.List`1.Enumerator.MoveNextRare()
    at System.Collections.Generic.List`1.Enumerator.MoveNext()
    at UsersDiosna.Controllers.GraphController.getData()
+17.01.2018 12:32:365Value cannot be null.
+Parameter name: sourceSystem.Core   at System.Linq.Enumerable.All[TSource](IEnumerable`1 source, Func`2 predicate)
+   at UsersDiosna.Controllers.GraphController.<>c.<getData>b__7_0(Tag p) in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 111
+   at System.Linq.Enumerable.All[TSource](IEnumerable`1 source, Func`2 predicate)
+   at UsersDiosna.Controllers.GraphController.<getData>d__7.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\GraphController.cs:line 111

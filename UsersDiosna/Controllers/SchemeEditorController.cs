@@ -84,6 +84,8 @@ namespace UsersDiosna.Controllers
                 }
                 if (pathToSvg != null)
                 {
+                    model.relativePath = pathToSvg;
+                    model.SvgFile = svg;
                     //pathToSvg = pathToSvg.Replace(@"\", @"/");
                     if (pathToSvg.IndexOf(@"\") == 0)
                     {
@@ -98,8 +100,7 @@ namespace UsersDiosna.Controllers
                     
                     SvgDocument newSvg = new SvgDocument();
                     System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, ConfigXml + SvgXml);
-                    model.relativePath = pathToSvg;
-                    model.SvgFile = svg;
+
                 }
                 else
                 {

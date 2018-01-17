@@ -154,10 +154,16 @@ namespace UsersDiosna.Handlers
 
         public static void writeToXML(string pathSvgCfg, SchemeEditor editor)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(SchemeEditor));
+            SchemeEditorXML schemeEditorXML = new SchemeEditorXML();
+            schemeEditorXML.SchemeAgeBars = editor.SchemeAgeBars;
+            schemeEditorXML.SchemeGraphicsList = editor.SchemeGraphicsList;
+            schemeEditorXML.SchemeTags = editor.SchemeTags;
+            schemeEditorXML.SchemeTextlist = editor.SchemeTextlist;
+            schemeEditorXML.BindingTags = editor.BindingTags;
+            XmlSerializer serializer = new XmlSerializer(typeof(SchemeEditorXML));
             using (StringWriter writer = new StringWriter())
             {
-                serializer.Serialize(writer, editor);
+                serializer.Serialize(writer, schemeEditorXML);
             }
         }
     }
