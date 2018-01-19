@@ -94,6 +94,8 @@ namespace UsersDiosna
             return list;
         }
 
+
+
         public static List<string> SplitToList(out List<string> list, string forSplit, string separator)
         {
             string[] separatorArray = new string[] { separator };

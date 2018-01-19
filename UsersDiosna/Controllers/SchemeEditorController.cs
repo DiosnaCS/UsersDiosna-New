@@ -99,7 +99,10 @@ namespace UsersDiosna.Controllers
                     string ConfigXml = System.IO.File.ReadAllText(pathSvgCfg);
                     
                     SvgDocument newSvg = new SvgDocument();
-                    System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, ConfigXml + SvgXml);
+                    string secondSvgPart = SvgXml.Substring((SvgXml.IndexOf("<defs>") + "defs".Length));
+                    string firstSvgPart = SvgXml.Substring(0, SvgXml.IndexOf("<defs>"));
+                    string svgFileContent = firstSvgPart + "<config>" + ConfigXml + "</config>" + secondSvgPart;
+                    System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, svgFileContent);
 
                 }
                 else

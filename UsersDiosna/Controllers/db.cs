@@ -783,7 +783,9 @@ namespace UsersDiosna.Controllers
             " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",*/
             /*, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int)Operations.StepSkip, (int)Operations.RecipeEnd/*,
                 (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning*/
-            string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}", table, from, to);
+
+            //string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}", table, from, to);
+            string sql = string.Format(" SELECT * FROM \"events\" WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE (\"TimeEnd\" > {1} AND \"TimeStart\" <= {2} AND \"BatchNo\" > 0) GROUP BY \"BatchNo\") ORDER BY \"TimeStart\"", table, from, to);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 
@@ -805,7 +807,7 @@ namespace UsersDiosna.Controllers
                 }
                 if (r[3] != DBNull.Value)
                 {
-                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
+                    long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
                     CRM.TimeEnd = new DateTime(((630822816000000000) + timeInNanoSeconds));
                 }
                 if (r[4] != DBNull.Value)

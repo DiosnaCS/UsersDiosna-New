@@ -619,6 +619,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\summernote\summernote.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
@@ -656,6 +657,7 @@
     <Content Include="Scripts\ChromeNotification.js" />
     <Content Include="Scripts\filter.js" />
     <Content Include="Scripts\hideShow.js" />
+    <Content Include="Scripts\CreateArticle.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -670,6 +672,7 @@
     <Content Include="Scripts\notZeroRender.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Content\summernote\summernote.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Manage\ChangePassword.cshtml">
       <Generator>RazorGenerator</Generator>

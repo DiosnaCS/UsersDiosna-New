@@ -37,8 +37,7 @@
        apply_no_weight="true"
        apply_with_weight="true"
        only_selected="false" />
-  </defs>
-  <ArrayOfDynValue>
+       <ArrayOfDynValue>
     <DynValue
        id="10"
        table="arWS_norm"
@@ -616,6 +615,7 @@
          textColor="Black" />
     </items>
   </Textlist>
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"

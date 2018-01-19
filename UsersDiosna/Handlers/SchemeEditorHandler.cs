@@ -161,7 +161,7 @@ namespace UsersDiosna.Handlers
             schemeEditorXML.SchemeTextlist = editor.SchemeTextlist;
             schemeEditorXML.BindingTags = editor.BindingTags;
             XmlSerializer serializer = new XmlSerializer(typeof(SchemeEditorXML));
-            using (StringWriter writer = new StringWriter())
+            using (StreamWriter writer = new StreamWriter(pathSvgCfg))
             {
                 serializer.Serialize(writer, schemeEditorXML);
             }

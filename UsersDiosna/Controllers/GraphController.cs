@@ -181,8 +181,8 @@ namespace UsersDiosna.Controllers
                 {
                     if (data.Data.Exists(p=> (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo))
                         batchStart = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart);
-                    if (data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
-                        batchEnd = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeEnd);
+                    if (data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo)) 
+                        batchEnd = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeStart);
                     if (data.Data.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo) && data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
                         CGM.Variant3 = batchEnd - batchStart;
                     //Duration is for George graphs in recordType 10 and 14

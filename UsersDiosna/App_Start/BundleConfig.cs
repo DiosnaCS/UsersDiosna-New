@@ -37,6 +37,12 @@ namespace UsersDiosna
             bundles.Add(new ScriptBundle("~/bundles/hideShow").Include(
                       "~/Scripts/hideShow.js"
                 ));
+            bundles.Add(new StyleBundle("~/Content/summernote").Include(
+                "~/Content/summernote/summernote.css"
+            ));
+            bundles.Add(new ScriptBundle("~/bundle/summernote").Include(
+               "~/Content/summernote/summernote.js"
+               ));
         }
     }
 }
