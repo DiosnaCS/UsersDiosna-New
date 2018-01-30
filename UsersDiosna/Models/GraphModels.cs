@@ -19,6 +19,7 @@ namespace UsersDiosna.Graph.Models
         public long timeAxisLength; //in pkTime
         //public int viewLength;
         public List<Tag> tags { get; set; }
+        public string errorMessage { get; set; }
     }
     public class Tag {
         public string table;

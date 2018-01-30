@@ -72,7 +72,8 @@
                         @Html.Raw(CMSHandler.maxLength(item.Header, 40, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
-                        @Html.Raw(CMSHandler.maxLength(item.Text, 55, "/CMS/DetailArticle/" + item.Id))
+                        
+                        @Html.Raw(CMSHandler.maxLength(item.Text, 155, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
                         @Html.Raw(CMSHandler.maxLength(item.Amount, 10, "/CMS/DetailArticle/" + item.Id))
@@ -81,7 +82,7 @@
                         @Html.Raw(CMSHandler.maxLength(item.HoursSpend.ToString(), 10, "/CMS/DetailArticle/" + item.Id))
                     </td>
                     <td>
-                        @if (item.Attachment != null)
+                        @if (item.Attachment != null && item.Attachment != "----- No file ----")
                         {
                             if (item.Attachment.Contains('/'))
                             {

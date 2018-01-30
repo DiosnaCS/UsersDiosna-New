@@ -136,7 +136,7 @@
                     {
                         if (Model.Data.Exists(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd))
                         {
-                            EndType = Model.Data.Single(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd).Variant2; // takes endType
+                            EndType = Model.Data.First(p => p.BatchNo == batch.BatchNo && p.RecordType == Operations.RecipeEnd).Variant2; // takes endType
                         }
                         batch.Status = Convert.ToBoolean(EndType);
                         if (batch.Status != false)

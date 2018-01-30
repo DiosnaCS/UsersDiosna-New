@@ -52,7 +52,7 @@ namespace UsersDiosna.Handlers
             return (long)utcTime;
         }
         #endregion
-        private static string dbConfigPath = @"C:\Akce\Users\Config\grafy.ini";
+        private static string dbConfigPath = @"C:\Akce\java\grafy.ini";
         public async Task<DataRequest> proceedSQLquery(DataRequest dataRequest, CIniFile cConfig)
         {
             config = cConfig;
@@ -93,8 +93,8 @@ namespace UsersDiosna.Handlers
                         objects = await opennedDbConn.multipleItemSelectPostgresAsync("\"UTC\"," + columns, "\"" + tabledef.tabName + "\"", where, null, order);
                     } catch (Exception e)
                     {
-                        string k = "SQL problem: " + e.Message.ToString() + e.Source.ToString() + e.StackTrace.ToString();
-                        Error.toFile(k, this.GetType().Name.ToString());
+                        string error = "SQL problem: " + e.Message.ToString();
+                        dataRequest.errorMessage = error;
                     }
                     //readResponse(objects, dataRequest, tagsPos, tabledef);
                     //if (objects.Exists(p => p.Any(q => q.GetType() == typeof(DBNull))) == false) {

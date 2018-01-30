@@ -20,7 +20,7 @@ namespace UsersDiosna
 
             string[] absoulte_path = Directory.GetFiles(path, fileName);
             xml.Load(absoulte_path[0]);
-            string xpath = string.Format("/configuration[{0}]/tankNames", congirationNumber);
+            string xpath = string.Format("/configuration/names[{0}]", congirationNumber);
             XmlNodeList xnList = xml.SelectNodes(xpath);
             foreach (XmlNode node in xnList[0].ChildNodes) {
                 string tankName = node.Name;

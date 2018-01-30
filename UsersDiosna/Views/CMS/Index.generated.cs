@@ -281,13 +281,14 @@ WriteLiteral("                        ");
             
             #line default
             #line hidden
-WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
+WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        \r\n" +
+"");
 
 WriteLiteral("                        ");
 
             
-            #line 75 "..\..\Views\CMS\Index.cshtml"
-                   Write(Html.Raw(CMSHandler.maxLength(item.Text, 55, "/CMS/DetailArticle/" + item.Id)));
+            #line 76 "..\..\Views\CMS\Index.cshtml"
+                   Write(Html.Raw(CMSHandler.maxLength(item.Text, 155, "/CMS/DetailArticle/" + item.Id)));
 
             
             #line default
@@ -297,7 +298,7 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 WriteLiteral("                        ");
 
             
-            #line 78 "..\..\Views\CMS\Index.cshtml"
+            #line 79 "..\..\Views\CMS\Index.cshtml"
                    Write(Html.Raw(CMSHandler.maxLength(item.Amount, 10, "/CMS/DetailArticle/" + item.Id)));
 
             
@@ -308,7 +309,7 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 WriteLiteral("                        ");
 
             
-            #line 81 "..\..\Views\CMS\Index.cshtml"
+            #line 82 "..\..\Views\CMS\Index.cshtml"
                    Write(Html.Raw(CMSHandler.maxLength(item.HoursSpend.ToString(), 10, "/CMS/DetailArticle/" + item.Id)));
 
             
@@ -317,14 +318,14 @@ WriteLiteral("                        ");
 WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
 
             
-            #line 84 "..\..\Views\CMS\Index.cshtml"
+            #line 85 "..\..\Views\CMS\Index.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 84 "..\..\Views\CMS\Index.cshtml"
-                         if (item.Attachment != null)
+            #line 85 "..\..\Views\CMS\Index.cshtml"
+                         if (item.Attachment != null && item.Attachment != "----- No file ----")
                         {
                             if (item.Attachment.Contains('/'))
                             {
@@ -336,31 +337,31 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
             #line hidden
 WriteLiteral("                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3838), Tuple.Create("\"", 3893)
-, Tuple.Create(Tuple.Create("", 3845), Tuple.Create("/Download/downloadFile?nameFile=", 3845), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 3908), Tuple.Create("\"", 3963)
+, Tuple.Create(Tuple.Create("", 3915), Tuple.Create("/Download/downloadFile?nameFile=", 3915), true)
             
-            #line 90 "..\..\Views\CMS\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3877), Tuple.Create<System.Object, System.Int32>(item.Attachment
+            #line 91 "..\..\Views\CMS\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 3947), Tuple.Create<System.Object, System.Int32>(item.Attachment
             
             #line default
             #line hidden
-, 3877), false)
+, 3947), false)
 );
 
-WriteAttribute("title", Tuple.Create(" title=\"", 3894), Tuple.Create("\"", 3911)
+WriteAttribute("title", Tuple.Create(" title=\"", 3964), Tuple.Create("\"", 3981)
             
-            #line 90 "..\..\Views\CMS\Index.cshtml"
-              , Tuple.Create(Tuple.Create("", 3902), Tuple.Create<System.Object, System.Int32>(fileName
+            #line 91 "..\..\Views\CMS\Index.cshtml"
+              , Tuple.Create(Tuple.Create("", 3972), Tuple.Create<System.Object, System.Int32>(fileName
             
             #line default
             #line hidden
-, 3902), false)
+, 3972), false)
 );
 
 WriteLiteral(">Download</a>\r\n");
 
             
-            #line 91 "..\..\Views\CMS\Index.cshtml"
+            #line 92 "..\..\Views\CMS\Index.cshtml"
                         }
 
             
@@ -371,7 +372,7 @@ WriteLiteral("                    </td>\r\n                    <td>\r\n");
 WriteLiteral("                        ");
 
             
-            #line 94 "..\..\Views\CMS\Index.cshtml"
+            #line 95 "..\..\Views\CMS\Index.cshtml"
                    Write(Html.Raw(CMSHandler.maxLength(item.Description, 20, "/CMS/DetailArticle/" + item.Id)));
 
             
@@ -381,7 +382,7 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n     
 "pan> ");
 
             
-            #line 97 "..\..\Views\CMS\Index.cshtml"
+            #line 98 "..\..\Views\CMS\Index.cshtml"
                           Write(Html.ActionLink("Details", "DetailArticle", new { id = item.Id }));
 
             
@@ -390,13 +391,13 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n     
 WriteLiteral(" </span>\r\n");
 
             
-            #line 98 "..\..\Views\CMS\Index.cshtml"
+            #line 99 "..\..\Views\CMS\Index.cshtml"
                         
             
             #line default
             #line hidden
             
-            #line 98 "..\..\Views\CMS\Index.cshtml"
+            #line 99 "..\..\Views\CMS\Index.cshtml"
                          if (User.IsInRole("CMS"))
                         {
 
@@ -406,7 +407,7 @@ WriteLiteral(" </span>\r\n");
 WriteLiteral("                            <span>| ");
 
             
-            #line 100 "..\..\Views\CMS\Index.cshtml"
+            #line 101 "..\..\Views\CMS\Index.cshtml"
                                Write(Html.ActionLink("Edit", "EditArticle", new { id = item.Id }));
 
             
@@ -415,7 +416,7 @@ WriteLiteral("                            <span>| ");
 WriteLiteral(" |</span>\r\n");
 
             
-            #line 101 "..\..\Views\CMS\Index.cshtml"
+            #line 102 "..\..\Views\CMS\Index.cshtml"
                             
 
             
@@ -424,7 +425,7 @@ WriteLiteral(" |</span>\r\n");
 WriteLiteral("                            <span>");
 
             
-            #line 102 "..\..\Views\CMS\Index.cshtml"
+            #line 103 "..\..\Views\CMS\Index.cshtml"
                              Write(Html.ActionLink("Delete", "DeleteArticle", new { id = item.Id }));
 
             
@@ -433,7 +434,7 @@ WriteLiteral("                            <span>");
 WriteLiteral("</span>\r\n");
 
             
-            #line 103 "..\..\Views\CMS\Index.cshtml"
+            #line 104 "..\..\Views\CMS\Index.cshtml"
                         }
 
             
@@ -442,7 +443,7 @@ WriteLiteral("</span>\r\n");
 WriteLiteral("                    </td>\r\n                </tr>\r\n");
 
             
-            #line 106 "..\..\Views\CMS\Index.cshtml"
+            #line 107 "..\..\Views\CMS\Index.cshtml"
              }
 
             
@@ -451,7 +452,7 @@ WriteLiteral("                    </td>\r\n                </tr>\r\n");
 WriteLiteral("        </table>\r\n    </div>\r\n");
 
             
-            #line 109 "..\..\Views\CMS\Index.cshtml"
+            #line 110 "..\..\Views\CMS\Index.cshtml"
 }
 else {
 
@@ -466,7 +467,7 @@ WriteLiteral(">\r\n       <h4><b>No articles to this bakery has been found</b></
 "");
 
             
-            #line 114 "..\..\Views\CMS\Index.cshtml"
+            #line 115 "..\..\Views\CMS\Index.cshtml"
 }
             
             #line default

@@ -142,7 +142,7 @@ namespace UsersDiosna.Handlers
         }
 
         /// <summary>
-        /// Get dropdown list for all files in download section 
+        /// Get dropdown list for all files in download section + empty selection
         /// </summary>
         /// <param name="networkPath"></param>
         /// <returns></returns>
@@ -153,6 +153,10 @@ namespace UsersDiosna.Handlers
             FileHelper fileHelper = new FileHelper();
             List<string> masks = new List<string>();
             masks = fileHelper.selectMasks(id, roles);
+            SelectListItem firstItem = new SelectListItem();
+            firstItem.Value = null;
+            firstItem.Text = "----- No file ----";
+            list.Add(firstItem);
             foreach (string mask in masks) {
                 files = fileHelper.findFilesOnServer(networkPath, mask);
                 foreach (string filePath in files)

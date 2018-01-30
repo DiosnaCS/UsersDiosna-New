@@ -59,7 +59,8 @@ namespace UsersDiosna.Controllers
             ReportHandler RH = new ReportHandler();
             if(cfNum != 0)
                 tankNames = RH.getTanknames(cfNum);
-            tankNames = RH.getTanknames();
+            else
+                tankNames = RH.getTanknames();
            
             ReportDBHelper db = new ReportDBHelper(Session["ReportDB"].ToString(), 2);
             DataReportModel model = db.SelectHeaderData(thisMonthStart, thisMontEnd, Session["ReportTable"].ToString());

@@ -24,7 +24,7 @@ namespace UsersDiosna.CMS.Models
         [Display(Name = "Subject")]
         public string Header { get; set; }
 
-        [DataType(DataType.MultilineText)]
+        [AllowHtml]
         [Display(Name = "Text of this article")]
         public string Text { get; set; }
 

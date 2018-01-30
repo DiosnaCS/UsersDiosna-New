@@ -191,7 +191,7 @@ namespace UsersDiosna.Controllers
 
                 GED.events.Add(CGM);
             }
-
+            
             return Json(GED); //it add data in the reguested shape to client
         }
 
