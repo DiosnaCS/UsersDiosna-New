@@ -66,7 +66,9 @@ namespace UsersDiosna.Handlers
                 {
                     SelectListItem item = new SelectListItem();
                     if (section.Name == selected)
+                    {
                         item.Selected = true;
+                    }
                     item.Value = section.Id.ToString();
                     item.Text = section.Name;
                     Sections.Add(item);

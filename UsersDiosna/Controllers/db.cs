@@ -880,7 +880,7 @@ namespace UsersDiosna.Controllers
                                         " OR \"RecordType\" = {5} OR \"RecordType\" = {6}  OR \"RecordType\" = {7} OR \"RecordType\" = {8} OR \"RecordType\" = {9}" +
                                         " OR \"RecordType\" = {10} OR \"RecordType\" = {11} OR \"RecordType\" = {12})",
                 table, pkTimeStart, pkTimeEnd, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int) Operations.StepSkip, (int)Operations.RecipeEnd,
-                (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning);
+                (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.Cleaning, (int)Operations.YeastCleaning);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 

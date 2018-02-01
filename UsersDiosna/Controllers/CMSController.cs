@@ -255,7 +255,7 @@ namespace UsersDiosna.Controllers
             //Gets the files to attach from downloads when they are present
             if (Session["network_path"] != null)
             {
-                files = CMSH.getDropDownListFiles((int)Session["id"], Session["network_path"].ToString(), Roles.GetRolesForUser());
+               // files = CMSH.getDropDownListFiles((int)Session["id"], Session["network_path"].ToString(), Roles.GetRolesForUser());
             }
             ViewBag.FilesToAttach = files;
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Xml;
 using UsersDiosna.Report.Models;
+using UsersDiosna.Handlers;
 
 namespace UsersDiosna
 {
@@ -129,9 +130,9 @@ namespace UsersDiosna
                     return info;
                 case 31:
                     if (item.Variant1 != 0)
-                        info += string.Format("Capacity: {0}", item.Variant1);
+                        info += string.Format("Capacity: {0}", Helpers.ratio(item.Variant1,1));
                     if (item.Variant2 != 0)
-                        info += string.Format(" Pum speed: {0} Hz", item.Variant2);
+                        info += string.Format(" Pump speed: {0} Hz", Helpers.ratio(item.Variant2,1));
                     if (item.Variant3 != 0)
                         info += string.Format(" needed TA: {0}", item.Variant3);
                     if (item.Variant4 != 0)
@@ -139,23 +140,23 @@ namespace UsersDiosna
                     return info;
                 case 32:
                     if (item.Variant3 != 0)
-                        info += string.Format("FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3%10000);
+                        info += string.Format("FWD: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3%10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
                     return info;
                 case 33:
                     if (item.Variant3 != 0)
-                        info += string.Format("FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
+                        info += string.Format("FWD: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
                     return info;
                 case 35:
                     if (item.Variant1 != 0)
                         info += string.Format("Need temp.: {0}.{1} °C", (item.Variant1 / 10), (item.Variant1 % 10));
                     if (item.Variant3 != 0)
-                        info += string.Format(" FWD speed: pause {0} s run {1} s", (int)(item.Variant3/10000), item.Variant3 % 10000);
+                        info += string.Format(" FWD: pause {0} s run {1} s", (int)(item.Variant3/10000), item.Variant3 % 10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4 / 10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4 / 10000, item.Variant4 % 10000);
                     return info;
                 case 36:
                     if (item.Variant1 != 0)
@@ -163,25 +164,25 @@ namespace UsersDiosna
                     if (item.Variant2 != 0)
                         info += string.Format(" End temp.: {0}.{1} °C", (item.Variant2 / 10), (item.Variant2 % 10));
                     if (item.Variant3 != 0)
-                        info += string.Format(" FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
+                        info += string.Format(" FWD: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
                     return info;
                 case 37:
                     if (item.Variant3 != 0)
-                        info += string.Format("FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
+                        info += string.Format("FWD: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
                     return info;
                 case 39:
                     if (item.Variant1 != 0)
                         info += string.Format("Current temp.: {0}.{1} °C", (item.Variant1 / 10), (item.Variant1 % 10));
                     if (item.Variant2 != 0)
-                        info += string.Format(" Current ph: {0} ", item.Variant2);
+                        info += string.Format(" Current ph: {0} ", Helpers.ratio(item.Variant2,2));
                     if (item.Variant3 != 0)
-                        info += string.Format("FWD speed: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
+                        info += string.Format("FWD: pause {0} s run {1} s", (int)item.Variant3/10000, item.Variant3 % 10000);
                     if (item.Variant4 != 0)
-                        info += string.Format(" REV speed: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
+                        info += string.Format(" REV: pause {0} s run {1} s", (int)item.Variant4/10000, item.Variant4 % 10000);
                     return info;
                 case 45:
                     if (item.Variant1 != 0)
@@ -190,8 +191,7 @@ namespace UsersDiosna
                         info += string.Format(" Started by: {0} ",(StartedBy) item.Variant2);
                     return info;
                 case 46:
-                    if (item.Variant1 != 0)
-                        info += string.Format("Clean type: {0}",(ClnType) item.Variant1);
+                    info += string.Format("Clean type: {0}",CleanNames.ClnTypeName[item.Variant1]);
                     if (item.Variant2 != 0)
                         info += string.Format(" Started by: {0} ",(StartedBy) item.Variant2);
                     return info;

@@ -137,11 +137,11 @@ WriteLiteral("<br>\r\n        <div");
 
 WriteLiteral(" class=\"col-md-3\"");
 
-WriteLiteral(">Number of interuts:</div> ");
+WriteLiteral(">Number of interrupts:</div> ");
 
             
             #line 25 "..\..\Views\Report\Detail.cshtml"
-                                                   Write(ViewBag.InteruptedCounts);
+                                                     Write(ViewBag.InteruptedCounts);
 
             
             #line default
@@ -283,20 +283,7 @@ WriteLiteral(@">
             }
             else
             {
-                dynamicRowStyle = "<tr style=\"background-color: darkseagreen\"><i>"; 
-            
-            #line default
-            #line hidden
-            
-            #line 69 "..\..\Views\Report\Detail.cshtml"
-                                                                                 Write(Html.DisplayFor(modelItem => item.RecordType));
-
-            
-            #line default
-            #line hidden
-            
-            #line 69 "..\..\Views\Report\Detail.cshtml"
-                                                                                                                                    
+                dynamicRowStyle = "<tr style=\"background-color: darkseagreen\"><i>";
                 
             
             #line default
@@ -424,35 +411,43 @@ WriteLiteral("        <td>\r\n");
             #line hidden
             
             #line 88 "..\..\Views\Report\Detail.cshtml"
-              string timeEndForView = item.TimeEnd.ToShortTimeString();
+             if (item.TimeEnd.Ticks> 630822816000000000) {
+
             
             #line default
             #line hidden
-WriteLiteral("\r\n");
-
-WriteLiteral("            ");
+WriteLiteral("                <span>");
 
             
             #line 89 "..\..\Views\Report\Detail.cshtml"
-       Write(timeEndForView);
+                 Write(item.TimeEnd.ToShortTimeString());
 
             
             #line default
             #line hidden
-WriteLiteral("\r\n        </td>\r\n");
+WriteLiteral("</span>\r\n");
+
+            
+            #line 90 "..\..\Views\Report\Detail.cshtml"
+            }
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        </td>\r\n");
 
 WriteLiteral("        <td>\r\n");
 
             
-            #line 92 "..\..\Views\Report\Detail.cshtml"
+            #line 93 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 92 "..\..\Views\Report\Detail.cshtml"
+            #line 93 "..\..\Views\Report\Detail.cshtml"
              if ((int)item.RecordType > 31 && (int)item.RecordType < 39) {
-                TimeSpan spanN = new TimeSpan((item.Need * 10000000));
+                TimeSpan spanN = new TimeSpan(((long)((long)item.Need * (long)10000000)));
                 need = (int)spanN.TotalHours + " h " + (int)spanN.Minutes +" m " + (int)spanN.Seconds + " s";
             } else {
                 if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
@@ -468,7 +463,7 @@ WriteLiteral("        <td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 102 "..\..\Views\Report\Detail.cshtml"
+            #line 103 "..\..\Views\Report\Detail.cshtml"
              if (item.Need != 0)
             {
                 
@@ -476,14 +471,14 @@ WriteLiteral("            ");
             #line default
             #line hidden
             
-            #line 104 "..\..\Views\Report\Detail.cshtml"
+            #line 105 "..\..\Views\Report\Detail.cshtml"
            Write(need);
 
             
             #line default
             #line hidden
             
-            #line 104 "..\..\Views\Report\Detail.cshtml"
+            #line 105 "..\..\Views\Report\Detail.cshtml"
                      
             }
 
@@ -495,25 +490,25 @@ WriteLiteral("        </td>\r\n");
 WriteLiteral("        <td>\r\n");
 
             
-            #line 108 "..\..\Views\Report\Detail.cshtml"
+            #line 109 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 108 "..\..\Views\Report\Detail.cshtml"
+            #line 109 "..\..\Views\Report\Detail.cshtml"
              if ((int)item.RecordType > 31 && (int)item.RecordType < 39)
             {
-                TimeSpan spanD = new TimeSpan((item.Actual * 10000000));
+                TimeSpan spanD = new TimeSpan(((long)((long)item.Actual * (long)10000000)));
                 done = (int)spanD.TotalHours + " h " + (int)spanD.Minutes + " m " + (int)spanD.Seconds + " s";
             }
             else
             {
-                if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
+                if ((int)item.RecordType > 19 && (int)item.RecordType < 30)
                 {
                     doneSum += item.Actual;
                 }
-                done = (item.Need / 1000) + "kg";
+                done = (item.Actual / 1000) + "kg";
             }
 
             
@@ -522,7 +517,7 @@ WriteLiteral("        <td>\r\n");
 WriteLiteral("            ");
 
             
-            #line 121 "..\..\Views\Report\Detail.cshtml"
+            #line 122 "..\..\Views\Report\Detail.cshtml"
              if (item.Actual != 0)
             {
 
@@ -532,7 +527,7 @@ WriteLiteral("            ");
 WriteLiteral("                <b>");
 
             
-            #line 123 "..\..\Views\Report\Detail.cshtml"
+            #line 124 "..\..\Views\Report\Detail.cshtml"
               Write(done);
 
             
@@ -541,7 +536,7 @@ WriteLiteral("                <b>");
 WriteLiteral("</b>\r\n");
 
             
-            #line 124 "..\..\Views\Report\Detail.cshtml"
+            #line 125 "..\..\Views\Report\Detail.cshtml"
             }
 
             
@@ -550,7 +545,7 @@ WriteLiteral("</b>\r\n");
 WriteLiteral("        </td>\r\n");
 
             
-            #line 126 "..\..\Views\Report\Detail.cshtml"
+            #line 127 "..\..\Views\Report\Detail.cshtml"
 
 
             
@@ -559,13 +554,13 @@ WriteLiteral("        </td>\r\n");
 WriteLiteral("        <td>\r\n");
 
             
-            #line 128 "..\..\Views\Report\Detail.cshtml"
+            #line 129 "..\..\Views\Report\Detail.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 128 "..\..\Views\Report\Detail.cshtml"
+            #line 129 "..\..\Views\Report\Detail.cshtml"
               string info = ReportHandler.getInfoColumn(item);
             
             #line default
@@ -575,7 +570,7 @@ WriteLiteral("\r\n");
 WriteLiteral("            ");
 
             
-            #line 129 "..\..\Views\Report\Detail.cshtml"
+            #line 130 "..\..\Views\Report\Detail.cshtml"
        Write(info);
 
             
@@ -584,14 +579,14 @@ WriteLiteral("            ");
 WriteLiteral("\r\n        </td>\r\n");
 
             
-            #line 131 "..\..\Views\Report\Detail.cshtml"
+            #line 132 "..\..\Views\Report\Detail.cshtml"
 
         
             
             #line default
             #line hidden
             
-            #line 132 "..\..\Views\Report\Detail.cshtml"
+            #line 133 "..\..\Views\Report\Detail.cshtml"
          if (item.RecordType == Operations.RecipeStart || item.RecordType == Operations.RecipeEnd)
         {
             dynamicRowStyle = "</i></tr>";
@@ -603,21 +598,21 @@ WriteLiteral("\r\n        </td>\r\n");
             #line default
             #line hidden
             
-            #line 138 "..\..\Views\Report\Detail.cshtml"
+            #line 139 "..\..\Views\Report\Detail.cshtml"
          
         
             
             #line default
             #line hidden
             
-            #line 139 "..\..\Views\Report\Detail.cshtml"
+            #line 140 "..\..\Views\Report\Detail.cshtml"
    Write(Html.Raw(dynamicRowStyle));
 
             
             #line default
             #line hidden
             
-            #line 139 "..\..\Views\Report\Detail.cshtml"
+            #line 140 "..\..\Views\Report\Detail.cshtml"
                                   
 }
 
@@ -631,7 +626,7 @@ WriteLiteral(" class=\"col-md-3\"");
 WriteLiteral(">RCP duration:</div> ");
 
             
-            #line 145 "..\..\Views\Report\Detail.cshtml"
+            #line 146 "..\..\Views\Report\Detail.cshtml"
                                                 
         var startTime = Model.Min(p => p.TimeStart.Ticks);
         var endTime = Model.Max(p => p.TimeEnd.Ticks);
@@ -647,7 +642,7 @@ WriteLiteral(">RCP duration:</div> ");
 WriteLiteral("\r\n    <b>");
 
             
-            #line 154 "..\..\Views\Report\Detail.cshtml"
+            #line 155 "..\..\Views\Report\Detail.cshtml"
   Write(durationDays);
 
             
@@ -656,7 +651,7 @@ WriteLiteral("\r\n    <b>");
 WriteLiteral(" d ");
 
             
-            #line 154 "..\..\Views\Report\Detail.cshtml"
+            #line 155 "..\..\Views\Report\Detail.cshtml"
                   Write(durationHours);
 
             
@@ -665,7 +660,7 @@ WriteLiteral(" d ");
 WriteLiteral(" h ");
 
             
-            #line 154 "..\..\Views\Report\Detail.cshtml"
+            #line 155 "..\..\Views\Report\Detail.cshtml"
                                    Write(durationMinutes);
 
             
@@ -678,7 +673,7 @@ WriteLiteral(" class=\"col-md-3\"");
 WriteLiteral(">Total amount dosed: </div>");
 
             
-            #line 155 "..\..\Views\Report\Detail.cshtml"
+            #line 156 "..\..\Views\Report\Detail.cshtml"
                                                 Write(doneSum/1000);
 
             

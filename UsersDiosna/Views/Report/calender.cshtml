@@ -54,13 +54,13 @@
 </div>
 <div class=" col-md-12">
     <div class="checkbox-inline big-checkbox">
-        <input type="checkbox" onclick="hideShowBatches()"/>Hide/Show Batches
+        <input type="checkbox" onclick="hideShowBatches()" checked />Show Batches
     </div>
     <div class="checkbox-inline big-checkbox">
-            <input type="checkbox" onclick="hideShowDosing()" checked/>Hide/Show Dosing
+            <input type="checkbox" onclick="hideShowDosing()" />Show Dosing
     </div>
     <div class="checkbox-inline big-checkbox">
-            <input type="checkbox" onclick="hideShowCleaning()" checked/>Hide/Show Cleaning
+            <input type="checkbox" onclick="hideShowCleaning()" />Show Cleaning
     </div>
 </div>
 <table class="table-bordered table-condensed">
@@ -119,9 +119,9 @@
                    dosingOutAmountSum = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && p.RecordType == Operations.DosingOut).Sum(p => p.Actual);
                    dosingOut = new ViewHeaderDosingOut { hour = hour, count = dosingOutCount, amountSum = dosingOutAmountSum};
                }
-               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.FermenterCleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning)))
+               if (Model.Data.Exists(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.Cleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning)))
                {
-                   var cleanings = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.FermenterCleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning));
+                   var cleanings = Model.Data.Where(p => p.TimeStart.Day == day && p.TimeStart.Hour == hour && (p.RecordType == Operations.Cleaning || p.RecordType == Operations.PipWorkCleaning || p.RecordType == Operations.YeastCleaning));
                    foreach (var cleanOp in cleanings) {
                        if (cleanOp.RecordType == Operations.Pigging) {
                            cleaning = new ViewHeaderCleaning { cleaning = cleanOp.RecordType.ToString(), destination = cleanOp.Destination, BatchNo = cleanOp.BatchNo, ClnType = ClnType.none, StartedBy = (StartedBy)cleanOp.Variant2 };

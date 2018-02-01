@@ -22,7 +22,7 @@
         <h4>Batch info</h4>
         <div class="col-md-3">Destination:</div> @ViewBag.Destination<br>
         <div class="col-md-3">Batch number:</div> @ViewBag.BatchNo<br>
-        <div class="col-md-3">Number of interuts:</div> @ViewBag.InteruptedCounts<br>
+        <div class="col-md-3">Number of interrupts:</div> @ViewBag.InteruptedCounts<br>
         <div class="col-md-3">Number of skips:</div> @ViewBag.NumberOfStepsSkipped<br>
         <div class="col-md-3">Started:</div> @Model.Min(p => p.TimeStart.ToShortDateString())<br />
         <div class="col-md-3">Ended:</div> @Model.Max(p => p.TimeStart.ToShortDateString())<br />
@@ -66,7 +66,7 @@
             }
             else
             {
-                dynamicRowStyle = "<tr style=\"background-color: darkseagreen\"><i>"; @Html.DisplayFor(modelItem => item.RecordType)
+                dynamicRowStyle = "<tr style=\"background-color: darkseagreen\"><i>";
                 @Html.Raw(dynamicRowStyle)
             }
         } else
@@ -85,12 +85,13 @@
             @timeStartForView
         </td>
         <td>
-            @{string timeEndForView = item.TimeEnd.ToShortTimeString();}
-            @timeEndForView
+            @if (item.TimeEnd.Ticks> 630822816000000000) {
+                <span>@item.TimeEnd.ToShortTimeString()</span>
+            }
         </td>
         <td>
             @if ((int)item.RecordType > 31 && (int)item.RecordType < 39) {
-                TimeSpan spanN = new TimeSpan((item.Need * 10000000));
+                TimeSpan spanN = new TimeSpan(((long)((long)item.Need * (long)10000000)));
                 need = (int)spanN.TotalHours + " h " + (int)spanN.Minutes +" m " + (int)spanN.Seconds + " s";
             } else {
                 if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
@@ -107,16 +108,16 @@
         <td>
             @if ((int)item.RecordType > 31 && (int)item.RecordType < 39)
             {
-                TimeSpan spanD = new TimeSpan((item.Actual * 10000000));
+                TimeSpan spanD = new TimeSpan(((long)((long)item.Actual * (long)10000000)));
                 done = (int)spanD.TotalHours + " h " + (int)spanD.Minutes + " m " + (int)spanD.Seconds + " s";
             }
             else
             {
-                if ((int)item.RecordType > 21 && (int)item.RecordType < 30)
+                if ((int)item.RecordType > 19 && (int)item.RecordType < 30)
                 {
                     doneSum += item.Actual;
                 }
-                done = (item.Need / 1000) + "kg";
+                done = (item.Actual / 1000) + "kg";
             }
             @if (item.Actual != 0)
             {

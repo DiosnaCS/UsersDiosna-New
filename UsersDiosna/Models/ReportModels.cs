@@ -115,7 +115,7 @@ namespace UsersDiosna.Report.Models
         Repumping = 40,
         DosingOut = 44,
         Pigging = 45,
-        FermenterCleaning = 46,
+        Cleaning = 46,
         PipWorkCleaning = 47,
         YeastCleaning = 48,
         //OperatorActions
@@ -154,7 +154,24 @@ namespace UsersDiosna.Report.Models
         automatic = 0,
         manual = 1,
         showering = 2,
-        chemical = 3
+        chemical = 3,
+        mixing_pump_auto = 4,
+        mixing_pump_flooding = 5,
+        cleaning_water_filling = 6,
+        tank_discharging = 7,
+    }
+    public static class CleanNames
+    {
+        public static string[] ClnTypeName = new string[] {
+           "Automatic tank cleaning (full procedure)",
+            "Manual tank cleaning",
+            "Tank showering (short procedure)",
+            "Chemical tank cleaning",
+            "Mixing pump automatic cleaning",
+            "Mixing pump flooding",
+            "Cleaning water filling into tank",
+            "Tank discharging"
+        };
     }
     public class DataReportModel
     {

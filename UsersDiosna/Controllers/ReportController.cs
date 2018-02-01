@@ -121,7 +121,7 @@ namespace UsersDiosna.Controllers
             DataReportModel data = db.SelectSteps(id, Session["ReportTable"].ToString());
 
             //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
-            ViewBag.AmntTotal = data.Data.Single(p => p.RecordType == Operations.RecipeStart).Need;
+            ViewBag.AmntTotal = data.Data.First(p => p.RecordType == Operations.RecipeStart).Need;
             //if (data.Data.Exists(p => p.RecordType == Operations.Interrupt))
                 ViewBag.InteruptedCounts = data.Data.Where(p => p.RecordType == Operations.Interrupt).Count();
             //if (data.Data.Exists(p=> p.RecordType == Operations.StepSkip))
