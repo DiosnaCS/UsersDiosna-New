@@ -283,12 +283,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
+    <Compile Include="Controllers\GraphReportController.cs" />
     <Compile Include="Controllers\NewSchemesController.cs" />
     <Compile Include="Controllers\SchemeEditorController.cs" />
     <Compile Include="Handlers\AlarmHelper.cs" />
     <Compile Include="Handlers\FileHelper.cs" />
+    <Compile Include="Handlers\GraphReportHelper.cs" />
     <Compile Include="Handlers\SchemeEditorHandler.cs" />
     <Compile Include="Models\DownloadModels.cs" />
+    <Compile Include="Models\GraphReportModels.cs" />
     <Compile Include="Models\SchemeModels.cs" />
     <Compile Include="OldCode\AlarmController_old.cs" />
     <Compile Include="Controllers\AlarmNotificationController.cs" />
@@ -903,6 +906,7 @@
       <LastGenOutput>DetailSection.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\SchemeEditor\Index.cshtml" />
+    <Content Include="Views\GraphReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

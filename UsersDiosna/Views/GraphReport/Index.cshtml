@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script>
+    var barChartData = {
+        labels: [
+            "5452", "5041", "3085", "14520", "23125", "200",
+            "2123", "1213", "513", "2135", "538",            "1025",            "2135",            "9963",            "5680",
+            "358", "98", "358 Bowl:55", "258", "2012", "105", "1898", "1556", "1210", "251", "1245", "13011", "12105", "1323", "2321", "3691", "3531", "3581", "4581", "6631", "1558", "2221", "110", "135", "135", "1568", "15353", "1235", "135", "9531", "5381", "5668", "5301", "881", "1", "1", "1", "1", "1", "1", "1", "1656", "15655", "1586", "188", "1568", "56", "69"
+        ],
+        datasets: [
+            {
+                fillColor: "#8DB986",
+                strokeColor: "#8DB986",
+                highlightFill: "#ACCE91",
+                highlightStroke: "#ACCE91",
+                data: [5, 5, 4, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 5, 4, 5, 2, 1, 2, 84, 6, 1, 58, 5, 4, 3, 2, 48, 5, 2, 7, 68, 16, 1, 54.8, 5, 48, -4, 56, 21, 13, 1, 12, 5, 7, 45, 4, 2, 4, 3, 10, 1, 2, 12, 2, 0]
+            }
+        ],
+        scaleGridLineColor: "#000"
+
+    }
+    function getData() {
+        var xmlHttp = new XMLHttpRequest();
+
+        var url = '/graphReport/getData';
+        dataType: "json";
+        xmlHttp.open("POST", url, true);
+        xmlHttp.send(dataRequest);
+
+        if (xmlHttp.readyState != xmlHttp.DONE) {
+            $('#loading').css('display', 'block');
+        };
+
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == xmlHttp.DONE) {
+                data = JSON.parse(xmlHttp.responseText.replace(/NaN/g, 'null'));
+                if (data.tags[0].vals == null) {
+                    //window.location = "/Account/Login";
+                }
+                else {
+                    setData();
+                    redrawChart(view, beginTime, markerTime, timeAxisIdx);
+                    redrawValues(view, markerTime, lang);
+                    $('#loading').css('display', 'none');
+                };
+            };
+        };
+    };
+
+
+    window.onload = function () {
+        var datetime = Date.now();
+        var chartData  = getData(datetime);
+
+        var ctx = document.getElementById("barChart").getContext("2d");
+        window.myBar = new Chart(ctx).Bar(chartData, {
+            responsive: true
+        });
+        //window.myBar = new Chart(ctx, {});
+    }
+
+    function getData(datetime) {
+        var url = "GraphReport/getData";
+        var dataRequest = "{beginTime: '" + datetime + "' }";
+
+        dataType: "json";
+        xmlHttp.open("POST", url, true);
+        xmlHttp.send(dataRequest);
+
+        xmlHttp.onreadystatechange = function () {
+            if (xmlHttp.readyState == xmlHttp.DONE) {
+                data = JSON.parse(xmlHttp.responseText);
+            };
+        };
+    }
+</script>
+<h2>Bar chart first example</h2>
+
+<div class="winnersgraph">
+    <div class="col s12 l12 card-panel">
+        <canvas id="barChart"></canvas>
+    </div>
+</div>

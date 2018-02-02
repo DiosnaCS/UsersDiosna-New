@@ -606,6 +606,7 @@ namespace UsersDiosna.Controllers
         public async Task<List<object[]>> multipleItemSelectPostgresAsync(string columns, string table, string whereMultiple = null, string groupBy = null, string order = null)
         {
             string sql = null;
+            
             List<object[]> result = new List<object[]>();
             if (connection.FullState != System.Data.ConnectionState.Open)
             {
@@ -614,6 +615,10 @@ namespace UsersDiosna.Controllers
             if (connection.FullState != ConnectionState.Open) {
                 connection.Dispose();
                 connection.Open();
+            }
+            if (!table.Contains("\""))
+            {
+                table = "\"" + table + "\"";
             }
             if (whereMultiple == null)
             {
