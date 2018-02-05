@@ -665,6 +665,7 @@
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\ChromeNotification.js" />
     <Content Include="Scripts\filter.js" />
     <Content Include="Scripts\hideShow.js" />
@@ -906,6 +907,7 @@
       <LastGenOutput>DetailSection.generated.cs</LastGenOutput>
     </Content>
     <Content Include="Views\SchemeEditor\Index.cshtml" />
+    <Content Include="Views\GraphReport\data.cshtml" />
     <Content Include="Views\GraphReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

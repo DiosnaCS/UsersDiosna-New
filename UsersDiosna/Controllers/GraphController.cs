@@ -313,7 +313,6 @@ namespace UsersDiosna.Controllers
         }
 
         [HttpPost]
-        
         public JsonResult Config()
         {
             if (config.ViewList.Count == 0)

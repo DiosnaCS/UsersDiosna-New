@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace UsersDiosna.GraphReport.Models
 {   
@@ -8,11 +9,13 @@ namespace UsersDiosna.GraphReport.Models
     {
         public DateTime beginDateTime { get; set; }
         public DateTime endDateTime { get; set; }
-        public int GraohsCount { get; set; }
+        public MultiSelectList tagList { get; set; }
+        public List<string> tags { get; set; }
+        public int GraphsCount { get; set; }
     }
     public class GraphReportResponse
     {
-          public List<double> dataSet { get; set; }
+          public List<double> datasets { get; set; }
           public List<string> labels { get; set; }
     }
     public class DataRequest
@@ -28,6 +31,7 @@ namespace UsersDiosna.GraphReport.Models
     {
         public string table { get; set; }
         public string column { get; set; }
+        public string label { get; set; }
     }
 
     public enum RequestType

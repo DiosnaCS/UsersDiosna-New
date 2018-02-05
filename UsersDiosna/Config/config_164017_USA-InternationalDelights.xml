@@ -38,6 +38,8 @@
 			<tableName>events</tableName>
 			<congirationNumber>1</congirationNumber>
 		</Report>
+		<GraphReport name="Charts example">
+		</GraphReport>
 		<ReportOverview name="Consumptions">
 			<dbName>InternDelights</dbName>
 			<tableName>events</tableName>
