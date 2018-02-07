@@ -46,7 +46,10 @@ namespace UsersDiosna
                "~/Content/summernote/summernote.js"
                ));
             bundles.Add(new ScriptBundle("~/bundles/chart").Include(
-                "~/Scripts/chart.js"
+                "~/Scripts/Chart.bundle.min.js",
+                "~/Scripts/Chart.bundle.js",
+                "~/Scripts/Chart.min.js",
+                "~/Scripts/Chart.js"
             ));
         }
     }

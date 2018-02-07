@@ -790,7 +790,7 @@ namespace UsersDiosna.Controllers
                 (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning*/
 
             //string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}", table, from, to);
-            string sql = string.Format(" SELECT * FROM \"events\" WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE (\"TimeEnd\" > {1} AND \"TimeStart\" <= {2} AND \"BatchNo\" > 0) GROUP BY \"BatchNo\") ORDER BY \"BatchNo\"", table, from, to);
+            string sql = string.Format("SELECT * FROM \"events\" WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE (\"TimeEnd\" > {1} AND \"TimeStart\" <= {2} AND \"BatchNo\" > 0) GROUP BY \"BatchNo\" ORDER BY \"BatchNo\") ORDER BY \"BatchNo\",\"RecordNo\"", table, from, to);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
 

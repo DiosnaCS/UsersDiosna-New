@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,7 +40,7 @@ namespace UsersDiosna.Controllers
             Session.Add("pathNames", pathNames);
             GraphController GC = new GraphController();
             GC.getConfig(Session["pathConfig"].ToString(), Session["pathNames"].ToString(), Session["ProjectName"].ToString());
-            List<NameDef> namedefinition = GraphController.configSer.NameDef;
+            List<NameDef> namedefinition = GraphController.config.NameDefList;
             List<SelectListItem> tags = new List<SelectListItem>();
             foreach (NameDef namedef in namedefinition)
             {
@@ -62,7 +63,7 @@ namespace UsersDiosna.Controllers
             form.endDateTime = new DateTime();
             MultiSelectList multiSelect = new MultiSelectList(tags, "Value", "Text");
             form.tagList = multiSelect;
-            form.GraphsCount = 1;
+            form.graphsCount = 1;
             return View(form);
         }
         [HttpPost]
@@ -99,8 +100,8 @@ namespace UsersDiosna.Controllers
         {
             //response precreation
             GraphReportResponse response = new GraphReportResponse();
-            response.datasets = new List<double>();
-            response.labels = new List<string>();
+            response.datasets = new List<DataSet>();
+            //response.labels = new List<string>();
             string tagLabel = "";
             DateTime dateTimeLabel = new DateTime();
 
@@ -119,6 +120,7 @@ namespace UsersDiosna.Controllers
                 switch (dataRequest.requestType)
                 {
                     case RequestType.batches:
+                        db conn = new db("InternDelights", 12);
 
                         break;
 
@@ -145,25 +147,39 @@ namespace UsersDiosna.Controllers
                             objects = await db.multipleItemSelectPostgresAsync("\"UTC\"," + columns, table, where);
                            for(int i = 0;i<objects.Count;i++)
                            {
-                                for(int j=1;j<objects[0].Length;j++)
+                                for(int j=1;j<=objects[0].Length;j++)
                                 {
+                                    if (i == 0)
+                                    {
+                                        DataSet onlyColorDataSet = new DataSet();
+                                        onlyColorDataSet.backgroundColor = ColorTranslator.ToHtml(Color.DarkOliveGreen);
+                                        //onlyColorDataSet.fillColor = "#8DB986"; //ColorTranslator.ToHtml(Color.AliceBlue);
+                                        //onlyColorDataSet.highlightColor = "#8DB986";//ColorTranslator.ToHtml(Color.Aqua);
+                                        //onlyColorDataSet.highlightStroker = "#ACCE91";// ColorTranslator.ToHtml(Color.Beige);
+                                        //onlyColorDataSet.strokeColor = "#ACCE91"; //ColorTranslator.ToHtml(Color.Blue);
+                                        response.datasets.Add(onlyColorDataSet);
+                                        if (response.datasets[j - 1].data == null)
+                                        {
+                                            response.datasets[j - 1].data = new List<double>();
+                                        }
+                                    }
                                     double doubleValue = (double)objects[i][j];
-                                    response.datasets.Add(doubleValue);
-
+                                    response.datasets[j-1].data.Add(doubleValue);
                                     if (j < dataRequest.definition.Count)
                                     {
-                                         tagLabel = dataRequest.definition[j-1].label;
+                                        tagLabel = dataRequest.definition[j - 1].label;
                                     }
-                                    int lastDay = dateTimeLabel.Day;
-                                    dateTimeLabel = Helpers.ConvertpkTime2DT(Helpers.utcToPkTime(objects[i][0].ToString()));
-                                    if (dateTimeLabel.Day != lastDay)
-                                    {
-                                        response.labels.Add(tagLabel + " " + dateTimeLabel.ToString());
-                                    }
-                                    else
-                                    {
-                                        response.labels.Add(tagLabel + " " + dateTimeLabel.ToShortTimeString());
-                                    }
+                                    response.datasets[j - 1].label = tagLabel;
+                                }
+                                int lastDay = dateTimeLabel.Day;
+                                dateTimeLabel = Helpers.ConvertpkTime2DT(Helpers.utcToPkTime(objects[i][0].ToString()));
+                                if (dateTimeLabel.Day != lastDay)
+                                {
+                                    response.labels.Add(dateTimeLabel.ToString());
+                                }
+                                else
+                                {
+                                    response.labels.Add(dateTimeLabel.ToShortTimeString());
                                 }
                             }
                         }

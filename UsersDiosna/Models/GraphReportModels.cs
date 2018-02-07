@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Web.Mvc;
+using UsersDiosna.Report.Models;
 
 namespace UsersDiosna.GraphReport.Models
 {   
@@ -11,12 +13,22 @@ namespace UsersDiosna.GraphReport.Models
         public DateTime endDateTime { get; set; }
         public MultiSelectList tagList { get; set; }
         public List<string> tags { get; set; }
-        public int GraphsCount { get; set; }
+        public int graphsCount { get; set; }
     }
     public class GraphReportResponse
     {
-          public List<double> datasets { get; set; }
+          public List<DataSet> datasets { get; set; }
           public List<string> labels { get; set; }
+    }
+    public class DataSet
+    {
+        public string backgroundColor { get; set; }
+        //public string fillColor { get; set; }
+        //public string strokeColor { get; set; }
+        //public string highlightColor { get; set; }
+        //public string highlightStroker { get; set; }
+        public string label { get; set; }
+        public List<double> data { get; set; }
     }
     public class DataRequest
     {
@@ -31,6 +43,7 @@ namespace UsersDiosna.GraphReport.Models
     {
         public string table { get; set; }
         public string column { get; set; }
+        public Operations operation { get; set; }
         public string label { get; set; }
     }
 
@@ -41,8 +54,8 @@ namespace UsersDiosna.GraphReport.Models
         differences,
         absoulteScale
     }
-    public enum GraphType
-    {
-
-    }
+    //public enum GraphType
+    //{
+       
+    //}
 }

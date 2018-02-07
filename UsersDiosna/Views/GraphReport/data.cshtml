@@ -12,45 +12,14 @@
         ],
         datasets: [
             {
-                fillColor: "#8DB986",
-                strokeColor: "#8DB986",
-                highlightFill: "#ACCE91",
-                highlightStroke: "#ACCE91",
+                backgroundColor: "lightblue",
                 data: [5, 5, 4, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 5, 4, 5, 2, 1, 2, 84, 6, 1, 58, 5, 4, 3, 2, 48, 5, 2, 7, 68, 16, 1, 54.8, 5, 48, -4, 56, 21, 13, 1, 12, 5, 7, 45, 4, 2, 4, 3, 10, 1, 2, 12, 2, 0]
             }
         ],
-        scaleGridLineColor: "#000"
+        scaleGridLineColor: "black"
 
     }
-    function getData(nothing) {
-        var xmlHttp = new XMLHttpRequest();
-
-        var url = '/graphReport/getData';
-        dataType: "json";
-        xmlHttp.open("POST", url, true);
-        xmlHttp.send(dataRequest);
-
-        if (xmlHttp.readyState != xmlHttp.DONE) {
-            $('#loading').css('display', 'block');
-        };
-
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == xmlHttp.DONE) {
-                data = JSON.parse(xmlHttp.responseText.replace(/NaN/g, 'null'));
-                if (data.tags[0].vals == null) {
-                    //window.location = "/Account/Login";
-                }
-                else {
-                    setData();
-                    redrawChart(view, beginTime, markerTime, timeAxisIdx);
-                    redrawValues(view, markerTime, lang);
-                    $('#loading').css('display', 'none');
-                };
-            };
-        };
-    };
-
-
+    
     window.onload = function () {
         console.log("I am here in the onloadfunction");
         var chartData = getData();
@@ -73,16 +42,31 @@
                 data = JSON.parse(xmlHttp.responseText);
                 console.log(data);
                 var ctx = document.getElementById("barChart").getContext("2d");
-                window.myBar = new Chart(ctx).Bar(data, {
-                    responsive: true
-                });
+                //window.myBar = new Chart(ctx).Radar(data, {
+                //    responsive: true
+                //});
+                var config = {
+                    type: 'horizontalBar',
+                    data: data,
+                    options: {
+                       scales: {
+                            xAxes: [{
+                                stacked: true
+                            }],
+                            yAxes: [{
+                                stacked: true
+                            }]
+                        }
+                    }
+                };
+                window.myBar = new Chart(ctx, config);
             };
         };
     }
 </script>
 <h2>Bar chart first example</h2>
-<div class="winnersgraph">
-    <div class="col s12 l12 card-panel">
-        <canvas id="barChart"></canvas>
+<div>
+    <div>
+    <canvas id="barChart"></canvas>
     </div>
 </div>

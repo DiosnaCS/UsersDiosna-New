@@ -111,26 +111,27 @@
             @Html.TextBoxFor(model => model.endDateTime, new { @id = "date-time_to", @class = "date-time", @type = "datetime-local", Value = @datetimeToValue })
         </div>
     </div>
+   <hr />
     <!-- multiple selection list -->
     <div class="form-group">
         @Html.LabelFor(model => model.tags, htmlAttributes: new { @class = "control-label col-lg-2" })
-        <div class="col-lg-9">
+        <div class="col-md-9">
             @Html.ListBoxFor(model => model.tags, Model.tagList, new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.tags, "", new { @class = "text-danger" })
         </div>
     </div>
     <!-- count of graphs to view all of tags -->
     <div class="form-group">
-        @Html.LabelFor(model => model.tags, htmlAttributes: new { @class = "control-label col-lg-2" })
-        <div class="col-lg-9">
-            @Html.TextBoxFor(model => model.GraphsCount, new { type = "number", min = 1, step = 1, @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.GraphsCount, "", new { @class = "text-danger" })
+        @Html.LabelFor(model => model.graphsCount, htmlAttributes: new { @class = "control-label col-lg-2" })
+        <div class="col-md-2">
+            @Html.TextBoxFor(model => model.graphsCount, new { type = "number", min = 1, step = 1, @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.graphsCount, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-lg-offset-9 col-lg-3">
-            <input type="submit" value="Create" class="btn btn-primary" />
+            <input type="submit" value="View Graph" class="btn btn-primary" />
         </div>
     </div>
 }
