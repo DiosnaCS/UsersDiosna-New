@@ -2692,3 +2692,6 @@
    at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
 05.02.2018 16:16:181Session_onEnd hapened with null current context
+09.02.2018 10:30:071Session_onEnd hapened with null current context
+12.02.2018 12:16:211Session_onEnd hapened with null current context
+12.02.2018 12:16:412Session_onEnd hapened with null current context

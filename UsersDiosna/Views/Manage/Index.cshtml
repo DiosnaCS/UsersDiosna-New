@@ -25,3 +25,11 @@
         </dd>
     </dl>
 </div>
+@if (ViewBag.contacts != null && ViewBag.contacts.Count > 0)
+{
+    <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
+    foreach (string contactId in ViewBag.contacts)
+    {
+        <span class="skype-button rounded" data-text="Message to @contactId" data-contact-id="@contactId"></span>
+    }
+}

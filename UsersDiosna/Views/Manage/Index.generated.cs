@@ -123,6 +123,63 @@ WriteLiteral(">\r\n        <dt>Password:</dt>\r\n        <dd>\r\n            [\r
             #line hidden
 WriteLiteral("            ]\r\n        </dd>\r\n    </dl>\r\n</div>\r\n");
 
+            
+            #line 28 "..\..\Views\Manage\Index.cshtml"
+ if (ViewBag.contacts != null && ViewBag.contacts.Count > 0)
+{
+
+            
+            #line default
+            #line hidden
+WriteLiteral("    <script");
+
+WriteLiteral(" src=\"https://swc.cdn.skype.com/sdk/v1/sdk.min.js\"");
+
+WriteLiteral("></script>\r\n");
+
+            
+            #line 31 "..\..\Views\Manage\Index.cshtml"
+    foreach (string contactId in ViewBag.contacts)
+    {
+
+            
+            #line default
+            #line hidden
+WriteLiteral("        <span");
+
+WriteLiteral(" class=\"skype-button rounded\"");
+
+WriteLiteral(" data-text=\"Message to ");
+
+            
+            #line 33 "..\..\Views\Manage\Index.cshtml"
+                                                            Write(contactId);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\"");
+
+WriteLiteral(" data-contact-id=\"");
+
+            
+            #line 33 "..\..\Views\Manage\Index.cshtml"
+                                                                                         Write(contactId);
+
+            
+            #line default
+            #line hidden
+WriteLiteral("\"");
+
+WriteLiteral("></span>\r\n");
+
+            
+            #line 34 "..\..\Views\Manage\Index.cshtml"
+    }
+}
+            
+            #line default
+            #line hidden
         }
     }
 }

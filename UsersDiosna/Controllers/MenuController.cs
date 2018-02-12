@@ -7,6 +7,7 @@ namespace UsersDiosna.Controllers
 {
     public class MenuController : Controller
     {
+        #region OldCode
         /*
         // GET: Menu\
         [Authorize]
@@ -39,15 +40,22 @@ namespace UsersDiosna.Controllers
             return View();
         }
         */
+        #endregion
         [Authorize]
         public ActionResult Index(int id)
         {
             bool bMenu = getMenu(id);
             if (!bMenu)
                 return RedirectToAction("Login", "Account");
-            NotificationDataContext db = new NotificationDataContext();
-            List<Notification> data = db.Notifications.Where(p => p.Owner.Contains(User.Identity.Name) && p.BakeryID == id).ToList();
-            return View(data);
+            //NotificationDataContext db = new NotificationDataContext();
+            //List<Notification> data = db.Notifications.Where(p => p.Owner.Contains(User.Identity.Name) && p.BakeryID == id).ToList();
+            XMLController XC = new XMLController();
+            List<string> plc = XC.readNodesNameXML("plc", id, 1);
+            List<string> names = XC.readNodesNameXML("plc", id, 2);
+            List<string> types = XC.XMLgetTypes("plc", id);
+            string url = "/" + types[1] + "?name=" + names[0] + "&plc=" + plc[0];
+            return Redirect(url);
+            //return View(data);
         }
 
         /*

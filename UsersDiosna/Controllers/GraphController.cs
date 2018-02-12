@@ -156,43 +156,23 @@ namespace UsersDiosna.Controllers
                 }
             }
             ReportDBHelper db = new ReportDBHelper(DB, 2);
-            DataReportModel data =  await db.SelectHeaderDataAsync(dataRequest.beginTime, dataRequest.beginTime + dataRequest.timeAxisLength, table);
-            
-            GraphEventsData GED = new GraphEventsData();
-            GED.events = new List<ColumnGraphModel>();
-            foreach (ColumnReportModel CRM in data.Data)
+            GraphEventsData data =  await db.SelectGraphDataAsync(dataRequest.beginTime, dataRequest.beginTime + dataRequest.timeAxisLength, table);
+
+            foreach (ColumnGraphModel CGM in data.events)
             {
-                ColumnGraphModel CGM = new ColumnGraphModel();
-
-                CGM.RecordNo = CRM.RecordNo;
-                CGM.RecordType = (int)CRM.RecordType;
-            
-                CGM.TimeStart = AlarmHelper.DateTimeTopkTime(CRM.TimeStart);
-                CGM.TimeEnd = AlarmHelper.DateTimeTopkTime(CRM.TimeEnd);
-                CGM.BatchNo = CRM.BatchNo;
-                CGM.Destination = CRM.Destination;
-                CGM.Need = CRM.Need;
-                CGM.Actual = CRM.Actual;
-
-                CGM.Variant1 = CRM.Variant1;
-                CGM.Variant2 = CRM.Variant2;
-                CGM.Variant3 = CRM.Variant3;
                 if (CGM.RecordType == 10 || CGM.RecordType == 14)
                 {
-                    if (data.Data.Exists(p=> (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo))
-                        batchStart = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart);
-                    if (data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo)) 
-                        batchEnd = AlarmHelper.DateTimeTopkTime(data.Data.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeStart);
-                    if (data.Data.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo) && data.Data.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
+                    if (data.events.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo))
+                        batchStart = data.events.Single(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo).TimeStart;
+                    if (data.events.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
+                        batchEnd = (data.events.Single(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo).TimeStart);
+                    if (data.events.Exists(p => (int)p.RecordType == 10 && p.BatchNo == CGM.BatchNo) && data.events.Exists(p => (int)p.RecordType == 14 && p.BatchNo == CGM.BatchNo))
                         CGM.Variant3 = batchEnd - batchStart;
                     //Duration is for George graphs in recordType 10 and 14
                 }
-                CGM.Variant4 = CRM.Variant4;
-
-                GED.events.Add(CGM);
             }
             
-            return Json(GED); //it add data in the reguested shape to client
+            return Json(data); //it add data in the reguested shape to client
         }
 
         [HttpPost]

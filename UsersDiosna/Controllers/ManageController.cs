@@ -61,6 +61,12 @@ namespace UsersDiosna.Controllers
             ViewBag.plc = Session["plc"];
             return View();
         }
+
+        public ActionResult addSkypeName()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult DefaultViewForm(DefaultViewModel model, FormCollection formCollection) {
             string defaultView = Request.Form.Get("views");
@@ -121,6 +127,14 @@ namespace UsersDiosna.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+            List<string> contactList = new List<string>();
+            contactList.Add("georgehappy2707");
+            contactList.Add("live:strasil_6");
+            contactList.Add("live:karelpodrazil");
+            contactList.Add("sidmarek");
+            contactList.Add("tomaskoritko");
+
+            ViewBag.contacts = contactList;
             return View(model);
         }
         

@@ -760,10 +760,10 @@ namespace UsersDiosna.Controllers
             connection.Open();
         }
 
-        public async Task<DataReportModel> SelectHeaderDataAsync(long from, long to, string table)
+        public async Task<GraphEventsData> SelectGraphDataAsync(long from, long to, string table)
         {
-            DataReportModel data = new DataReportModel();
-            data.Data = new List<ColumnReportModel>();
+            GraphEventsData data = new GraphEventsData();
+            data.events = new List<ColumnGraphModel>();
 
 
             //gett where condition
@@ -796,59 +796,57 @@ namespace UsersDiosna.Controllers
 
             while (await r.ReadAsync())
             {
-                ColumnReportModel CRM = new ColumnReportModel();
+                ColumnGraphModel CGM = new ColumnGraphModel();
                 if (r[0] != DBNull.Value)
                 {
-                    CRM.RecordNo = int.Parse(r[0].ToString());
+                    CGM.RecordNo = int.Parse(r[0].ToString());
                 }
                 if (r[1] != DBNull.Value)
                 {
-                    CRM.RecordType = (Operations)int.Parse(r[1].ToString());
+                    CGM.RecordType = int.Parse(r[1].ToString());
                 }
                 if (r[2] != DBNull.Value)
                 {
-                    long timeInNanoSeconds = long.Parse(r[2].ToString()) * 10000000;
-                    CRM.TimeStart = new DateTime(((630822816000000000) + timeInNanoSeconds));
+                    CGM.TimeStart = (int)r[2];
                 }
                 if (r[3] != DBNull.Value)
                 {
-                    long timeInNanoSeconds = long.Parse(r[3].ToString()) * 10000000;
-                    CRM.TimeEnd = new DateTime(((630822816000000000) + timeInNanoSeconds));
+                    CGM.TimeEnd = (int) r[3];
                 }
                 if (r[4] != DBNull.Value)
                 {
-                    CRM.BatchNo = int.Parse(r[4].ToString());
+                    CGM.BatchNo = int.Parse(r[4].ToString());
                 }
                 if (r[5] != DBNull.Value)
                 {
-                    CRM.Destination = r[5].ToString();
+                    CGM.Destination = r[5].ToString();
                 }
                 if (r[6] != DBNull.Value)
                 {
                     if ((int)r[6] != 0)
-                        CRM.Need = int.Parse(r[6].ToString());
+                        CGM.Need = int.Parse(r[6].ToString());
                 }
                 if (r[7] != DBNull.Value)
                 {
                     if ((int)r[7] != 0)
-                        CRM.Actual = int.Parse(r[7].ToString());
+                        CGM.Actual = int.Parse(r[7].ToString());
                 }
                 if (r[8] != DBNull.Value)
                 {
                     //Variant1 is iRCP_NO
-                    CRM.Variant1 = int.Parse(r[8].ToString());
+                    CGM.Variant1 = int.Parse(r[8].ToString());
                 }
                 if (r[9] != DBNull.Value)
                 {
                     if ((int)r[9] != 0)
-                        CRM.Variant2 = int.Parse(r[9].ToString());
+                        CGM.Variant2 = int.Parse(r[9].ToString());
                 }
                 // r[10] should be Variant3 and Variant3 is  irrelevant
                 if (r[11] != DBNull.Value)
                 {
-                    CRM.Variant4 = int.Parse(r[11].ToString());
+                    CGM.Variant4 = int.Parse(r[11].ToString());
                 }
-                data.Data.Add(CRM);
+                data.events.Add(CGM);
             }
             r.Dispose();
             cmd.Dispose();
