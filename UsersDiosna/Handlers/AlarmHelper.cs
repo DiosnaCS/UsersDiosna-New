@@ -77,11 +77,11 @@ namespace UsersDiosna.Handlers
                 // Execute the query and obtain a result set          
                 if (langWhere == "")
                 {
-                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1})", plcID, whereIds);
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1}) ORDER BY alarm_id", plcID, whereIds);
                 }
                 else
                 {
-                   sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1} AND lang='{2}')", plcID, whereIds, lang);
+                   sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE (plc_id={0} AND {1} AND lang='{2}') ORDER BY alarm_id", plcID, whereIds, lang);
                 }
                 cmd = new NpgsqlCommand(sql, conn);
             }
@@ -90,11 +90,11 @@ namespace UsersDiosna.Handlers
                 // Execute the query and obtain a result set                
                 if (langWhere == "")
                 {
-                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0}", plcID);
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0} ORDER BY alarm_id", plcID);
                 }
                 else
                 {
-                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0} AND lang='{1}'", plcID, lang);
+                    sql = string.Format("SELECT title,lang,alarm_id,plc_id FROM alarm_texts WHERE plc_id={0} AND lang='{1}' ORDER BY alarm_id", plcID, lang);
                 }
                 cmd = new NpgsqlCommand(sql,conn);
             }
