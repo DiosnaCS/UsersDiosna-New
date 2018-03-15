@@ -15,8 +15,6 @@ namespace UsersDiosna.Controllers
     public class DownloadController :Controller
     {
         public static String path = Path.PhysicalPath + @"\Config";
-        //public static string network_path = @"\\192.168.2.20\Public\0\Marek\db\";
-        public static string local_path = @"C:\0\00\db\";
         List <String> ProjectNames = new List<string>();
         List<int> ProjectNumbers = new List<int>();
         public string[] absoulte_path;
@@ -31,7 +29,7 @@ namespace UsersDiosna.Controllers
                 String absoultePathToFile = null;
                 string nameFile = Request.QueryString["nameFile"].ToString();
                 //string sessionID = "pathDownload" + Request.QueryString["plc"];
-                string network_path = Session["network_path"].ToString();
+                string networkPath = Session["network_path"].ToString();
                 FileHelper FH = new FileHelper();
 
                 //Check the privilage to download from that mask
@@ -48,13 +46,13 @@ namespace UsersDiosna.Controllers
                         hasAccess = true;
                     }
                 }
-                absoultePathToFile = network_path+nameFile;
+                absoultePathToFile = networkPath+nameFile;
 
                 Response.ContentType = "application/octet-stream";
 
             if (hasAccess == true)
             {
-                if (network_path.Contains("/9_Public/"))
+                if (networkPath.Contains("/9_Public/"))
                 {
                     nameFile = nameFile.Substring(nameFile.LastIndexOf('/') + 1);
                 }
@@ -85,13 +83,13 @@ namespace UsersDiosna.Controllers
                         }
 
                         //Response.TransmitFile(absoultePathToFile);
-                        Response.BinaryWrite(FH.DownloadFile(network_path, nameFile));//For View the file
+                        Response.BinaryWrite(FH.DownloadFile(networkPath, nameFile));//For View the file
                     }
                     else
                     {
                         Response.AppendHeader("Content-Disposition", "attachment; filename=" + nameFile);
                         //Response.TransmitFile(absoultePathToFile);
-                        Response.BinaryWrite(FH.DownloadFile(network_path, nameFile)); //For download file
+                        Response.BinaryWrite(FH.DownloadFile(networkPath, nameFile)); //For download file
                         Response.Flush(); //For download file
                     }
                 }

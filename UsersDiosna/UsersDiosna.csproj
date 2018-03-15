@@ -67,7 +67,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IncludeIisSettings>true</IncludeIisSettings>
+    <!--<IncludeIisSettings>true</IncludeIisSettings>-->
     <PublishDatabaseSettings>
       <Objects>
         <ObjectGroup Name="DefaultConnection-Deployment" Order="1">
@@ -477,6 +477,11 @@
       <DependentUpon>Index.cshtml</DependentUpon>
     </Compile>
     <Compile Include="Views\GraphNotification\Index.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.cshtml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GraphReport\Index.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Index.cshtml</DependentUpon>
@@ -908,7 +913,10 @@
     </Content>
     <Content Include="Views\SchemeEditor\Index.cshtml" />
     <Content Include="Views\GraphReport\data.cshtml" />
-    <Content Include="Views\GraphReport\Index.cshtml" />
+    <Content Include="Views\GraphReport\Index.cshtml">
+      <Generator>RazorGenerator</Generator>
+      <LastGenOutput>Index.generated.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
