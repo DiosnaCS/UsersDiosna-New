@@ -1224,8 +1224,6 @@ namespace UsersDiosna.Controllers
             r.Dispose();
             cmd.Dispose();
             return data;
-
-            return data;
         }
         
         public int SelectPrevBatchNo(int BatchNo, string table) {

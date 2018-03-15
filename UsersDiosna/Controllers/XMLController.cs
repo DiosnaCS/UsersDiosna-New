@@ -27,18 +27,19 @@ namespace UsersDiosna.Controllers
             xml.Load(absoulte_path[0]);
             XmlNodeList xnList = xml.SelectNodes("//" + tag);
 
-            foreach (XmlNode xn in xnList)
-            {
-                XmlNodeList nList = xn.ChildNodes;
-                foreach (XmlNode n in nList)
+            if (xnList != null)
+                foreach (XmlNode xn in xnList)
                 {
-                    XmlNodeList nodeList = n.ChildNodes;
-                    foreach (XmlNode node in nodeList)
+                    XmlNodeList nList = xn.ChildNodes;
+                    foreach (XmlNode n in nList)
                     {
-                        XMLcontentList.Add(node.InnerText);
+                        XmlNodeList nodeList = n.ChildNodes;
+                        foreach (XmlNode node in nodeList)
+                        {
+                            XMLcontentList.Add(node.InnerText);
+                        }
                     }
                 }
-            }
 
             return XMLcontentList;
         }
@@ -72,20 +73,22 @@ namespace UsersDiosna.Controllers
             string[] absoulte_path = Directory.GetFiles(path, search_pattern);
             xml.Load(absoulte_path[0]);
             XmlNodeList xnList = xml.SelectNodes("//" + tag);
-            int coutn = xnList.Count;
 
             foreach (XmlNode xn in xnList)
             {
                 if (xmlDeepLevel == 1)
                 {
-                    XmlAttribute attributeNamePlc = xn.Attributes["name"];
-                    if (attributeNamePlc == null)
+                    if (xn.Attributes != null)
                     {
-                        XMLNodesName.Add(xn.Name);
-                    }
-                    else
-                    {
-                        XMLNodesName.Add(xn.Attributes["name"].Value);
+                        XmlAttribute attributeNamePlc = xn.Attributes["name"];
+                        if (attributeNamePlc == null)
+                        {
+                            XMLNodesName.Add(xn.Name);
+                        }
+                        else
+                        {
+                            XMLNodesName.Add(xn.Attributes["name"].Value);
+                        }
                     }
                 }
 
@@ -95,14 +98,17 @@ namespace UsersDiosna.Controllers
                 {
                     if (xmlDeepLevel == 2)
                     {
-                        XmlAttribute attributeNameOther = n.Attributes["name"];
-                        if (attributeNameOther == null)
+                        if (n.Attributes != null)
                         {
-                            XMLNodesName.Add(n.Name);
-                        }
-                        else
-                        {
-                            XMLNodesName.Add(n.Attributes["name"].Value);
+                            XmlAttribute attributeNameOther = n.Attributes["name"];
+                            if (attributeNameOther == null)
+                            {
+                                XMLNodesName.Add(n.Name);
+                            }
+                            else
+                            {
+                                XMLNodesName.Add(n.Attributes["name"].Value);
+                            }
                         }
                     }
                     if (xmlDeepLevel >= 3)
@@ -110,23 +116,27 @@ namespace UsersDiosna.Controllers
                         XmlNodeList nodeList = n.ChildNodes;
                         foreach (XmlNode node in nodeList)
                         {
-                            String parentNode;
-                            String grandParentNode;
-                            XmlAttribute attributeNameOther = n.Attributes["name"];
-                            if (attributeNameOther == null)
+                            String parentNode ="";
+                            String grandParentNode ="";
+                            if (n.Attributes != null)
                             {
-                                parentNode = node.ParentNode.Name;
-                                if (node.ParentNode.ParentNode.Attributes["name"] == null) {
-                                    grandParentNode = node.ParentNode.ParentNode.Name;
-                                } else {
+                                XmlAttribute attributeNameOther = n.Attributes["name"];
+                                if (attributeNameOther == null)
+                                {
+                                    parentNode = node.ParentNode.Name;
+                                    if (node.ParentNode.ParentNode.Attributes["name"] == null) {
+                                        grandParentNode = node.ParentNode.ParentNode.Name;
+                                    } else {
+                                        grandParentNode = node.ParentNode.ParentNode.Attributes["name"].Value;
+                                    }
+                                }
+                                else
+                                {
                                     grandParentNode = node.ParentNode.ParentNode.Attributes["name"].Value;
+                                    parentNode = n.Attributes["name"].Value;
                                 }
                             }
-                            else
-                            {
-                                grandParentNode = node.ParentNode.ParentNode.Attributes["name"].Value;
-                                parentNode = n.Attributes["name"].Value;
-                            }
+
                             XMLNodesName.Add(node.Name + parentNode + grandParentNode);
                         }
                     }
@@ -227,16 +237,18 @@ namespace UsersDiosna.Controllers
             List<String> XMLNodesType = new List<String>();
             XmlNodeList xnList = xml.SelectNodes("//" + tag);
 
-            foreach (XmlNode xn in xnList)
-            {
-                XMLNodesType.Add(xn.Name);
-                XmlNodeList nList = xn.ChildNodes;
-
-                foreach (XmlNode n in nList)
+            if (xnList != null)
+                foreach (XmlNode xn in xnList)
                 {
-                    XMLNodesType.Add(n.Name);
+                    XMLNodesType.Add(xn.Name);
+                    XmlNodeList nList = xn.ChildNodes;
+
+                    foreach (XmlNode n in nList)
+                    {
+                        XMLNodesType.Add(n.Name);
+                    }
                 }
-            }
+
             return XMLNodesType;
         }
 

@@ -24,16 +24,20 @@ namespace UsersDiosna.Controllers
                 request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276", "FILESERVER3");
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(stream);                
-                string files = reader.ReadToEnd();
-
-                List<string> fileList = new List<string>();
-                Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
-                for(int i= 0;i < fileList.Count;i++)
+                if (stream != null)
                 {
-                    fileList[i] = "/9_Public/" + fileList[i];
+                    StreamReader reader = new StreamReader(stream);                
+                    string files = reader.ReadToEnd();
+
+                    List<string> fileList = new List<string>();
+                    Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
+                    for(int i= 0;i < fileList.Count;i++)
+                    {
+                        fileList[i] = "/9_Public/" + fileList[i];
+                    }
+                    ViewBag.fileList = fileList;
                 }
-                ViewBag.fileList = fileList;
+
                 return View();
                 }
             catch (Exception e)
@@ -87,12 +91,15 @@ namespace UsersDiosna.Controllers
             request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276", "FILESERVER3");
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string files = reader.ReadToEnd();
+            if (stream != null)
+            {
+                StreamReader reader = new StreamReader(stream);
+                string files = reader.ReadToEnd();
 
-            List<string> fileList = new List<string>();
-            Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
-            ViewBag.fileList = fileList;
+                List<string> fileList = new List<string>();
+                Extension.SplitToList(out fileList, files, "\r\n"); // ViewBag is dynamic object 
+                ViewBag.fileList = fileList;
+            }
 
             return View("Index");
             //return RedirectToAction("Index", "Upload", new { plc=model.plcName});

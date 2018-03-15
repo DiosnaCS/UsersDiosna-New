@@ -49,9 +49,9 @@ namespace UsersDiosna.Controllers
             foreach (string key in Request.Form.AllKeys) {
                 string[] values = Request.Form.GetValues(key);
                 if (key.Contains("table")) {
-                    table = values[0]; // Change table from hidden
+                    if (values != null) table = values[0]; // Change table from hidden
                     values = null;
-                    if (tablesList.Exists(p => p.Contains(table)) == false) {
+                    if (tablesList.Exists(p => { return table != null && p.Contains(table); }) == false) {
                         tablesList.Add(table); //Add table which is not 
                     }
                 }

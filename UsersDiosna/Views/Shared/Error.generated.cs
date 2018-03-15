@@ -73,7 +73,7 @@ WriteLiteral(" At: ");
 
             
             #line 10 "..\..\Views\Shared\Error.cshtml"
-                                              Write(DateTime.Now.ToShortTimeString());
+                                                   Write(DateTime.Now.ToShortTimeString());
 
             
             #line default
@@ -82,7 +82,7 @@ WriteLiteral(" Happened on: ");
 
             
             #line 10 "..\..\Views\Shared\Error.cshtml"
-                                                                                             Write(DateTime.Now.ToShortDateString());
+                                                                                                  Write(DateTime.Now.ToShortDateString());
 
             
             #line default
@@ -121,19 +121,41 @@ WriteLiteral("<br>\r\n        Stack trace: ");
             
             #line default
             #line hidden
-WriteLiteral("<br>\r\n        Inner exception: ");
+WriteLiteral("<br>\r\n        Inner exception:\r\n");
 
             
-            #line 17 "..\..\Views\Shared\Error.cshtml"
-                    Write(error.InnerException.ToString());
+            #line 18 "..\..\Views\Shared\Error.cshtml"
+        
+            
+            #line default
+            #line hidden
+            
+            #line 18 "..\..\Views\Shared\Error.cshtml"
+         if (error.InnerException != null)
+        {
+            
+            
+            #line default
+            #line hidden
+            
+            #line 20 "..\..\Views\Shared\Error.cshtml"
+       Write(error.InnerException.ToString());
 
             
             #line default
             #line hidden
-WriteLiteral("<br />\r\n        Source: ");
+            
+            #line 20 "..\..\Views\Shared\Error.cshtml"
+                                            
+        }
 
             
-            #line 18 "..\..\Views\Shared\Error.cshtml"
+            #line default
+            #line hidden
+WriteLiteral("        <br />\r\n        Source: ");
+
+            
+            #line 23 "..\..\Views\Shared\Error.cshtml"
            Write(error.Source.ToString());
 
             
@@ -142,7 +164,7 @@ WriteLiteral("<br />\r\n        Source: ");
 WriteLiteral("<br />\r\n        HResult: ");
 
             
-            #line 19 "..\..\Views\Shared\Error.cshtml"
+            #line 24 "..\..\Views\Shared\Error.cshtml"
             Write(error.HResult.ToString());
 
             
@@ -151,7 +173,7 @@ WriteLiteral("<br />\r\n        HResult: ");
 WriteLiteral("<br />\r\n        Other: ");
 
             
-            #line 20 "..\..\Views\Shared\Error.cshtml"
+            #line 25 "..\..\Views\Shared\Error.cshtml"
           Write(error.HelpLink.ToString());
 
             
@@ -160,7 +182,7 @@ WriteLiteral("<br />\r\n        Other: ");
 WriteLiteral("    ");
 
             
-            #line 20 "..\..\Views\Shared\Error.cshtml"
+            #line 25 "..\..\Views\Shared\Error.cshtml"
                                         Write(error.Data.ToString());
 
             
@@ -169,7 +191,7 @@ WriteLiteral("    ");
 WriteLiteral("<br />\r\n    </div>\r\n");
 
             
-            #line 22 "..\..\Views\Shared\Error.cshtml"
+            #line 27 "..\..\Views\Shared\Error.cshtml"
    }
 
             

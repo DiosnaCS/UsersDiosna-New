@@ -15,8 +15,8 @@ class Value {
 //Function to get all text values
 function getValues() {    
     var nameValues = [];
-    $('.value').each(function (index) {
-        var name = $(this).attr('id').split(".");
+    $(".value").each(function (index) {
+        var name = $(this).attr("id").split(".");
         var tableName = name[0];
         var columnName = name[1];
         nameValues[index] = new Value(tableName, columnName);
@@ -28,10 +28,10 @@ function getValues() {
     var requestJSON = JSON.stringify(nameValues);
     console.log(requestJSON);
     $.ajax({
-        url: 'SchemeEditor/getData',
+        url: "SchemeEditor/getData",
         async: true,
-        dataType: 'json',
-        type: 'post',
+        dataType: "json",
+        type: "post",
         data: requestJSON,
         success: function (data, textStatus) {
             jsonData = data; 

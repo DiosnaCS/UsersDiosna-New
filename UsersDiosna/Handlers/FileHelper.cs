@@ -84,7 +84,11 @@ namespace UsersDiosna.Handlers
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 Stream stream = response.GetResponseStream();
                 MemoryStream ms = new MemoryStream();
-                stream.CopyTo(ms);
+                if (stream != null)
+                {
+                    stream.CopyTo(ms);
+                }
+
                 response.Close();
                 return ms.ToArray();
             }
@@ -100,9 +104,13 @@ namespace UsersDiosna.Handlers
          */
         public List<string> findFilesOnServer(string networkPath, string maskFile = null)
         {
+            List<string> resultFileList = new List<string>();
             string directoryMask = "";
-            if (maskFile.Contains('\\'))
+            if (maskFile != null && maskFile.Contains('\\'))
+            {
                 maskFile = maskFile.Replace('\\', '/');
+            }
+
             if (maskFile.StartsWith("/")) {
                 if (maskFile.Count(f => f == '/') >= 2) {
                     directoryMask = maskFile.Substring(maskFile.IndexOf('/'), maskFile.LastIndexOf('/')+1);
@@ -122,18 +130,21 @@ namespace UsersDiosna.Handlers
             request.Credentials = new NetworkCredential("UsersDiosna", "Nordit0276", "FILESERVER3");
             FtpWebResponse response = (FtpWebResponse)request.GetResponse();
             Stream stream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(stream);
-            string files = reader.ReadToEnd();
+            if (stream != null)
+            {
+                StreamReader reader = new StreamReader(stream);
+                string files = reader.ReadToEnd();
 
-            List<string> fileList = new List<string>();
-            List<string> resultFileList = new List<string>();
-            Extension.SplitToList(out fileList, files, "\r\n");
-            Regex mask = new Regex('^' + maskFile.Replace(".", "[.]").Replace("*", ".*").Replace("?", ".") + '$'); //regex of mask
-            foreach (string fileName in fileList) {
-                string filePath = directoryMask + fileName;
-                if (mask.IsMatch(filePath))
-                {
-                    resultFileList.Add(filePath);
+                List<string> fileList = new List<string>();
+                
+                Extension.SplitToList(out fileList, files, "\r\n");
+                Regex mask = new Regex('^' + maskFile.Replace(".", "[.]").Replace("*", ".*").Replace("?", ".") + '$'); //regex of mask
+                foreach (string fileName in fileList) {
+                    string filePath = directoryMask + fileName;
+                    if (mask.IsMatch(filePath))
+                    {
+                        resultFileList.Add(filePath);
+                    }
                 }
             }
             return resultFileList;

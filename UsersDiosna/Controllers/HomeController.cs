@@ -22,7 +22,7 @@ namespace UsersDiosna.Controllers
                 string[] existingRolesForUser = Roles.GetRolesForUser();
                 List<int> Numbers = XC.GetAllConfigsProjectNumbers(existingRolesForUser);
                 ViewBag.Numbers = Numbers;
-                ViewBag.Count = Numbers.Count();
+                ViewBag.Count = Numbers.Count;
                 List<string> Texts = XC.GetAllConfigsNames(existingRolesForUser);
                 ViewBag.Text = Texts;
                 ViewBag.menuDisable = true;
@@ -31,6 +31,7 @@ namespace UsersDiosna.Controllers
             }
             catch (Exception e)
             {
+                Error.toFile(e.Message + "\n"+ e.StackTrace,this.GetType().FullName);
                 return View();
             }
         }

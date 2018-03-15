@@ -604,18 +604,19 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(" \" value=\"Save Notification\" />\r\n            </div>\r\n            <div class=\"col-" +
-"md-10\">\r\n                <a href=\"/Notification/\"");
+WriteLiteral("  value=\"Save Notification\"");
+
+WriteLiteral(" />\r\n            </div>\r\n            <div");
+
+WriteLiteral(" class=\"col-md-10\"");
+
+WriteLiteral(">\r\n                <a");
+
+WriteLiteral(" href=\"/Notification/\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(">Back to list</a>\r\n");
-
-WriteLiteral("            </div>\r\n");
-
-WriteLiteral("        </div>\r\n");
-
-WriteLiteral("    </div>\r\n");
+WriteLiteral(">Back to list</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n");
 
             
             #line 122 "..\..\Views\Notification\Edit.cshtml"

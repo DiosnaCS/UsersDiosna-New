@@ -279,7 +279,7 @@ WriteLiteral(">Filter from current alarms</a>\r\n        </div>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("</p>\r\n<table");
+WriteLiteral("<table");
 
 WriteLiteral(" class=\"table table-striped table-bordered table-condensed table-hover\"");
 
@@ -287,13 +287,13 @@ WriteLiteral(">\r\n    <tr>\r\n        <th>Id</th>\r\n        <th>Name of alarm<
 "gin</th>\r\n        <th>Expiry</th>\r\n    </tr>\r\n");
 
             
-            #line 55 "..\..\Views\Alarm\Index.cshtml"
+            #line 54 "..\..\Views\Alarm\Index.cshtml"
     
             
             #line default
             #line hidden
             
-            #line 55 "..\..\Views\Alarm\Index.cshtml"
+            #line 54 "..\..\Views\Alarm\Index.cshtml"
      for (int i = 0; i < Model.Count; i++)
     {
 
@@ -303,7 +303,7 @@ WriteLiteral(">\r\n    <tr>\r\n        <th>Id</th>\r\n        <th>Name of alarm<
 WriteLiteral("        <tr>\r\n            <td>");
 
             
-            #line 58 "..\..\Views\Alarm\Index.cshtml"
+            #line 57 "..\..\Views\Alarm\Index.cshtml"
            Write(Model[i].id);
 
             
@@ -312,13 +312,13 @@ WriteLiteral("        <tr>\r\n            <td>");
 WriteLiteral("</td>\r\n");
 
             
-            #line 59 "..\..\Views\Alarm\Index.cshtml"
+            #line 58 "..\..\Views\Alarm\Index.cshtml"
             
             
             #line default
             #line hidden
             
-            #line 59 "..\..\Views\Alarm\Index.cshtml"
+            #line 58 "..\..\Views\Alarm\Index.cshtml"
              if (!currentAlarmIDs.Exists(p => p == Model[i].id)) {
                 currentAlarmIDs.Add(Model[i].id);
             }
@@ -329,7 +329,7 @@ WriteLiteral("</td>\r\n");
 WriteLiteral("            <td>");
 
             
-            #line 62 "..\..\Views\Alarm\Index.cshtml"
+            #line 61 "..\..\Views\Alarm\Index.cshtml"
            Write(Model[i].title);
 
             
@@ -337,21 +337,21 @@ WriteLiteral("            <td>");
             #line hidden
 WriteLiteral("</td>\r\n            <td");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 2198), Tuple.Create("\"", 2210)
-, Tuple.Create(Tuple.Create("", 2203), Tuple.Create("date_", 2203), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 2192), Tuple.Create("\"", 2204)
+, Tuple.Create(Tuple.Create("", 2197), Tuple.Create("date_", 2197), true)
             
-            #line 63 "..\..\Views\Alarm\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2208), Tuple.Create<System.Object, System.Int32>(i
+            #line 62 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2202), Tuple.Create<System.Object, System.Int32>(i
             
             #line default
             #line hidden
-, 2208), false)
+, 2202), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 63 "..\..\Views\Alarm\Index.cshtml"
+            #line 62 "..\..\Views\Alarm\Index.cshtml"
                         Write(Model[i].originTime);
 
             
@@ -359,21 +359,21 @@ WriteLiteral(">");
             #line hidden
 WriteLiteral("</td>\r\n            <td");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 2254), Tuple.Create("\"", 2269)
-, Tuple.Create(Tuple.Create("", 2259), Tuple.Create("expDate_", 2259), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 2248), Tuple.Create("\"", 2263)
+, Tuple.Create(Tuple.Create("", 2253), Tuple.Create("expDate_", 2253), true)
             
-            #line 64 "..\..\Views\Alarm\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 2267), Tuple.Create<System.Object, System.Int32>(i
+            #line 63 "..\..\Views\Alarm\Index.cshtml"
+, Tuple.Create(Tuple.Create("", 2261), Tuple.Create<System.Object, System.Int32>(i
             
             #line default
             #line hidden
-, 2267), false)
+, 2261), false)
 );
 
 WriteLiteral(">");
 
             
-            #line 64 "..\..\Views\Alarm\Index.cshtml"
+            #line 63 "..\..\Views\Alarm\Index.cshtml"
                            Write(Model[i].expiryTime);
 
             
@@ -382,7 +382,7 @@ WriteLiteral(">");
 WriteLiteral("</td>\r\n        </tr>\r\n");
 
             
-            #line 66 "..\..\Views\Alarm\Index.cshtml"
+            #line 65 "..\..\Views\Alarm\Index.cshtml"
     }
 
             
@@ -391,7 +391,7 @@ WriteLiteral("</td>\r\n        </tr>\r\n");
 WriteLiteral("    ");
 
             
-            #line 67 "..\..\Views\Alarm\Index.cshtml"
+            #line 66 "..\..\Views\Alarm\Index.cshtml"
       Session["alarmIDs"] = currentAlarmIDs;
             
             #line default
@@ -411,7 +411,7 @@ WriteLiteral(@"
 ");
 
             
-            #line 79 "..\..\Views\Alarm\Index.cshtml"
+            #line 78 "..\..\Views\Alarm\Index.cshtml"
  for (int i = 0; i < Model.Count; i++)
 {
 
@@ -421,7 +421,7 @@ WriteLiteral(@"
 WriteLiteral("    <script>\r\n        var year = ");
 
             
-            #line 82 "..\..\Views\Alarm\Index.cshtml"
+            #line 81 "..\..\Views\Alarm\Index.cshtml"
               Write(Model[i].originTime.Year);
 
             
@@ -430,7 +430,7 @@ WriteLiteral("    <script>\r\n        var year = ");
 WriteLiteral(";\r\n        var month = ");
 
             
-            #line 83 "..\..\Views\Alarm\Index.cshtml"
+            #line 82 "..\..\Views\Alarm\Index.cshtml"
                Write(Model[i].originTime.Month);
 
             
@@ -439,7 +439,7 @@ WriteLiteral(";\r\n        var month = ");
 WriteLiteral(";\r\n        console.log(month);\r\n        var day = ");
 
             
-            #line 85 "..\..\Views\Alarm\Index.cshtml"
+            #line 84 "..\..\Views\Alarm\Index.cshtml"
              Write(Model[i].originTime.Day);
 
             
@@ -448,7 +448,7 @@ WriteLiteral(";\r\n        console.log(month);\r\n        var day = ");
 WriteLiteral(";\r\n        var hour = ");
 
             
-            #line 86 "..\..\Views\Alarm\Index.cshtml"
+            #line 85 "..\..\Views\Alarm\Index.cshtml"
               Write(Model[i].originTime.Hour);
 
             
@@ -457,7 +457,7 @@ WriteLiteral(";\r\n        var hour = ");
 WriteLiteral(";\r\n        var minute = ");
 
             
-            #line 87 "..\..\Views\Alarm\Index.cshtml"
+            #line 86 "..\..\Views\Alarm\Index.cshtml"
                 Write(Model[i].originTime.Minute);
 
             
@@ -466,7 +466,7 @@ WriteLiteral(";\r\n        var minute = ");
 WriteLiteral(";\r\n        var second = ");
 
             
-            #line 88 "..\..\Views\Alarm\Index.cshtml"
+            #line 87 "..\..\Views\Alarm\Index.cshtml"
                 Write(Model[i].originTime.Second);
 
             
@@ -476,7 +476,7 @@ WriteLiteral(";\r\n        var date = new Date(year, month-1, day, hour, minute,
 "     console.log(date);\r\n                var yearExp = ");
 
             
-            #line 91 "..\..\Views\Alarm\Index.cshtml"
+            #line 90 "..\..\Views\Alarm\Index.cshtml"
                          Write(Model[i].expiryTime.Year);
 
             
@@ -485,7 +485,7 @@ WriteLiteral(";\r\n        var date = new Date(year, month-1, day, hour, minute,
 WriteLiteral(";\r\n                var monthExp = ");
 
             
-            #line 92 "..\..\Views\Alarm\Index.cshtml"
+            #line 91 "..\..\Views\Alarm\Index.cshtml"
                           Write(Model[i].expiryTime.Month);
 
             
@@ -494,7 +494,7 @@ WriteLiteral(";\r\n                var monthExp = ");
 WriteLiteral(";\r\n                var dayExp = ");
 
             
-            #line 93 "..\..\Views\Alarm\Index.cshtml"
+            #line 92 "..\..\Views\Alarm\Index.cshtml"
                         Write(Model[i].expiryTime.Day);
 
             
@@ -503,7 +503,7 @@ WriteLiteral(";\r\n                var dayExp = ");
 WriteLiteral(";\r\n                var hourExp = ");
 
             
-            #line 94 "..\..\Views\Alarm\Index.cshtml"
+            #line 93 "..\..\Views\Alarm\Index.cshtml"
                          Write(Model[i].expiryTime.Hour);
 
             
@@ -512,7 +512,7 @@ WriteLiteral(";\r\n                var hourExp = ");
 WriteLiteral(";\r\n                var minuteExp = ");
 
             
-            #line 95 "..\..\Views\Alarm\Index.cshtml"
+            #line 94 "..\..\Views\Alarm\Index.cshtml"
                            Write(Model[i].expiryTime.Minute);
 
             
@@ -521,7 +521,7 @@ WriteLiteral(";\r\n                var minuteExp = ");
 WriteLiteral(";\r\n                var secondExp = ");
 
             
-            #line 96 "..\..\Views\Alarm\Index.cshtml"
+            #line 95 "..\..\Views\Alarm\Index.cshtml"
                            Write(Model[i].expiryTime.Second);
 
             
@@ -532,7 +532,7 @@ WriteLiteral(";\r\n                var expDate = new Date(yearExp, monthExp-1, d
 "         document.getElementById(\"date_\" + \"");
 
             
-            #line 100 "..\..\Views\Alarm\Index.cshtml"
+            #line 99 "..\..\Views\Alarm\Index.cshtml"
                                           Write(i);
 
             
@@ -542,7 +542,7 @@ WriteLiteral("\").innerHTML = localDateTime;\r\n            var localExpDateTime
 "e);\r\n            document.getElementById(\"expDate_\" + \"");
 
             
-            #line 102 "..\..\Views\Alarm\Index.cshtml"
+            #line 101 "..\..\Views\Alarm\Index.cshtml"
                                              Write(i);
 
             
@@ -551,12 +551,14 @@ WriteLiteral("\").innerHTML = localDateTime;\r\n            var localExpDateTime
 WriteLiteral("\").innerHTML = localExpDateTime;\r\n    </script>\r\n");
 
             
-            #line 104 "..\..\Views\Alarm\Index.cshtml"
+            #line 103 "..\..\Views\Alarm\Index.cshtml"
 }
 
             
             #line default
             #line hidden
+WriteLiteral("</div>\r\n");
+
         }
     }
 }

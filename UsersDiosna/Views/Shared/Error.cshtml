@@ -14,7 +14,12 @@
     <div>
         Error: @error.Message.ToString()<br>
         Stack trace: @error.StackTrace.ToString()<br>
-        Inner exception: @error.InnerException.ToString()<br />
+        Inner exception:
+        @if (error.InnerException != null)
+        {
+            @error.InnerException.ToString()
+        }
+        <br />
         Source: @error.Source.ToString()<br />
         HResult: @error.HResult.ToString()<br />
         Other: @error.HelpLink.ToString()    @error.Data.ToString()<br />

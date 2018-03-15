@@ -19,7 +19,6 @@ namespace UsersDiosna.Controllers
         {
             const int startDay = 1;
 
-            int prevouseBatchNo = 0;
             int month = DateTime.Now.Month;
             int year = DateTime.Now.Year;
             DateTime thisMonthStart = new DateTime(year, month, startDay, 0, 0, 0);

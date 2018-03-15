@@ -153,18 +153,19 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(" \" value=\"Save Notification\" />\r\n                </div>\r\n                <div cla" +
-"ss=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
+WriteLiteral(" value=\"Save Notification\"");
+
+WriteLiteral(" />\r\n                </div>\r\n                <div");
+
+WriteLiteral(" class=\"col-md-10\"");
+
+WriteLiteral(">\r\n                    <a");
+
+WriteLiteral(" href=\"/Alarm/\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(">Back</a>\r\n");
-
-WriteLiteral("                </div>\r\n");
-
-WriteLiteral("             </div>\r\n");
-
-WriteLiteral("        </div>\r\n");
+WriteLiteral(">Back</a>\r\n                </div>\r\n             </div>\r\n        </div>\r\n");
 
             
             #line 38 "..\..\Views\AlarmNotification\All.cshtml"

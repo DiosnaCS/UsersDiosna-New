@@ -23,11 +23,14 @@ namespace UsersDiosna
             xml.Load(absoulte_path[0]);
             string xpath = string.Format("/configuration/names[{0}]", congirationNumber);
             XmlNodeList xnList = xml.SelectNodes(xpath);
-            foreach (XmlNode node in xnList[0].ChildNodes) {
-                string tankName = node.Name;
-                int tankIdx = int.Parse(node.InnerText);
-                tankNames.Add(tankIdx, tankName);
-            }
+            if (xnList != null)
+                foreach (XmlNode node in xnList[0].ChildNodes)
+                {
+                    string tankName = node.Name;
+                    int tankIdx = int.Parse(node.InnerText);
+                    tankNames.Add(tankIdx, tankName);
+                }
+
             return tankNames;
         }
 

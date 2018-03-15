@@ -118,8 +118,6 @@ namespace UsersDiosna.Handlers
         /// <returns>List of dropdownlist items (for model)</returns>
         public List<SelectListItem> getDropDownListRoles(string selected = null)
         {
-            int bakeryId;
-            bool first = true;
             List<SelectListItem> rolesList = new List<SelectListItem>();
             AddRoleDataContext addRole = new AddRoleDataContext();
             foreach (string role in Roles.GetAllRoles())
@@ -138,7 +136,6 @@ namespace UsersDiosna.Handlers
                     roleItem.Text = role;
                 }
                 rolesList.Add(roleItem);
-                first = false;
             }
             return rolesList;
         }

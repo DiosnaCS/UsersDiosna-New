@@ -62,10 +62,7 @@ namespace UsersDiosna.Controllers
             return View();
         }
 
-        public ActionResult addSkypeName()
-        {
-            return View();
-        }
+        public ActionResult addSkypeName() => View();
 
         [HttpPost]
         public ActionResult DefaultViewForm(DefaultViewModel model, FormCollection formCollection) {

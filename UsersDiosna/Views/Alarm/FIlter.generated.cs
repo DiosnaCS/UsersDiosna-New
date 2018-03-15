@@ -179,16 +179,19 @@ WriteLiteral(" type=\"submit\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral("\" value=\"Create new filter\" />\r\n                </div>\r\n                <div clas" +
-"s=\"col-md-10\">\r\n                    <a href=\"/Alarm/\"");
+WriteLiteral(" value=\"Create new filter\"");
+
+WriteLiteral(" />\r\n                </div>\r\n                <div");
+
+WriteLiteral(" class=\"col-md-10\"");
+
+WriteLiteral(">\r\n                    <a");
+
+WriteLiteral(" href=\"/Alarm/\"");
 
 WriteLiteral(" class=\"btn btn-primary btn-sm\"");
 
-WriteLiteral(">Back</a>\r\n");
-
-WriteLiteral("                </div>\r\n");
-
-WriteLiteral("            </div>\r\n");
+WriteLiteral(">Back</a>\r\n                </div>\r\n            </div>\r\n");
 
             
             #line 45 "..\..\Views\Alarm\FIlter.cshtml"

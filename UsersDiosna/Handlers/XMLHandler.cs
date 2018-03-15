@@ -20,10 +20,11 @@ namespace UsersDiosna
             xml.Load(absoulte_path[0]);
             XmlNodeList xnList = xml.SelectNodes("//" + tag);
 
-            foreach (XmlNode xn in xnList)
-            {
-                XMLcontentList.Add(xn.InnerText);
-            }
+            if (xnList != null)
+                foreach (XmlNode xn in xnList)
+                {
+                    XMLcontentList.Add(xn.InnerText);
+                }
 
             return XMLcontentList;
         }
