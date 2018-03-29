@@ -59,7 +59,7 @@ namespace UsersDiosna.Controllers
                 }
                 else
                 {
-                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                    Session["tempforview"] += "Config files pathes are not present in bakery config";
                 }
 
                 if (pathGraphicCfg != null && subGraphicDir != null && pathGraphicCfg != null)
@@ -70,7 +70,7 @@ namespace UsersDiosna.Controllers
                 }
                 else
                 {
-                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                    Session["tempforview"] += "Config files pathes are not present in bakery config";
                 }
 
                 if (pathSvgCfg != null && pathesToCfg != null)
@@ -80,7 +80,7 @@ namespace UsersDiosna.Controllers
                 }
                 else
                 {
-                    Session["tempforview"] = "Config files pathes are not present in bakery config";
+                    Session["tempforview"] += "Config files pathes are not present in bakery config";
                 }
                 if (pathToSvg != null)
                 {

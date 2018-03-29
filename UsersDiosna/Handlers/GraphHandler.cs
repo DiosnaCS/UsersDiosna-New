@@ -61,6 +61,7 @@ namespace UsersDiosna.Handlers
 
             int period = int.MinValue;
             string columns = null;
+            string where;
             string[] conditions1 = { "\"UTC\"", "\"UTC\"" };
             string[] Operators = { ">=", "<=" };
             string[] conditions2 = { "'" + pkTimeToUTC(dataRequest.beginTime) + "'", "'" + pkTimeToUTC(dataRequest.beginTime + dataRequest.timeAxisLength) + "'" };
@@ -86,19 +87,38 @@ namespace UsersDiosna.Handlers
                 {
                     columns = columns.Substring(0, columns.Length - 1);
                     db opennedDbConn = openDbList.Find(x => x.dbIdx == tabledef.dbIdx);
-                    string where = db.whereMultiple(conditions1, Operators, conditions2);
-                    string order = db.order("\"UTC\"", "ASC");
-                    try
+                    
+                    
+                    if (tabledef.usePkTime == true) {
+                        long timeTo = dataRequest.beginTime + dataRequest.timeAxisLength;
+                        long timeFrom = dataRequest.beginTime;
+                        string order = db.order("pktime", "ASC");
+                        try
+                        {
+                            objects = await opennedDbConn.multipleItemSelectPostgresAsync("pktime," + columns, "\"" + tabledef.tabName + "\"", "(pktime BETWEEN " + timeFrom + " AND " + timeTo +")", null, order);
+                        } catch (Exception e)
+                        {
+                            string error = "SQL problem: " + e.Message.ToString();
+                            dataRequest.errorMessage = error;
+                        }
+                    }
+                    else
                     {
-                        objects = await opennedDbConn.multipleItemSelectPostgresAsync("\"UTC\"," + columns, "\"" + tabledef.tabName + "\"", where, null, order);
-                    } catch (Exception e)
-                    {
-                        string error = "SQL problem: " + e.Message.ToString();
-                        dataRequest.errorMessage = error;
+                        where = db.whereMultiple(conditions1, Operators, conditions2);
+                        string order = db.order("\"UTC\"", "ASC");
+                        try
+                        {
+                            objects = await opennedDbConn.multipleItemSelectPostgresAsync("\"UTC\"," + columns, "\"" + tabledef.tabName + "\"", where, null, order);
+                        }
+                        catch (Exception e)
+                        {
+                            string error = "SQL problem: " + e.Message.ToString();
+                            dataRequest.errorMessage = error;
+                        }
                     }
                     //readResponse(objects, dataRequest, tagsPos, tabledef);
                     //if (objects.Exists(p => p.Any(q => q.GetType() == typeof(DBNull))) == false) {
-                        readResponseforTable(objects, tagsPos, period, dataRequest, tabledef);
+                        readResponseforTable(objects, tagsPos, period, dataRequest, tabledef, tabledef.usePkTime);
                     //} else
                     //{
                      //   string k = "contains DBNull in the response";
@@ -123,7 +143,7 @@ namespace UsersDiosna.Handlers
         /// <param name="rstObjects">result of SQL query</param>
         /// <param name="period">Period of signals in table</param>
         /// <param name="dataRequest">DataRequest</param>
-        private void readResponseforTable(List<object[]> rstObjects, List<int> tagsPos, int period, DataRequest dataRequest, TableDef tabledef)
+        private void readResponseforTable(List<object[]> rstObjects, List<int> tagsPos, int period, DataRequest dataRequest, TableDef tabledef,bool usePkTime = false)
         {
             int rstPos = 0, buffPos = 0;
             object[] objectsArray;
@@ -141,8 +161,14 @@ namespace UsersDiosna.Handlers
                 objectsArray = rstObjects[rstPos];
                 low_buff_time = (startTime + (i * period));
                 high_buff_time = (startTime + ((i + 1) * period));
-                time = utcToPkTime(objectsArray[0].ToString());
-
+                if (usePkTime == true)
+                {
+                    time = (int)objectsArray[0];
+                }
+                else
+                {
+                    time = utcToPkTime(objectsArray[0].ToString());
+                }
                 if (low_buff_time <= time && time <= high_buff_time)
                 {
                     vals_agreg.Add(objectsArray); // Add value into vals for agragation

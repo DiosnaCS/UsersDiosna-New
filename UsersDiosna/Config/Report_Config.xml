@@ -2,17 +2,23 @@
 <configuration>
 	<names>
 		<MF1>21</MF1>
-		<SF1>1</SF1>
+		<SFd1>1</SFd1>
 		<SF2>2</SF2>
 		<DosingOut1>51</DosingOut1>
 	</names>
 	<names>
-		<SF1x>1</SF1x>
-		<SF2x>2</SF2x>
-		<SF3x>3</SF3x>
-		<SF4x>4</SF4x>
-		<SF5x>5</SF5x>
-		<SF6x>6</SF6x>
-		<DosingOut1x>51</DosingOut1x>
+		<SF1>1</SF1>
+		<SF2>2</SF2>
+		<SF3>3</SF3>
+		<SF4>4</SF4>
+		<SF5>5</SF5>
+		<SF6>6</SF6>
+		<DosingOut1>51</DosingOut1>
+	</names>
+	<names>
+		<AH1>31</AH1>
+		<AK1>1</AK1>
+		<AK2>2</AK2>
+		<DosingOut1>51</DosingOut1>
 	</names>
 </configuration>

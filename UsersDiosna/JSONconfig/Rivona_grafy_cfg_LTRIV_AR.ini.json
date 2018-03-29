@@ -1,0 +1,1846 @@
+﻿{
+    "LangDef": [
+        "EN",
+        "CZ"        
+    ],
+    "LangEnb": [
+        "EN",
+        "CZ"
+    ],
+    "TableDef": [
+        {
+            "shortName": "norm",
+            "dbIdx": 99999,
+            "tabName": "ar_norm",
+            "UsePktime" : true,
+            "period": 20
+        },
+        {
+            "shortName": "slow",
+            "dbIdx": 99999,
+            "UsePktime" : true,
+            "tabName": "ar_slow",
+            "period": 60
+        },
+        {
+            "shortName": "xslow",
+            "dbIdx": 99999,
+            "UsePktime" : true,
+            "tabName": "ar_xslow",
+            "period": 300
+        }
+    ],
+    "NameDef": [
+        {
+            "table": "norm",
+            "column": "iWMU_Temp",
+            "fullName_EN": "WMU - temperature",
+            "fullName_CZ": "WMU - teplota",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "slow",
+            "column": "iWMU_Ticks",
+            "fullName_EN": "WMU - ticks",
+            "fullName_CZ": "WMU - dílky"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_Weight",
+            "fullName_EN": "AH1 - weight",
+            "fullName_CZ": "AH1 - hmotnost",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "diAK1_Weight",
+            "fullName_EN": "AK1 - weight",
+            "fullName_CZ": "AK1 - hmotnost",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "diAK2_Weight",
+            "fullName_EN": "AK2 - weight",
+            "fullName_CZ": "AK2 - hmotnost",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_TempSide",
+            "fullName_EN": "AH1 - side temper",
+            "fullName_CZ": "AH1 - tepl. pláště",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_TempBottom",
+            "fullName_EN": "AH1 - bottom temper.",
+            "fullName_CZ": "AH1 - teplota dna",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_TempSide",
+            "fullName_EN": "AK1 - side temper",
+            "fullName_CZ": "AK1 - tepl. pláště",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_TempBottom",
+            "fullName_EN": "AK1 - bottom temper.",
+            "fullName_CZ": "AK1 - teplota dna",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_TempSide",
+            "fullName_EN": "AK2 - side temper",
+            "fullName_CZ": "AK2 - tepl. pláště",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_TempBottom",
+            "fullName_EN": "AK2 - bottom temper.",
+            "fullName_CZ": "AK2 - teplota dna",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iPIG1_Pressure",
+            "fullName_EN": "PIG1 - pressure",
+            "fullName_CZ": "PIG1 - tlak",
+            "unit_EN": "Bar",
+            "unit_CZ": "Bar"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_Pressure",
+            "fullName_EN": "AK1 - pressure",
+            "fullName_CZ": "AK1 - tlak",
+            "unit_EN": "Bar",
+            "unit_CZ": "Bar"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_Pressure",
+            "fullName_EN": "AK2 - pressure",
+            "fullName_CZ": "AK2 - tlak",
+            "unit_EN": "Bar",
+            "unit_CZ": "Bar"
+        },
+        {
+            "table": "slow",
+            "column": "iAH1_RCP_No",
+            "fullName_EN": "AH1 - recipe",
+            "fullName_CZ": "AH1 - receptura"
+        },
+        {
+            "table": "slow",
+            "column": "iAK1_RCP_No",
+            "fullName_EN": "AK1 - recipe",
+            "fullName_CZ": "AK1 - receptura"
+        },
+        {
+            "table": "slow",
+            "column": "iAK2_RCP_No",
+            "fullName_EN": "AK2 - recipe",
+            "fullName_CZ": "AK2 - receptura"
+        },
+        {
+            "table": "norm",
+            "column": "usiAH1_RCP_Status",
+            "fullName_EN": "AH1 - status",
+            "fullName_CZ": "AH1 - stav"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK1_RCP_Status",
+            "fullName_EN": "AK1 - status",
+            "fullName_CZ": "AK1 - stav"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK2_RCP_Status",
+            "fullName_EN": "AK2 - status",
+            "fullName_CZ": "AK2 - stav"            
+        },        
+        {
+            "table": "norm",
+            "column": "usiAH1_RCP_Step",
+            "fullName_EN": "AH1 - step",
+            "fullName_CZ": "AH1 - krok"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK1_RCP_Step",
+            "fullName_EN": "AK1 - step",
+            "fullName_CZ": "AK1 - krok"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK2_RCP_Step",
+            "fullName_EN": "AK2 - step",
+            "fullName_CZ": "AK2 - krok"            
+        },
+        {
+            "table": "norm",
+            "column": "bAH1_LidOpen",
+            "fullName_EN": "AH1 - lid",
+            "fullName_CZ": "AH1 - víko"            
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_LidOpen",
+            "fullName_EN": "AK1 - lid",
+            "fullName_CZ": "AK1 - víko"            
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_LidOpen",
+            "fullName_EN": "AK2 - lid",
+            "fullName_CZ": "AK2 - víko"            
+        },       
+        {
+            "table": "slow",
+            "column": "bAH1_RCP_AutoClean",
+            "fullName_EN": "AH1 - aut. cleaning",
+            "fullName_CZ": "AH1 - aut. mytí"
+        },
+        {
+            "table": "slow",
+            "column": "bAK1_RCP_AutoClean",
+            "fullName_EN": "AK1 - aut. cleaning",
+            "fullName_CZ": "AK1 - aut. mytí"
+        },        
+        {
+            "table": "slow",
+            "column": "bAK2_RCP_AutoClean",
+            "fullName_EN": "AK2 - aut. cleaning",
+            "fullName_CZ": "AK2 - aut. mytí"
+        },
+        {
+            "table": "norm",
+            "column": "usiAK1_RCP_ProdStatus",
+            "fullName_EN": "AK1 - prod. status",
+            "fullName_CZ": "AK1 - stav prod."            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK2_RCP_ProdStatus",
+            "fullName_EN": "AK2 - prod. status",
+            "fullName_CZ": "AK2 - stav prod."            
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_TotalAmount",
+            "fullName_EN": "AH1 - need amount",
+            "fullName_CZ": "AH1 - Požad. množství",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "iAH1_RCP_TA",
+            "fullName_EN": "AH1 - filling TA",
+            "fullName_CZ": "AH1 - TA plnění"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_FirstWater_done",
+            "fullName_EN": "AH1 - 1st water - actual",
+            "fullName_CZ": "AH1 - 1. voda - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_FirstWater_need",
+            "fullName_EN": "AH1 - 1st water - need",
+            "fullName_CZ": "AH1 - 1. voda - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_ManComp1ab_done",
+            "fullName_EN": "AH1 - man. comp. 1 - actual",
+            "fullName_CZ": "AH1 - ruč. komp. 1 - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_ManComp1a_need",
+            "fullName_EN": "AH1 - man. comp. 1a - need",
+            "fullName_CZ": "AH1 - ruč. komp. 1a - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_ManComp1b_need",
+            "fullName_EN": "AH1 - man. comp. 1b - need",
+            "fullName_CZ": "AH1 - ruč. komp. 1b - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_Comp1Heat_need",
+            "fullName_EN": "AH1 - comp. 1 heat - need",
+            "fullName_CZ": "AH1 - ohřev komp. 1 - požad.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_Comp1Heat_done",
+            "fullName_EN": "AH1 - comp. 1 heat - actual",
+            "fullName_CZ": "AH1 - ohřev komp. 1 - aktuál.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_RCP_Comp1Heat_Temp",
+            "fullName_EN": "AH1 - heat temper.",
+            "fullName_CZ": "AH1 - teplota ohřevu",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_Flour_need",
+            "fullName_EN": "AH1 - flour - need",
+            "fullName_CZ": "AH1 - mouka - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_Flour_done",
+            "fullName_EN": "AH1 - flour - actual",
+            "fullName_CZ": "AH1 - mouka - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_Water_need",
+            "fullName_EN": "AH1 - water - need",
+            "fullName_CZ": "AH1 - voda - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_Water_done",
+            "fullName_EN": "AH1 - water - actual",
+            "fullName_CZ": "AH1 - voda - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_ManComp2_need",
+            "fullName_EN": "AH1 - man. comp. 2 - need",
+            "fullName_CZ": "AH1 - ruč. komp. 2 - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        }, 
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_ManComp2_done",
+            "fullName_EN": "AH1 - man. comp. 2 - actual",
+            "fullName_CZ": "AH1 - ruč. komp. 2 - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "xslow",
+            "column": "diAH1_RCP_Comp2_MixTime_need",
+            "fullName_EN": "AH1 - comp. 2 mix. - need",
+            "fullName_CZ": "AH1 - komp 2 mix. - požad.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_Comp2_MixTime_done",
+            "fullName_EN": "AH1 - comp. 2 mix. - actual",
+            "fullName_CZ": "AH1 - comp. 2 mix. - aktuál.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_RCP_Ferm1_Temp",
+            "fullName_EN": "AH1 - ferm. 1 - temper.",
+            "fullName_CZ": "AH1 - ferm. 1 - teplota",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "xslow",
+            "column": "diAH1_RCP_Ferment1_need",
+            "fullName_EN": "AH1 - ferment. 1 - need",
+            "fullName_CZ": "AH1 - fermentace 1 - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAH1_RCP_Ferment1_done",
+            "fullName_EN": "AH1 - ferment. 1 - actual",
+            "fullName_CZ": "AH1 - fermentace 1 - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_RCP_Ferm2_Temp",
+            "fullName_EN": "AH1 - ferm. 2 - temper.",
+            "fullName_CZ": "AH1 - ferm. 2 - teplota",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "xslow",
+            "column": "diAH1_RCP_Ferment2_need",
+            "fullName_EN": "AH1 - ferment. 2 - need",
+            "fullName_CZ": "AH1 - fermentace 2 - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAH1_RCP_Ferment2_done",
+            "fullName_EN": "AH1 - ferment. 2 - actual",
+            "fullName_CZ": "AH1 - fermentace 2 - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_LastWater_need",
+            "fullName_EN": "AH1 - last water - need",
+            "fullName_CZ": "AH1 - posl. voda - požad.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        }, 
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_LastWater_done",
+            "fullName_EN": "AH1 - last water - actual",
+            "fullName_CZ": "AH1 - posl. voda - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diAH1_RCP_LastWaterMix_need",
+            "fullName_EN": "AH1 - last water mix. - need",
+            "fullName_CZ": "AH1 - posl. voda mix. - požad.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "norm",
+            "column": "diAH1_RCP_LastWaterMix_done",
+            "fullName_EN": "AH1 - last water mix. - actual",
+            "fullName_CZ": "AH1 - posl. voda mix. - aktuál.",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_RCP_PIG_Step",
+            "fullName_EN": "AH1 - PIG step",
+            "fullName_CZ": "AH1 - krok PIGu"
+        },
+        {
+            "table": "norm",
+            "column": "iAH1_RCP_Clean_Step",
+            "fullName_EN": "AH1 - cleaning step",
+            "fullName_CZ": "AH1 - krok mytí"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAH1_AgitStyle",
+            "fullName_EN": "AH1 - agit style",
+            "fullName_CZ": "AH1 - styl míchání"
+        },
+        {
+            "table": "norm",
+            "column": "usiAH1_RCP_Dest",
+            "fullName_EN": "AH1 - destination",
+            "fullName_CZ": "AH1 - cíl"
+        },
+
+        {
+            "table": "slow",
+            "column": "diAK1_RCP_TotalAmount",
+            "fullName_EN": "AK1 - need amount",
+            "fullName_CZ": "AK1 - Požad. množství",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK1_RCP_Cooling_need",
+            "fullName_EN": "AK1 - cooling - need",
+            "fullName_CZ": "AK1 - chlazení - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK1_RCP_Cooling_done",
+            "fullName_EN": "AK1 - cooling - actual",
+            "fullName_CZ": "AK1 - chlazení - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_RCP_Cooling_Temp",
+            "fullName_EN": "AK1 - cooling temper.",
+            "fullName_CZ": "AK1 - teplota chlazení",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK1_RCP_Storing_need",
+            "fullName_EN": "AK1 - storing - need",
+            "fullName_CZ": "AK1 - skladování - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK1_RCP_Storing_done",
+            "fullName_EN": "AK1 - storing - actual",
+            "fullName_CZ": "AK1 - skladování - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_RCP_Storing_Temp",
+            "fullName_EN": "AK1 - storing temper.",
+            "fullName_CZ": "AK1 - teplota skladování",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK1_RCP_CleanStep",
+            "fullName_EN": "AK1 - cleaning step",
+            "fullName_CZ": "AK1 - krok mytí"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK1_RCP_ProdStatus",
+            "fullName_EN": "AK1 - product status",
+            "fullName_CZ": "AK1 - stav produktu"
+        },
+
+        {
+            "table": "slow",
+            "column": "diAK2_RCP_TotalAmount",
+            "fullName_EN": "AK2 - need amount",
+            "fullName_CZ": "AK2 - Požad. množství",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK2_RCP_Cooling_need",
+            "fullName_EN": "AK2 - cooling - need",
+            "fullName_CZ": "AK2 - chlazení - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK2_RCP_Cooling_done",
+            "fullName_EN": "AK2 - cooling - actual",
+            "fullName_CZ": "AK2 - chlazení - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_RCP_Cooling_Temp",
+            "fullName_EN": "AK2 - cooling temper.",
+            "fullName_CZ": "AK2 - teplota chlazení",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK2_RCP_Storing_need",
+            "fullName_EN": "AK2 - storing - need",
+            "fullName_CZ": "AK2 - skladování - požad.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "xslow",
+            "column": "diAK2_RCP_Storing_done",
+            "fullName_EN": "AK2 - storing - actual",
+            "fullName_CZ": "AK2 - skladování - aktuál.",
+            "unit_EN": "hrs",
+            "unit_CZ": "hod"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_RCP_Storing_Temp",
+            "fullName_EN": "AK2 - storing temper.",
+            "fullName_CZ": "AK2 - teplota skladování",
+            "unit_EN": "°C",
+            "unit_CZ": "°C"
+        },
+        {
+            "table": "norm",
+            "column": "iAK2_RCP_CleanStep",
+            "fullName_EN": "AK2 - cleaning step",
+            "fullName_CZ": "AK2 - krok mytí"            
+        },
+        {
+            "table": "norm",
+            "column": "usiAK2_RCP_ProdStatus",
+            "fullName_EN": "AK2 - product status",
+            "fullName_CZ": "AK2 - stav produktu"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankAut_Status",
+            "fullName_EN": "Clean. tank - status",
+            "fullName_CZ": "Mytí tanku - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankAut_Step",
+            "fullName_EN": "Clean. tank - step",
+            "fullName_CZ": "Mytí tanku - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankAut_TankId",
+            "fullName_EN": "Clean. tank - tank",
+            "fullName_CZ": "Mytí tanku - tank"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankAut_Owner",
+            "fullName_EN": "Clean. tank - owner",
+            "fullName_CZ": "Mytí tanku - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankMan_Status",
+            "fullName_EN": "Clean. tank - status",
+            "fullName_CZ": "Mytí tanku - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankMan_Step",
+            "fullName_EN": "Clean. tank - step",
+            "fullName_CZ": "Mytí tanku - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankMan_TankId",
+            "fullName_EN": "Clean. tank - tank",
+            "fullName_CZ": "Mytí tanku - tank"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankMan_Owner",
+            "fullName_EN": "Clean. tank - owner",
+            "fullName_CZ": "Mytí tanku - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankWater_Status",
+            "fullName_EN": "Clean. tank - status",
+            "fullName_CZ": "Mytí tanku - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankWater_Step",
+            "fullName_EN": "Clean. tank - step",
+            "fullName_CZ": "Mytí tanku - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankWater_TankId",
+            "fullName_EN": "Clean. tank - tank",
+            "fullName_CZ": "Mytí tanku - tank"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankWater_Owner",
+            "fullName_EN": "Clean. tank - owner",
+            "fullName_CZ": "Mytí tanku - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankShower_Status",
+            "fullName_EN": "Clean. tank - status",
+            "fullName_CZ": "Mytí tanku - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankShower_Step",
+            "fullName_EN": "Clean. tank - step",
+            "fullName_CZ": "Mytí tanku - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankShower_TankId",
+            "fullName_EN": "Clean. tank - tank",
+            "fullName_CZ": "Mytí tanku - tank"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanTankShower_Owner",
+            "fullName_EN": "Clean. tank - owner",
+            "fullName_CZ": "Mytí tanku - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiDischTank_Status",
+            "fullName_EN": "Discharge tank - status",
+            "fullName_CZ": "Vyprázdnění tanku - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiDischTank_Step",
+            "fullName_EN": "Discharge tank - step",
+            "fullName_CZ": "Vyprázdnění tanku - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiDischTank_TankId",
+            "fullName_EN": "Discharge tank - tank",
+            "fullName_CZ": "Vyprázdnění tanku - tank"
+        },
+        {
+            "table": "norm",
+            "column": "usiDischTank_Owner",
+            "fullName_EN": "Discharge tank - owner",
+            "fullName_CZ": "Vyprázdnění tanku - vlast."
+        },
+        {
+            "table": "norm",
+            "column": "usiDO_SourceTank",
+            "fullName_EN": "Dosing out - source",
+            "fullName_CZ": "Dávkování - zdroj"
+        },    
+        {
+            "table": "norm",
+            "column": "usiDO_Step",
+            "fullName_EN": "Dosing out - step",
+            "fullName_CZ": "Dávkování - krok"
+        },
+        {
+            "table": "norm",
+            "column": "bDO_AutoSelectTank",
+            "fullName_EN": "Auto selection tank",
+            "fullName_CZ": "Aut. volba výdej. tanku"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanPipe1_Status",
+            "fullName_EN": "Clean pipe 1 - status",
+            "fullName_CZ": "Mytí potrubí 1 - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanPipe1_Step",
+            "fullName_EN": "Clean pipe 1 - step",
+            "fullName_CZ": "Mytí potrubí 1 - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiCleanPipe1_Owner",
+            "fullName_EN": "Clean pipe 1 - owner",
+            "fullName_CZ": "Mytí potrubí 1 - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiPig1_Status",
+            "fullName_EN": "PIG1 - status",
+            "fullName_CZ": "PIG1 - stav"
+        },
+        {
+            "table": "norm",
+            "column": "usiPig1_Step",
+            "fullName_EN": "PIG1 - step",
+            "fullName_CZ": "PIG1 - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiPig1_LastPos",
+            "fullName_EN": "PIG1 - last pos.",
+            "fullName_CZ": "PIG1 - posl. poz."
+        },
+        {
+            "table": "norm",
+            "column": "iPig1_LastDir",
+            "fullName_EN": "PIG1 - last dir.",
+            "fullName_CZ": "PIG1 - posl. směr"
+        },
+        {
+            "table": "norm",
+            "column": "usiPig1_Dest",
+            "fullName_EN": "PIG1 - dest.",
+            "fullName_CZ": "PIG1 - cíl"
+        },
+        {
+            "table": "norm",
+            "column": "usiPig1_Owner",
+            "fullName_EN": "PIG1 - owner",
+            "fullName_CZ": "PIG1 - vlastník"
+        },
+        {
+            "table": "norm",
+            "column": "usiPipe1_Step",
+            "fullName_EN": "Pipe 1 - step",
+            "fullName_CZ": "Potrubí 1 - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiPipe2_Step",
+            "fullName_EN": "Pipe 2 - step",
+            "fullName_CZ": "Potrubí 2 - krok"
+        },
+        {
+            "table": "norm",
+            "column": "usiPipe3_Step",
+            "fullName_EN": "Pipe 3 - step",
+            "fullName_CZ": "Potrubí 3 - krok"
+        },        
+        {
+            "table": "norm",
+            "column": "bAH1_RepumpAuto",
+            "fullName_EN": "AH1 - repump auto",
+            "fullName_CZ": "AH1 - aut. přečerp."
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_RepumpAuto",
+            "fullName_EN": "AK1 - repump auto",
+            "fullName_CZ": "AK1 - aut. přečerp."
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_RepumpAuto",
+            "fullName_EN": "AK2 - repump auto",
+            "fullName_CZ": "AK2 - aut. přečerp."
+        },        
+        {
+            "table": "norm",
+            "column": "bDO_DoseToGully",
+            "fullName_EN": "Dosing out to gully",
+            "fullName_CZ": "Výdej do odpadu"
+        },
+        {
+            "table": "norm",
+            "column": "bClnPipe_Enb_Pig1st",
+            "fullName_EN": "Enable PIG 1",
+            "fullName_CZ": "Povolen PIG 1"
+        },
+        {
+            "table": "norm",
+            "column": "bClnPipe_Enb_LN1_Bowl",
+            "fullName_EN": "Enable clean bowl LN1",
+            "fullName_CZ": "Povoleno mytí díže LN1"
+        },
+        {
+            "table": "norm",
+            "column": "bClnPipe_Enb_AK1_Tank",
+            "fullName_EN": "Enable ferm. AK1",
+            "fullName_CZ": "Povolen ferm. AK1"
+        },
+        {
+            "table": "norm",
+            "column": "bClnPipe_Enb_AK2_Tank",
+            "fullName_EN": "Enable ferm. AK2",
+            "fullName_CZ": "Povolen ferm. AK2"
+        },
+        {
+            "table": "norm",
+            "column": "bClnPipe_Enb_Pig2nd",
+            "fullName_EN": "Enable PIG 2",
+            "fullName_CZ": "Povolen PIG 2"
+        },
+        {
+            "table": "norm",
+            "column": "bAH1_Level_EnbAgit",
+            "fullName_EN": "AH1 level - agit enable",
+            "fullName_CZ": "AH1 hladina - mích. pov."
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_Level_EnbAgit",
+            "fullName_EN": "AK1 level - agit enable",
+            "fullName_CZ": "AK1 hladina - mích. pov."
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_Level_EnbAgit",
+            "fullName_EN": "AK2 level - agit enable",
+            "fullName_CZ": "AK2 hladina - mích. pov."
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_Level_EnbCool",
+            "fullName_EN": "AK1 level - cool enable",
+            "fullName_CZ": "AK1 hladina - chlaz. pov."
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_Level_EnbCool",
+            "fullName_EN": "AK2 level - cool enable",
+            "fullName_CZ": "AK2 hladina - chlaz. pov."
+        },
+        {
+            "table": "norm",
+            "column": "bAH1_RemoteStart_Start",
+            "fullName_EN": "AH1 - remote start",
+            "fullName_CZ": "AH1 - vzdál. start"
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_RemoteStart_Start",
+            "fullName_EN": "AK1 - remote start",
+            "fullName_CZ": "AK1 - vzdál. start"
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_RemoteStart_Start",
+            "fullName_EN": "AK2 - remote start",
+            "fullName_CZ": "AK2 - vzdál. start"
+        },
+        {
+            "table": "norm",
+            "column": "bAK1_RemoteStart_FillFinished",
+            "fullName_EN": "AK1 - rem. start filled",
+            "fullName_CZ": "AK1 - vzd. start naplněno"
+        },
+        {
+            "table": "norm",
+            "column": "bAK2_RemoteStart_FillFinished",
+            "fullName_EN": "AK2 - rem. start filled",
+            "fullName_CZ": "AK2 - vzd. start naplněno"
+        },
+        {
+            "table": "norm",
+            "column": "iDO_ReqType",
+            "fullName_EN": "DO - req. type",
+            "fullName_CZ": "DO - požad. typ"
+        },
+        {
+            "table": "norm",
+            "column": "diDO_AmntDone",
+            "fullName_EN": "DO amount - done",
+            "fullName_CZ": "DO dávka - aktuál.",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "diDO_AmntReq",
+            "fullName_EN": "DO amount - need",
+            "fullName_CZ": "DO dávka - požad",
+            "unit_EN": "kg",
+            "unit_CZ": "kg"
+        },
+        {
+            "table": "slow",
+            "column": "iAH1_RemoteStart_SkipTo",
+            "fullName_EN": "AH1 - skip to",
+            "fullName_CZ": "AH1 - přeskočeno",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "slow",
+            "column": "diAK1_RemoteStart_Age",
+            "fullName_EN": "AK1 - remote start ago",
+            "fullName_CZ": "AK1 - od posled. startu",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        },
+        {
+            "table": "slow",
+            "column": "diAK2_RemoteStart_Age",
+            "fullName_EN": "AK2 - remote start ago",
+            "fullName_CZ": "AK2 - od posled. startu",
+            "unit_EN": "min",
+            "unit_CZ": "min"
+        }
+    ],
+    "TextlistDef": [
+        {
+            "textlist": "OperStep",
+            "values": [
+                {   "idx": 0,   "text_EN": "---",                             "text_CZ": "---"                             },
+                {   "idx": 1,   "text_EN": "Filling",                         "text_CZ": "plnění"                          },
+                {   "idx": 2,   "text_EN": "Water",                           "text_CZ": "voda"                            },
+                {   "idx": 3,   "text_EN": "Flour",                           "text_CZ": "mouka"                           },
+                {   "idx": 4,   "text_EN": "Motherdough",                     "text_CZ": "matečný kvas"                    },
+                {   "idx": 5,   "text_EN": "Bread",                           "text_CZ": "chléb"                           },
+                {   "idx": 6,   "text_EN": "Starter",                         "text_CZ": "starter"                         },
+                {   "idx": 7,   "text_EN": "Mixing",                          "text_CZ": "míchání"                         },
+                {   "idx": 8,   "text_EN": "Soaking",                         "text_CZ": "namáčení"                        },
+                {   "idx": 9,   "text_EN": "Fermentation",                    "text_CZ": "fermentace"                      },
+                {   "idx": 10,  "text_EN": "Ripening",                        "text_CZ": "zrání"                           },
+                {   "idx": 11,  "text_EN": "Storing",                         "text_CZ": "skladování"                      },
+                {   "idx": 12,  "text_EN": "Repumping",                       "text_CZ": "přečerpání"                      },
+                {   "idx": 13,  "text_EN": "Cleaning",                        "text_CZ": "mytí"                            },
+                {   "idx": 14,  "text_EN": "Cooling",                         "text_CZ": "chlazení"                        },
+                {   "idx": 100,  "text_EN": "Water",                          "text_CZ": "voda"                            },
+                {   "idx": 101,  "text_EN": "Soaking",                        "text_CZ": "namáčení"                        },
+                {   "idx": 102,  "text_EN": "Unpumping",                      "text_CZ": "odčerpání"                       },
+                {   "idx": 103,  "text_EN": "Showering",                      "text_CZ": "sprchování"                      },
+                {   "idx": 104,  "text_EN": "Repumping",                      "text_CZ": "přečerpání"                      },
+                {   "idx": 105,  "text_EN": "Draining",                       "text_CZ": "vypouštění"                      }
+            ]
+        },
+        {
+            "textlist": "PigStep",
+            "values": [
+                {   "idx": 0,   "text_EN": "---",                             "text_CZ": "---"                             },
+                {   "idx": 1,   "text_EN": "Init (reservation)",              "text_CZ": "Inicializace(rezervace)"         },
+                {   "idx": 2,   "text_EN": "Path1 setting",                   "text_CZ": "Nastavení cesty 1"               },
+                {   "idx": 3,   "text_EN": "Way forward1",                    "text_CZ": "Cesta vpřed 1"                   },
+                {   "idx": 4,   "text_EN": "Way forward1-pause",              "text_CZ": "Cesta vpřed 1-pauza"             },
+                {   "idx": 5,   "text_EN": "Primary destination",             "text_CZ": "Primární cíl"                    },
+                {   "idx": 6,   "text_EN": "Path2 setting",                   "text_CZ": "Nastavení cesty 2"               },
+                {   "idx": 7,   "text_EN": "Way forward2",                    "text_CZ": "Cesta vpřed 2"                   },
+                {   "idx": 8,   "text_EN": "Way forward2-pause",              "text_CZ": "Cesta vpřed 2-pauza"             },
+                {   "idx": 9,   "text_EN": "Secondary destination",           "text_CZ": "Sekundární cíl"                  },
+                {   "idx": 10,  "text_EN": "Return path setting",             "text_CZ": "Nastavení návrat. cesty"         },
+                {   "idx": 11,  "text_EN": "Way back",                        "text_CZ": "Návrat PIGu"                     },
+                {   "idx": 12,  "text_EN": "Air release",                     "text_CZ": "Odfuk"                           },
+                {   "idx": 13,  "text_EN": "Done",                            "text_CZ": "Hotovo"                          }
+            ]
+        },
+        {
+            "textlist": "PigDest",
+            "values": [
+                {   "idx": 2,   "text_EN": "AK1",                             "text_CZ": "AK1"                             },
+                {   "idx": 3,   "text_EN": "AK2",                             "text_CZ": "AK2"                             },
+                {   "idx": 37,   "text_EN": "LN1-bowl",                       "text_CZ": "LN1-díž"                         },
+                {   "idx": 39,   "text_EN": "LN1-gully",                      "text_CZ": "LN1-odpad"                       }
+            ]
+        },
+        {
+            "textlist": "LastDir",
+            "values": [
+                {   "idx": -1,  "text_EN": "Last direction: Return",          "text_CZ": "Poslední směr: návrat"           },
+                {   "idx": 0,   "text_EN": "PIG stays at sensor",             "text_CZ": "PIG na pozici senzoru"           },
+                {   "idx": 1,   "text_EN": "Last direction: Forward",         "text_CZ": "Poslední směr: vpřed"            }
+            ]
+        }, 
+        {
+            "textlist": "Status",
+            "values": [
+                {   "idx": 0,   "text_EN": "OFF",                              "text_CZ": "klid"                           },
+                {   "idx": 1,   "text_EN": "Reservation",                      "text_CZ": "rezervováno"                    },
+                {   "idx": 2,   "text_EN": "Done",                             "text_CZ": "hotovo"                         },
+                {   "idx": 3,   "text_EN": "Running",                          "text_CZ": "běží"                           },
+                {   "idx": 4,   "text_EN": "Pause",                            "text_CZ": "pauza"                          },
+                {   "idx": 5,   "text_EN": "Hold",                             "text_CZ": "pozastaveno"                    },
+                {   "idx": 6,   "text_EN": "Interrupted (alarm)",              "text_CZ": "přerušeno (alarm)"              }
+            ]
+        },
+        {
+            "textlist": "CleanStatus",
+            "values": [
+                {   "idx": 0,   "text_EN": "---",                              "text_CZ": "---"                            },
+                {   "idx": 1,   "text_EN": "Water",                            "text_CZ": "voda"                           },
+                {   "idx": 2,   "text_EN": "Soaking",                          "text_CZ": "namáčení"                       },
+                {   "idx": 3,   "text_EN": "Unpumping1",                       "text_CZ": "odčerpání 1"                    },
+                {   "idx": 4,   "text_EN": "Showering",                        "text_CZ": "sprchování"                     },
+                {   "idx": 5,   "text_EN": "Unpumping2",                       "text_CZ": "odčerpání 2"                    }
+            ]
+        },
+        {
+            "textlist": "OverviewProcess",
+            "values": [
+                {   "idx": 0,   "text_EN": "- - -",                             "text_CZ": "- - -"                         },
+                {   "idx": 1,   "text_EN": "Recipe",                            "text_CZ": "receptura"                     },
+                {   "idx": 2,   "text_EN": "Cleaning AUT.",                     "text_CZ": "mytí aut."                     },
+                {   "idx": 3,   "text_EN": "Showering",                         "text_CZ": "sprchování"                    },
+                {   "idx": 4,   "text_EN": "Discharging",                       "text_CZ": "vyprázdnění"                   },
+                {   "idx": 5,   "text_EN": "Filling",                           "text_CZ": "plnění"                        }               
+            ]
+        },
+        {
+            "textlist": "IdAll",
+            "values": [
+                {   "idx": 0,    "text_EN": "none",                            "text_CZ": "žádný"                          },
+                {   "idx": 1,    "text_EN": "AH1",                             "text_CZ": "AH1"                            },
+                {   "idx": 2,    "text_EN": "AK1",                             "text_CZ": "AK1"                            },
+                {   "idx": 3,    "text_EN": "AK2",                             "text_CZ": "AK2"                            },
+                {   "idx": 4,    "text_EN": "AH1_SA",                          "text_CZ": "AH1_SA"                         },
+                {   "idx": 5,    "text_EN": "AK1_SA",                          "text_CZ": "AK1_SA"                         },
+                {   "idx": 6,    "text_EN": "AK1_SA",                          "text_CZ": "AK2_SA"                         },
+                {   "idx": 7,    "text_EN": "Pipe1 (AH->AK)",                  "text_CZ": "Potrubí (AH->AK)"               },
+                {   "idx": 8,    "text_EN": "Pipe2 (AK->line)",                "text_CZ": "Potrubí (AK->line)"             },
+                {   "idx": 9,    "text_EN": "ClnPump1 (HiPress)",              "text_CZ": "Mycí pumpa (HiPress)"           },
+                {   "idx": 10,   "text_EN": "ClnPump2 (HiVolume)",             "text_CZ": "Mycí pumpa (HiVolume)"          },
+                {   "idx": 11,   "text_EN": "AK_Pump_FuseDirect",              "text_CZ": "AK_Pump_FuseDirect"             },
+                {   "idx": 12,   "text_EN": "AK_Pump_Inverter",                "text_CZ": "AK_Pump_Inverter"               },
+                {   "idx": 13,   "text_EN": "ST_ClnTank_Aut",                  "text_CZ": "ST_ClnTank_Aut"                 },
+                {   "idx": 14,   "text_EN": "ST_ClnTank_Man",                  "text_CZ": "ST_ClnTank_Man"                 },
+                {   "idx": 15,   "text_EN": "ST_ClnTank_Shower",               "text_CZ": "ST_ClnTank_Shower"              },
+                {   "idx": 16,   "text_EN": "ST_ClnTank_Disch",                "text_CZ": "ST_ClnTank_Disch"               },
+                {   "idx": 17,   "text_EN": "ST_ClnTank_Water",                "text_CZ": "ST_ClnTank_Water"               },
+                {   "idx": 18,   "text_EN": "ST_ClnTank_Chem",                 "text_CZ": "ST_ClnTank_Chem"                },
+                {   "idx": 36,   "text_EN": "PIG at home",                     "text_CZ": "PIG v domečku"                  },
+                {   "idx": 37,   "text_EN": "LN1",                             "text_CZ": "LN1"                            },
+                {   "idx": 38,   "text_EN": "Gully at tanks",                  "text_CZ": "Odpad u fermentoru"             },
+                {   "idx": 39,   "text_EN": "ST_Pipe2",                        "text_CZ": "ST_Pipe2"                       },
+                {   "idx": 102,  "text_EN": "Line",                            "text_CZ": "Linka"                          },
+                {   "idx": 103,  "text_EN": "Gully",                           "text_CZ": "Odpad"                          },
+                {   "idx": 200,  "text_EN": "OWN_ProdAH1",                     "text_CZ": "OWN_ProdAH1"                    },
+                {   "idx": 201,  "text_EN": "OWN_ProdAK1",                     "text_CZ": "OWN_ProdAK1"                    },
+                {   "idx": 202,  "text_EN": "OWN_ProdAK2",                     "text_CZ": "OWN_ProdAK2"                    },
+                {   "idx": 203,  "text_EN": "OWN_Pipe1_Man",                   "text_CZ": "OWN_Pipe1_Man"                  },
+                {   "idx": 204,  "text_EN": "OWN_Pipe2_Man",                   "text_CZ": "OWN_Pipe2_Man"                  },
+                {   "idx": 205,  "text_EN": "OWN_Pig1_Man",                    "text_CZ": "OWN_Pig1_Man"                   },                
+                {   "idx": 206,  "text_EN": "OWN_Water_Man",                   "text_CZ": "OWN_Water_Man"                  },
+                {   "idx": 210,  "text_EN": "OWN_ClnTankAut",                  "text_CZ": "OWN_ClnTankAut"                 },
+                {   "idx": 211,  "text_EN": "OWN_ClnTank_Shower",              "text_CZ": "OWN_ClnTank_Shower"             },
+                {   "idx": 212,  "text_EN": "OWN_ClnTank_Disch",               "text_CZ": "OWN_ClnTank_Disch"              },
+                {   "idx": 213,  "text_EN": "OWN_ClnTank_Water",               "text_CZ": "OWN_ClnTank_Water"              },
+                {   "idx": 214,  "text_EN": "OWN_ClnTank_Man",                 "text_CZ": "OWN_ClnTank_Man"                },
+                {   "idx": 215,  "text_EN": "OWN_ClnTank_Chem",                "text_CZ": "OWN_ClnTank_Chem"               },
+                {   "idx": 216,  "text_EN": "OWN_ClnPipe_1a2",                 "text_CZ": "OWN_ClnPipe_1a2"                },
+                {   "idx": 217,  "text_EN": "idOWN_ClnPipe_Gully",             "text_CZ": "idOWN_ClnPipe_Gully"            },
+                {   "idx": 218,  "text_EN": "idOWN_DoseOut",                   "text_CZ": "idOWN_DoseOut"                  },
+                {   "idx": 219,  "text_EN": "idOWN_PreheatingAH1",             "text_CZ": "idOWN_PreheatingAH1"            },
+                {   "idx": 220,  "text_EN": "OWN_ManWater",                    "text_CZ": "OWN_ManWater"                   }
+            ]
+        },
+        {
+            "textlist": "Lid",
+            "values": [
+                {   "idx": 0,    "text_EN": "open",                            "text_CZ": "otevřeno"                       },
+                {   "idx": 1,    "text_EN": "close",                           "text_CZ": "zavřeno"                        }                
+            ]
+        },
+        {
+            "textlist": "Agit",
+            "values": [
+                {   "idx": 0,     "text_EN": "off",                            "text_CZ": "klid"                           },
+                {   "idx": 1,     "text_EN": "running - foreward",             "text_CZ": "běží - vpřed"                   },
+                {   "idx": 2,     "text_EN": "running - reverse",              "text_CZ": "běží - reverzace"               }
+            ]
+        },
+        {
+            "textlist": "Cool",
+            "values": [
+                {   "idx": 0,     "text_EN": "OFF",                            "text_CZ": "klid"                           },
+                {   "idx": 1,     "text_EN": "running",                        "text_CZ": "běží"                           }
+            ]
+        },                      
+        {
+            "textlist": "ProdStatus",
+            "values": [
+                {   "idx": 0,       "text_EN": "---",                          "text_CZ": "---"                            },
+                {   "idx": 1,       "text_EN": "young",                        "text_CZ": "mladý"                          },
+                {   "idx": 2,       "text_EN": "usable",                       "text_CZ": "použitelný"                     },
+                {   "idx": 3,       "text_EN": "too old",                      "text_CZ": "příliš starý"                   }
+            ]
+        },
+        {
+            "textlist": "NoYes",
+            "values": [
+                {   "idx": 0,     "text_EN": "No",                            "text_CZ": "ne"                              },
+                {   "idx": 1,     "text_EN": "Yes",                           "text_CZ": "ano"                             }
+            ]
+        },
+        {
+            "textlist": "StartType",
+            "values": [
+                {   "idx": 0,     "text_EN": "none",                         "text_CZ": "žádný"                            },
+                {   "idx": 1,     "text_EN": "interface",                    "text_CZ": "rozhranní"                        },
+                {   "idx": 2,     "text_EN": "buttons",                      "text_CZ": "tlačítka"                         }
+            ]
+        }
+    ],
+    "View": [
+        {
+            "name_EN": "Overview",
+            "name_CZ": "Přehled",
+            "defLang": "EN",
+
+            "field": [
+
+                    {"minY": 0,"maxY": 2000,"relSize": 6,
+
+                        "signal": [
+                                    {   "type": "analog",       "table": "norm",    "column": "diAH1_Weight",       "color": "#FF0000",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "diAK1_Weight",       "color": "#FFFF00",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "diAK2_Weight",       "color": "#00FF00",     "decimal": 1            }
+                                  ]
+                    },
+
+                    {   "minY": 0,  "maxY": 90, "relSize": 6,
+
+                        "signal": [
+                                    {   "type": "analog",       "table": "norm",    "column": "iAH1_TempBottom",    "color": "#FF0000",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "iAH1_TempSide",      "color": "#960000",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "iAK1_TempBottom",    "color": "#FFFF00",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "iAK1_TempSide",      "color": "#969600",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "iAK2_TempBottom",    "color": "#00FF00",     "decimal": 1            },
+                                    {   "type": "analog",       "table": "norm",    "column": "iAK2_TempSide",      "color": "#009600",     "decimal": 1            }
+                                  ]
+                    },
+
+                    {   "minY": 0,  "maxY": 15, "relSize": 6,
+
+                        "signal": [
+                                    {   "type": "analog",       "table": "slow",    "column": "iAH1_RCP_No",        "color": "#FF0000",     "decimal": 0            },
+                                    {   "type": "analog",       "table": "slow",    "column": "iAK1_RCP_No",        "color": "#FFFF00",     "decimal": 0            },
+                                    {   "type": "analog",       "table": "slow",    "column": "iAK2_RCP_No",        "color": "#00FF00",     "decimal": 0            }                                    
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 35, "relSize": 6,
+
+                        "signal": [ 
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAH1_RCP_Step",       "color": "#FF0000",     "textlist": "OperStep"   },
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAK1_RCP_Step",       "color": "#FFFF00",     "textlist": "OperStep"   },
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAK2_RCP_Step",       "color": "#00FF00",     "textlist": "OperStep"   }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8,  "relSize": 6,   
+
+                        "signal": [                            
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAH1_RCP_Status",  "color": "#FF0000",     "textlist": "Status"    },
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAK1_RCP_Status",  "color": "#FFFF00",     "textlist": "Status"    },
+                                    {   "type": "multitext",    "table": "norm",    "column": "usiAK2_RCP_Status",  "color": "#00FF00",     "textlist": "Status"    }                                    
+                                  ]
+                    }
+                    ]
+        },
+        {
+            "name_EN": "AH1 - dosing",
+            "name_CZ": "AH1 - dávkování",
+            "defLang": "EN",
+            "field": [
+                    {   "minY": 0,  "maxY": 15, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "analog",    "table": "slow",    "column": "iAH1_RCP_No",               "color": "#FF0000", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 45, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAH1_RCP_Step",            "color": "#00FFFF", "textlist": "OperStep"   }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8,  "relSize": 1,
+                       "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAH1_RCP_Status",          "color": "#FFFF00", "textlist": "Status"    }
+                                 ]
+                    },
+                    {   "minY": 0,  "maxY": 90, "relSize": 3,   
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_TempSide",              "color": "#00FF00", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_TempBottom",            "color": "#FF0000", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_RCP_Comp1Heat_Temp",    "color": "#FFFF00", "decimal": 1            }                                    
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 1000,   "relSize": 2,
+                        "signal": [                        
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_Weight",               "color": "#FF00FF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_TotalAmount",      "color": "#00FFFF", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 500,   "relSize": 1,
+                        "signal": [
+                                    {   "type": "analog",   "table": "slow",    "column": "iAH1_RCP_TA",              "color": "#FF0000", "decimal": 0             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 200,    "relSize": 2,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_FirstWater_done",  "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_FirstWater_need",  "color": "#009696", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 50,    "relSize": 3,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_ManComp1a_need",   "color": "#960096", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_ManComp1b_need",   "color": "#009696", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_ManComp1ab_done",  "color": "#FF00FF", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 96,    "relSize": 2,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_Comp1Heat_done",   "color": "#FF0000", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_Comp1Heat_need",   "color": "#960000", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 350,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_Flour_done",       "color": "#FFFF00", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_Flour_need",       "color": "#969600", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 500,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_Water_done",       "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_Water_need",       "color": "#009696", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 50,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_ManComp2_done",     "color": "#00FF00", "decimal": 1           },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_ManComp2_need",     "color": "#009600", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 50,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_Comp2_MixTime_done","color": "#FFFF00", "decimal": 1           },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_Comp2_MixTime_need","color": "#969600", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext","table": "norm",    "column": "bAH1_LidOpen",                "color": "#00FF00", "textlist": "Lid"      }
+                                  ]
+                    }                    
+                    ]
+        },
+        {
+            "name_EN": "AH1 - fermentation & storing",
+            "name_CZ": "AH1 - fermentace a skladování",
+            "defLang": "EN",
+            "field": [
+                    {   "minY": 0,  "maxY": 15, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "analog",    "table": "slow",    "column": "iAH1_RCP_No",                "color": "#FF0000", "decimal": 0           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 45, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAH1_RCP_Step",             "color": "#00FFFF", "textlist": "OperStep" }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8,  "relSize": 1,
+                       "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAH1_RCP_Status",           "color": "#FFFF00", "textlist": "Status"   }
+                                 ]
+                    },
+                    {   "minY": 0,  "maxY": 1000,   "relSize": 1,
+                        "signal": [                        
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_Weight",                "color": "#FF00FF", "decimal": 1           }
+                                  ]
+                    }, 
+                    {   "minY": 0,  "maxY": 90, "relSize": 3,   
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_TempSide",               "color": "#00FF00", "decimal": 1           },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_TempBottom",             "color": "#FF0000", "decimal": 1           },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_RCP_Ferm1_Temp",         "color": "#00FFFF", "decimal": 1           },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAH1_RCP_Ferm2_Temp",         "color": "#FFFF00", "decimal": 1           }                      
+                                  ]
+                    },                 
+                    {   "minY": 0,  "maxY": 12, "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAH1_RCP_Ferment1_done",     "color": "#00FF00", "decimal": 1           },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAH1_RCP_Ferment1_need",     "color": "#009600", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 12, "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAH1_RCP_Ferment2_done",     "color": "#FFFF00", "decimal": 1           },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAH1_RCP_Ferment2_need",     "color": "#969600", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 100, "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_LastWater_done",    "color": "#00FFFF", "decimal": 1           },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_LastWater_need",    "color": "#009696", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 30, "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "norm",    "column": "diAH1_RCP_LastWaterMix_done", "color": "#FF00FF", "decimal": 1           },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAH1_RCP_LastWaterMix_need", "color": "#960096", "decimal": 1           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext","table": "norm",    "column": "bAH1_LidOpen",                "color": "#00FF00", "textlist": "Lid"      }
+                                  ]
+                    },                    
+                    {   "minY": 0,  "maxY": 35, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext","table": "norm",    "column": "usiAH1_RCP_Dest",             "color": "#FF0000", "textlist": "IdAll"    }
+                                  ]
+                    }
+                    ]
+        },
+        {
+            "name_EN": "AK1 - detail",
+            "name_CZ": "Detail AK1",
+            "defLang": "EN",
+            "field": [
+                    {   "minY": 0,  "maxY": 15, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "analog",    "table": "slow",   "column": "iAK1_RCP_No",                "color": "#FF0000", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 45, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK1_RCP_Step",            "color": "#00FFFF", "textlist": "OperStep"   }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8,  "relSize": 1,
+                       "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK1_RCP_Status",          "color": "#FFFF00", "textlist": "Status"    }
+                                 ]
+                    },
+                    {   "minY": 0,  "maxY": 1000,   "relSize": 2,
+                        "signal": [                        
+                                    {   "type": "analog",   "table": "norm",    "column": "diAK1_Weight",               "color": "#FF00FF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAK1_RCP_TotalAmount",      "color": "#FFFF00", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 65, "relSize": 4,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK1_TempSide",              "color": "#00FF00", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK1_TempBottom",            "color": "#FF0000", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK1_RCP_Cooling_Temp",      "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK1_RCP_Storing_Temp",      "color": "#FFFF00", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 6,    "relSize": 2,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK1_RCP_Cooling_done",     "color": "#FF00FF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK1_RCP_Cooling_need",     "color": "#960096", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 100,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK1_RCP_Storing_done",     "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK1_RCP_Storing_need",     "color": "#009696", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 4,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK1_RCP_ProdStatus",      "color": "#FF00FF", "textlist": "ProdStatus"}
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "bAK1_LidOpen",               "color": "#00FF00", "textlist": "Lid"       }
+                                  ]
+                    }                    
+                    ]
+        },
+        {
+            "name_EN": "AK2 - detail",
+            "name_CZ": "Detail AK2",
+            "defLang": "EN",
+            "field": [
+                    {   "minY": 0,  "maxY": 15, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "analog",    "table": "slow",   "column": "iAK2_RCP_No",                "color": "#FF0000", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 45, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK2_RCP_Step",            "color": "#00FFFF", "textlist": "OperStep"   }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8,  "relSize": 1,
+                       "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK2_RCP_Status",          "color": "#FFFF00", "textlist": "Status"    }
+                                 ]
+                    },
+                    {   "minY": 0,  "maxY": 1000,   "relSize": 2,
+                        "signal": [                        
+                                    {   "type": "analog",   "table": "norm",    "column": "diAK2_Weight",               "color": "#FF0000", "decimal": 1            },
+                                    {   "type": "analog",   "table": "slow",    "column": "diAK2_RCP_TotalAmount",      "color": "#FFFF00", "decimal": 0            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 65, "relSize": 2,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK2_TempSide",              "color": "#00FF00", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK2_TempBottom",            "color": "#FF0000", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK2_RCP_Cooling_Temp",      "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "norm",    "column": "iAK2_RCP_Storing_Temp",      "color": "#FFFF00", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 6,    "relSize": 2,   
+                        "signal": [
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK2_RCP_Cooling_done",     "color": "#FF00FF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK2_RCP_Cooling_need",     "color": "#960096", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 100,   "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK2_RCP_Storing_done",     "color": "#00FFFF", "decimal": 1            },
+                                    {   "type": "analog",   "table": "xslow",    "column": "diAK2_RCP_Storing_need",     "color": "#009696", "decimal": 1            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 4,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "usiAK2_RCP_ProdStatus",      "color": "#FF00FF", "textlist": "ProdStatus"}
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2,  "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext", "table": "norm",   "column": "bAK2_LidOpen",               "color": "#00FF00", "textlist": "Lid"       }
+                                  ]
+                    }                    
+                    ]
+        },
+        {
+            "name_EN": "Dosing to production",
+            "name_CZ": "Dávkování do výroby",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 20, "relSize": 2,
+                        "signal": [ 
+                                    {   "type": "multitext","table": "norm",    "column": "usiDO_SourceTank",         "color": "#00FF00", "textlist": "IdAll"       },
+                                    {   "type": "analog",   "table": "norm",    "column": "usiDO_Step",               "color": "#FFFF00", "textlist": "IdAll"       }                    
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 250,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext","table": "norm",    "column": "bDO_AutoSelectTank",       "color": "#FF0000", "textlist": "NoYes"       },
+                                    {   "type": "multitext","table": "norm",    "column": "bDO_DoseToGully",          "color": "#FFFF00", "textlist": "NoYes"       }
+                                 
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 3,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext","table": "norm",    "column": "iDO_ReqType",              "color": "#00FF00", "textlist": "ReqType"     }                                 
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 250,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "analog","table": "norm",       "column": "diDO_AmntDone",            "color": "#00FFFF", "decimal": 1              },
+                                    {   "type": "analog","table": "slow",       "column": "diDO_AmntReq",             "color": "#009696", "decimal": 1              }                                 
+                                  ]
+                    }
+                    ]
+        },
+        {
+            "name_EN": "Cleaning tank - steps, presets",
+            "name_CZ": "Mytí tanků - kroky, předvolby",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 2, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "slow",    "column": "bAH1_RCP_AutoClean",     "color": "#FF0000", "textlist": "NoYes"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "iAH1_RCP_Clean_Step",    "color": "#FFFF00", "textlist": "CleanStatus"      }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2, "relSize": 1,   
+                        "signal": [
+                                    {   "type": "multitext",        "table": "slow",    "column": "bAK1_RCP_AutoClean",     "color": "#00FF00", "textlist": "NoYes"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "iAK1_RCP_CleanStep",     "color": "#00FFFF", "textlist": "CleanStatus"      }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "slow",    "column": "bAK2_RCP_AutoClean",     "color": "#FF00FF", "textlist": "NoYes"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "iAK2_RCP_CleanStep",     "color": "#FFFF00", "textlist": "CleanStatus"      }
+                                  ]
+                    }
+                    ]
+        },
+        
+        {
+            "name_EN": "Cleaning tank (auto)",
+            "name_CZ": "Mytí tanku (automat)",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankAut_Status",     "color": "#FFFF00", "textlist": "Status"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 20, "relSize": 1,   
+                        "signal": [
+                                    {   "type": "analog",           "table": "norm",    "column": "usiCleanTankAut_Step",       "color": "#00FFFF", "decimal": 0                    }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankAut_TankId",     "color": "#00FF00", "textlist": "IdAll"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankAut_Owner",      "color": "#FF00FF", "textlist": "IdAll"             }
+                                  ]
+                    }                                        
+                    ]
+        },
+        {
+            "name_EN": "Cleaning tank (man)",
+            "name_CZ": "Mytí tanku (ruční)",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankMan_Status",     "color": "#FFFF00", "textlist": "Status"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 20, "relSize": 1,   
+                        "signal": [
+                                    {   "type": "analog",           "table": "norm",    "column": "usiCleanTankMan_Step",       "color": "#00FFFF", "decimal": 0                    }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankMan_TankId",     "color": "#00FF00", "textlist": "IdAll"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankMan_Owner",      "color": "#FF00FF", "textlist": "IdAll"              }
+                                  ]
+                    }                                        
+                    ]
+        },
+        {
+            "name_EN": "Cleaning tank (water)",
+            "name_CZ": "Mytí tanku (voda)",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankWater_Status",     "color": "#FFFF00", "textlist": "Status"          }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 20, "relSize": 1,   
+                        "signal": [
+                                    {   "type": "analog",           "table": "norm",    "column": "usiCleanTankWater_Step",       "color": "#00FFFF", "decimal": 0                  }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankWater_TankId",     "color": "#00FF00", "textlist": "IdAll"           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankWater_Owner",     "color": "#FF00FF", "textlist": "IdAll"            }
+                                  ]
+                    }                                        
+                    ]
+        },
+        {
+            "name_EN": "Cleaning tank (shower)",
+            "name_CZ": "Mytí tanku (sprchování)",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankShower_Status",     "color": "#FFFF00", "textlist": "Status"          }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 20, "relSize": 1,   
+                        "signal": [
+                                    {   "type": "analog",           "table": "norm",    "column": "usiCleanTankShower_Step",       "color": "#00FFFF", "decimal": 0                  }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankShower_TankId",     "color": "#00FF00", "textlist": "IdAll"           }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanTankShower_Owner",     "color": "#FF00FF", "textlist": "IdAll"           }
+                                  ]
+                    }                                        
+                    ]
+        },
+        {
+            "name_EN": "Discharge tank",
+            "name_CZ": "Vypouštění tanku",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiDischTank_Status",        "color": "#FFFF00", "textlist": "Status"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 20, "relSize": 1,
+                        "signal": [
+                                    {   "type": "analog",           "table": "norm",    "column": "usiDischTank_Step",          "color": "#00FFFF", "decimal": 0                    }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225,    "relSize": 1,   
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiDischTank_TankId",        "color": "#00FF00", "textlist": "IdAll"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225, "relSize": 1,
+                        "signal": [ 
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiDischTank_Owner",         "color": "#FF00FF", "textlist": "IdAll"             }
+                                  ]
+                    }                      
+                    ]
+        },
+        {
+            "name_EN": "Cleaning pipes",
+            "name_CZ": "Mytí potrubí",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanPipe1_Status",       "color": "#FF0000", "textlist": "Status"            }
+                                ]
+                    },                    
+                    {   "minY": 0,  "maxY": 20,    "relSize": 1,
+                                "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanPipe1_Step",         "color": "#FFFF00", "textlist": "Status"            }                                    
+                                  ]
+                    },                    
+                    {   "minY": 0,  "maxY": 225,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiCleanPipe1_Owner",        "color": "#FF00FF", "textlist": "IdAll"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2,    "relSize": 3,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "bClnPipe_Enb_Pig1st",        "color": "#FF0000", "textlist": "NoYes"             },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bClnPipe_Enb_LN1_Bowl",      "color": "#FFFF00", "textlist": "NoYes"             },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bClnPipe_Enb_AK1_Tank",      "color": "#00FF00", "textlist": "NoYes"             },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bClnPipe_Enb_AK2_Tank",      "color": "#00FFFF", "textlist": "NoYes"             },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bClnPipe_Enb_Pig2nd",        "color": "#FF00FF", "textlist": "NoYes"             }
+                                  ]
+                    }                    
+                    ]
+        },
+        {
+            "name_EN": "PIG 1",
+            "name_CZ": "PIG 1",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPig1_Status",       "color": "#FF0000", "textlist": "Status"            }
+                                ]
+                    },
+                    {   "minY": 0,  "maxY": 20,    "relSize": 1,
+                                "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPig1_Step",         "color": "#FFFF00", "textlist": "PigStep"            }                                    
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPig1_LastPos",      "color": "#00FF00", "textlist": "IdAll"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 1,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "iPig1_LastDir",        "color": "#00FFFF", "textlist": "LastDir"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPig1_Dest",         "color": "#FF0000", "textlist": "PigDest"             }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 225,    "relSize": 1,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPig1_Owner",        "color": "#FF00FF", "textlist": "IdAll"             }
+                                  ]
+                    }
+                    ]
+        },
+        {
+            "name_EN": "Pipes",
+            "name_CZ": "Potrubí",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 8, "relSize": 3,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPipe1_Step",        "color": "#FF0000", "textlist": "Status"            },
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPipe2_Step",        "color": "#FFFF00", "textlist": "Status"            },
+                                    {   "type": "multitext",        "table": "norm",    "column": "usiPipe3_Step",        "color": "#00FFFF", "textlist": "Status"            }
+                                  ]
+                    }
+                    ]
+        },
+        {
+            "name_EN": "Diagnostic",
+            "name_CZ": "Diagnostika",
+            "defLang": "EN",
+
+            "field": [
+                    {   "minY": 0,  "maxY": 2, "relSize": 3,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "bAH1_RemoteStart_Start",       "color": "#FF0000", "textlist": "NoYes"            },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bAK1_RemoteStart_Start",       "color": "#FFFF00", "textlist": "NoYes"            },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bAK2_RemoteStart_Start",       "color": "#00FFFF", "textlist": "NoYes"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 2, "relSize": 2,
+                        "signal": [
+                                    {   "type": "multitext",        "table": "norm",    "column": "bAK1_RemoteStart_FillFinished","color": "#FF0000", "textlist": "NoYes"            },
+                                    {   "type": "multitext",        "table": "norm",    "column": "bAK2_RemoteStart_FillFinished","color": "#00FF00", "textlist": "NoYes"            }
+                                  ]
+                    },
+                    {   "minY": 0,  "maxY": 200, "relSize": 3,
+                        "signal": [
+                                    {   "type": "analog",           "table": "slow",    "column": "iAH1_RemoteStart_SkipTo",      "color": "#FF0000", "decimal": 1                  },
+                                    {   "type": "analog",           "table": "slow",    "column": "diAK1_RemoteStart_Age",        "color": "#FFFF00", "decimal": 1                  },
+                                    {   "type": "analog",           "table": "slow",    "column": "diAK2_RemoteStart_Age",        "color": "#00FFFF", "decimal": 1                  }
+                                  ]
+                    }
+                    ]
+        }
+    ]
+}   

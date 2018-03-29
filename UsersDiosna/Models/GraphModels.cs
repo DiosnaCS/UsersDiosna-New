@@ -93,6 +93,7 @@ namespace UsersDiosna.Graph.Models
     public class TableDef
     {
         public string shortName { get; set; }
+        public bool usePkTime { get; set; }
         public int dbIdx { get; set; }
         public string tabName { get; set; }
         public int period { get; set; }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <contract>
+    <id>174009</id>
+    <country>LT</country>
+    <name>Rivona</name>
+  </contract>
+  <plc name="Bread fermentation">
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_overview_LTRIV_BF__</url>
+		</scheme>
+		<scheme name="MF1">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_MF1_operation_LTRIV_BF__</url>
+		</scheme>
+		<scheme name="PF1">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_PF1_operation_LTRIV_BF__</url>
+		</scheme>
+		<scheme name="PF2">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_PF2_operation_LTRIV_BF__</url>
+		</scheme>		
+		<scheme name="SF">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_SF_operation_LTRIV_BF__</url>
+		</scheme>		
+    <graph name="Graphs">
+    	<pathConfig>C:\Akce\java\grafy_cfg_LTRIV_BF.ini</pathConfig>
+    	<pathNames>C:\Akce\java\grafy_names_LTRIV_BF.ini</pathNames>	  
+    </graph>
+    <alarm name="Alarms">
+        <dbName>Rivona</dbName>
+        <plcID>1</plcID>
+    </alarm>
+  </plc>
+  <plc name="Wheaten predough">
+    <scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_overview_LTRIV_WP__</url>
+		</scheme>
+		<scheme name="SF1">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_SF1_operation_LTRIV_WP__</url>
+		</scheme>
+		<scheme name="SF2">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_SF2_operation_LTRIV_WP__</url>
+		</scheme>
+		<scheme name="SF3">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_SF3_operation_LTRIV_WP__</url>
+		</scheme>
+    <graph name="Graphs">
+    	<pathConfig>C:\Akce\java\grafy_cfg_LTRIV_WP.ini</pathConfig>
+    	<pathNames>C:\Akce\java\grafy_names_LTRIV_WP.ini</pathNames>	 
+    </graph>
+    <alarm name="Alarms">
+        <dbName>Rivona</dbName>
+        <plcID>2</plcID>
+    </alarm>
+  </plc>
+  <plc name="Aroma">
+    <scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_overview_LTRIV_AR__</url>
+		</scheme>
+		<scheme name="AH1">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_AH1_operation_LTRIV_AR__</url>
+		</scheme>
+		<scheme name="AK1">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_AK1_operation_LTRIV_AR__</url>
+		</scheme>
+		<scheme name="AK2">
+			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_AK2_operation_LTRIV_AR__</url>
+		</scheme>
+    <graph name="Graphs">
+    	<pathConfig>C:\Akce\java\grafy_cfg_LTRIV_AR.ini</pathConfig>
+    	<pathNames>C:\Akce\java\grafy_names_LTRIV_AR.ini</pathNames>
+    </graph>    
+    <alarm name="Alarms">
+        <dbName>Rivona</dbName>
+        <plcID>3</plcID>
+    </alarm>
+    <Report>
+        <dbName>Rivona</dbName>
+        <tableName>AR_events</tableName>
+        <congirationNumber>3</congirationNumber>
+    </Report>
+  </plc>
+</configuration>
