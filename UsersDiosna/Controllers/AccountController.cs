@@ -63,6 +63,7 @@ namespace UsersDiosna.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
+        [RequireHttps]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)

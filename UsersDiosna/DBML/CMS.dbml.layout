@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 15.875" name="CMS">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 16.125" name="CMS">
   <DataContextMoniker Name="/CMSDataContext" />
   <nestedChildShapes>
     <classShape Id="86dd1f19-293e-46ac-a947-c9008333f608" absoluteBounds="3.375, 6.125, 2, 1.9631982421875">
@@ -8,13 +8,13 @@
         <elementListCompartment Id="5e234a37-1edd-479f-af70-2bf82e6a7848" absoluteBounds="3.39, 6.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="bbbe72f7-8e40-47de-9cc5-360ab10d8742" absoluteBounds="7.125, 12.75, 2, 2.9247054036458331">
+    <classShape Id="bbbe72f7-8e40-47de-9cc5-360ab10d8742" absoluteBounds="7.125, 12.75, 2, 3.1170068359375005">
       <DataClassMoniker Name="/CMSDataContext/Article" />
       <nestedChildShapes>
-        <elementListCompartment Id="56f7683b-b730-49d9-8d14-b825f50448eb" absoluteBounds="7.14, 13.21, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="56f7683b-b730-49d9-8d14-b825f50448eb" absoluteBounds="7.14, 13.21, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.375 : 8.0881982421875); (4.375 : 14.2123527018229); (7.125 : 14.2123527018229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.375 : 8.0881982421875); (4.375 : 14.3085034179688); (7.125 : 14.3085034179688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/CMSDataContext/Section/Section_Article" />
       <nodes>
         <classShapeMoniker Id="86dd1f19-293e-46ac-a947-c9008333f608" />

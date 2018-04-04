@@ -131,7 +131,7 @@ WriteLiteral(" class=\"table-responsive\"");
 
 WriteLiteral(">\r\n        <table");
 
-WriteLiteral(" class=\"table table-condensed table-bordered table-hover table-responsive\"");
+WriteLiteral(" class=\"table table-condensed table-hover table-responsive\"");
 
 WriteLiteral(">\r\n            <tr >\r\n                <th");
 
@@ -141,7 +141,7 @@ WriteLiteral("style=\"text-align: center;\"");
 
 WriteLiteral(" title=\"Date and time when was it created\"");
 
-WriteLiteral(">\r\n                    Created\r\n                </th>\r\n                <th");
+WriteLiteral(">\r\n                    Date\r\n                </th>\r\n                <th");
 
 WriteLiteral(" style=\"text-align: center;\"");
 
@@ -337,25 +337,25 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
             #line hidden
 WriteLiteral("                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3908), Tuple.Create("\"", 3963)
-, Tuple.Create(Tuple.Create("", 3915), Tuple.Create("/Download/downloadFile?nameFile=", 3915), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 3890), Tuple.Create("\"", 3945)
+, Tuple.Create(Tuple.Create("", 3897), Tuple.Create("/Download/downloadFile?nameFile=", 3897), true)
             
             #line 91 "..\..\Views\CMS\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3947), Tuple.Create<System.Object, System.Int32>(item.Attachment
+, Tuple.Create(Tuple.Create("", 3929), Tuple.Create<System.Object, System.Int32>(item.Attachment
             
             #line default
             #line hidden
-, 3947), false)
+, 3929), false)
 );
 
-WriteAttribute("title", Tuple.Create(" title=\"", 3964), Tuple.Create("\"", 3981)
+WriteAttribute("title", Tuple.Create(" title=\"", 3946), Tuple.Create("\"", 3963)
             
             #line 91 "..\..\Views\CMS\Index.cshtml"
-              , Tuple.Create(Tuple.Create("", 3972), Tuple.Create<System.Object, System.Int32>(fileName
+              , Tuple.Create(Tuple.Create("", 3954), Tuple.Create<System.Object, System.Int32>(fileName
             
             #line default
             #line hidden
-, 3972), false)
+, 3954), false)
 );
 
 WriteLiteral(">Download</a>\r\n");

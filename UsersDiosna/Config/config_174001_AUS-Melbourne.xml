@@ -42,7 +42,7 @@
 		<Report>
 			<dbName>Melbourne</dbName>
 			<tableName>events</tableName>
-			<congirationNumber>3</congirationNumber>
+			<congirationNumber>2</congirationNumber>
 		</Report>
 		<Download>
 			<path>/Zakazky/0_New/17_rok/174001 AUS ML 2762014-Parrent-Holding-Melbourne/</path>

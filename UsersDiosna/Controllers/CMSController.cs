@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using UsersDiosna.CMS.Models;
 using UsersDiosna.Handlers;
+using UsersDiosna.DBML;
 
 namespace UsersDiosna.Controllers
 {
@@ -275,6 +276,7 @@ namespace UsersDiosna.Controllers
             //section data into object form form
             article.bakeryId = collection.bakeryId;
             article.DateTime = DateTime.Now;
+            article.DateTimeOrigin = collection.Date;
             article.Author = User.Identity.Name;
             article.Header = collection.Header;
             article.Text = collection.Text;
@@ -307,6 +309,7 @@ namespace UsersDiosna.Controllers
             //prepare data from db
             ArticleModel articleModel = new ArticleModel();
             articleModel.bakeryId = articleToEdit.bakeryId;
+            articleModel.Date= articleToEdit.DateTimeOrigin;
             articleModel.Header = articleToEdit.Header;
             articleModel.Text = articleToEdit.Text;
             articleModel.Amount = articleToEdit.Amount;
@@ -338,12 +341,15 @@ namespace UsersDiosna.Controllers
             }
             //Change data from model and prepare them for save
             article.bakeryId = collection.bakeryId;
+            article.DateTimeOrigin = collection.Date;
             article.Header = collection.Header;
             article.Text = collection.Text;
             article.Amount = collection.Amount;
             article.HoursSpend = collection.HoursSpend;
             article.Attachment = collection.Attachment;
             article.Description = collection.Description;
+            Section section = db.Sections.Single(p => p.Id == collection.SectionId);
+            article.Section = section;
 
             //save the data
             db.SubmitChanges();

@@ -15,6 +15,11 @@ namespace UsersDiosna.CMS.Models
         public List<SelectListItem> Ids { get; set; }
 
         [Required(ErrorMessage = "Bakery is required")]
+        [DataType(DataType.DateTime)]
+        [Display(Name = "For bakery")]
+        public DateTime Date { get; set; }
+
+        [Required(ErrorMessage = "Bakery is required")]
         [DataType(DataType.Text)]
         [Display(Name = "For bakery")]
         public int bakeryId { get; set; }

@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace UsersDiosna.Models
+namespace UsersDiosna.DBML
 {
 	using System.Data.Linq;
 	using System.Data.Linq.Mapping;
@@ -101,7 +101,7 @@ namespace UsersDiosna.Models
 		
 		private string _Role;
 		
-		private int _BakeryId;
+		private System.Nullable<int> _BakeryId;
 		
 		private EntitySet<Article> _Articles;
 		
@@ -230,7 +230,7 @@ namespace UsersDiosna.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BakeryId", DbType="Int")]
-		public int BakeryId
+		public System.Nullable<int> BakeryId
 		{
 			get
 			{
@@ -323,6 +323,8 @@ namespace UsersDiosna.Models
 		
 		private System.Nullable<long> _SectionId;
 		
+		private System.DateTime _DateTimeOrigin;
+		
 		private EntityRef<Section> _Section;
 		
     #region Extensibility Method Definitions
@@ -351,6 +353,8 @@ namespace UsersDiosna.Models
     partial void OnDescriptionChanged();
     partial void OnSectionIdChanging(System.Nullable<long> value);
     partial void OnSectionIdChanged();
+    partial void OnDateTimeOriginChanging(System.DateTime value);
+    partial void OnDateTimeOriginChanged();
     #endregion
 		
 		public Article()
@@ -579,6 +583,26 @@ namespace UsersDiosna.Models
 					this._SectionId = value;
 					this.SendPropertyChanged("SectionId");
 					this.OnSectionIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeOrigin", AutoSync=AutoSync.Always)]
+		public System.DateTime DateTimeOrigin
+		{
+			get
+			{
+				return this._DateTimeOrigin;
+			}
+			set
+			{
+				if ((this._DateTimeOrigin != value))
+				{
+					this.OnDateTimeOriginChanging(value);
+					this.SendPropertyChanging();
+					this._DateTimeOrigin = value;
+					this.SendPropertyChanged("DateTimeOrigin");
+					this.OnDateTimeOriginChanged();
 				}
 			}
 		}

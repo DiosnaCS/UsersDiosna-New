@@ -646,6 +646,7 @@
       <LastGenOutput>AddRole.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="DBML\AddRole.dbml.layout">
       <DependentUpon>AddRole.dbml</DependentUpon>
     </None>

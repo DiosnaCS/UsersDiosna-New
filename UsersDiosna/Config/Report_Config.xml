@@ -14,6 +14,11 @@
 		<SF5>5</SF5>
 		<SF6>6</SF6>
 		<DosingOut1>51</DosingOut1>
+		<Gully1>71</Gully1>
+		<MixPump1>81</MixPump1>
+		<Pipe1>101</Pipe1>
+		<Pipe2>102</Pipe2>
+		<Pipe3>103</Pipe3>
 	</names>
 	<names>
 		<AH1>31</AH1>

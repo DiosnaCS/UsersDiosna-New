@@ -215,7 +215,7 @@ WriteLiteral(">No files has been found</div>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n");
+WriteLiteral("\r\n");
 
 DefineSection("Scripts", () => {
 
@@ -224,7 +224,7 @@ WriteLiteral("\r\n");
 WriteLiteral("    ");
 
             
-            #line 39 "..\..\Views\Download\Index.cshtml"
+            #line 38 "..\..\Views\Download\Index.cshtml"
 Write(Scripts.Render("~/bundles/jqueryval"));
 
             
