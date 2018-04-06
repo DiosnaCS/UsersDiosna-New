@@ -20,11 +20,10 @@
         @Html.LabelFor(model => model.bakeryId, htmlAttributes: new { @class = "control-label  col-lg-2" })
         <div class="col-lg-9">
             @if (Model.Date != null) {
-                Html.TextBoxFor(model => model.Date, new { @class = "form-control input-sm", id = "date-time_from", type = "date" })
+                Html.TextBoxFor(model => model.Date, new { @class = "form-control input-sm", id = "date-time_from", type = "date" });
             } else {
 
-                Html.TextBoxFor(model => model.Date, new { @class = "form-control input-sm", id = "date-time_from", type = "date" })
-
+                Html.TextBoxFor(model => model.Date, new { @class = "form-control input-sm", id = "date-time_from", type = "date" });
             }
             @Html.ValidationMessageFor(model => model.bakeryId, "", new { @class = "text-danger" })
         </div>

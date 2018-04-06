@@ -38,7 +38,7 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/CMS/Index.cshtml")]
-    public partial class _Views_CMS_Index_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<UsersDiosna.Models.Article>>
+    public partial class _Views_CMS_Index_cshtml : System.Web.Mvc.WebViewPage<IEnumerable<UsersDiosna.DBML.Article>>
     {
         public _Views_CMS_Index_cshtml()
         {
@@ -337,25 +337,25 @@ WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n");
             #line hidden
 WriteLiteral("                            <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3890), Tuple.Create("\"", 3945)
-, Tuple.Create(Tuple.Create("", 3897), Tuple.Create("/Download/downloadFile?nameFile=", 3897), true)
+WriteAttribute("href", Tuple.Create(" href=\"", 3888), Tuple.Create("\"", 3943)
+, Tuple.Create(Tuple.Create("", 3895), Tuple.Create("/Download/downloadFile?nameFile=", 3895), true)
             
             #line 91 "..\..\Views\CMS\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 3929), Tuple.Create<System.Object, System.Int32>(item.Attachment
+, Tuple.Create(Tuple.Create("", 3927), Tuple.Create<System.Object, System.Int32>(item.Attachment
             
             #line default
             #line hidden
-, 3929), false)
+, 3927), false)
 );
 
-WriteAttribute("title", Tuple.Create(" title=\"", 3946), Tuple.Create("\"", 3963)
+WriteAttribute("title", Tuple.Create(" title=\"", 3944), Tuple.Create("\"", 3961)
             
             #line 91 "..\..\Views\CMS\Index.cshtml"
-              , Tuple.Create(Tuple.Create("", 3954), Tuple.Create<System.Object, System.Int32>(fileName
+              , Tuple.Create(Tuple.Create("", 3952), Tuple.Create<System.Object, System.Int32>(fileName
             
             #line default
             #line hidden
-, 3954), false)
+, 3952), false)
 );
 
 WriteLiteral(">Download</a>\r\n");

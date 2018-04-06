@@ -32,7 +32,7 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/CMS/DetailSection.cshtml")]
-    public partial class _Views_CMS_DetailSection_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.Models.Section>
+    public partial class _Views_CMS_DetailSection_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.DBML.Section>
     {
         public _Views_CMS_DetailSection_cshtml()
         {

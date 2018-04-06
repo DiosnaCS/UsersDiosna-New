@@ -101,7 +101,7 @@ namespace UsersDiosna.DBML
 		
 		private string _Role;
 		
-		private System.Nullable<int> _BakeryId;
+		private int _BakeryId;
 		
 		private EntitySet<Article> _Articles;
 		
@@ -119,7 +119,7 @@ namespace UsersDiosna.DBML
     partial void OnArticleIdChanged();
     partial void OnRoleChanging(string value);
     partial void OnRoleChanged();
-    partial void OnBakeryIdChanging(System.Nullable<int> value);
+    partial void OnBakeryIdChanging(int value);
     partial void OnBakeryIdChanged();
     #endregion
 		
@@ -230,7 +230,7 @@ namespace UsersDiosna.DBML
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BakeryId", DbType="Int")]
-		public System.Nullable<int> BakeryId
+		public int BakeryId
 		{
 			get
 			{

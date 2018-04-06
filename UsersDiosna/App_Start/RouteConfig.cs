@@ -14,6 +14,16 @@ namespace UsersDiosna
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "Api",
+                url: "api/{controller}/{method}/{id}",
+                defaults: new { controller = "Api", action = "Index", page = UrlParameter.Optional, count = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "MobileApi",
+                url: "MobileApi/{action}/{mobileToken}",
+                defaults: new { controller = "MobileApi", action = "Get", mobileToken = UrlParameter.Optional }
+            );
+            routes.MapRoute(
                 name: "Alarms",
                 url: "Alarm/{action}/{page}/{count}/",
                 defaults: new { controller = "Alarm", action = "Index", page = UrlParameter.Optional, count = UrlParameter.Optional }

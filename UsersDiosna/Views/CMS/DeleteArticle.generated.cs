@@ -32,7 +32,7 @@ namespace ASP
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("RazorGenerator", "2.0.0.0")]
     [System.Web.WebPages.PageVirtualPathAttribute("~/Views/CMS/DeleteArticle.cshtml")]
-    public partial class _Views_CMS_DeleteArticle_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.Models.Article>
+    public partial class _Views_CMS_DeleteArticle_cshtml : System.Web.Mvc.WebViewPage<UsersDiosna.DBML.Article>
     {
         public _Views_CMS_DeleteArticle_cshtml()
         {

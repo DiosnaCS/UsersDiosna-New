@@ -284,6 +284,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
     <Compile Include="Controllers\GraphReportController.cs" />
+    <Compile Include="Controllers\Api\MobileApiController.cs" />
     <Compile Include="Controllers\NewSchemesController.cs" />
     <Compile Include="Controllers\SchemeEditorController.cs" />
     <Compile Include="Handlers\AlarmHelper.cs" />
