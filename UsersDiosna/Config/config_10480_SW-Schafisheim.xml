@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <contract>
+    <id>10480</id>
+    <country>SW</country>
+    <name>COOP</name>
+  </contract>
+  <plc name="Megaline">
+    <graph name="Graphs">
+        <pathConfig>C:\Akce\java\grafy_cfg_CHCOO_IH.ini</pathConfig>
+        <pathNames>C:\Akce\java\grafy_names_CHCOO.ini</pathNames>
+    </graph>    
+    <alarm name="Alarms">
+        <dbName>Coop</dbName>
+    </alarm>
+  </plc>
+</configuration>

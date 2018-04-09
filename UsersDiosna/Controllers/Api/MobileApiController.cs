@@ -20,7 +20,7 @@ namespace UsersDiosna.Controllers
 
         // GET api/<controller>
         [System.Web.Mvc.HttpGet]
-        public string Get()
+        public JsonResult<object> GetLoginStatus()
         {
             bool bLoggedIn = false;
             
@@ -31,8 +31,8 @@ namespace UsersDiosna.Controllers
             {
                 bLoggedIn = false;
             }
-            string loggedIn = bLoggedIn.ToString();
-            return loggedIn;
+            object loggedIn = bLoggedIn;
+            return Json(loggedIn);
         }
         /*
         // GET api/<controller>/5

@@ -234,7 +234,7 @@ namespace UsersDiosna.Handlers
                 //small improvment beacause alarm_id in table alarm_texts and alarm_id in table alarm_history are bind
                 if (titles.Exists(p => (p.id) == id))
                 {
-                    alarm.title = titles.Single(p => p.id == id && p.plcID == plcID).title;
+                    alarm.title = titles.First(p => p.id == id && p.plcID == plcID).title;
                 }
                 else
                 {

@@ -15,13 +15,13 @@ namespace UsersDiosna
 
             routes.MapRoute(
                 name: "Api",
-                url: "api/{controller}/{method}/{id}",
+                url: "api/{controller}/{action}/{id}",
                 defaults: new { controller = "Api", action = "Index", page = UrlParameter.Optional, count = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "MobileApi",
                 url: "MobileApi/{action}/{mobileToken}",
-                defaults: new { controller = "MobileApi", action = "Get", mobileToken = UrlParameter.Optional }
+                defaults: new { controller = "MobileApi", action = "GetLoginStatus", mobileToken = UrlParameter.Optional }
             );
             routes.MapRoute(
                 name: "Alarms",
