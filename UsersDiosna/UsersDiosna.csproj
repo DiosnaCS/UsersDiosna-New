@@ -225,6 +225,9 @@
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="VizuLibrabrarySnapshotVals">
+      <HintPath>..\..\C#\VizuLibrabrarySnapshotVals\VizuLibrabrarySnapshotVals\bin\Debug\VizuLibrabrarySnapshotVals.dll</HintPath>
+    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.0.3\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -283,6 +286,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlarmController.cs" />
+    <Compile Include="Controllers\Api\valuesApiController.cs" />
     <Compile Include="Controllers\GraphReportController.cs" />
     <Compile Include="Controllers\Api\MobileApiController.cs" />
     <Compile Include="Controllers\NewSchemesController.cs" />
@@ -290,6 +294,7 @@
     <Compile Include="Handlers\AlarmHelper.cs" />
     <Compile Include="Handlers\FileHelper.cs" />
     <Compile Include="Handlers\GraphReportHelper.cs" />
+    <Compile Include="Handlers\NewSchemesHandler.cs" />
     <Compile Include="Handlers\SchemeEditorHandler.cs" />
     <Compile Include="Models\DownloadModels.cs" />
     <Compile Include="Models\GraphReportModels.cs" />
@@ -352,6 +357,11 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Views\Account\Login.generated.cs">
       <AutoGen>True</AutoGen>
@@ -667,6 +677,10 @@
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Properties\PublishProfiles\DIAGSERVER.pubxml" />
     <None Include="Properties\PublishProfiles\Web.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\chart.js" />
     <Content Include="Scripts\ChromeNotification.js" />

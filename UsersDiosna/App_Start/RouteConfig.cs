@@ -12,7 +12,11 @@ namespace UsersDiosna
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                name: "ApiPutSnapshot",
+                url: "api/{controller}/putSnapshot/{projectId}/{pkTime}",
+                defaults: new { controller = "valuesApi", action = "putSnapshot", projectId = UrlParameter.Optional, pkTime = UrlParameter.Optional }
+            );
             routes.MapRoute(
                 name: "Api",
                 url: "api/{controller}/{action}/{id}",
