@@ -5,14 +5,15 @@ using System.Threading.Tasks;
 using System.Web;
 using UsersDiosna.Controllers;
 using UsersDiosna.Sheme.Models;
+using VizuLibrabrarySnapshotVals;
 
 namespace UsersDiosna.Handlers
 {
     public class NewSchemesHandler
     {
-        public async Task<object> getSnapshotData(List<ResponseValue> responseList, List<SchemeValue> list, int projectId = 0)
+        public async Task<object> putSnapshotDataIntoFile(List<RequestValue> list, int projectId = 0, int pkTime = 0)
         {
-            object data;
+            object data = new object();
             List<string> dbNames = XMLHandler.readTag("dbName", projectId);
             /*db db = new db(dbNames[0], 12);
             foreach (var schemeValue in list)
@@ -25,7 +26,7 @@ namespace UsersDiosna.Handlers
                 responseList.Add(responseValue);
             }
             db.connection.Close();*/
-            data = responseList;
+           // data = responseList;
             return data;
         }
     }

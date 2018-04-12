@@ -56,7 +56,7 @@ namespace UsersDiosna.Controllers
                 if (list.Count != 0)
                 {
                     NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                    data = await schemesHandler.getSnapshotData(responseList, list, projectId);
+                    //data = await schemesHandler.getSnapshotData(responseList, list, projectId);
                 }
                 return Json(data);
             }
@@ -81,7 +81,7 @@ namespace UsersDiosna.Controllers
                 if (list.Count != 0)
                 {
                     NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                    data = await schemesHandler.getSnapshotData(values, list, projectId);
+                    //data = await schemesHandler.putSnapshotDataIntoFile(values, list, projectId);
                 }
                 return Json(data);
             }

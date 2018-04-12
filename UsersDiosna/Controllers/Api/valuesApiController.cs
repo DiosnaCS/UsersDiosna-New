@@ -53,7 +53,7 @@ namespace UsersDiosna.Controllers.Api
                 if (list.Count != 0)
                 {
                     NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                    //data = await schemesHandler.putSnapshotData(values, list, projectId);
+                    data = await schemesHandler.putSnapshotDataIntoFile(list, projectId, pkTime);
                 }
                 }
                 else
@@ -61,6 +61,7 @@ namespace UsersDiosna.Controllers.Api
                     data = "Error: Zero data sent stop sending no data requests";
                     return Json(data);
                 }
+                data = true;
                 return Json(data);
             }
             catch (Exception e)
