@@ -14,41 +14,51 @@ using UsersDiosna.Sheme.Models;
 
 namespace UsersDiosna.Controllers.Api
 {
-    public class valuesApiController : ApiController
+    public class ValuesApiController : ApiController
     {
-        //users-dev.diosna.cz/api/valuesApi/putSnapshot/{projectId}/{pkTime}
-        [System.Web.Mvc.HttpPut]
-        public async Task<JsonResult<object>> putSnapshot([FromBody] Stream stream)
+        //https://users-dev.diosna.cz/api/valuesApi/putSnapshot/{projectId}/{pkTime}
+        //https://localhost:44385/api/ValuesApi/putSnapshot/{projectId}/{pkTime}
+        [HttpPut]
+        [Route("api/valuesApi/putSnapshot/{projectId}/{pkTime}")]
+        public async Task<JsonResult<object>> putSnapshot(int projectId,int pkTime)
         {
             try
             {
+                HttpContent requestContent = Request.Content;
+                Stream stream = await requestContent.ReadAsStreamAsync();
+
                 StreamReader streamReader = new StreamReader(stream);
+
+
                 object data = new object();
                 //List<ResponseValue> values = new List<ResponseValue>();
                 BinaryFormatter binFormatter = new BinaryFormatter();
                 string sStream = streamReader.ReadToEnd();
                 if (sStream != "[]" || sStream != null || sStream != "")
                 {
-
-                    List<RequestValue> list = new List<RequestValue>();
-                    data = binFormatter.Deserialize(stream);
-                    if (data is List<RequestValue>)
-                    {
-                        list = (List<RequestValue>)binFormatter.Deserialize(stream);
-                    }
-                    else
-                    {
-                        data = "TypeMismatch via loading from request stream-Verfy structure-" + DateTime.Now.ToString();
-                        Error.toFile("TypeMismatch via loading from request stream - Verfy structure", "ApiSchemesPutSnaschot");
-                    }
-                    if (list.Count != 0)
-                    {
-                        NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                        //data = await schemesHandler.putSnapshotData(values, list, projectId);
-                    }
+                    data = sStream + " has been received";
+                    
+                List<RequestValue> list = new List<RequestValue>();
+                stream.Position = 0;
+                data = binFormatter.Deserialize(stream);
+                if (data is List<RequestValue>)
+                {
+                        list = (List<RequestValue>)data;//binFormatter.Deserialize(stream);
                 }
                 else
                 {
+                    data = "TypeMismatch via loading from request stream-Verfy structure-" + DateTime.Now.ToString();
+                    Error.toFile("TypeMismatch via loading from request stream - Verfy structure", "ApiSchemesPutSnaschot");
+                }
+                if (list.Count != 0)
+                {
+                    NewSchemesHandler schemesHandler = new NewSchemesHandler();
+                    //data = await schemesHandler.putSnapshotData(values, list, projectId);
+                }
+                }
+                else
+                {
+                    data = "Error: Zero data sent stop sending no data requests";
                     return Json(data);
                 }
                 return Json(data);
@@ -61,33 +71,10 @@ namespace UsersDiosna.Controllers.Api
                 return Json(data);
             }
 
-        }/*
-        // GET api/<controller>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
-        }
-        */
+        //https://localhost:44385/api/ValuesApi/putSnapshotGet/ 
+ 
     }
 }

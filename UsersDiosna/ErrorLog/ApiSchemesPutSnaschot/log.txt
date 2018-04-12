@@ -1,0 +1,80 @@
+
+11.04.2018 14:21:421Value cannot be null.
+Parameter name: stream   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at UsersDiosna.Controllers.Api.valuesApiController.putSnapshot(Stream stream) in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 26
+11.04.2018 14:21:542Value cannot be null.
+Parameter name: stream   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at UsersDiosna.Controllers.Api.valuesApiController.putSnapshot(Stream stream) in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 26
+11.04.2018 14:22:293Value cannot be null.
+Parameter name: stream   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at UsersDiosna.Controllers.Api.valuesApiController.putSnapshot(Stream stream) in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 26
+11.04.2018 14:33:211Value cannot be null.
+Parameter name: stream   at System.IO.StreamReader..ctor(Stream stream, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean leaveOpen)
+   at System.IO.StreamReader..ctor(Stream stream)
+   at UsersDiosna.Controllers.Api.valuesApiController.putSnapshot(Stream stream) in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 26
+11.04.2018 14:56:521Attempting to deserialize an empty stream.   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 39
+11.04.2018 16:17:572End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 40
+11.04.2018 16:18:073End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 40
+11.04.2018 16:19:184End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 40
+11.04.2018 16:19:255End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 40
+12.04.2018 11:49:451End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:50:072End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:51:433End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:52:561End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:53:192End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:53:243End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 41
+12.04.2018 11:54:231End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 45
+12.04.2018 11:55:342End of Stream encountered before parsing was completed.   at System.Runtime.Serialization.Formatters.Binary.__BinaryParser.Run()
+   at System.Runtime.Serialization.Formatters.Binary.ObjectReader.Deserialize(HeaderHandler handler, __BinaryParser serParser, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream, HeaderHandler handler, Boolean fCheck, Boolean isCrossAppDomain, IMethodCallMessage methodCallMessage)
+   at System.Runtime.Serialization.Formatters.Binary.BinaryFormatter.Deserialize(Stream serializationStream)
+   at UsersDiosna.Controllers.Api.valuesApiController.<putSnapshot>d__0.MoveNext() in C:\Akce\Source-Repos\UsersDiosna\Controllers\Api\valuesApiController.cs:line 45

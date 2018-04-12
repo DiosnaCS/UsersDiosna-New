@@ -51,8 +51,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Vizualization\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="VizuLibrabrarySnapshotVals">
+      <HintPath>..\..\C#\VizuLibrabrarySnapshotVals\VizuLibrabrarySnapshotVals\bin\Debug\VizuLibrabrarySnapshotVals.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\valuesApiControllerTests.cs" />
     <Compile Include="Controller\GraphControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +69,9 @@
       <Project>{5F3840C5-A61B-485B-8645-1BE4C3FE6E75}</Project>
       <Name>UsersDiosna</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\Api\" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
