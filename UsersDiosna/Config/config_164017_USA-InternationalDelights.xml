@@ -60,6 +60,7 @@
 			<subGraphicDir>\valve\</subGraphicDir>
 			<pathGraphicCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
 			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>
 </configuration>

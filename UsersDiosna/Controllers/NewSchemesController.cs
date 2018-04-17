@@ -16,10 +16,36 @@ namespace UsersDiosna.Controllers
     [Authorize(Roles="Admin")]
     public class NewSchemesController : Controller
     {
-        private SvgDocument svg { get; set; } 
-
+        private SvgDocument svg { get; set; }
+        private void getConfigPath(ref string pathToSvg,ref string pathToCfg)
+        {            
+            foreach (string key in Session.Keys)
+            {
+                if (key.Contains("pathScheme"))
+                {
+                    pathToSvg = Session[key].ToString();
+                }
+                if (key.Contains("pathSvgCfg"))
+                {
+                    pathToCfg = Session[key].ToString();
+                }
+            }
+            
+        }
         // GET: SchemeEditor
-        public ActionResult Index()
+        public ActionResult Index() {
+            string pathToSvg = null, pathToCfg = null;
+            NewSchemesHandler schemesHandler = new NewSchemesHandler();
+            getConfigPath(ref pathToSvg,ref pathToCfg);
+
+            SvgConfig svgConfig = schemesHandler.readSchemeConfig(pathToCfg);
+
+            foreach (SchemeValue schemeVal in svgConfig.BindingTags) {
+                schemesHandler.readSchemeConfig(pathToSvg);
+            }
+            return View();
+        }
+        /*public ActionResult Index()
         {
             string pathToSvg = null;
             foreach( string key in Session.Keys)
@@ -45,7 +71,7 @@ namespace UsersDiosna.Controllers
                 Session["tempforview"] = "Problem with finding this svg path";
                 return RedirectToAction("Index", "Menu");
             }
-        }
+        }*/
         public async Task<JsonResult> getData()
         {
             StreamReader stream = new StreamReader(Request.InputStream);

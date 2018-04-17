@@ -27,6 +27,7 @@ namespace UsersDiosna.Controllers
             string ageBarsCfgPath = null;
             string pathToSvg = null;
             string bindingTagsCfg = null;
+            string absPathToSvg = null;
             List<string> subGraphicDir = new List<string>();
             List<string> pathGraphicCfg = new List<string>();
             List<AgeBar> ageBarList = new List<AgeBar>();
@@ -49,7 +50,7 @@ namespace UsersDiosna.Controllers
                 if (bindingTagsCfg != null)
                 {
                     SchemeEditorHandler.getBindingTags(pathSvgCfg, bindingTagsCfg, bindingTagList);
-                    model.SchemeTags = values;
+                    model.BindingTags = bindingTagList;
                 }
                 // Important ageBar age is not included in agegBar config 
                 if (ageBarsCfgPath != null)
@@ -84,8 +85,6 @@ namespace UsersDiosna.Controllers
                 }
                 if (pathToSvg != null)
                 {
-                    model.relativePath = pathToSvg;
-                    model.SvgFile = svg;
                     //pathToSvg = pathToSvg.Replace(@"\", @"/");
                     if (pathToSvg.IndexOf(@"\") == 0)
                     {
@@ -93,15 +92,33 @@ namespace UsersDiosna.Controllers
                     }
                     //write whole SchemeEditor model to xml
                     SchemeEditorHandler.writeToXML(pathSvgCfg, model);
-                    svg = SvgDocument.Open(Path.PhysicalPath + pathToSvg);
-
-                    string SvgXml = svg.GetXML();
-                    string ConfigXml = System.IO.File.ReadAllText(pathSvgCfg);
+                    if(pathSvgCfg.Contains(Path.PhysicalPath))
+                    {
+                        absPathToSvg = pathToSvg;
+                    }
+                    else
+                    {
+                        absPathToSvg = Path.PhysicalPath + pathToSvg;
+                    }
+                    string readText = System.IO.File.ReadAllText(absPathToSvg);
+                    svg = SvgDocument.Open(absPathToSvg);
                     
-                    SvgDocument newSvg = new SvgDocument();
-                    string secondSvgPart = SvgXml.Substring((SvgXml.IndexOf("<defs>") + "defs".Length));
-                    string firstSvgPart = SvgXml.Substring(0, SvgXml.IndexOf("<defs>"));
-                    string svgFileContent = firstSvgPart + "<config>" + ConfigXml + "</config>" + secondSvgPart;
+                    model.relativePath = pathToSvg;
+                    model.SvgFile = svg;
+
+                    string SvgXml = System.IO.File.ReadAllText(absPathToSvg);
+                    string ConfigXml = System.IO.File.ReadAllText(pathSvgCfg);
+                    string sXmlDef = "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+                    ConfigXml = ConfigXml.Replace(sXmlDef, "");
+                    
+                    SvgDocument newSvg = new SvgDocument();/*
+                    int indexFirst = (SvgXml.IndexOf("<config") - 5);
+                    int indexSecond = (SvgXml.IndexOf("</defs>") + 7);
+                    string firstSvgPart = SvgXml.Substring(0, indexFirst);
+                    string secondSvgPart = SvgXml.Substring(indexSecond);
+                    string svgFileContent = firstSvgPart + "<config>" + ConfigXml + "</config>" + secondSvgPart;*/
+                    System.IO.File.Move(absPathToSvg, absPathToSvg + "_old_" + DateTime.Now.Ticks + ".svg");
+                    string svgFileContent = SvgXml.Replace("</defs>", ConfigXml + "</defs>");
                     System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, svgFileContent);
 
                 }

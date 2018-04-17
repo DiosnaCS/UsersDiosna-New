@@ -23,12 +23,24 @@ namespace UsersDiosna.Sheme.Models
         public List<Textlist> SchemeTextlist { get; set; }
     }
 
-    public class SchemeEditorXML
-    {
+    public class SvgConfig{
         public List<SchemeValue> BindingTags { get; set; }
         public List<DynValue> SchemeTags { get; set; }
         public List<AgeBar> SchemeAgeBars { get; set; }
         public List<Graphiclist> SchemeGraphicsList { get; set; }
+        public List<Textlist> SchemeTextlist { get; set; }
+    }
+public class SchemeEditorXML
+    {
+        [XmlArray]
+        public List<SchemeValue> BindingTags { get; set; }
+        [XmlArray]
+        public List<DynValue> SchemeTags { get; set; }
+        [XmlArray]
+        public List<AgeBar> SchemeAgeBars { get; set; }
+        [XmlArray]
+        public List<Graphiclist> SchemeGraphicsList { get; set; }
+        [XmlArray]
         public List<Textlist> SchemeTextlist { get; set; }
 
     }
@@ -40,6 +52,8 @@ namespace UsersDiosna.Sheme.Models
         public string tableName { get; set; }
         [XmlAttribute]
         public string columnName { get; set; }
+        [XmlAttribute]
+        public string name { get; set; }
         [XmlAttribute]
         public string Type { get; set; }
     }

@@ -1,9 +1,12 @@
-iSF2_Temp_Bottom.arWS_norm	iSF2_Temp_Bottom 	arWS_norm	DynValue
-iSF2_pH.arWS_norm		iSF2_pH			arWS_norm	DynValue
-diSF2_Weight.arWS_norm		diSF2_Weight		arWS_norm	DynValue
-iSF2_Temp.arWS_norm		iSF2_Temp		arWS_norm	DynValue
-usiOperSF2_Step.arWS_norm	usiOperSF2_Step		arWS_norm	DynValue
-weightBar-SF2			diSF2_Weight		arWS_norm	AgeBarVertical
-phTemp				iSF2_Temp_Bottom 	arWS_norm	DynValue
-AgeBar				diSF2_AgeOld		arWS_norm	AgeBar
-textFerm-SF2			usiOperSF2_Step		arWS_norm	Textlist
+iSF2_Temp_Bottom.arWS_norm	iSF2_Temp_Bottom 	arWS_norm	DynVal1		DynValue
+iSF2_pH.arWS_norm		iSF2_pH			arWS_norm	DynVal2 	DynValue
+diSF2_Weight.arWS_norm		diSF2_Weight		arWS_norm	DynVal3		DynValue
+iSF2_Temp.arWS_norm		iSF2_Temp		arWS_norm	DynVal4 	DynValue
+usiOperSF2_Step.arWS_norm	usiOperSF2_Step		arWS_norm	DynVal5 	DynValue
+weightBar-SF2			diSF2_Weight		arWS_norm	101 		AgeBarVertical
+phTemp				iSF2_Temp_Bottom 	arWS_norm	DynVal6 	DynValue
+AgeBar				diSF2_AgeOld		arWS_norm	102		AgeBar
+textFerm-SF2			usiOperSF2_Step		arWS_norm	SF_Step		Textlist
+textStatus-SF2			usiOperSF2_Status	arWS_norm	status		Textlist
+destNames-textlist		snapshot		snapshot	dest_names	Textlist
+MF1_FlourInput			snapshot		snapshot	valve		GraphicList

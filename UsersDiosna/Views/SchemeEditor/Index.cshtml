@@ -32,38 +32,39 @@
         Add new dynamic value
     </a>
 
-        <div class="collapse" id="addDynVal">
-            <div class="card card-block">
-                <div class="form-inline">
-                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableNew" />
-                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnNew"/>
-                    <span class="col-sm-1">Ratio:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioNew" />
-                    <span class="col-sm-1">Offset:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetNew" />
-                    <span class="col-sm-1">Unit:</span> <input type="text" class="col-sm-1  form-control input-xs" name="unitNew"  />
-                    <span class="col-sm-1">Text color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="textColorNew" />
-                    <br />
-                </div>
+    <div class="collapse" id="addDynVal">
+        <div class="card card-block">
+            <div class="form-inline">
+                <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableNew" />
+                <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnNew" />
+                <span class="col-sm-1">Ratio:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioNew" />
+                <span class="col-sm-1">Offset:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetNew" />
+                <span class="col-sm-1">Unit:</span> <input type="text" class="col-sm-1  form-control input-xs" name="unitNew" />
+                <span class="col-sm-1">Text color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="textColorNew" />
+                <br />
             </div>
         </div>
+    </div>
 
-@Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
-@*
-    <br>Second svg
-    <object type="image/svg+xml" data="@Model.relativePath">
-        Your object does not suupport SVG
-    </object>
-*@
+    @Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
+    @*
+        <br>Second svg
+        <object type="image/svg+xml" data="@Model.relativePath">
+            Your object does not suupport SVG
+        </object>
+    *@
     foreach (AgeBar ageBar in Model.SchemeAgeBars)
     {
+        var tagAge = Model.BindingTags.First(p => p.id == ageBar.id || p.name == ageBar.id);
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@ageBar.id" aria-expanded="false">
-            Age Bar from tag: @ageBar.column
+            Age Bar from tag:  @tagAge.columnName
         </a>
 
         <div class="collapse" id="@ageBar.id">
             <div class="card card-block">
                 <div class="form-inline">
-                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@ageBar.id" ageBarue="@ageBar.table" />
-                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@ageBar.id" ageBarue="@ageBar.column" />
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@ageBar.id" ageBarue="@tagAge.tableName" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@ageBar.id" ageBarue="@tagAge.columnName" />
                     <span class="col-sm-1">Max. Age:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="ratioEdit_@ageBar.id" ageBarue="@ageBar.maxAge" />
                     <span class="col-sm-1">First color:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.firstColor" />
                     <span class="col-sm-1">Second limit:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="offsetEdit_@ageBar.id" ageBarue="@ageBar.firstLimit" />
@@ -76,38 +77,41 @@
         </div>
 }
 
-    foreach (Graphiclist graphicList in Model.SchemeGraphicsList)
-    {
+foreach (Graphiclist graphicList in Model.SchemeGraphicsList)
+{
+        var tag = Model.BindingTags.First(p => p.id == graphicList.id || p.name == graphicList.name);
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@graphicList.id" aria-expanded="false">
-            GraphicList for tag: @graphicList.column
+            GraphicList for tag:  @tag.columnName
         </a>
 
-            <div class="collapse" id="@graphicList.id">
-                <div class="card card-block">
-                    <div class="form-inline">
-                        <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@graphicList.id" graphicListue="@graphicList.table" />
-                        <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@graphicList.id" graphicListue="@graphicList.column" />
-                        @for (int i=0; i < graphicList.items.Count; i++) {
-                            <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@graphicList.id" graphicListue="@graphicList.items[i].index" />
-                            <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@graphicList.id" graphicListue="@graphicList.items[i].path" />
-                        }
-                        <br />
-                    </div>
+        <div class="collapse" id="@graphicList.id">
+            <div class="card card-block">
+                <div class="form-inline">
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@graphicList.id" graphicListue="@tag.tableName" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@graphicList.id" graphicListue="@tag.columnName" />
+                    @for (int i = 0; i < graphicList.items.Count; i++)
+                    {
+                        <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@graphicList.id" graphicListue="@graphicList.items[i].index" />
+                        <span class="col-sm-1">Path:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="pathEdit_@graphicList.id" graphicListue="@graphicList.items[i].path" />
+                    }
+                    <br />
                 </div>
             </div>
+        </div>
     }
 
     foreach (Textlist textList in Model.SchemeTextlist)
     {
+            var tagText = Model.BindingTags.First(p => p.id == textList.id || p.name == textList.name );
         <a class="btn btn-primary btn-xs" data-toggle="collapse" href="#@textList.id" aria-expanded="false">
-            TextList binded on tag: @textList.column
+            TextList binded on tag: @tagText.columnName
         </a>
 
         <div class="collapse" id="@textList.id">
             <div class="card card-block">
                 <div class="form-inline">
-                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@textList.id" textListue="@textList.table" />
-                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@textList.id" textListue="@textList.column" />
+                    <span class="col-sm-1">Table:</span> <input type="text" class="col-sm-1 form-control input-xs" name="tableEdit_@textList.id" textListue="@tagText.tableName" />
+                    <span class="col-sm-1">Column:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="columnEdit_@textList.id" textListue="@tagText.tableName" />
                     @for (int i = 0; i < textList.items.Count; i++)
                     {
                         <span class="col-sm-1">Index:</span> <input type="text" class=" col-sm-1 form-control input-xs" name="indexEdit_@textList.id" textListue="@textList.items[i].index" />

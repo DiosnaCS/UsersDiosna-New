@@ -53,7 +53,7 @@ namespace UsersDiosna.Handlers
                         }
                         graphiclist.items.Add(graphiclistItem);
                         graphiclist.name = subDir;
-                        graphiclist.name = graphiclist.name.Replace("/", string.Empty);
+                        graphiclist.name = graphiclist.name.Replace(@"\", string.Empty);
                     }
                     graphicLists.Add(graphiclist);
                 }
@@ -120,13 +120,23 @@ namespace UsersDiosna.Handlers
                 DynValue value = new DynValue();
 
                 value.id = dynValue[0];
-                //value.column = dynValue[1];
-                //value.table = dynValue[2];
-                value.ratio = int.Parse(dynValue[1]);
-                value.offset = int.Parse(dynValue[2]);
-                value.unit = dynValue[3];
-                value.textColor = dynValue[4];
-
+                //optional
+                if (dynValue.Length > 5)
+                {
+                    value.column = dynValue[1];
+                    value.table = dynValue[2];
+                    value.ratio = int.Parse(dynValue[3]);
+                    value.offset = int.Parse(dynValue[4]);
+                    value.unit = dynValue[5];
+                    value.textColor = dynValue[6];
+                }
+                else
+                {
+                    value.ratio = int.Parse(dynValue[1]);
+                    value.offset = int.Parse(dynValue[2]);
+                    value.unit = dynValue[3];
+                    value.textColor = dynValue[4];
+                }
                 values.Add(value);
             }
         }
@@ -147,7 +157,8 @@ namespace UsersDiosna.Handlers
                 bindingTag.id = dynValue[0];
                 bindingTag.columnName = dynValue[1];
                 bindingTag.tableName = dynValue[2];
-                bindingTag.Type = dynValue[3];
+                bindingTag.name = dynValue[3];
+                bindingTag.Type = dynValue[4];
                 bindingTagList.Add(bindingTag);
             }
         }
