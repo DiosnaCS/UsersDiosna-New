@@ -158,7 +158,29 @@ namespace UsersDiosna.Handlers
                 bindingTag.columnName = dynValue[1];
                 bindingTag.tableName = dynValue[2];
                 bindingTag.name = dynValue[3];
-                bindingTag.Type = dynValue[4];
+                //bindingTag.Type = dynValue[4];
+                string sType = dynValue[4].Trim();
+                if (sType == "AgeBar")
+                {
+                    bindingTag.Type = SchemeType.AgeBar;
+                }
+                if (sType == "AgeBarVertical")
+                {
+                    bindingTag.Type = SchemeType.AgeBarVertical;
+                }
+                if (sType == "DynValue")
+                {
+                    bindingTag.Type = SchemeType.DynValue;
+                }
+                if (sType == "GraphicList")
+                {
+                    bindingTag.Type = SchemeType.GraphicList;
+                }
+                if (sType == "Textlist")
+                {
+                    bindingTag.Type = SchemeType.Textlist;
+                }
+
                 bindingTagList.Add(bindingTag);
             }
         }

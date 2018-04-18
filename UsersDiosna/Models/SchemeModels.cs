@@ -30,7 +30,8 @@ namespace UsersDiosna.Sheme.Models
         public List<Graphiclist> SchemeGraphicsList { get; set; }
         public List<Textlist> SchemeTextlist { get; set; }
     }
-public class SchemeEditorXML
+    [XmlRoot]
+    public class SchemeEditorXML
     {
         [XmlArray]
         public List<SchemeValue> BindingTags { get; set; }
@@ -55,12 +56,22 @@ public class SchemeEditorXML
         [XmlAttribute]
         public string name { get; set; }
         [XmlAttribute]
-        public string Type { get; set; }
+        public SchemeType Type { get; set; }
     }
+
+    public enum SchemeType
+    {
+        AgeBar,
+        AgeBarVertical,
+        DynValue,
+        GraphicList,
+        Textlist
+    }
+
     public class ResponseValue
     {
-        public string tableName { get; set; }
-        public string columnName { get; set; }
+        public string Id { get; set; }
+        public SchemeType Type { get; set; }
         public object value { get; set; }
     }
     

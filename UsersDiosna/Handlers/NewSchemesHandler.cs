@@ -47,22 +47,120 @@ namespace UsersDiosna.Handlers
             SvgConfig svgConfig = new SvgConfig();
             var serializer = new XmlSerializer(typeof(SvgConfig));
             object result;
-
-            using (TextReader reader = new StringReader(xmlConfig))
-            {
+            StringReader stringReader = new StringReader(xmlConfig);
+            using (TextReader reader = stringReader) { 
                 result = serializer.Deserialize(reader);
             }
             svgConfig = (SvgConfig)result;
             return svgConfig;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pathToSvg"></param>
+        /// <param name="svgConfig"></param>
+        public List<SvgElement> readScheme(string pathToSvg, SvgConfig svgConfig)
+        {
+            List<SvgElement> elements = new List<SvgElement>();
+            SvgDocument svg = SvgDocument.Open(pathToSvg);
+            foreach (SchemeValue schemeVal in svgConfig.BindingTags)
+            {
+                SvgElement element = readSchemeTag(svg, schemeVal.id);
+                elements.Add(element);
+            }
+            return elements;
         }
         /// <summary>
         /// Read from svg a tag and 
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public SvgElement readSchemeTag(string pathToSvg)
+        private SvgElement readSchemeTag(SvgDocument svg, string bindingTagId)
         {
-            return ;
+            SvgElement element = svg.GetElementById(bindingTagId);
+            return element;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="bindingTags"></param>
+        /// <param name="projectId"></param>
+        public List<ResponseValue> readData(List<SchemeValue> bindingTags, int projectId)
+        {
+            List<SchemeValue> listTagsToDB = new List<SchemeValue>();
+            foreach (var tag in bindingTags)
+            {
+                string trimedColName = tag.columnName.Trim();
+                if(trimedColName == "snapshot")
+                {
+                   
+                }
+                else
+                {
+
+                    listTagsToDB.Add(tag);
+                }
+            }
+            if(listTagsToDB.Count >= 1)
+            {
+               return getDBData(listTagsToDB, projectId);
+            }
+            return null;
+        }
+        public void setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
+        {
+            SvgDocument svg = SvgDocument.Open(pathToSvg);
+            foreach (var responseVar in responseValues)
+            {
+                switch(responseVar.Type)
+                {
+                    case SchemeType.GraphicList:
+                        break;
+                    case SchemeType.AgeBarVertical:
+                        break; 
+                    case SchemeType.DynValue:
+                        var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
+                        setDynValue(responseVar, dynValueconfig,ref svg);
+                        break;
+                    case SchemeType.AgeBar:
+                        break;
+                }
+            }
+        }
+
+        private void setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgDocument svg)
+        {
+            SvgElement element = svg.GetElementById(responseValue.Id);
+            svg.Nodes.Remove(element);
+            int iValue = ((int)responseValue.value + dynValueConfig.offset)* dynValueConfig.ratio;
+            string newValue =  iValue + dynValueConfig.unit;
+            element.Content = newValue;
+            svg.Nodes.Add(element);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list"></param>
+        /// <param name="projectId"></param>
+        /// <returns></returns>
+        private List<ResponseValue> getDBData(List<SchemeValue>list, int projectId)
+        {
+            object data = new object();
+            List<ResponseValue> responseList = new List<ResponseValue>();
+            List<string> dbNames = XMLHandler.readTag("dbName", projectId);
+            db db = new db(dbNames[0], 12);
+            foreach (var schemeValue in list)
+            {
+                object value = db.singleItemSelectPostgres(schemeValue.columnName, schemeValue.tableName, null);
+                ResponseValue responseValue = new ResponseValue();
+                responseValue.Id = schemeValue.id;
+                responseValue.value = value;
+                responseList.Add(responseValue);
+            }
+            db.connection.Close();
+            return responseList;
         }
     }
 }

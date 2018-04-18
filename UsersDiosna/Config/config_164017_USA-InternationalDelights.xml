@@ -47,20 +47,20 @@
 		</ReportOverview>
 		<CMS name="Project Info">
 		</CMS>
-		<NewScheme>
+		<NewSchemes>
 			<pathScheme>\Config\svg\overview.svg</pathScheme>
-		</NewScheme>
+         		<pathSvgCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+		</NewSchemes>
 		<SchemeEditor>
 			<pathScheme>\Config\svg\overview.svg</pathScheme>
-			<dynValuesCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
-			<bindingTagsCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\bindingTags.txt</bindingTagsCfg>
-			<ageBarsCfgPath>c:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
-			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
-			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
+			<dynValuesCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
+			<bindingTagsCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\bindingTags.txt</bindingTagsCfg>
+			<ageBarsCfgPath>C:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
+			<pathCfg1>C:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
+			<pathCfg2>C:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
 			<subGraphicDir>\valve\</subGraphicDir>
-			<pathGraphicCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
-			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
-			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+			<pathGraphicCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
+			<pathSvgCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>
 </configuration>

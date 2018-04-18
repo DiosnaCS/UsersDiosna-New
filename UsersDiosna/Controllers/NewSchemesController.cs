@@ -32,19 +32,29 @@ namespace UsersDiosna.Controllers
             }
             
         }
-        // GET: SchemeEditor
+        // GET: SvgScheme
         public ActionResult Index() {
             string pathToSvg = null, pathToCfg = null;
+            List<SvgElement> elements = new List<SvgElement>();
             NewSchemesHandler schemesHandler = new NewSchemesHandler();
-            getConfigPath(ref pathToSvg,ref pathToCfg);
 
+            //first get all needed session data
+            getConfigPath(ref pathToSvg, ref pathToCfg);
+
+            //read xml config
             SvgConfig svgConfig = schemesHandler.readSchemeConfig(pathToCfg);
-
-            foreach (SchemeValue schemeVal in svgConfig.BindingTags) {
-                schemesHandler.readSchemeConfig(pathToSvg);
-            }
+            //get all values for svg scheme
+            List<ResponseValue> responses = schemesHandler.readData(svgConfig.BindingTags, (int)Session["id"]); 
+            //set values from responses 
+            schemesHandler.setValue(responses, svgConfig, pathToSvg);
+            /*
+            if (svgConfig != null)
+                //read all dynamic members 
+                elements = schemesHandler.readScheme(pathToSvg, svgConfig);
+            */
             return View();
         }
+        #region oldCode
         /*public ActionResult Index()
         {
             string pathToSvg = null;
@@ -71,7 +81,7 @@ namespace UsersDiosna.Controllers
                 Session["tempforview"] = "Problem with finding this svg path";
                 return RedirectToAction("Index", "Menu");
             }
-        }*/
+        }
         public async Task<JsonResult> getData()
         {
             StreamReader stream = new StreamReader(Request.InputStream);
@@ -104,6 +114,7 @@ namespace UsersDiosna.Controllers
                 return Json(data);
             }
             
-        }
+        }*/
+        #endregion
     }
 }
