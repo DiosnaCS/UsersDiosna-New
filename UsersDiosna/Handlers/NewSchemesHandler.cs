@@ -46,12 +46,11 @@ namespace UsersDiosna.Handlers
             string xmlConfig = System.IO.File.ReadAllText(path);
             SvgConfig svgConfig = new SvgConfig();
             var serializer = new XmlSerializer(typeof(SvgConfig));
-            object result;
-            StringReader stringReader = new StringReader(xmlConfig);
-            using (TextReader reader = stringReader) { 
-                result = serializer.Deserialize(reader);
-            }
-            svgConfig = (SvgConfig)result;
+            //object result;
+            //StringReader stringReader = new StringReader(xmlConfig);
+            StreamReader reader = new StreamReader(path);
+            svgConfig = (SvgConfig)serializer.Deserialize(reader);
+            //svgConfig = (SvgConfig)result;
             return svgConfig;
         }
 
@@ -110,6 +109,10 @@ namespace UsersDiosna.Handlers
         }
         public void setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
+            if (!pathToSvg.Contains(Path.PhysicalPath))
+            { 
+                pathToSvg = Path.PhysicalPath + pathToSvg;
+            }
             SvgDocument svg = SvgDocument.Open(pathToSvg);
             foreach (var responseVar in responseValues)
             {
@@ -133,7 +136,8 @@ namespace UsersDiosna.Handlers
         {
             SvgElement element = svg.GetElementById(responseValue.Id);
             svg.Nodes.Remove(element);
-            int iValue = ((int)responseValue.value + dynValueConfig.offset)* dynValueConfig.ratio;
+            double value = (double)responseValue.value;
+            int iValue = (value + dynValueConfig.offset) * dynValueConfig.ratio;
             string newValue =  iValue + dynValueConfig.unit;
             element.Content = newValue;
             svg.Nodes.Add(element);
@@ -156,6 +160,7 @@ namespace UsersDiosna.Handlers
                 object value = db.singleItemSelectPostgres(schemeValue.columnName, schemeValue.tableName, null);
                 ResponseValue responseValue = new ResponseValue();
                 responseValue.Id = schemeValue.id;
+                responseValue.Type = schemeValue.Type;
                 responseValue.value = value;
                 responseList.Add(responseValue);
             }

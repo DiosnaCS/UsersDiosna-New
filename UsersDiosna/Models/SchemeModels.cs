@@ -30,7 +30,8 @@ namespace UsersDiosna.Sheme.Models
         public List<Graphiclist> SchemeGraphicsList { get; set; }
         public List<Textlist> SchemeTextlist { get; set; }
     }
-    [XmlRoot]
+    /*
+    [XmlRoot("SchemeConfig", Namespace = "http://somenamespace", IsNullable = false)]
     public class SchemeEditorXML
     {
         [XmlArray]
@@ -43,8 +44,7 @@ namespace UsersDiosna.Sheme.Models
         public List<Graphiclist> SchemeGraphicsList { get; set; }
         [XmlArray]
         public List<Textlist> SchemeTextlist { get; set; }
-
-    }
+    }*/
     public class SchemeValue
     {
         [XmlAttribute]

@@ -92,7 +92,12 @@ namespace UsersDiosna.Controllers
                     }
                     //write whole SchemeEditor model to xml
                     SchemeEditorHandler.writeToXML(pathSvgCfg, model);
-                    if(pathSvgCfg.Contains(Path.PhysicalPath))
+                    if (System.IO.File.Exists(pathSvgCfg))
+                    {
+                        NewSchemesHandler newSchemesHandler = new NewSchemesHandler();
+                        newSchemesHandler.readSchemeConfig(pathSvgCfg);
+                    }
+                    if (pathToSvg.Contains(Path.PhysicalPath))
                     {
                         absPathToSvg = pathToSvg;
                     }

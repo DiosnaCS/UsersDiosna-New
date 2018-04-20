@@ -187,13 +187,13 @@ namespace UsersDiosna.Handlers
 
         public static void writeToXML(string pathSvgCfg, SchemeEditor editor)
         {
-            SchemeEditorXML schemeEditorXML = new SchemeEditorXML();
+            SvgConfig schemeEditorXML = new SvgConfig();
             schemeEditorXML.SchemeAgeBars = editor.SchemeAgeBars;
             schemeEditorXML.SchemeGraphicsList = editor.SchemeGraphicsList;
             schemeEditorXML.SchemeTags = editor.SchemeTags;
             schemeEditorXML.SchemeTextlist = editor.SchemeTextlist;
             schemeEditorXML.BindingTags = editor.BindingTags;
-            XmlSerializer serializer = new XmlSerializer(typeof(SchemeEditorXML));
+            XmlSerializer serializer = new XmlSerializer(typeof(SvgConfig));
             using (StreamWriter writer = new StreamWriter(pathSvgCfg))
             {
                 serializer.Serialize(writer, schemeEditorXML);

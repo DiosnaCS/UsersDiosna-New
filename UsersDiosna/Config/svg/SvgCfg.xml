@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<SchemeEditorXML>
+<?xml version="1.0" encoding="utf-8"?>
+<SvgConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BindingTags>
     <SchemeValue id="iSF2_Temp_Bottom.arWS_norm" tableName="arWS_norm" columnName="iSF2_Temp_Bottom" name="DynVal1" Type="DynValue" />
     <SchemeValue id="iSF2_pH.arWS_norm" tableName="arWS_norm" columnName="iSF2_pH" name="DynVal2" Type="DynValue" />
@@ -148,4 +148,4 @@
       </items>
     </Textlist>
   </SchemeTextlist>
-</SchemeEditorXML>
+</SvgConfig>
