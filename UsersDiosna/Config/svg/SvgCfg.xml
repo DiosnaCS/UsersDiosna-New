@@ -16,8 +16,8 @@
   </BindingTags>
   <SchemeTags>
     <DynValue id="diSF2_Weight.arWS_norm" table="arWS_norm" column="diSF2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
-    <DynValue id="iSF2_Temp.arWS_norm" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="�C" textColor="black" />
-    <DynValue id="iSF2_Temp_Bottom.arWS_norm" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="�C" textColor="black" />
+    <DynValue id="iSF2_Temp.arWS_norm" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="°C" textColor="black" />
+    <DynValue id="iSF2_Temp_Bottom.arWS_norm" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="°C" textColor="black" />
     <DynValue id="iSF2_pH.arWS_norm" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
   </SchemeTags>
   <SchemeAgeBars>

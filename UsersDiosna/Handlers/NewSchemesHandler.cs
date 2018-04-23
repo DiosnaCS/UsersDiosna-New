@@ -15,7 +15,8 @@ namespace UsersDiosna.Handlers
 {
     public class NewSchemesHandler
     {
-        public async Task<object> putSnapshotDataIntoFile(List<RequestValue> list, int projectId = 0, int pkTime = 0)
+        public async Task<object> putSnapshotDataIntoFile
+            (List<RequestValue> list, int projectId = 0, int pkTime = 0)
         {
             object data = new object();
             List<string> dbNames = XMLHandler.readTag("dbName", projectId);
@@ -107,13 +108,13 @@ namespace UsersDiosna.Handlers
             }
             return null;
         }
-        public void setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
+        public SvgDocument setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
             if (!pathToSvg.Contains(Path.PhysicalPath))
             { 
                 pathToSvg = Path.PhysicalPath + pathToSvg;
             }
-            SvgDocument svg = SvgDocument.Open(pathToSvg);
+            SvgDocument svg = SvgDocument.Open(pathToSvg);           
             foreach (var responseVar in responseValues)
             {
                 switch(responseVar.Type)
@@ -123,24 +124,45 @@ namespace UsersDiosna.Handlers
                     case SchemeType.AgeBarVertical:
                         break; 
                     case SchemeType.DynValue:
-                        var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
-                        setDynValue(responseVar, dynValueconfig,ref svg);
+                        if (config.SchemeTags.Exists(p => p.id == responseVar.Id))
+                        {
+                            var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
+                            foreach (var iterate in svg.Children)
+                            {
+                                
+                                if (iterate.ID != null)
+                                {
+                                    if (iterate.ID.Contains(responseVar.Id))
+                                    {
+                                        SvgElement element = iterate.Children[0];
+                                        string value = setDynValue(responseVar, dynValueconfig, ref element);
+                                        iterate.Children[0].Content = value;
+                                        /*found = (SvgTextSpan)childList.First
+                                            (q => q.ID == responseVar.Id /*&& q.GetType() == typeof(SvgTextSpan));*/
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                        }
                         break;
                     case SchemeType.AgeBar:
                         break;
                 }
             }
+            return svg;
         }
 
-        private void setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgDocument svg)
+        private string setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgElement svgElement)
         {
-            SvgElement element = svg.GetElementById(responseValue.Id);
-            svg.Nodes.Remove(element);
+           
+            //svg.Children.Remove(element);
             double value = (double)responseValue.value;
-            int iValue = (value + dynValueConfig.offset) * dynValueConfig.ratio;
-            string newValue =  iValue + dynValueConfig.unit;
-            element.Content = newValue;
-            svg.Nodes.Add(element);
+            double dValue = (value + dynValueConfig.offset) * dynValueConfig.ratio;
+            string newValue =  dValue + dynValueConfig.unit;
+            svgElement.Content = newValue;
+            //svg.Nodes.Add(element);
+            return newValue;
         }
 
         /// <summary>

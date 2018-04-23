@@ -4,10 +4,11 @@
 }
 
 <h2>New scheme</h2>
-<script src="~/Scripts/NewSchemes.js" ></script>
-<div onclick="getValues()">
-    @Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))
-  <object type="image/svg+xml" data="@Model.relativePath">
-      Your object does not suupport SVG
-  </object>
+<!--<script src="~/Scripts/NewSchemes.js" ></script>-->
+<div>
+    @*Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath)))*@
+    @Html.Raw(ViewBag.SvgXml)
+    @*<object type="image/svg+xml" data="@Model.relativePath">
+            Your object does not suupport SVG
+        </object>*@
 </div>

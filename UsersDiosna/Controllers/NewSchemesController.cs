@@ -10,6 +10,7 @@ using UsersDiosna.Sheme.Models;
 using System.Threading.Tasks;
 using System.IO;
 using System.Web.Script.Serialization;
+using System.Drawing.Imaging;
 
 namespace UsersDiosna.Controllers
 {
@@ -33,6 +34,10 @@ namespace UsersDiosna.Controllers
             
         }
         // GET: SvgScheme
+        /// <summary>
+        /// Action to view new schemes 
+        /// </summary>
+        /// <returns>View with path to svg in </returns>
         public ActionResult Index() {
             string pathToSvg = null, pathToCfg = null;
             List<SvgElement> elements = new List<SvgElement>();
@@ -46,12 +51,27 @@ namespace UsersDiosna.Controllers
             //get all values for svg scheme
             List<ResponseValue> responses = schemesHandler.readData(svgConfig.BindingTags, (int)Session["id"]); 
             //set values from responses 
-            schemesHandler.setValue(responses, svgConfig, pathToSvg);
+            SvgDocument svg = schemesHandler.setValue(responses, svgConfig, pathToSvg);
             /*
             if (svgConfig != null)
                 //read all dynamic members 
                 elements = schemesHandler.readScheme(pathToSvg, svgConfig);
             */
+            if (!pathToSvg.Contains(Path.PhysicalPath))
+            {
+                pathToSvg = Path.PhysicalPath + pathToSvg;
+            }
+            string pathToNewSvg = pathToSvg + "_scheme_" + DateTime.Now.Ticks + ".png";
+            //System.IO.File.Create(pathToNewSvg);
+            /*svg.Write(pathToNewSvg);
+
+            SvgDocument newSvg = SvgDocument.Open(pathToNewSvg);
+            */
+            svg.
+            var bitmap = svg.Draw();
+
+            bitmap.Save(pathToNewSvg, ImageFormat.Png);
+            //ViewBag.SvgXml = svg.GetXML();
             return View();
         }
         #region oldCode

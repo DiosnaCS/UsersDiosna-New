@@ -47,43 +47,23 @@ namespace ASP
             
             #line default
             #line hidden
-WriteLiteral("\r\n\r\n<h2>New scheme</h2>\r\n<script");
+WriteLiteral("\r\n\r\n<h2>New scheme</h2>\r\n<!--<script src=\"~/Scripts/NewSchemes.js\" ></script>-->\r" +
+"\n<div>\r\n    ");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 121), Tuple.Create("\"", 150)
-, Tuple.Create(Tuple.Create("", 127), Tuple.Create<System.Object, System.Int32>(Href("~/Scripts/NewSchemes.js")
-, 127), false)
-);
-
-WriteLiteral(" ></script>\r\n<div");
-
-WriteLiteral(" onclick=\"getValues()\"");
-
-WriteLiteral(">\r\n");
+WriteLiteral("\r\n");
 
 WriteLiteral("    ");
 
             
-            #line 9 "..\..\Views\NewSchemes\Index.cshtml"
-Write(Html.Raw(File.ReadAllText(Server.MapPath(Model.relativePath))));
-
-            
-            #line default
-            #line hidden
-WriteLiteral("\r\n  <object");
-
-WriteLiteral(" type=\"image/svg+xml\"");
-
-WriteAttribute("data", Tuple.Create(" data=\"", 292), Tuple.Create("\"", 318)
-            
             #line 10 "..\..\Views\NewSchemes\Index.cshtml"
-, Tuple.Create(Tuple.Create("", 299), Tuple.Create<System.Object, System.Int32>(Model.relativePath
+Write(Html.Raw(ViewBag.SvgXml));
+
             
             #line default
             #line hidden
-, 299), false)
-);
+WriteLiteral("\r\n    ");
 
-WriteLiteral(">\r\n      Your object does not suupport SVG\r\n  </object>\r\n</div>");
+WriteLiteral("\r\n</div>");
 
         }
     }

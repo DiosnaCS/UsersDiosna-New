@@ -7,6 +7,7 @@ using System.Drawing;
 using UsersDiosna.Sheme.Models;
 using System.Xml.Serialization;
 using System.IO;
+using System.Text;
 
 namespace UsersDiosna.Handlers
 {
@@ -112,7 +113,7 @@ namespace UsersDiosna.Handlers
 
         public static void getDynValues(string pathSvgCfg, string dynValuesCfg, List<DynValue> values)
         {
-            var lines = System.IO.File.ReadAllLines(dynValuesCfg).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
+            var lines = System.IO.File.ReadAllLines(dynValuesCfg, Encoding.GetEncoding("windows-1250")).Select(line => line.Split(new char[] { '\t' }, StringSplitOptions.RemoveEmptyEntries));
             List<string[]> dynValueList = lines.Where(line => line.Length != 0).ToList();
             
             foreach (string[] dynValue in dynValueList)
