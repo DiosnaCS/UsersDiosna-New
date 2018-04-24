@@ -60,6 +60,10 @@
 			<pathCfg2>C:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
 			<subGraphicDir>\valve\</subGraphicDir>
 			<pathGraphicCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
+			<subGraphicDir>\mixer\</subGraphicDir>
+			<pathGraphicCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer.txt</pathGraphicCfg>
+			<subGraphicDir>\stat\</subGraphicDir>
+			<pathGraphicCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat.txt</pathGraphicCfg>
 			<pathSvgCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>

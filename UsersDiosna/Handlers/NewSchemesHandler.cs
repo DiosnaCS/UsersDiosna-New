@@ -127,7 +127,7 @@ namespace UsersDiosna.Handlers
                         if (config.SchemeTags.Exists(p => p.id == responseVar.Id))
                         {
                             var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
-                            foreach (var iterate in svg.Children)
+                            /*foreach (var iterate in svg.Children)
                             {
                                 
                                 if (iterate.ID != null)
@@ -137,13 +137,25 @@ namespace UsersDiosna.Handlers
                                         SvgElement element = iterate.Children[0];
                                         string value = setDynValue(responseVar, dynValueconfig, ref element);
                                         iterate.Children[0].Content = value;
-                                        /*found = (SvgTextSpan)childList.First
-                                            (q => q.ID == responseVar.Id /*&& q.GetType() == typeof(SvgTextSpan));*/
                                         break;
                                     }
                                 }
+                            }*/
+                            SvgTextSpan element;
+                            int i = 0;
+                            while (i<1000) {
+                                string id = responseVar.Id + "#" + i;
+                                if (svg.GetElementById(id) is SvgTextSpan)
+                                {
+                                    element = (SvgTextSpan)svg.GetElementById(id);
+                                    setDynValue(responseVar, dynValueconfig, ref element);
+                                    break;
+                                }
+                                else
+                                {
+                                    i++;
+                                }
                             }
-                            
                         }
                         break;
                     case SchemeType.AgeBar:
@@ -153,16 +165,15 @@ namespace UsersDiosna.Handlers
             return svg;
         }
 
-        private string setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgElement svgElement)
+        private void setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgTextSpan svgElement)
         {
            
             //svg.Children.Remove(element);
             double value = (double)responseValue.value;
             double dValue = (value + dynValueConfig.offset) * dynValueConfig.ratio;
             string newValue =  dValue + dynValueConfig.unit;
-            svgElement.Content = newValue;
+            svgElement.Text = newValue;
             //svg.Nodes.Add(element);
-            return newValue;
         }
 
         /// <summary>

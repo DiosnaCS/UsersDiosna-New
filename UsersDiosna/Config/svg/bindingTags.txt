@@ -10,3 +10,5 @@ textFerm-SF2			usiOperSF2_Step		arWS_norm	SF_Step		Textlist
 textStatus-SF2			usiOperSF2_Status	arWS_norm	status		Textlist
 destNames-textlist		snapshot		snapshot	dest_names	Textlist
 MF1_FlourInput			snapshot		snapshot	valve		GraphicList
+SF2_Mixer			usiSF2_Agit		arWS_norm	mixer		GraphicList
+Common_bAutoSel			bOutdoseTank_AutoSel	arWS_norm	stat		GraphicList

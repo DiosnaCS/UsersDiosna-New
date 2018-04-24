@@ -67,11 +67,11 @@ namespace UsersDiosna.Controllers
 
             SvgDocument newSvg = SvgDocument.Open(pathToNewSvg);
             */
-            svg.
-            var bitmap = svg.Draw();
+            
+            //var bitmap = svg.Draw();
 
-            bitmap.Save(pathToNewSvg, ImageFormat.Png);
-            //ViewBag.SvgXml = svg.GetXML();
+            //bitmap.Save(pathToNewSvg, ImageFormat.Png);
+            ViewBag.SvgXml = svg.GetXML();
             return View();
         }
         #region oldCode
