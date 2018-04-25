@@ -45,7 +45,7 @@ namespace UsersDiosna.Handlers
                             string[] path = Directory.GetFiles(pathCfg.Substring(0, pathCfg.LastIndexOf("\\")) + subDir, mask);
                             if (path.Length == 0)
                             {
-                                throw new Exception();
+                                //throw new Exception();
                             }
                             else
                             {

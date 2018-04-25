@@ -120,6 +120,21 @@ namespace UsersDiosna.Handlers
                 switch(responseVar.Type)
                 {
                     case SchemeType.GraphicList:
+                        var graphiclistConfig = config.SchemeGraphicsList.First(p => p.id == responseVar.Id);
+                        int i = 0;
+                        while (i < 1000)
+                        {
+                            string id = responseVar.Id + "#" + i;
+                            if (svg.GetElementById(id) is SvgTextSpan)
+                            {
+                                var element = (SvgImage)svg.GetElementById(id);
+                                setGraphiclist(responseVar, graphiclistConfig, ref element);
+                            }
+                            else
+                            {
+                                i++;
+                            }
+                        }
                         break;
                     case SchemeType.AgeBarVertical:
                         break; 
@@ -127,24 +142,10 @@ namespace UsersDiosna.Handlers
                         if (config.SchemeTags.Exists(p => p.id == responseVar.Id))
                         {
                             var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
-                            /*foreach (var iterate in svg.Children)
-                            {
-                                
-                                if (iterate.ID != null)
-                                {
-                                    if (iterate.ID.Contains(responseVar.Id))
-                                    {
-                                        SvgElement element = iterate.Children[0];
-                                        string value = setDynValue(responseVar, dynValueconfig, ref element);
-                                        iterate.Children[0].Content = value;
-                                        break;
-                                    }
-                                }
-                            }*/
                             SvgTextSpan element;
-                            int i = 0;
-                            while (i<1000) {
-                                string id = responseVar.Id + "#" + i;
+                            int j = 0;
+                            while (j<1000) {
+                                string id = responseVar.Id + "#" + j;
                                 if (svg.GetElementById(id) is SvgTextSpan)
                                 {
                                     element = (SvgTextSpan)svg.GetElementById(id);
@@ -153,7 +154,7 @@ namespace UsersDiosna.Handlers
                                 }
                                 else
                                 {
-                                    i++;
+                                    j++;
                                 }
                             }
                         }
@@ -174,6 +175,19 @@ namespace UsersDiosna.Handlers
             string newValue =  dValue + dynValueConfig.unit;
             svgElement.Text = newValue;
             //svg.Nodes.Add(element);
+        }
+
+        private void setGraphiclist(ResponseValue responseValue, Graphiclist graphiclistConfig, ref SvgImage svgElement)
+        {           
+            
+            int value = (int)responseValue.value;
+            string path = graphiclistConfig.items[value].path;
+            if (path.Contains(Path.PhysicalPath))
+                path = path.Replace(Path.PhysicalPath, "");
+            var newValue = path;
+
+            svgElement.Href = newValue;
+            
         }
 
         /// <summary>
