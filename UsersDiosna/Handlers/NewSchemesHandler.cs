@@ -120,15 +120,19 @@ namespace UsersDiosna.Handlers
                 switch(responseVar.Type)
                 {
                     case SchemeType.GraphicList:
+                        string  name = config.BindingTags.First(p => p.id == responseVar.Id).name;
+                        string  idG = config.BindingTags.First(p => p.id == responseVar.Id).id;
+                        config.SchemeGraphicsList.First(p => p.name == name).id = idG;
                         var graphiclistConfig = config.SchemeGraphicsList.First(p => p.id == responseVar.Id);
                         int i = 0;
                         while (i < 1000)
                         {
-                            string id = responseVar.Id + "#" + i;
-                            if (svg.GetElementById(id) is SvgTextSpan)
+                             string id = responseVar.Id + "#" + i;
+                            if (svg.GetElementById(id) is SvgImage)
                             {
                                 var element = (SvgImage)svg.GetElementById(id);
                                 setGraphiclist(responseVar, graphiclistConfig, ref element);
+                                break;
                             }
                             else
                             {
@@ -180,11 +184,13 @@ namespace UsersDiosna.Handlers
         private void setGraphiclist(ResponseValue responseValue, Graphiclist graphiclistConfig, ref SvgImage svgElement)
         {           
             
-            int value = (int)responseValue.value;
+            int value = int.Parse(responseValue.value.ToString());
             string path = graphiclistConfig.items[value].path;
-            if (path.Contains(Path.PhysicalPath))
-                path = path.Replace(Path.PhysicalPath, "");
-            var newValue = path;
+            string physicalPathLower = Path.PhysicalPath.ToLowerInvariant();
+            string oldPathLower = path.ToLowerInvariant();
+            if (oldPathLower.Contains(physicalPathLower))
+                oldPathLower = oldPathLower.Replace(physicalPathLower, "");
+            var newValue = oldPathLower;
 
             svgElement.Href = newValue;
             

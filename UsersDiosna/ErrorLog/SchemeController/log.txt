@@ -6,3 +6,5 @@
 6/26/2017 2:14:56 PMCould not find file 'C:\Program Files (x86)\IIS Express\Free zone'.
 6/26/2017 2:14:56 PMCould not find file 'C:\Program Files (x86)\IIS Express\Free zone'.
 6/26/2017 2:14:56 PMCould not find file 'C:\Program Files (x86)\IIS Express\Free zone'.
+5/14/2018 7:51:30 AM1The remote name could not be resolved: 'users.nordit.cz'
+5/14/2018 7:51:30 AM2The remote name could not be resolved: 'users.nordit.cz'
