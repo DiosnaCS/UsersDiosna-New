@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -92,6 +93,7 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public async Task<JsonResult> getData(string json = null)
         {
+            Error.tkStart();
             StreamReader stream = new StreamReader(Request.InputStream);
             if (json == null)
             {
@@ -101,11 +103,13 @@ namespace UsersDiosna.Controllers
             {
                 object data = new object();
                 DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+                Error.tkDebug("GraphController.getData, point1");
                 try
                 {
                     GraphHandler GH = new GraphHandler();
                    
                     DataRequest dataResponse = await GH.proceedSQLquery(dataRequest, config);
+                    Error.tkDebug("GraphController.getData, point2");
                     if ((dataRequest.beginTime + dataRequest.timeAxisLength) <= AlarmHelper.DateTimeTopkTime(DateTime.Now))
                     {
                         if (dataResponse.tags.All(p => p.vals.All(q => (q == double.MaxValue)) == true))

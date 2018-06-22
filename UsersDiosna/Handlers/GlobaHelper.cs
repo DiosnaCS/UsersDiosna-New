@@ -3,6 +3,7 @@ using System.IO;
 using System.Web;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace UsersDiosna
 {
@@ -21,7 +22,7 @@ namespace UsersDiosna
             MvcApplication.ErrorId++;
             if (PathToErrorFile != null)
             {
-                System.IO.File.AppendAllText(PathToErrorFile, timestamp);
+                System.IO.File.AppendAllText(PathToErrorFile, timestamp + " ");
                 System.IO.File.AppendAllText(PathToErrorFile, MvcApplication.ErrorId.ToString()); //set id  of Error
                 System.IO.File.AppendAllText(PathToErrorFile, message);
             }
@@ -49,6 +50,23 @@ namespace UsersDiosna
                 }
             }
         }
+
+        static Stopwatch clock = new Stopwatch();
+        public static void tkDebug(string message) {
+            DateTime now = DateTime.Now;
+            timestamp = now.ToString();
+            string Path = @"c:\Akce\java\TK.log";
+            System.IO.File.AppendAllText(Path, "\r\n" + clock.ElapsedMilliseconds + "ms ");
+            System.IO.File.AppendAllText(Path, timestamp + " ");
+            System.IO.File.AppendAllText(Path, message);
+        }
+
+        public static void tkStart() {
+            string Path = @"c:\Akce\java\TK.log";
+            System.IO.File.AppendAllText(Path, "\r\n" + "-- start --");
+            clock.Start(); //creates and start the instance of Stopwatch
+        }
+
     }
 
     public static class Extension {

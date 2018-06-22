@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>174014</id>
+		<prefix />
+		<country>SU</country>
+		<name>Pagen</name>
+		<description/>
+	</contract>
+
+	<plc name="Surdeg">
+		<scheme name="Overview">		
+                 <url>http://users.nordit.cz/ih2/10720_Pagen/__pic_sch_overview_SUPAG_SUR__</url>
+		</scheme>		
+
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_SUPAG_SUR.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_SUPAG.ini</pathNames>
+		</graph>
+		
+        <alarm name="Alarms">
+			<dbName>Pagen</dbName>
+		</alarm>
+
+		<Download>
+			<path>/Zakazky/0_New/17_rok/174014_SU-Malmo_ML/</path>
+		</Download>
+
+		<Upload>
+			<path>/Zakazky/0_New/17_rok/174014_SU-Malmo_ML/9_Public/</path>
+		<!--	<path>/Zakazky/0_New/17_rok/174014_SU-Malmo_ML/9_Private/</path> -->
+		</Upload>
+
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>

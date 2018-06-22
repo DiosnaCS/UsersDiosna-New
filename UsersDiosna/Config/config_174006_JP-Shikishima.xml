@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<contract>
+		<id>174006</id>
+		<prefix />
+		<country>JP</country>
+		<name>Shikishima</name>
+		<description/>
+	</contract>
+	<plc name="Bread fermentation">	
+		<scheme name="Overview">
+			<url>http://users.nordit.cz/ih2/10690_Shikishima/__pic_sch_overview_JPSHI_WP__</url>
+		</scheme>
+		<graph name="Graphs">
+			<pathConfig>C:\Akce\java\grafy_cfg_JPSHI_WP.ini</pathConfig>
+			<pathNames>C:\Akce\java\grafy_names_JPSHI.ini</pathNames>
+		</graph>		
+		<Download>
+			<path>/Zakazky/0_New/17_rok/174006 JP WzS 2764419-Shikishima-Nagoya/</path>
+		</Download>
+		<Upload>
+			<path>/Zakazky/0_New/17_rok/174006 JP WzS 2764419-Shikishima-Nagoya/9_Public/</path>
+		</Upload>
+		<CMS name="Project Info">
+		</CMS>
+	</plc>
+</configuration>

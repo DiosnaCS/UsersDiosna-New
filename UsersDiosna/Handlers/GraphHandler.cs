@@ -66,6 +66,7 @@ namespace UsersDiosna.Handlers
             string[] Operators = { ">=", "<=" };
             string[] conditions2 = { "'" + pkTimeToUTC(dataRequest.beginTime) + "'", "'" + pkTimeToUTC(dataRequest.beginTime + dataRequest.timeAxisLength) + "'" };
             List<int> tagsPos = new List<int>();
+            List<double> tagMultipliers = new List<double>();
             List<object[]> objects = new List<object[]>();
             foreach (TableDef tabledef in config.TableDefList)
             {
@@ -75,9 +76,19 @@ namespace UsersDiosna.Handlers
                     {
                         columns += " \"" + tag.column + "\",";
                         tagsPos.Add(dataRequest.tags.IndexOf(tag));
+
+                        NameDef nd = cConfig.NameDefList.Find(p => (p.column == tag.column) & (p.table == tag.table));
+                        double rMultiplier = 1.0;
+                        if (nd != null)
+                            rMultiplier = nd.multiplier;
+
+                        tagMultipliers.Add(rMultiplier);
                         period = tag.period;
                         if (tag.vals == null)
                         {
+                            // TK: tady to padalo na deleni nulou 2018-06-20
+                            if (period == 0)
+                                period = 20;        // DODELAT
                             tag.vals = new double[dataRequest.timeAxisLength / period];
                             tag.vals = Extension.Populate(tag.vals, double.MaxValue);
                         }
@@ -116,17 +127,21 @@ namespace UsersDiosna.Handlers
                             dataRequest.errorMessage = error;
                         }
                     }
+
+                    Error.tkDebug("GraphHandler.proceedSQLquery, point10");
                     //readResponse(objects, dataRequest, tagsPos, tabledef);
                     //if (objects.Exists(p => p.Any(q => q.GetType() == typeof(DBNull))) == false) {
-                        readResponseforTable(objects, tagsPos, period, dataRequest, tabledef, tabledef.usePkTime);
+                    readResponseforTable(objects, tagsPos, tagMultipliers, period, dataRequest, tabledef, tabledef.usePkTime);
+                    Error.tkDebug("GraphHandler.proceedSQLquery, point11");
                     //} else
                     //{
-                     //   string k = "contains DBNull in the response";
-                     //   Error.toFile(k, this.GetType().Name.ToString());
+                    //   string k = "contains DBNull in the response";
+                    //   Error.toFile(k, this.GetType().Name.ToString());
                     //}
                 }
                 columns = null;
                 tagsPos.Clear();
+                tagMultipliers.Clear();
             }
             foreach (db connection in openDbList)
             {
@@ -143,7 +158,7 @@ namespace UsersDiosna.Handlers
         /// <param name="rstObjects">result of SQL query</param>
         /// <param name="period">Period of signals in table</param>
         /// <param name="dataRequest">DataRequest</param>
-        private void readResponseforTable(List<object[]> rstObjects, List<int> tagsPos, int period, DataRequest dataRequest, TableDef tabledef,bool usePkTime = false)
+        private void readResponseforTable(List<object[]> rstObjects, List<int> tagsPos, List<double> atagMultipliers, int period, DataRequest dataRequest, TableDef tabledef,bool usePkTime = false)
         {
             int rstPos = 0, buffPos = 0;
             object[] objectsArray;
@@ -183,7 +198,8 @@ namespace UsersDiosna.Handlers
                                 if (vals_agreg[0][j] != DBNull.Value)
                                 {
                                     double value = Convert.ToDouble(vals_agreg[0][j]);
-                                    dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value; //Adding value to response
+                                    double multiplier = atagMultipliers[j - 1];
+                                    dataRequest.tags[tagsPos[j - 1]].vals[buffPos] = value * multiplier; //Adding value to response
                                 }
                             }
                             buffPos++;
