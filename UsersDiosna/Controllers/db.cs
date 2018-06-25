@@ -671,8 +671,10 @@ namespace UsersDiosna.Controllers
                 }
             }
 
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point1");
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point2");
 
             while (await r.ReadAsync())
             {
@@ -689,6 +691,7 @@ namespace UsersDiosna.Controllers
             }
             r.Close();
             cmd.Dispose();
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point3");
             return result;
         }
 

@@ -97,13 +97,13 @@ namespace UsersDiosna.Controllers
                         NewSchemesHandler newSchemesHandler = new NewSchemesHandler();
                         newSchemesHandler.readSchemeConfig(pathSvgCfg);
                     }
-                    if (pathToSvg.Contains(Path.PhysicalPath))
+                    if (pathToSvg.Contains(PathDef.PhysicalPath))
                     {
                         absPathToSvg = pathToSvg;
                     }
                     else
                     {
-                        absPathToSvg = Path.PhysicalPath + pathToSvg;
+                        absPathToSvg = PathDef.PhysicalPath + pathToSvg;
                     }
                     string readText = System.IO.File.ReadAllText(absPathToSvg);
                     svg = SvgDocument.Open(absPathToSvg);
@@ -124,7 +124,7 @@ namespace UsersDiosna.Controllers
                     string svgFileContent = firstSvgPart + "<config>" + ConfigXml + "</config>" + secondSvgPart;*/
                     System.IO.File.Move(absPathToSvg, absPathToSvg + "_old_" + DateTime.Now.Ticks + ".svg");
                     string svgFileContent = SvgXml.Replace("</defs>", ConfigXml + "</defs>");
-                    System.IO.File.WriteAllText(Path.PhysicalPath + pathToSvg, svgFileContent);
+                    System.IO.File.WriteAllText(PathDef.PhysicalPath + pathToSvg, svgFileContent);
 
                 }
                 else

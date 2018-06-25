@@ -63,7 +63,7 @@ namespace UsersDiosna.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
-        //[RequireHttps]    // - zakomentovat pro lokalni ladeni
+       // [RequireHttps]    // - zakomentovat pro lokalni ladeni
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)

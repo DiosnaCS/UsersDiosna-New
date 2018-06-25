@@ -68,8 +68,12 @@ namespace UsersDiosna.Handlers
             List<int> tagsPos = new List<int>();
             List<double> tagMultipliers = new List<double>();
             List<object[]> objects = new List<object[]>();
+
+            Error.TraceLog("GraphHandler.proceedSQLquery, point0");
+
             foreach (TableDef tabledef in config.TableDefList)
             {
+                Error.TraceLog("GraphHandler.proceedSQLquery, point1");
                 foreach (Tag tag in dataRequest.tags)
                 {
                     if (tabledef.shortName == tag.table)
@@ -98,8 +102,8 @@ namespace UsersDiosna.Handlers
                 {
                     columns = columns.Substring(0, columns.Length - 1);
                     db opennedDbConn = openDbList.Find(x => x.dbIdx == tabledef.dbIdx);
-                    
-                    
+                    Error.TraceLog("GraphHandler.proceedSQLquery, point2");
+
                     if (tabledef.usePkTime == true) {
                         long timeTo = dataRequest.beginTime + dataRequest.timeAxisLength;
                         long timeFrom = dataRequest.beginTime;
@@ -128,11 +132,11 @@ namespace UsersDiosna.Handlers
                         }
                     }
 
-                    Error.tkDebug("GraphHandler.proceedSQLquery, point10");
+                    Error.TraceLog("GraphHandler.proceedSQLquery, point5, " + (tabledef.usePkTime ? "pkTime" : "UTC"));
                     //readResponse(objects, dataRequest, tagsPos, tabledef);
                     //if (objects.Exists(p => p.Any(q => q.GetType() == typeof(DBNull))) == false) {
                     readResponseforTable(objects, tagsPos, tagMultipliers, period, dataRequest, tabledef, tabledef.usePkTime);
-                    Error.tkDebug("GraphHandler.proceedSQLquery, point11");
+                    Error.TraceLog("GraphHandler.proceedSQLquery, point6");
                     //} else
                     //{
                     //   string k = "contains DBNull in the response";

@@ -40,9 +40,9 @@ namespace UsersDiosna.Handlers
         /// <returns></returns>
         public SvgConfig readSchemeConfig(string path)
         {
-            if (!path.Contains(Path.PhysicalPath))
+            if (!path.Contains(PathDef.PhysicalPath))
             {
-                path = Path.PhysicalPath + path;
+                path = PathDef.PhysicalPath + path;
             }
             string xmlConfig = System.IO.File.ReadAllText(path);
             SvgConfig svgConfig = new SvgConfig();
@@ -110,9 +110,9 @@ namespace UsersDiosna.Handlers
         }
         public SvgDocument setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
-            if (!pathToSvg.Contains(Path.PhysicalPath))
+            if (!pathToSvg.Contains(PathDef.PhysicalPath))
             { 
-                pathToSvg = Path.PhysicalPath + pathToSvg;
+                pathToSvg = PathDef.PhysicalPath + pathToSvg;
             }
             SvgDocument svg = SvgDocument.Open(pathToSvg);           
             foreach (var responseVar in responseValues)
@@ -182,8 +182,8 @@ namespace UsersDiosna.Handlers
             
             int value = (int)responseValue.value;
             string path = graphiclistConfig.items[value].path;
-            if (path.Contains(Path.PhysicalPath))
-                path = path.Replace(Path.PhysicalPath, "");
+            if (path.Contains(PathDef.PhysicalPath))
+                path = path.Replace(PathDef.PhysicalPath, "");
             var newValue = path;
 
             svgElement.Href = newValue;

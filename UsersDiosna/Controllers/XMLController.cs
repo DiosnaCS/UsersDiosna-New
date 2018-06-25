@@ -9,7 +9,7 @@ namespace UsersDiosna.Controllers
 {
     public class XMLController : Controller
     {
-        public static String path = Path.PhysicalPath + @"\Config";
+        public static String path = PathDef.PhysicalPath + @"\Config";
         List<String> ProjectNames = new List<string>();
         List<int> ProjectNumbers = new List<int>();
         public string[] absoulte_path;

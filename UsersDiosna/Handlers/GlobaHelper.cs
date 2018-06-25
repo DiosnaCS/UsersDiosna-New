@@ -7,7 +7,7 @@ using System.Diagnostics;
 
 namespace UsersDiosna
 {
-    public static class Path
+    public static class PathDef
     {
         public static string PhysicalPath = System.Web.HttpRuntime.AppDomainAppPath;
     }
@@ -20,51 +20,46 @@ namespace UsersDiosna
             DateTime now = DateTime.Now;
             timestamp = "\r\n"  + now.ToString();
             MvcApplication.ErrorId++;
-            if (PathToErrorFile != null)
-            {
-                System.IO.File.AppendAllText(PathToErrorFile, timestamp + " ");
-                System.IO.File.AppendAllText(PathToErrorFile, MvcApplication.ErrorId.ToString()); //set id  of Error
-                System.IO.File.AppendAllText(PathToErrorFile, message);
-            }
-            else {
-                if (Directory.Exists(Path.PhysicalPath + @"\ErroLog") == true &&
-                    Directory.GetDirectories(Path.PhysicalPath, name) != null) {
-                    PathToErrorFile = Path.PhysicalPath + @"\ErrorLog\" + name + @"\log.txt";
-                    if (!System.IO.File.Exists(PathToErrorFile))
-                    {
-                        System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one
-                    }
-                    System.IO.File.AppendAllText(PathToErrorFile, timestamp);
-                    System.IO.File.AppendAllText(PathToErrorFile, MvcApplication.ErrorId.ToString()); //set id  of Error
-                    System.IO.File.AppendAllText(PathToErrorFile, message); //Write Error to file
-                } else {
-                    Directory.CreateDirectory(Path.PhysicalPath + @"\ErrorLog\" + name);//If directory in the path does not exist create one 
-                    PathToErrorFile = Path.PhysicalPath + @"\ErrorLog\" + name + @"\log.txt"; //Asign path to Path attribute
-                    if (!System.IO.File.Exists(PathToErrorFile))
-                    {
-                        System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one
-                    }
-                    System.IO.File.AppendAllText(PathToErrorFile, timestamp);
-                    System.IO.File.AppendAllText(PathToErrorFile, MvcApplication.ErrorId.ToString()); //set id  of Error
-                    System.IO.File.AppendAllText(PathToErrorFile, message); //Write Error to file
-                }
-            }
+
+            // full path to logfile
+            if (PathToErrorFile == null)
+                PathToErrorFile = PathDef.PhysicalPath + @"\ErrorLog\" + name + @"\log.txt";
+
+            // create all directories if necessary
+            string dirName = Path.GetDirectoryName(PathToErrorFile);
+            Directory.CreateDirectory(dirName);
+
+            // log it
+            System.IO.File.AppendAllText(PathToErrorFile, timestamp + " ");
+            System.IO.File.AppendAllText(PathToErrorFile, MvcApplication.ErrorId.ToString()); //set id  of Error
+            System.IO.File.AppendAllText(PathToErrorFile, message);
         }
 
-        static Stopwatch clock = new Stopwatch();
-        public static void tkDebug(string message) {
+        static Stopwatch clock = null;
+
+        public static void TraceStart() {
+            string fullPath = PathDef.PhysicalPath + @"\ErrorLog\_TK\profile.log";
+
+            // create all directories if necessary
+            string dirName = Path.GetDirectoryName(fullPath);
+            Directory.CreateDirectory(dirName);
+
+            System.IO.File.AppendAllText(fullPath, "\r\n" + "-- start --");
+            clock = Stopwatch.StartNew(); //create and start the instance of Stopwatch
+        }
+
+        public static void TraceLog(string message) {
+            string fullPath = PathDef.PhysicalPath + @"\ErrorLog\_TK\profile.log";
+
+            // create all directories if necessary
+            string dirName = Path.GetDirectoryName(fullPath);
+            Directory.CreateDirectory(dirName);
+
             DateTime now = DateTime.Now;
             timestamp = now.ToString();
-            string Path = @"c:\Akce\java\TK.log";
-            System.IO.File.AppendAllText(Path, "\r\n" + clock.ElapsedMilliseconds + "ms ");
-            System.IO.File.AppendAllText(Path, timestamp + " ");
-            System.IO.File.AppendAllText(Path, message);
-        }
-
-        public static void tkStart() {
-            string Path = @"c:\Akce\java\TK.log";
-            System.IO.File.AppendAllText(Path, "\r\n" + "-- start --");
-            clock.Start(); //creates and start the instance of Stopwatch
+            System.IO.File.AppendAllText(fullPath, "\r\n" + clock.ElapsedMilliseconds + "ms ");
+            System.IO.File.AppendAllText(fullPath, timestamp + " ");
+            System.IO.File.AppendAllText(fullPath, message);
         }
 
     }

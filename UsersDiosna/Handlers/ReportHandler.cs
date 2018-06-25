@@ -11,7 +11,7 @@ namespace UsersDiosna
 {
     public class ReportHandler
     {
-        private static string path = Path.PhysicalPath + @"\Config";
+        private static string path = PathDef.PhysicalPath + @"\Config";
         public Dictionary<int, string> getTanknames(int congirationNumber = 1)
         {
             XmlDocument xml = new XmlDocument();
