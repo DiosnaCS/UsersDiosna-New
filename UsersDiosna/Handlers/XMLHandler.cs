@@ -9,7 +9,7 @@ namespace UsersDiosna
 {
     public class XMLHandler
     {
-        public static String path = Path.PhysicalPath + @"\Config";
+        public static String path = PathDef.PhysicalPath + @"\Config";
 
         public static List<String> readTag(String tag, int ProjectNumber)
         {

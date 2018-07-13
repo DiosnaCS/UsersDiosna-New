@@ -302,6 +302,7 @@ namespace UsersDiosna.Graph.Models
         public string column { get; set; }
         public string[] fullNames { get; set; }
         public List<string> units { get; set; }
+        public double multiplier = 1.0;
     }
     public class NameDefinition {
         

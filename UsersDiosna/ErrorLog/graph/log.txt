@@ -324,3 +324,9 @@ Parameter name: sourceSystem.Core   at System.Linq.Enumerable.All[TSource](IEnum
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStepImpl(IExecutionStep step)
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+25.6.2018 16:57:17 1Odkaz na objekt není nastaven na instanci objektu.UsersDiosna   v UsersDiosna.Handlers.GraphHandler.<proceedSQLquery>d__9.MoveNext()
+--- Konec trasování zásobníku z předchozího místa, ze kterého byla vyvolána výjimka ---
+   v System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   v System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   v System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   v UsersDiosna.Controllers.GraphController.<getData>d__7.MoveNext()

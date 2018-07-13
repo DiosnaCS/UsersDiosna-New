@@ -14,10 +14,10 @@ namespace UsersDiosna.CMS.Models
         /// </summary>
         public List<SelectListItem> Ids { get; set; }
 
-        [Required(ErrorMessage = "Bakery is required")]
+        [Required(ErrorMessage = "Date is required")]
         [DataType(DataType.DateTime)]
-        [Display(Name = "For bakery")]
-        public DateTime Date { get; set; }
+        [Display(Name = "Article created")]
+        public DateTime? Date { get; set; }
 
         [Required(ErrorMessage = "Bakery is required")]
         [DataType(DataType.Text)]

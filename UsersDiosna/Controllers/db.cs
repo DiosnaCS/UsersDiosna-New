@@ -671,8 +671,10 @@ namespace UsersDiosna.Controllers
                 }
             }
 
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point1");
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
             NpgsqlDataReader r = cmd.ExecuteReader();
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point2");
 
             while (await r.ReadAsync())
             {
@@ -689,6 +691,7 @@ namespace UsersDiosna.Controllers
             }
             r.Close();
             cmd.Dispose();
+            Error.TraceLog("db.multipleItemSelectPostgresAsync, point3");
             return result;
         }
 
@@ -789,10 +792,14 @@ namespace UsersDiosna.Controllers
             /*, (int)Operations.RecipeStart, (int)Operations.Interrupt, (int)Operations.Continue, (int)Operations.StepSkip, (int)Operations.RecipeEnd/*,
                 (int)Operations.DosingOut, (int)Operations.PipWorkCleaning, (int)Operations.Pigging, (int)Operations.FermenterCleaning, (int)Operations.YeastCleaning*/
 
+            // TOMAS
+            if (false) {
+
             //string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"TimeStart\" > {1} AND \"TimeStart\" < {2}", table, from, to);
-            string sql = string.Format("SELECT * FROM \"events\" WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE (\"TimeEnd\" > {1} AND \"TimeStart\" <= {2} AND \"BatchNo\" > 0) GROUP BY \"BatchNo\" ORDER BY \"BatchNo\") ORDER BY \"BatchNo\",\"RecordNo\"", table, from, to);
+            string sql = string.Format("SELECT * FROM \"{0}\" WHERE \"BatchNo\" IN (SELECT \"BatchNo\" FROM {0} WHERE (\"TimeEnd\" > {1} AND \"TimeStart\" <= {2} AND \"BatchNo\" > 0) GROUP BY \"BatchNo\" ORDER BY \"BatchNo\") ORDER BY \"BatchNo\",\"RecordNo\"", table, from, to);
             NpgsqlCommand cmd = new NpgsqlCommand(sql, connection);
-            NpgsqlDataReader r = cmd.ExecuteReader();
+            try {
+                NpgsqlDataReader r = cmd.ExecuteReader();
 
             while (await r.ReadAsync())
             {
@@ -849,7 +856,14 @@ namespace UsersDiosna.Controllers
                 data.events.Add(CGM);
             }
             r.Dispose();
+
+            }
+            catch (Exception e) {
+                int a = 1;
+            }
+
             cmd.Dispose();
+            }
             return data;
         }
 

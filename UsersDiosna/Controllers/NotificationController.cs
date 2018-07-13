@@ -87,6 +87,8 @@ namespace UsersDiosna.Controllers
             {
                 ActiveNotifications = db.Notifications.Where(p => p.Owner == User.Identity.Name).ToList();
             }
+            // TOMAS
+            if (false)
             foreach (Notification notification in ActiveNotifications)
             {
                 if (notification.Active == true)

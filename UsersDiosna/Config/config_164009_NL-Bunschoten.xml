@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <configuration>
 	<contract>
 		<id>164009</id>
@@ -37,10 +37,10 @@
 			<dbName>Bunschoten</dbName>
 		</alarm>
 		<Download>
-			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
+			<path>/Zakazky/0_New/16_rok/164009_NL-Bakkersland_Bunschoten_WheatPredough/</path>
 		</Download>
 		<Upload>
-			<path>\\192.168.2.40\Public\Zakazky\0_New\16_rok\164009_NL-Bakkersland_Bunschoten_WheatPredough\</path>
+			<path>/Zakazky/0_New/16_rok/164009_NL-Bakkersland_Bunschoten_WheatPredough/9_Public/</path>
 		</Upload>
 		<CMS name="Project Info">
 		</CMS>

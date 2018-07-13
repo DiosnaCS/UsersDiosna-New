@@ -1,4 +1,5 @@
-    // globální konstanty
+// ver. 2018-06-21,tk, build03
+// globální konstanty
 
     // globální proměnné
     var fontFamily = "Tahoma",
@@ -516,11 +517,11 @@
       };
     };
 
-    function mouseDown(event) {
+    function mouseDown(evt) {
     var url_e;
     var win;
 
-    event.preventDefault();
+    evt.preventDefault();
 
     mouseIsDown = true;
     
@@ -528,8 +529,8 @@
         canvasOffsetLeft = activeCanvasElement.offset().left;
       };                 
       
-      canX = (event.x-canvasOffsetLeft)+0.5;      
-      canY = (event.y-canvasOffsetTop)+0.5;
+      canX = (evt.x-canvasOffsetLeft)+0.5;      
+      canY = (evt.y-canvasOffsetTop)+0.5;
       
       // oblast grafu
       if ((canX > chartDef[0]["coords"][0]) && (canX < chartDef[0]["coords"][2]) && (canY > chartDef[0]["coords"][1]) && (canY < chartDef[0]["coords"][3])) {
@@ -565,7 +566,7 @@
       };
     };
 
-    function mouseUp() {
+    function mouseUp(evt) {
     
     var zoomLength = 0,
         zoomStartTime,
@@ -575,8 +576,8 @@
         canvasOffsetLeft = activeCanvasElement.offset().left;
       };
       
-      canX = (event.x-canvasOffsetLeft)+0.5;
-      canY = (event.y-canvasOffsetTop)+0.5;
+      canX = (evt.x-canvasOffsetLeft)+0.5;
+      canY = (evt.y-canvasOffsetTop)+0.5;
 
       mouseIsDown = false;
 
@@ -659,13 +660,16 @@
       };      
     };
 
-    function mouseMove() {
+    function mouseMove(evt) {
+      if (!mouseIsDown)  // necessary for Firefox
+          return;
+
       if (bMenuIsHide) {
         canvasOffsetLeft = activeCanvasElement.offset().left;
       };
       
-      canX = (event.x-canvasOffsetLeft)+0.5;
-      canY = (event.y-canvasOffsetTop)+0.5;
+      canX = (evt.x-canvasOffsetLeft)+0.5;
+      canY = (evt.y-canvasOffsetTop)+0.5;
             
       // oblast grafu - souřadnice X
       if ((canX > chartDef[0]["coords"][0]) && (canX < chartDef[0]["coords"][2])) {
@@ -993,8 +997,13 @@
                   dataRequest += ', "period": ' + optTimeStep + '}, ';
                 };
               break;            
-              default :
-                dataRequest += ', "period": ' + optTimeStep + '}, ';            
+                default:
+                    if (optTimeStep < 20) {
+                        dataRequest += ', "period": 20}, ';
+                    }
+                    else {
+                        dataRequest += ', "period": ' + optTimeStep + '}, ';
+                    }
               break;
             };                    
           };

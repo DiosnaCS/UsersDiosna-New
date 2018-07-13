@@ -35,8 +35,8 @@
       { "table": "new2", "column": "iCS1_Pressure",       "fullName_EN": "CS1 pressure",              "fullName_CZ": "CS1 pressure",                      "unit_EN": "Bar",    "unit_CZ": "Bar",       "multiplier": 0.01   },
       { "table": "new2", "column": "rConduct",            "fullName_EN": "CS1 conductivity",          "fullName_CZ": "CS1 conductivity",                  "unit_EN": "mS/cm",  "unit_CZ": "mS/cm",     "multiplier": 1   },
       { "table": "new2", "column": "iPumpSpeed_Feed",     "fullName_EN": "CS1:Push pump speed-curr",  "fullName_CZ": "CS1:Push pump speed-curr",          "unit_EN": "Hz",     "unit_CZ": "Hz",        "multiplier": 0.1   },
-      { "table": "new2", "column": "iPumpSpeed_Feed_Need", "fullName_EN": "CS1:Push pump speed-need", "fullName_CZ": "CS1:Push pump speed-need",          "unit_EN": "Hz",     "unit_CZ": "Hz",        "multiplier": 0.1   },
-      { "table": "new2", "column": "iPumpSpeed_Feed_Diff", "fullName_EN": "CS1:Push pump speed DIFF", "fullName_CZ": "CS1:Push pump speed DIFF",          "unit_EN": "Hz",     "unit_CZ": "Hz",        "multiplier": 0.1   },
+      { "table": "new2", "column": "iPumpSpeed_Feed_Need", "fullName_EN": "CS1:Push pump speed-need",  "fullName_CZ": "CS1:Push pump speed-need",          "unit_EN": "Hz",     "unit_CZ": "Hz",        "multiplier": 0.1   },
+      { "table": "new2", "column": "iPumpSpeed_Feed_Diff", "fullName_EN": "CS1:Push pump speed DIFF",  "fullName_CZ": "CS1:Push pump speed DIFF",          "unit_EN": "Hz",     "unit_CZ": "Hz",        "multiplier": 0.1   },
       { "table": "new2", "column": "diAgentA_Mass",       "fullName_EN": "CS1:AgentA mass(deterg)",   "fullName_CZ": "CS1:AgentA mass(deterg)",           "unit_EN": "kg",     "unit_CZ": "kg",        "multiplier": 0.001   },
       { "table": "new2", "column": "diAgentB_Mass",       "fullName_EN": "CS1:AgentB mass(disinf)",   "fullName_CZ": "CS1:AgentB mass(disinf)",           "unit_EN": "kg",     "unit_CZ": "kg",        "multiplier": 0.001   },
 
@@ -6793,7 +6793,12 @@
             "maxY": 5000,
             "relSize": 6,
             "signal": [
-              {"type": "analog",                "table": "norm",                "column": "diSF1_Weight",                "color": "#00A2E8",                "decimal": 1              }
+              {"type": "analog",                "table": "norm",                "column": "diPF1_Weight",                "color": "#00A2E8",                "decimal": 1              },
+              {"type": "analog",                "table": "norm",                "column": "diSF1_Weight",                "color": "#FF0000",                "decimal": 1              },
+              {"type": "analog",                "table": "norm",                "column": "diSF2_Weight",                "color": "#FFFF00",                "decimal": 1              },
+              {"type": "analog",                "table": "norm",                "column": "diSF3_Weight",                "color": "#00FF00",                "decimal": 1              },
+              {"type": "analog",                "table": "norm",                "column": "diSF4_Weight",                "color": "#00FFFF",                "decimal": 1              },
+              {"type": "analog",                "table": "norm",                "column": "diSF5_Weight",                "color": "#FF00FF",                "decimal": 1              }
             ]
           },
           {
@@ -6801,13 +6806,130 @@
             "maxY": 1000,
             "relSize": 5,
             "signal": [
-              {"type": "analog",                "table": "new2",                "column": "diCS1_Mass",                "color": "#FF0000",                "decimal": 2              }
+              {"type": "analog",                "table": "new2",                "column": "diCS1_Mass",                "color": "#FF0000",                "decimal": 2              },
+              {"type": "analog",                "table": "new2",                "column": "diCS1_Flow",                "color": "#FF00FF",                "decimal": 0              }
+            ]
+          },
+          {
+            "minY": 0,
+            "maxY": 20,
+            "relSize": 3,
+            "signal": [
+              {"type": "analog",                "table": "new2",                "column": "iCS1_Pressure",                "color": "#FF0000",                "decimal": 1              },
+              {"type": "analog",                "table": "new2",                "column": "rConduct",                "color": "#FFFF00",                "decimal": 3              }
+            ]
+          },
+          {
+            "minY": 0,
+            "maxY": 70,
+            "relSize": 3,
+            "signal": [
+              {"type": "analog",                "table": "new2",                "column": "iPumpSpeed_Feed",                "color": "#FF00FF",                "decimal": 1              },
+              {"type": "analog",                "table": "new2",                "column": "iPumpSpeed_Feed_Need",           "color": "#FFFF00",                "decimal": 1              },
+              {"type": "analog",                "table": "new2",                "column": "iPumpSpeed_Feed_Diff",           "color": "#00FFFF",                "decimal": 1              }
+            ]
+          },
+          {
+            "minY": 0,
+            "maxY": 5,
+            "relSize": 3,
+            "signal": [
+              {"type": "analog",                "table": "new2",                "column": "diAgentA_Mass",                "color": "#FF00FF",                "decimal": 2              },
+              {"type": "analog",                "table": "new2",                "column": "diAgentB_Mass",                "color": "#FFFF00",                "decimal": 2              },
+              {"type": "analog",                "table": "new2",                "column": "bits_bPumpON_Return",                "color": "#FFFFFF",                "decimal": 0              }
+            ]
+          },
+          {
+            "type": "alarms",
+            "minY": 0,
+            "maxY": 0,
+            "relSize": 2,
+            "signal": [
+              {
+                "type": "alarm",
+                "alarmFilter": "all"
+              }
             ]
           }
         ]
-      }
+      },
 
- 
+      {
+            "name_EN": "CIP-Recipes",
+            "name_CZ": "CIP-Recipes",
+            "defLang": "EN",
+            "field": [
+                {
+                    "minY": 0,
+                    "maxY": 400,
+                    "relSize": 6,
+                    "signal": [
+                        { "type": "analog", "table": "new2",   "column": "CipTank_iRcpNo",       "color": "#00A2E8",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipTank_iRcpType",     "color": "#FF0000",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipTank_iTank",        "color": "#FFFF00",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipTank_iStep",        "color": "#00FF00",    "decimal": 0 }
+                    ]
+                },
+
+                {
+                    "minY": 0,
+                    "maxY": 400,
+                    "relSize": 6,
+                    "signal": [
+                        { "type": "analog", "table": "new2",   "column": "CipSeq_iRcpNo",    "color": "#00A2E8",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipSeq_iStep",     "color": "#FF0000",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipSeq_iStatus",   "color": "#FFFF00",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipSeq_iQuestion", "color": "#00FF00",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipSeq_iAnswer",   "color": "#00FFFF",    "decimal": 0 }
+                    ]
+                },
+
+                {
+                    "minY": 0,
+                    "maxY": 400,
+                    "relSize": 6,
+                    "signal": [
+                        { "type": "analog", "table": "new2",   "column": "CipPipe1_iRcpNo",   "color": "#00A2E8",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe1_iRcpType", "color": "#FF0000",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe1_iStep",    "color": "#FFFF00",    "decimal": 0 }
+                    ]
+                },
+
+                {
+                    "minY": 0,
+                    "maxY": 400,
+                    "relSize": 6,
+                    "signal": [
+                        { "type": "analog", "table": "new2",   "column": "CipPipe2_iRcpNo",   "color": "#00A2E8",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe2_iRcpType", "color": "#FF0000",    "decimal": 0 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe2_iStep",    "color": "#FFFF00",    "decimal": 0 }
+                    ]
+                },
+
+                {
+                    "minY": 0,
+                    "maxY": 800,
+                    "relSize": 6,
+                    "signal": [
+                        { "type": "analog", "table": "new2",   "column": "CipTank_diNeed",      "color": "#00A2E8",    "decimal": 1 },
+                        { "type": "analog", "table": "new2",   "column": "CipTank_diDone",      "color": "#FF0000",    "decimal": 1 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe1_diNeed",     "color": "#FFFF00",    "decimal": 1 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe1_diDone",     "color": "#00FF00",    "decimal": 1 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe2_diNeed",     "color": "#00FFFF",    "decimal": 1 },
+                        { "type": "analog", "table": "new2",   "column": "CipPipe2_diDone",     "color": "#FF00FF",    "decimal": 1 } 
+                    ]
+                },
+
+                {
+                    "type": "alarms", "minY": 0, "maxY": 0, "relSize": 2,
+                    "signal": [
+                        {
+                        "type": "alarm",    "alarmFilter": "all"
+                        }
+                  ]
+                }
+            ]
+        }
     
     
     ]

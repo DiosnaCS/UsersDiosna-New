@@ -57,9 +57,9 @@ namespace UsersDiosna.Controllers
                 //read all dynamic members 
                 elements = schemesHandler.readScheme(pathToSvg, svgConfig);
             */
-            if (!pathToSvg.Contains(Path.PhysicalPath))
+            if (!pathToSvg.Contains(PathDef.PhysicalPath))
             {
-                pathToSvg = Path.PhysicalPath + pathToSvg;
+                pathToSvg = PathDef.PhysicalPath + pathToSvg;
             }
             string pathToNewSvg = pathToSvg + "_scheme_" + DateTime.Now.Ticks + ".png";
             //System.IO.File.Create(pathToNewSvg);

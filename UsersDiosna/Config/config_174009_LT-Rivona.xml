@@ -66,7 +66,7 @@
 			<url>http://users.nordit.cz/ih2/10730_Lieken/__pic_sch_AK2_operation_LTRIV_AR__</url>
 		</scheme>
     <graph name="Graphs">
-    	<pathConfig>C:\Akce\java\grafy_cfg_LTRIV_AR.ini</pathConfig>
+    	<pathConfig>C:\Akce\java\grafy_cfg_LTRIV_AR.ini</pathConfig>   <!-- bere se jen za poslednim lomitkem a prida se prefix - jmeno zakazky -->
     	<pathNames>C:\Akce\java\grafy_names_LTRIV_AR.ini</pathNames>
     </graph>    
     <alarm name="Alarms">
@@ -78,5 +78,18 @@
         <tableName>AR_events</tableName>
         <congirationNumber>3</congirationNumber>
     </Report>
+
+		<SchemeEditor>
+			<pathScheme>\Config\svg_174009_LT-Rivona\overview.svg</pathScheme>
+			<dynValuesCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
+			<bindingTagsCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\bindingTags.txt</bindingTagsCfg>
+			<ageBarsCfgPath>c:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
+			<pathCfg1>c:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
+			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
+			<subGraphicDir>\valve\</subGraphicDir>
+			<pathGraphicCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
+			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+		</SchemeEditor>
   </plc>
 </configuration>
