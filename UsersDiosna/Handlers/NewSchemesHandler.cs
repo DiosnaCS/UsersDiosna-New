@@ -19,12 +19,12 @@ namespace UsersDiosna.Handlers
         {
             //path to data for this day
             string pathForThisDay;
-            if (Path.PhysicalPath.EndsWith(@"\"))
+            if (PathDef.PhysicalPath.EndsWith(@"\"))
             {
-                pathForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+                pathForThisDay = PathDef.PhysicalPath + DateTime.Now.ToShortDateString();
             } else
             {
-                pathForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
+                pathForThisDay = PathDef.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
             }
 
             if (Directory.Exists(pathForThisDay) == false)
@@ -79,13 +79,13 @@ namespace UsersDiosna.Handlers
         {
             Snapshot snapshot = new Snapshot();
             string pathToDataForThisDay;
-            if (Path.PhysicalPath.EndsWith(@"\"))
+            if (PathDef.PhysicalPath.EndsWith(@"\"))
             {
-                pathToDataForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+                pathToDataForThisDay = PathDef.PhysicalPath + DateTime.Now.ToShortDateString();
             }
             else
             {
-                pathToDataForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
+                pathToDataForThisDay = PathDef.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
             }
 
             RequestValue value = new RequestValue();
@@ -209,9 +209,9 @@ namespace UsersDiosna.Handlers
 
         public SvgDocument setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
-            if (!pathToSvg.Contains(Path.PhysicalPath))
+            if (!pathToSvg.Contains(PathDef.PhysicalPath))
             {
-                pathToSvg = Path.PhysicalPath + pathToSvg;
+                pathToSvg = PathDef.PhysicalPath + pathToSvg;
             }
             SvgDocument svg = SvgDocument.Open(pathToSvg);
             foreach (var responseVar in responseValues)
