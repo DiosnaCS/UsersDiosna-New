@@ -6,9 +6,17 @@ using Svg;
 using System.Drawing;
 using System.Xml.Serialization;
 using System;
+using VizuLibrabrarySnapshotVals;
 
 namespace UsersDiosna.Sheme.Models
 {
+    public class Snapshot
+    {
+        public DateTime TimeOfStorage { get; set; }
+        public List<RequestValue> SnapshotValues { get; set; }
+    }
+
+
     public class SchemeEditor
     {
         public string relativePath { get; set; }

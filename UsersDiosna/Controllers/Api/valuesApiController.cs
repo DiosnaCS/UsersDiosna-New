@@ -53,7 +53,8 @@ namespace UsersDiosna.Controllers.Api
                 if (list.Count != 0)
                 {
                     NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                    data = await schemesHandler.putSnapshotDataIntoFile(list, projectId, pkTime);
+                        schemesHandler.putSnapshotDataIntoFile(list, projectId, pkTime);
+                        schemesHandler.SaveSnapshot(list, projectId, pkTime);
                 }
                 }
                 else

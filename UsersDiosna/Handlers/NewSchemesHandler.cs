@@ -4,9 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Xml.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using UsersDiosna.Controllers;
 using UsersDiosna.Sheme.Models;
@@ -16,25 +14,124 @@ namespace UsersDiosna.Handlers
 {
     public class NewSchemesHandler
     {
-        public async Task<object> putSnapshotDataIntoFile
-            (List<RequestValue> list, int projectId = 0, int pkTime = 0)
+        public void putSnapshotDataIntoFile
+            (List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
         {
-            object data = new object();
-            List<string> dbNames = XMLHandler.readTag("dbName", projectId);
-            /*db db = new db(dbNames[0], 12);
-            foreach (var schemeValue in list)
+            //path to data for this day
+            string pathForThisDay;
+            if (Path.PhysicalPath.EndsWith(@"\"))
             {
-                object value = db.singleItemSelectPostgres(schemeValue.columnName, schemeValue.tableName, null);
-                ResponseValue responseValue = new ResponseValue();
-                responseValue.tableName = schemeValue.tableName;
-                responseValue.columnName = schemeValue.columnName;
-                responseValue.value = value;
-                responseList.Add(responseValue);
+                pathForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+            } else
+            {
+                pathForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
             }
-            db.connection.Close();*/
-            // data = responseList;
-            return data;
+
+            if (Directory.Exists(pathForThisDay) == false)
+            {
+                //creates directory for this day
+                Directory.CreateDirectory(pathForThisDay);
+            }
+
+            //solve path for this project
+            string pathForthisProjectAndDay;
+            if (projectId != 0)
+            {
+                pathForthisProjectAndDay = pathForThisDay + @"\" + projectId;
+            }
+            else
+            {
+                pathForthisProjectAndDay = pathForThisDay + @"\unknownProject";
+            }
+
+            if (Directory.Exists(pathForthisProjectAndDay) == false)
+            {
+                //creates directory for this project
+                Directory.CreateDirectory(pathForthisProjectAndDay);
+            }
+
+            string dataPath = pathForthisProjectAndDay + @"\data.bin";
+            if (System.IO.File.Exists(dataPath) == false)
+            {
+                System.IO.File.Create(dataPath);
+            }
+            Snapshot snapshot = new Snapshot();
+            snapshot.TimeOfStorage = DateTime.Now;
+            snapshot.SnapshotValues = snapshotValues;
+
+            //serialize and write data into file
+            BinaryFormatter binFormatter = new BinaryFormatter();
+            //if (pkTime != 0)
+            //{
+            //    binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), pkTime);
+            //}
+            binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), snapshot);
         }
+
+        public void SaveSnapshot(List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
+        {
+            Snapshot snapshot = new Snapshot();
+            snapshot.TimeOfStorage = DateTime.Now;
+            snapshot.SnapshotValues = snapshotValues;
+        }
+
+        private ResponseValue getDataFromSnapshot(SchemeValue tag, int projectId)
+        {
+            Snapshot snapshot = new Snapshot();
+            string pathToDataForThisDay;
+            if (Path.PhysicalPath.EndsWith(@"\"))
+            {
+                pathToDataForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+            }
+            else
+            {
+                pathToDataForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
+            }
+
+            RequestValue value = new RequestValue();
+            if (System.IO.File.Exists(pathToDataForThisDay))
+            {
+                string pathToDataForThisDayAndThisProject = pathToDataForThisDay + @"\" + projectId;
+                if (System.IO.File.Exists(pathToDataForThisDayAndThisProject) == true)
+                {
+                    FileStream fileStreamOfBinData = System.IO.File.OpenRead(pathToDataForThisDayAndThisProject + @"\data.bin");
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    snapshot = (Snapshot)binaryFormatter.Deserialize(fileStreamOfBinData);
+                    //here should be only one element
+                    value = snapshot.SnapshotValues.First(p => p.columnName == tag.columnName && p.tableName == tag.tableName);
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                Error.toFile("Warning no data found on : " +
+                    DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString(), this.GetType().ToString());
+            }
+
+            ResponseValue responseValue = new ResponseValue();
+            
+            if (value.sValue != null)
+            {
+                responseValue.value = value.sValue;
+            }
+            else
+            {
+                responseValue.value = 0;
+                if(value.rValue != 0)
+                {
+                    responseValue.value = value.rValue;
+                }
+                if(value.iValue != 0)
+                {
+                    responseValue.value = value.iValue;
+                }
+            }
+            return responseValue;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -109,10 +206,6 @@ namespace UsersDiosna.Handlers
             return null;
         }
 
-        private void getDataFromSnapshot(SchemeValue tag, int projectId)
-        {
-            throw new NotImplementedException();
-        }
 
         public SvgDocument setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
