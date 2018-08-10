@@ -1,4 +1,4 @@
-﻿using Svg;
+using Svg;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -138,9 +138,9 @@ namespace UsersDiosna.Handlers
         /// <returns></returns>
         public SvgConfig readSchemeConfig(string path)
         {
-            if (!path.Contains(Path.PhysicalPath))
+            if (!path.Contains(PathDef.PhysicalPath))
             {
-                path = Path.PhysicalPath + path;
+                path = PathDef.PhysicalPath + path;
             }
             string xmlConfig = System.IO.File.ReadAllText(path);
             SvgConfig svgConfig = new SvgConfig();
@@ -416,11 +416,9 @@ namespace UsersDiosna.Handlers
         {           
             int value = int.Parse(responseValue.value.ToString());
             string path = graphiclistConfig.items[value].path;
-            string physicalPathLower = Path.PhysicalPath.ToLowerInvariant();
-            string oldPathLower = path.ToLowerInvariant();
-            if (oldPathLower.Contains(physicalPathLower))
-                oldPathLower = oldPathLower.Replace(physicalPathLower, "");
-            var newValue = oldPathLower;
+            if (path.Contains(PathDef.PhysicalPath))
+                path = path.Replace(PathDef.PhysicalPath, "");
+            var newValue = path;
 
             svgElement.Href = newValue;
         }

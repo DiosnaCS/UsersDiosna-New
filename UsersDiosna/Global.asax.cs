@@ -74,49 +74,47 @@ namespace UsersDiosna
         protected void Application_Error()
         {
             Exception e =Server.GetLastError();
-            string PathToErrorFile = UsersDiosna.Error.PathToErrorFile;
-            DateTime now = DateTime.Now;
+
             ErrorId++;
+            string Path = UsersDiosna.Error.PathToErrorFile;
+
+            DateTime now = DateTime.Now;
             string timestamp = "\r\n" + now.ToString();
-            if (PathToErrorFile != null)
+
+            if (Path != null)
             {
-                System.IO.File.AppendAllText(PathToErrorFile, timestamp);
-                System.IO.File.AppendAllText(PathToErrorFile, ErrorId.ToString()); //set id  of Error
-                System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString());
-                System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                Session["tempforview"] = timestamp + "    Error Id:" + ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                ; //x
             }
             else
             {
-                if (Directory.Exists(Path.PhysicalPath + @"\ErroLog") == true &&
-                    Directory.GetDirectories(Path.PhysicalPath, e.Source.ToString()) != null)
+                if (Directory.Exists(UsersDiosna.PathDef.PhysicalPath + @"\ErroLog") == true &&
+                    Directory.GetDirectories(UsersDiosna.PathDef.PhysicalPath, e.Source.ToString()) != null)
                 {
-                    PathToErrorFile = Path.PhysicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt";
-                    if (!System.IO.File.Exists(PathToErrorFile))
+                    Path = UsersDiosna.PathDef.PhysicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt";
+                    if (!System.IO.File.Exists(Path))
                     {
-                        System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one
+                        System.IO.File.Create(Path).Close(); //If log.txt does not exist create one
                     }
-                    System.IO.File.AppendAllText(PathToErrorFile, timestamp);
-                    System.IO.File.AppendAllText(PathToErrorFile, ErrorId.ToString()); //set id  of Error
-                    System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString()); //Write Error to file
-                    System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                    Session["tempforview"] = timestamp + "    Error Id:" + ErrorId.ToString() + " occured so please try it again after some time";//To screen also with id 
+                    ; //x
                 }
                 else
                 {
-                    Directory.CreateDirectory(Path.PhysicalPath + @"\ErrorLog\" + e.Source.ToString());//If directory in the path does not exist create one 
-                    PathToErrorFile = Path.PhysicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt"; //Asign path to Path attribute
-                    if (!System.IO.File.Exists(PathToErrorFile))
+                    Directory.CreateDirectory(UsersDiosna.PathDef.PhysicalPath + @"\ErrorLog\" + e.Source.ToString());//If directory in the path does not exist create one 
+                    Path = UsersDiosna.PathDef.PhysicalPath + @"\ErrorLog\" + e.Source.ToString() + @"\log.txt"; //Asign path to Path attribute
+                    if (!System.IO.File.Exists(Path))
                     {
-                        System.IO.File.Create(PathToErrorFile).Close(); //If log.txt does not exist create one
+                        System.IO.File.Create(Path).Close(); //If log.txt does not exist create one
                     }
-                    System.IO.File.AppendAllText(PathToErrorFile, timestamp);
-                    System.IO.File.AppendAllText(PathToErrorFile, ErrorId.ToString()); //set id  of Error
-                    System.IO.File.AppendAllText(PathToErrorFile, e.Message.ToString()); //Write Error to file
-                    System.IO.File.AppendAllText(PathToErrorFile, e.StackTrace.ToString()); //Write Error to file
-                    Session["tempforview"] = timestamp + "    Error Id:" + ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
+                    ; //x
                 }
             }
+
+            System.IO.File.AppendAllText(Path, timestamp);
+            System.IO.File.AppendAllText(Path, ErrorId.ToString()); //set id  of Error
+            System.IO.File.AppendAllText(Path, e.Message.ToString());
+            System.IO.File.AppendAllText(Path, e.StackTrace.ToString()); //Write Error to file
+            Session["tempforview"] = timestamp + "    Error Id:" + ErrorId.ToString() + " occured so please try it again after some time"; //To screen also with id 
+
             Server.ClearError();
         }
     }

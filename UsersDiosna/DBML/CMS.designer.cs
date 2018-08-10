@@ -323,7 +323,7 @@ namespace UsersDiosna.DBML
 		
 		private System.Nullable<long> _SectionId;
 		
-		private System.DateTime _DateTimeOrigin;
+		private System.Nullable<System.DateTime> _DateTimeOrigin;
 		
 		private EntityRef<Section> _Section;
 		
@@ -353,7 +353,7 @@ namespace UsersDiosna.DBML
     partial void OnDescriptionChanged();
     partial void OnSectionIdChanging(System.Nullable<long> value);
     partial void OnSectionIdChanged();
-    partial void OnDateTimeOriginChanging(System.DateTime value);
+    partial void OnDateTimeOriginChanging(System.Nullable<System.DateTime> value);
     partial void OnDateTimeOriginChanged();
     #endregion
 		
@@ -588,7 +588,7 @@ namespace UsersDiosna.DBML
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTimeOrigin", AutoSync=AutoSync.Always)]
-		public System.DateTime DateTimeOrigin
+		public System.Nullable<System.DateTime> DateTimeOrigin
 		{
 			get
 			{

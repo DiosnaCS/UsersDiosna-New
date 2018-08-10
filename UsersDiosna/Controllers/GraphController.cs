@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,10 +25,10 @@ namespace UsersDiosna.Controllers
         {
             string path;
             if (pathConfig == null && pathNames == null && projectName == null) {
-                path = Path.PhysicalPath + @"\JSONconfig\" + Session["ProjectName"].ToString() + "_" + Session["pathConfig"].ToString().Substring(Session["pathConfig"].ToString().LastIndexOf(@"\") + 1) + ".json";
+                path = PathDef.PhysicalPath + @"\JSONconfig\" + Session["ProjectName"].ToString() + "_" + Session["pathConfig"].ToString().Substring(Session["pathConfig"].ToString().LastIndexOf(@"\") + 1) + ".json";
             }
             else {
-                path = Path.PhysicalPath + @"\JSONconfig\" + projectName + "_" + pathConfig.Substring(pathConfig.LastIndexOf(@"\") + 1) + ".json";
+                path = PathDef.PhysicalPath + @"\JSONconfig\" + projectName + "_" + pathConfig.Substring(pathConfig.LastIndexOf(@"\") + 1) + ".json";
             }
             string json;
             
@@ -58,7 +59,7 @@ namespace UsersDiosna.Controllers
                     Iniparser.FindTableName(config); //Only to find missing(all are missing) tableName
                 }
                 json = config.toJSON(config);
-                Directory.CreateDirectory(Path.PhysicalPath + @"\JSONconfig");
+                Directory.CreateDirectory(PathDef.PhysicalPath + @"\JSONconfig");
                 System.IO.File.WriteAllText(path, json);
             }
             if (pathConfig == null && pathNames == null && projectName == null)
@@ -92,6 +93,12 @@ namespace UsersDiosna.Controllers
         [HttpPost]
         public async Task<JsonResult> getData(string json = null)
         {
+            Error.TraceStart();
+            string controllerName = this.ControllerContext.RouteData.Values["controller"].ToString();
+            //Error.TraceLog("GraphController.getData, point1");
+
+
+
             StreamReader stream = new StreamReader(Request.InputStream);
             if (json == null)
             {
@@ -101,11 +108,13 @@ namespace UsersDiosna.Controllers
             {
                 object data = new object();
                 DataRequest dataRequest = new JavaScriptSerializer().Deserialize<DataRequest>(json);
+                Error.TraceLog("GraphController.getData, point1");
                 try
                 {
                     GraphHandler GH = new GraphHandler();
                    
                     DataRequest dataResponse = await GH.proceedSQLquery(dataRequest, config);
+                    Error.TraceLog("GraphController.getData, point2");
                     if ((dataRequest.beginTime + dataRequest.timeAxisLength) <= AlarmHelper.DateTimeTopkTime(DateTime.Now))
                     {
                         if (dataResponse.tags.All(p => p.vals.All(q => (q == double.MaxValue)) == true))
@@ -117,6 +126,7 @@ namespace UsersDiosna.Controllers
                         }
                     }
                     data = dataResponse;
+                    Error.TraceLog("GraphController.getData, point3");
                     return Json(data, "application/json", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception e)

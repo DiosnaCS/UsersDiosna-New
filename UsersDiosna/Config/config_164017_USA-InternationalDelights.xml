@@ -49,22 +49,22 @@
 		</CMS>
 		<NewSchemes>
 			<pathScheme>\Config\svg\overview.svg</pathScheme>
-         		<pathSvgCfg>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+         		<pathSvgCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</NewSchemes>
 		<SchemeEditor>
 			<pathScheme>\Config\svg\overview.svg</pathScheme>
-			<dynValuesCfg>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
-			<bindingTagsCfg>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\bindingTags.txt</bindingTagsCfg>
-			<ageBarsCfgPath>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
-			<pathCfg1>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
-			<pathCfg2>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\status.txt</pathCfg2>
+			<dynValuesCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\dynVals.txt</dynValuesCfg>
+			<bindingTagsCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\bindingTags.txt</bindingTagsCfg>
+			<ageBarsCfgPath>C:\Akce\Source-Repos\UsersDiosna\Config\svg\ageBar.txt</ageBarsCfgPath>
+			<pathCfg1>C:\Akce\Source-Repos\UsersDiosna\Config\svg\dest_names.txt</pathCfg1>
+			<pathCfg2>C:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
 			<subGraphicDir>\valve\</subGraphicDir>
-			<pathGraphicCfg>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
+			<pathGraphicCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
 			<subGraphicDir2>\mixer\</subGraphicDir2>
-			<pathGraphicCfg2>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer.txt</pathGraphicCfg2>
+			<pathGraphicCfg2>C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer.txt</pathGraphicCfg2>
 			<subGraphicDir3>\stat\</subGraphicDir3>
-			<pathGraphicCfg3>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\stat.txt</pathGraphicCfg3>
-			<pathSvgCfg>C:\Users\Admin\Source\Repos\UsersDiosna-New\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+			<pathGraphicCfg3>C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat.txt</pathGraphicCfg3>
+			<pathSvgCfg>C:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
 	</plc>
 </configuration>
