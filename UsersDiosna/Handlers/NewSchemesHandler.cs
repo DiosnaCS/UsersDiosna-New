@@ -1,11 +1,10 @@
-﻿using Svg;
+using Svg;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using System.Xml.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 using UsersDiosna.Controllers;
 using UsersDiosna.Sheme.Models;
@@ -15,25 +14,124 @@ namespace UsersDiosna.Handlers
 {
     public class NewSchemesHandler
     {
-        public async Task<object> putSnapshotDataIntoFile
-            (List<RequestValue> list, int projectId = 0, int pkTime = 0)
+        public void putSnapshotDataIntoFile
+            (List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
         {
-            object data = new object();
-            List<string> dbNames = XMLHandler.readTag("dbName", projectId);
-            /*db db = new db(dbNames[0], 12);
-            foreach (var schemeValue in list)
+            //path to data for this day
+            string pathForThisDay;
+            if (Path.PhysicalPath.EndsWith(@"\"))
             {
-                object value = db.singleItemSelectPostgres(schemeValue.columnName, schemeValue.tableName, null);
-                ResponseValue responseValue = new ResponseValue();
-                responseValue.tableName = schemeValue.tableName;
-                responseValue.columnName = schemeValue.columnName;
-                responseValue.value = value;
-                responseList.Add(responseValue);
+                pathForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+            } else
+            {
+                pathForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
             }
-            db.connection.Close();*/
-            // data = responseList;
-            return data;
+
+            if (Directory.Exists(pathForThisDay) == false)
+            {
+                //creates directory for this day
+                Directory.CreateDirectory(pathForThisDay);
+            }
+
+            //solve path for this project
+            string pathForthisProjectAndDay;
+            if (projectId != 0)
+            {
+                pathForthisProjectAndDay = pathForThisDay + @"\" + projectId;
+            }
+            else
+            {
+                pathForthisProjectAndDay = pathForThisDay + @"\unknownProject";
+            }
+
+            if (Directory.Exists(pathForthisProjectAndDay) == false)
+            {
+                //creates directory for this project
+                Directory.CreateDirectory(pathForthisProjectAndDay);
+            }
+
+            string dataPath = pathForthisProjectAndDay + @"\data.bin";
+            if (System.IO.File.Exists(dataPath) == false)
+            {
+                System.IO.File.Create(dataPath);
+            }
+            Snapshot snapshot = new Snapshot();
+            snapshot.TimeOfStorage = DateTime.Now;
+            snapshot.SnapshotValues = snapshotValues;
+
+            //serialize and write data into file
+            BinaryFormatter binFormatter = new BinaryFormatter();
+            //if (pkTime != 0)
+            //{
+            //    binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), pkTime);
+            //}
+            binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), snapshot);
         }
+
+        public void SaveSnapshot(List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
+        {
+            Snapshot snapshot = new Snapshot();
+            snapshot.TimeOfStorage = DateTime.Now;
+            snapshot.SnapshotValues = snapshotValues;
+        }
+
+        private ResponseValue getDataFromSnapshot(SchemeValue tag, int projectId)
+        {
+            Snapshot snapshot = new Snapshot();
+            string pathToDataForThisDay;
+            if (Path.PhysicalPath.EndsWith(@"\"))
+            {
+                pathToDataForThisDay = Path.PhysicalPath + DateTime.Now.ToShortDateString();
+            }
+            else
+            {
+                pathToDataForThisDay = Path.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
+            }
+
+            RequestValue value = new RequestValue();
+            if (System.IO.File.Exists(pathToDataForThisDay))
+            {
+                string pathToDataForThisDayAndThisProject = pathToDataForThisDay + @"\" + projectId;
+                if (System.IO.File.Exists(pathToDataForThisDayAndThisProject) == true)
+                {
+                    FileStream fileStreamOfBinData = System.IO.File.OpenRead(pathToDataForThisDayAndThisProject + @"\data.bin");
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    snapshot = (Snapshot)binaryFormatter.Deserialize(fileStreamOfBinData);
+                    //here should be only one element
+                    value = snapshot.SnapshotValues.First(p => p.columnName == tag.columnName && p.tableName == tag.tableName);
+                }
+                else
+                {
+
+                }
+            }
+            else
+            {
+                Error.toFile("Warning no data found on : " +
+                    DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString(), this.GetType().ToString());
+            }
+
+            ResponseValue responseValue = new ResponseValue();
+            
+            if (value.sValue != null)
+            {
+                responseValue.value = value.sValue;
+            }
+            else
+            {
+                responseValue.value = 0;
+                if(value.rValue != 0)
+                {
+                    responseValue.value = value.rValue;
+                }
+                if(value.iValue != 0)
+                {
+                    responseValue.value = value.iValue;
+                }
+            }
+            return responseValue;
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -89,83 +187,220 @@ namespace UsersDiosna.Handlers
         public List<ResponseValue> readData(List<SchemeValue> bindingTags, int projectId)
         {
             List<SchemeValue> listTagsToDB = new List<SchemeValue>();
-            foreach (var tag in bindingTags)
+            foreach (SchemeValue tag in bindingTags)
             {
-                string trimedColName = tag.columnName.Trim();
-                if(trimedColName == "snapshot")
+                string trimedColName = tag.columnName.Trim().ToLower();
+                if (trimedColName == "snapshot")
                 {
-                   
+                    getDataFromSnapshot(tag, projectId);
                 }
                 else
                 {
-
                     listTagsToDB.Add(tag);
                 }
             }
-            if(listTagsToDB.Count >= 1)
+            if (listTagsToDB.Count >= 1)
             {
-               return getDBData(listTagsToDB, projectId);
+                return getDBData(listTagsToDB, projectId);
             }
             return null;
         }
+
+
         public SvgDocument setValue(List<ResponseValue> responseValues, SvgConfig config, string pathToSvg)
         {
-            if (!pathToSvg.Contains(PathDef.PhysicalPath))
-            { 
-                pathToSvg = PathDef.PhysicalPath + pathToSvg;
+            if (!pathToSvg.Contains(Path.PhysicalPath))
+            {
+                pathToSvg = Path.PhysicalPath + pathToSvg;
             }
-            SvgDocument svg = SvgDocument.Open(pathToSvg);           
+            SvgDocument svg = SvgDocument.Open(pathToSvg);
             foreach (var responseVar in responseValues)
             {
-                switch(responseVar.Type)
+                switch (responseVar.Type)
                 {
                     case SchemeType.GraphicList:
-                        var graphiclistConfig = config.SchemeGraphicsList.First(p => p.id == responseVar.Id);
-                        int i = 0;
-                        while (i < 1000)
-                        {
-                            string id = responseVar.Id + "#" + i;
-                            if (svg.GetElementById(id) is SvgTextSpan)
-                            {
-                                var element = (SvgImage)svg.GetElementById(id);
-                                setGraphiclist(responseVar, graphiclistConfig, ref element);
-                            }
-                            else
-                            {
-                                i++;
-                            }
-                        }
+                        refreshGraphicList(config, svg, responseVar);
+                        break;
+                    case SchemeType.Textlist:
+
                         break;
                     case SchemeType.AgeBarVertical:
-                        break; 
+                        
+                        break;
                     case SchemeType.DynValue:
-                        if (config.SchemeTags.Exists(p => p.id == responseVar.Id))
-                        {
-                            var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
-                            SvgTextSpan element;
-                            int j = 0;
-                            while (j<1000) {
-                                string id = responseVar.Id + "#" + j;
-                                if (svg.GetElementById(id) is SvgTextSpan)
-                                {
-                                    element = (SvgTextSpan)svg.GetElementById(id);
-                                    setDynValue(responseVar, dynValueconfig, ref element);
-                                    break;
-                                }
-                                else
-                                {
-                                    j++;
-                                }
-                            }
-                        }
+                        refreshDynValue(config, svg, responseVar);
                         break;
                     case SchemeType.AgeBar:
+                        
                         break;
                 }
             }
             return svg;
         }
 
+        private void refreshTextlist(SvgConfig config, SvgDocument svg, ResponseValue responseVar)
+        {
+            string name = config.BindingTags.First(p => p.id == responseVar.Id).name;
+            string idAB = config.BindingTags.First(p => p.id == responseVar.Id).id;
+            Textlist textlistConfig = config.SchemeTextlist.First(p => p.id == responseVar.Id);
+            int i = 0;
+            while (i < 1000)
+            {
+                string idText = responseVar.Id + "#" + i;
+                string idRect = responseVar.Id + "#" + ++i;
+                if (svg.GetElementById(idRect) is SvgRectangle && svg.GetElementById(idText) is SvgTextSpan)
+                {
+                    var rectangle = (SvgRectangle)svg.GetElementById(idRect);
+                    var svgText = (SvgTextSpan)svg.GetElementById(idText);
+                    setTextlist(svg, responseVar, textlistConfig, ref rectangle, ref svgText);
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+
+        private void refreshAgeBar(SvgConfig config, SvgDocument svg, ResponseValue responseVar)
+        {
+            AgeBar ageBarConfig = config.SchemeAgeBars.First(p => p.id == responseVar.Id);
+            int i = 0;
+            
+            while (i < 1000)
+            {
+                string id = responseVar.Id + "#" + i;
+                if (svg.GetElementById(id) is SvgRectangle)
+                {
+                    var element = (SvgRectangle)svg.GetElementById(id);
+                    string defaultAgeBarId = responseVar.Id + "initial";
+                    SvgRectangle defaultAgeBar;
+                    if (svg.GetElementById(defaultAgeBarId) is SvgRectangle)
+                    {
+                        defaultAgeBar = element;
+                    }
+                    else
+                    {
+                        defaultAgeBar = createDefaultAgeBar(element, defaultAgeBarId);
+                    }
+                    setAgeBar(svg,responseVar, ageBarConfig, ref element,ref defaultAgeBar,false);
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+
+        private SvgRectangle createDefaultAgeBar(SvgRectangle element, string defaultAgebarId)
+        {
+            SvgRectangle defaultRectangle = new SvgRectangle();
+            defaultRectangle.X = element.X;
+            defaultRectangle.Y = element.Y;
+            defaultRectangle.Width = element.Width;
+            defaultRectangle.Height = element.Height;
+            defaultRectangle.ID = defaultAgebarId;
+            defaultRectangle.Visible = false;
+            return defaultRectangle;
+        }
+
+        private void refreshGraphicList(SvgConfig config, SvgDocument svg, ResponseValue responseVar)
+        {
+            string name = config.BindingTags.First(p => p.id == responseVar.Id).name;
+            string idG = config.BindingTags.First(p => p.id == responseVar.Id).id;
+            config.SchemeGraphicsList.First(p => p.name == name).id = idG;
+            Graphiclist graphiclistConfig = config.SchemeGraphicsList.First(p => p.id == responseVar.Id);
+            int i = 0;
+            while (i < 1000)
+            {
+                string id = responseVar.Id + "#" + i;
+                if (svg.GetElementById(id) is SvgImage)
+                {
+                    var element = (SvgImage)svg.GetElementById(id);
+                    setGraphiclist(responseVar, graphiclistConfig, ref element);
+                    break;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+        }
+        
+        private void refreshDynValue(SvgConfig config, SvgDocument svg, ResponseValue responseVar)
+        {
+            if (config.SchemeTags.Exists(p => p.id == responseVar.Id))
+            {
+                var dynValueconfig = config.SchemeTags.First(p => p.id == responseVar.Id);
+                SvgTextSpan element;
+                int j = 0;
+                while (j < 1000)
+                {
+                    string id = responseVar.Id + "#" + j;
+                    if (svg.GetElementById(id) is SvgTextSpan)
+                    {
+                        element = (SvgTextSpan)svg.GetElementById(id);
+                        setDynValue(responseVar, dynValueconfig, ref element);
+                        break;
+                    }
+                    else
+                    {
+                        j++;
+                    }
+                }
+            }
+        }
+
+        private void setTextlist(SvgDocument svg, ResponseValue responseVar, Textlist textlist, ref SvgRectangle rectangle,ref SvgTextSpan svgText)
+        {
+            int textId = int.Parse(responseVar.value.ToString());
+            SvgColourServer rectColor = new SvgColourServer(Color.FromName(textlist.items[textId].bgColor));
+            rectangle.Color = rectColor;
+
+            svgText.Text = textlist.items[textId].value;
+            SvgColourServer textColor = new SvgColourServer(Color.FromName(textlist.items[textId].textColor));
+            svgText.Color = textColor; 
+        }
+
+        private void setAgeBar(SvgDocument svg, ResponseValue responseValue, AgeBar ageBar, ref SvgRectangle rectangle, ref SvgRectangle defaultRectangle, bool vertical = false)
+        {
+            float value = (float)responseValue.value;
+            
+            if(vertical == true)
+            {
+                var widthType = defaultRectangle.Width.Type;
+                float widthValue = (defaultRectangle.Width.Value / ageBar.maxAge) * value;
+
+                SvgUnit width = new SvgUnit(widthType, widthValue);
+                rectangle.Width = width;
+                if (widthValue > ageBar.firstLimit && widthValue <ageBar.secLimit)
+                {
+                    SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.firstColor));
+                    rectangle.Color = rectangleColor;
+                }
+                else if (widthValue > ageBar.secLimit)
+                {
+                    SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.secondColor));
+                    rectangle.Color = rectangleColor;
+                }
+                else 
+                {
+                    SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.thirdColor));
+                    rectangle.Color = rectangleColor;
+                }
+            }
+            else
+            {
+                //initial height is missing in config
+                SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.thirdColor));
+                rectangle.Color = rectangleColor;
+                var heightType = defaultRectangle.Height.Type;
+                float heightValue = (defaultRectangle.Height.Value / ageBar.maxAge) * value;
+                SvgUnit height = new SvgUnit(heightType, heightValue);
+                rectangle.Height = heightValue;
+            }
+        }
         private void setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgTextSpan svgElement)
         {
            
@@ -179,15 +414,13 @@ namespace UsersDiosna.Handlers
 
         private void setGraphiclist(ResponseValue responseValue, Graphiclist graphiclistConfig, ref SvgImage svgElement)
         {           
-            
-            int value = (int)responseValue.value;
+            int value = int.Parse(responseValue.value.ToString());
             string path = graphiclistConfig.items[value].path;
             if (path.Contains(PathDef.PhysicalPath))
                 path = path.Replace(PathDef.PhysicalPath, "");
             var newValue = path;
 
             svgElement.Href = newValue;
-            
         }
 
         /// <summary>
