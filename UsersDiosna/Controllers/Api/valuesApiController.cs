@@ -38,24 +38,26 @@ namespace UsersDiosna.Controllers.Api
                 {
                     data = sStream + " has been received";
                     
-                List<RequestValue> list = new List<RequestValue>();
-                stream.Position = 0;
-                data = binFormatter.Deserialize(stream);
-                if (data is List<RequestValue>)
-                {
+                    List<RequestValue> list = new List<RequestValue>();
+                    stream.Position = 0;
+                    data = binFormatter.Deserialize(stream);
+                    if (data is List<RequestValue>)
+                    {
                         list = (List<RequestValue>)data;//binFormatter.Deserialize(stream);
-                }
-                else
-                {
-                    data = "TypeMismatch via loading from request stream-Verfy structure-" + DateTime.Now.ToString();
-                    Error.toFile("TypeMismatch via loading from request stream - Verfy structure", "ApiSchemesPutSnaschot");
-                }
-                if (list.Count != 0)
-                {
-                    NewSchemesHandler schemesHandler = new NewSchemesHandler();
-                        schemesHandler.putSnapshotDataIntoFile(list, projectId, pkTime);
+                    }
+                    else
+                    {
+                        data = "TypeMismatch via loading from request stream-Verfy structure-" + DateTime.Now.ToString();
+                        Error.toFile("TypeMismatch via loading from request stream - Verfy structure", "ApiSchemesPutSnaschot");
+                    }
+                    if (list.Count != 0)
+                    {
+                        NewSchemesHandler schemesHandler = new NewSchemesHandler();
+                        object returnedObject = schemesHandler.putSnapshotDataIntoFile(list, projectId, pkTime);
+                        Error.toFile("We have successfully saved snapshot into file.", "ApiDiagnosticLog");
                         schemesHandler.SaveSnapshot(list, projectId, pkTime);
-                }
+                        return Json(returnedObject);
+                    }
                 }
                 else
                 {

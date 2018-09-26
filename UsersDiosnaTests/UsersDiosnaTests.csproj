@@ -52,7 +52,7 @@
       <HintPath>..\..\Vizualization\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="VizuLibrabrarySnapshotVals">
-      <HintPath>..\..\C#\VizuLibrabrarySnapshotVals\VizuLibrabrarySnapshotVals\bin\Debug\VizuLibrabrarySnapshotVals.dll</HintPath>
+      <HintPath>..\UsersDiosna\bin\VizuLibrabrarySnapshotVals.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,14 @@ namespace UsersDiosna.Handlers
 {
     public class NewSchemesHandler
     {
-        public void putSnapshotDataIntoFile
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="snapshotValues"></param>
+        /// <param name="projectId"></param>
+        /// <param name="pkTime"></param>
+        /// <returns></returns>
+        public object putSnapshotDataIntoFile
             (List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
         {
             //path to data for this day
@@ -53,7 +60,8 @@ namespace UsersDiosna.Handlers
             string dataPath = pathForthisProjectAndDay + @"\data.bin";
             if (System.IO.File.Exists(dataPath) == false)
             {
-                System.IO.File.Create(dataPath);
+                FileStream dataFile = System.IO.File.Create(dataPath);
+                dataFile.Close();
             }
             Snapshot snapshot = new Snapshot();
             snapshot.TimeOfStorage = DateTime.Now;
@@ -61,11 +69,13 @@ namespace UsersDiosna.Handlers
 
             //serialize and write data into file
             BinaryFormatter binFormatter = new BinaryFormatter();
-            //if (pkTime != 0)
-            //{
-            //    binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), pkTime);
-            //}
-            binFormatter.Serialize(System.IO.File.OpenWrite(dataPath), snapshot);
+            using (FileStream dataFileStream = System.IO.File.Open(dataPath, FileMode.Append))
+            {
+                binFormatter.Serialize(dataFileStream, snapshot);
+                //close file after append
+            }
+            //returns object with data which was sent do the user
+            return snapshot;
         }
 
         public void SaveSnapshot(List<RequestValue> snapshotValues, int projectId = 0, int pkTime = 0)
@@ -222,16 +232,16 @@ namespace UsersDiosna.Handlers
                         refreshGraphicList(config, svg, responseVar);
                         break;
                     case SchemeType.Textlist:
-
+                        refreshTextlist(config, svg, responseVar);
                         break;
                     case SchemeType.AgeBarVertical:
-                        
+                        refreshAgeBar(config, svg, responseVar, true);
                         break;
                     case SchemeType.DynValue:
                         refreshDynValue(config, svg, responseVar);
                         break;
                     case SchemeType.AgeBar:
-                        
+                        refreshAgeBar(config, svg, responseVar, false);
                         break;
                 }
             }
@@ -242,12 +252,18 @@ namespace UsersDiosna.Handlers
         {
             string name = config.BindingTags.First(p => p.id == responseVar.Id).name;
             string idAB = config.BindingTags.First(p => p.id == responseVar.Id).id;
-            Textlist textlistConfig = config.SchemeTextlist.First(p => p.id == responseVar.Id);
+
+            //yes we should save it (textlistConfig.Id) but this will be in the future
+            var bindingTag = config.BindingTags.First(p => p.id == responseVar.Id);
+            Textlist textlistConfig = config.SchemeTextlist.First(
+                textlist => textlist.name == bindingTag.name);
+            textlistConfig.id = bindingTag.id;
+            
             int i = 0;
             while (i < 1000)
             {
-                string idText = responseVar.Id + "#" + i;
-                string idRect = responseVar.Id + "#" + ++i;
+                string idRect = responseVar.Id + "#" + i;
+                string idText = responseVar.Id + "#" + ++i;
                 if (svg.GetElementById(idRect) is SvgRectangle && svg.GetElementById(idText) is SvgTextSpan)
                 {
                     var rectangle = (SvgRectangle)svg.GetElementById(idRect);
@@ -262,9 +278,10 @@ namespace UsersDiosna.Handlers
             }
         }
 
-        private void refreshAgeBar(SvgConfig config, SvgDocument svg, ResponseValue responseVar)
-        {
+        private void refreshAgeBar(SvgConfig config, SvgDocument svg, ResponseValue responseVar,bool vertical)
+        {   
             AgeBar ageBarConfig = config.SchemeAgeBars.First(p => p.id == responseVar.Id);
+
             int i = 0;
             
             while (i < 1000)
@@ -283,7 +300,7 @@ namespace UsersDiosna.Handlers
                     {
                         defaultAgeBar = createDefaultAgeBar(element, defaultAgeBarId);
                     }
-                    setAgeBar(svg,responseVar, ageBarConfig, ref element,ref defaultAgeBar,false);
+                    setAgeBar(svg,responseVar, ageBarConfig, ref element,ref defaultAgeBar,vertical);
                     break;
                 }
                 else
@@ -356,45 +373,46 @@ namespace UsersDiosna.Handlers
         {
             int textId = int.Parse(responseVar.value.ToString());
             SvgColourServer rectColor = new SvgColourServer(Color.FromName(textlist.items[textId].bgColor));
-            rectangle.Color = rectColor;
+            rectangle.Fill = rectColor;
 
             svgText.Text = textlist.items[textId].value;
             SvgColourServer textColor = new SvgColourServer(Color.FromName(textlist.items[textId].textColor));
-            svgText.Color = textColor; 
+            svgText.Fill = textColor; 
         }
 
         private void setAgeBar(SvgDocument svg, ResponseValue responseValue, AgeBar ageBar, ref SvgRectangle rectangle, ref SvgRectangle defaultRectangle, bool vertical = false)
         {
-            float value = (float)responseValue.value;
+            float value = float.Parse(responseValue.value.ToString());
             
-            if(vertical == true)
+            if(vertical == false)
             {
                 var widthType = defaultRectangle.Width.Type;
                 float widthValue = (defaultRectangle.Width.Value / ageBar.maxAge) * value;
 
                 SvgUnit width = new SvgUnit(widthType, widthValue);
-                rectangle.Width = width;
                 if (widthValue > ageBar.firstLimit && widthValue <ageBar.secLimit)
                 {
                     SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.firstColor));
-                    rectangle.Color = rectangleColor;
+                    rectangle.Fill = rectangleColor;
                 }
                 else if (widthValue > ageBar.secLimit)
                 {
                     SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.secondColor));
-                    rectangle.Color = rectangleColor;
+                    rectangle.Fill = rectangleColor;
                 }
                 else 
                 {
                     SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.thirdColor));
-                    rectangle.Color = rectangleColor;
+                    rectangle.Fill = rectangleColor;
                 }
+                rectangle.Width = width;
             }
             else
             {
+                var c = Color.FromName(ageBar.thirdColor);
                 //initial height is missing in config
-                SvgColourServer rectangleColor = new SvgColourServer(Color.FromName(ageBar.thirdColor));
-                rectangle.Color = rectangleColor;
+                SvgColourServer rectangleColor = new SvgColourServer(c);
+                rectangle.Fill = rectangleColor;
                 var heightType = defaultRectangle.Height.Type;
                 float heightValue = (defaultRectangle.Height.Value / ageBar.maxAge) * value;
                 SvgUnit height = new SvgUnit(heightType, heightValue);

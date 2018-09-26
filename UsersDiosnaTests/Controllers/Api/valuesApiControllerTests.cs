@@ -1,10 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UsersDiosna.Controllers.Api;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VizuLibrabrarySnapshotVals;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Net;

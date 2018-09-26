@@ -10,6 +10,7 @@ using VizuLibrabrarySnapshotVals;
 
 namespace UsersDiosna.Sheme.Models
 {
+    [Serializable]
     public class Snapshot
     {
         public DateTime TimeOfStorage { get; set; }
@@ -38,21 +39,7 @@ namespace UsersDiosna.Sheme.Models
         public List<Graphiclist> SchemeGraphicsList { get; set; }
         public List<Textlist> SchemeTextlist { get; set; }
     }
-    /*
-    [XmlRoot("SchemeConfig", Namespace = "http://somenamespace", IsNullable = false)]
-    public class SchemeEditorXML
-    {
-        [XmlArray]
-        public List<SchemeValue> BindingTags { get; set; }
-        [XmlArray]
-        public List<DynValue> SchemeTags { get; set; }
-        [XmlArray]
-        public List<AgeBar> SchemeAgeBars { get; set; }
-        [XmlArray]
-        public List<Graphiclist> SchemeGraphicsList { get; set; }
-        [XmlArray]
-        public List<Textlist> SchemeTextlist { get; set; }
-    }*/
+
     public class SchemeValue
     {
         [XmlAttribute]

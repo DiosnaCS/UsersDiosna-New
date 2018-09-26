@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDiosna", "UsersDiosna\UsersDiosna.csproj", "{5F3840C5-A61B-485B-8645-1BE4C3FE6E75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{A654977A-312A-42AF-B80F-39458915A3BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsersDiosnaTests", "UsersDiosnaTests\UsersDiosnaTests.csproj", "{0D6589F0-6D38-435D-AD35-F12D9F098EA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5F3840C5-A61B-485B-8645-1BE4C3FE6E75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3840C5-A61B-485B-8645-1BE4C3FE6E75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3840C5-A61B-485B-8645-1BE4C3FE6E75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A654977A-312A-42AF-B80F-39458915A3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A654977A-312A-42AF-B80F-39458915A3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A654977A-312A-42AF-B80F-39458915A3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A654977A-312A-42AF-B80F-39458915A3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6589F0-6D38-435D-AD35-F12D9F098EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6589F0-6D38-435D-AD35-F12D9F098EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6589F0-6D38-435D-AD35-F12D9F098EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6589F0-6D38-435D-AD35-F12D9F098EA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

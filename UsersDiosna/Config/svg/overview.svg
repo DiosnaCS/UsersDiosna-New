@@ -13,7 +13,7 @@
    version="1.1"
    id="svg3721"
    sodipodi:docname="overview.svg"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <metadata
      id="metadata3727">
     <rdf:RDF>
@@ -37,658 +37,6 @@
        apply_no_weight="true"
        apply_with_weight="true"
        only_selected="false" />
-    <SvgConfig>
-      <BindingTags>
-        <SchemeValue
-           id="iSF2_Temp_Bottom.arWS_norm"
-           tableName="arWS_norm"
-           columnName="iSF2_Temp_Bottom"
-           name="DynVal1"
-           Type="DynValue" />
-        <SchemeValue
-           id="iSF2_pH.arWS_norm"
-           tableName="arWS_norm"
-           columnName="iSF2_pH"
-           name="DynVal2"
-           Type="DynValue" />
-        <SchemeValue
-           id="diSF2_Weight.arWS_norm"
-           tableName="arWS_norm"
-           columnName="diSF2_Weight"
-           name="DynVal3"
-           Type="DynValue" />
-        <SchemeValue
-           id="iSF2_Temp.arWS_norm"
-           tableName="arWS_norm"
-           columnName="iSF2_Temp"
-           name="DynVal4"
-           Type="DynValue" />
-        <SchemeValue
-           id="usiOperSF2_Step.arWS_norm"
-           tableName="arWS_norm"
-           columnName="usiOperSF2_Step"
-           name="DynVal5"
-           Type="DynValue" />
-        <SchemeValue
-           id="weightBar-SF2"
-           tableName="arWS_norm"
-           columnName="diSF2_Weight"
-           name="101"
-           Type="AgeBarVertical" />
-        <SchemeValue
-           id="phTemp"
-           tableName="arWS_norm"
-           columnName="iSF2_Temp_Bottom"
-           name="DynVal6"
-           Type="DynValue" />
-        <SchemeValue
-           id="AgeBar"
-           tableName="arWS_norm"
-           columnName="diSF2_AgeOld"
-           name="102"
-           Type="AgeBar" />
-        <SchemeValue
-           id="textFerm-SF2"
-           tableName="arWS_norm"
-           columnName="usiOperSF2_Step"
-           name="SF_Step"
-           Type="Textlist" />
-        <SchemeValue
-           id="textStatus-SF2"
-           tableName="arWS_norm"
-           columnName="usiOperSF2_Status"
-           name="status"
-           Type="Textlist" />
-        <SchemeValue
-           id="destNames-textlist"
-           tableName="snapshot"
-           columnName="snapshot"
-           name="dest_names"
-           Type="Textlist" />
-        <SchemeValue
-           id="MF1_FlourInput"
-           tableName="snapshot"
-           columnName="snapshot"
-           name="valve"
-           Type="GraphicList" />
-      </BindingTags>
-      <SchemeTags>
-        <DynValue
-           id="diSF2_Weight.arWS_norm"
-           table="arWS_norm"
-           column="diSF2_Weight"
-           ratio="1"
-           offset="0"
-           unit="kg"
-           textColor="black" />
-        <DynValue
-           id="iSF2_Temp.arWS_norm"
-           table="arWS_norm"
-           column="iSF2_Temp"
-           ratio="1"
-           offset="0"
-           unit="°C"
-           textColor="black" />
-        <DynValue
-           id="iSF2_Temp_Bottom.arWS_norm"
-           table="arWS_norm"
-           column="iSF2_Temp_Bottom"
-           ratio="1"
-           offset="0"
-           unit="°C"
-           textColor="black" />
-        <DynValue
-           id="iSF2_pH.arWS_norm"
-           table="arWS_norm"
-           column="iSF2_pH"
-           ratio="1"
-           offset="0"
-           unit="pH"
-           textColor="black" />
-      </SchemeTags>
-      <SchemeAgeBars>
-        <AgeBar
-           id="101"
-           maxAge="14400"
-           firstColor="green"
-           firstLimit="36000"
-           secondColor="yellow"
-           secLimit="72000"
-           thirdColor="gray" />
-        <AgeBar
-           id="102"
-           maxAge="3000000"
-           firstColor="blue"
-           firstLimit="3000000"
-           secondColor="blue"
-           secLimit="3000000"
-           thirdColor="blue " />
-      </SchemeAgeBars>
-      <SchemeGraphicsList>
-        <Graphiclist
-           name="valve">
-          <items>
-            <GraphiclistItem
-               index="0"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
-            <GraphiclistItem
-               index="1"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
-            <GraphiclistItem
-               index="2"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
-            <GraphiclistItem
-               index="3"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
-            <GraphiclistItem
-               index="4"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
-            <GraphiclistItem
-               index="5"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
-            <GraphiclistItem
-               index="6"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
-            <GraphiclistItem
-               index="7"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
-            <GraphiclistItem
-               index="8"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
-            <GraphiclistItem
-               index="10"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
-            <GraphiclistItem
-               index="11"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
-            <GraphiclistItem
-               index="12"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
-            <GraphiclistItem
-               index="13"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
-            <GraphiclistItem
-               index="14"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
-            <GraphiclistItem
-               index="15"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
-            <GraphiclistItem
-               index="16"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
-            <GraphiclistItem
-               index="17"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
-            <GraphiclistItem
-               index="18"
-               path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
-          </items>
-        </Graphiclist>
-      </SchemeGraphicsList>
-      <SchemeTextlist>
-        <Textlist
-           name="dest_names">
-          <items>
-            <TextlistItem
-               index="0"
-               value="None"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="1"
-               value="Tank SF1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="2"
-               value="Tank SF2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="3"
-               value="Tank SF3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="4"
-               value="Tank SF4"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="5"
-               value="Tank SF5"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="6"
-               value="Tank SF6"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="7"
-               value="Tank SF7"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="8"
-               value="Tank SF8"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="9"
-               value="Tank SF9"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="10"
-               value="Tank SF10"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="11"
-               value="Tank SF11"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="12"
-               value="Tank SF12"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="13"
-               value="LN1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="14"
-               value="LN2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="15"
-               value="DS1 (man.point)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="16"
-               value="Gully"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="17"
-               value="Pipe1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="18"
-               value="Pipe2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="19"
-               value="Pipe3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="20"
-               value="ST_Trans1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="21"
-               value="ST_Trans2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="22"
-               value="ST_Trans3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="23"
-               value="ST_Pig1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="24"
-               value="ST_Pig2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="25"
-               value="ST_Pig3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="26"
-               value="ST_ClnTank_Aut"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="27"
-               value="ST_ClnTank_Man"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="28"
-               value="ST_ClnTank_Shower"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="29"
-               value="ST_ClnTank_Chem"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="30"
-               value="MP"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="31"
-               value="DP_InverterA"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="32"
-               value="DP_InverterB"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="33"
-               value="DP_InverterC"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="34"
-               value="WaterDose"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="35"
-               value="WaterCleanLN"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="36"
-               value="WaterCleanTankAut"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="37"
-               value="WaterCleanTankMan"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="38"
-               value="Water PIG1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="39"
-               value="Water PIG2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="40"
-               value="Water PIG3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="41"
-               value="ST_Clean_Pipe1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="42"
-               value="ST_Clean_Pipe2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="43"
-               value="ST_Clean_Pipe3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="44"
-               value="ST_Line_Discharge"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="45"
-               value="ST_Flour"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="46"
-               value="ST_Line_Shower"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="47"
-               value="ST_Piper2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="48"
-               value="ST_Piper3"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="49"
-               value="ST_YeastConti"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="50"
-               value="ST_MaltConti"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="51"
-               value="ST_FlourConti"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="52"
-               value="ST_Clean_MP_Aut"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="53"
-               value="ST_Clean_MP_Flood"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="90"
-               value="PIG_Home"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="100"
-               value="Manual start (clean tank AUTO)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="101"
-               value="Manual start (clean tank MAN)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="102"
-               value="Manual start (clean tank SHOWER)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="103"
-               value="Manual start (clean tank CHEM)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="104"
-               value="Owner - Dosing out (line1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="105"
-               value="Manual start (Pipe 1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="106"
-               value="Manual start (Pipe 2)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="107"
-               value="Manual start (Pipe 3)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="108"
-               value="Manual start (PIG1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="109"
-               value="Manual start (PIG2)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="110"
-               value="Manual start (PIG3)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="111"
-               value="Manual start Pipe2 from DS1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="112"
-               value="Manual start Pipe3 from DS1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="113"
-               value="Manual start (clean Pipe1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="114"
-               value="Manual start (clean Pipe2)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="115"
-               value="Manual start (clean Pipe3)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="116"
-               value="Manual start (shower Line1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="117"
-               value="Manual start (discharge Line1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="118"
-               value="Manual start (water WMU1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="119"
-               value="idOWN_DO_LN1"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="120"
-               value="idOWN_DO_LN2"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="121"
-               value="idOWN_DO_Man"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="122"
-               value="idOWN_ManWater"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="123"
-               value="idOWN_ClnMP_Aut"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="124"
-               value="idOWN_ClnMP_Flood"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="125"
-               value="Manual start (clean yeast)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="126"
-               value="Manual start (clean LN1)"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="127"
-               value="Manual start (clean LN2)"
-               bgColor="White"
-               textColor="Black" />
-          </items>
-        </Textlist>
-        <Textlist
-           name="status">
-          <items>
-            <TextlistItem
-               index="0"
-               value="--- off ---"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="1"
-               value="Reservation"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="2"
-               value="Done"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="3"
-               value="Running"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="4"
-               value="Pause"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="5"
-               value="Hold"
-               bgColor="White"
-               textColor="Black" />
-            <TextlistItem
-               index="6"
-               value="Interrupted (alarm)"
-               bgColor="White"
-               textColor="Black" />
-          </items>
-        </Textlist>
-      </SchemeTextlist>
-    </SvgConfig>
-  
 <SvgConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <BindingTags>
     <SchemeValue id="iSF2_Temp_Bottom.arWS_norm" tableName="arWS_norm" columnName="iSF2_Temp_Bottom" name="DynVal1" Type="DynValue" />
@@ -699,7 +47,7 @@
     <SchemeValue id="weightBar-SF2" tableName="arWS_norm" columnName="diSF2_Weight" name="101" Type="AgeBarVertical" />
     <SchemeValue id="phTemp" tableName="arWS_norm" columnName="iSF2_Temp_Bottom" name="DynVal6" Type="DynValue" />
     <SchemeValue id="AgeBar" tableName="arWS_norm" columnName="diSF2_AgeOld" name="102" Type="AgeBar" />
-    <SchemeValue id="textFerm-SF2" tableName="arWS_norm" columnName="usiOperSF2_Step" name="SF_Step" Type="Textlist" />
+    <!-- <SchemeValue id="textFerm-SF2" tableName="arWS_norm" columnName="usiOperSF2_Step" name="SF_Step" Type="Textlist" /> -->
     <SchemeValue id="textStatus-SF2" tableName="arWS_norm" columnName="usiOperSF2_Status" name="status" Type="Textlist" />
     <SchemeValue id="destNames-textlist" tableName="snapshot" columnName="snapshot" name="dest_names" Type="Textlist" />
     <SchemeValue id="MF1_FlourInput" tableName="snapshot" columnName="snapshot" name="valve" Type="GraphicList" />
@@ -713,20 +61,131 @@
     <DynValue id="iSF2_pH.arWS_norm" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
   </SchemeTags>
   <SchemeAgeBars>
-    <AgeBar id="101" maxAge="14400" firstColor="green" firstLimit="36000" secondColor="yellow" secLimit="72000" thirdColor="gray" />
-    <AgeBar id="102" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+    <AgeBar id="AgeBar" maxAge="144" firstColor="green" firstLimit="36" secondColor="yellow" secLimit="72" thirdColor="gray" />
+    <AgeBar id="weightBar-SF2" maxAge="3000" firstColor="blue" firstLimit="300" secondColor="blue" secLimit="3000" thirdColor="blue" />
   </SchemeAgeBars>
   <SchemeGraphicsList>
+    <Graphiclist name="valve">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+        <GraphiclistItem index="3" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+        <GraphiclistItem index="4" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+        <GraphiclistItem index="5" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+        <GraphiclistItem index="6" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+        <GraphiclistItem index="7" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+        <GraphiclistItem index="8" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
+        <GraphiclistItem index="10" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
+        <GraphiclistItem index="11" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
+        <GraphiclistItem index="12" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
+        <GraphiclistItem index="13" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
+        <GraphiclistItem index="14" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
+        <GraphiclistItem index="15" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
+        <GraphiclistItem index="16" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
+        <GraphiclistItem index="17" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
+        <GraphiclistItem index="18" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="valve">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="valve">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
+        <GraphiclistItem index="3" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
+        <GraphiclistItem index="4" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
+        <GraphiclistItem index="5" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
+        <GraphiclistItem index="6" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
+        <GraphiclistItem index="7" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="mixer">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
+        <GraphiclistItem index="3" />
+        <GraphiclistItem index="4" />
+        <GraphiclistItem index="5" />
+        <GraphiclistItem index="6" />
+        <GraphiclistItem index="7" />
+        <GraphiclistItem index="8" />
+        <GraphiclistItem index="10" />
+        <GraphiclistItem index="11" />
+        <GraphiclistItem index="12" />
+        <GraphiclistItem index="13" />
+        <GraphiclistItem index="14" />
+        <GraphiclistItem index="15" />
+        <GraphiclistItem index="16" />
+        <GraphiclistItem index="17" />
+        <GraphiclistItem index="18" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="mixer">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="mixer">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
+        <GraphiclistItem index="3" />
+        <GraphiclistItem index="4" />
+        <GraphiclistItem index="5" />
+        <GraphiclistItem index="6" />
+        <GraphiclistItem index="7" />
+      </items>
+    </Graphiclist>
     <Graphiclist name="stat">
       <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_00_off.png" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
-        <GraphiclistItem index="3" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_03_pauseL.png" />
-        <GraphiclistItem index="4" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_04_Done.png" />
-        <GraphiclistItem index="5" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_05_intrL.png" />
-        <GraphiclistItem index="6" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_06_skip.png" />
-        <GraphiclistItem index="7" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_07_wait.png" />
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_00_off.png" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
+        <GraphiclistItem index="3" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_03_pauseL.png" />
+        <GraphiclistItem index="4" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_04_Done.png" />
+        <GraphiclistItem index="5" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_05_intrL.png" />
+        <GraphiclistItem index="6" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_06_skip.png" />
+        <GraphiclistItem index="7" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_07_wait.png" />
+        <GraphiclistItem index="8" />
+        <GraphiclistItem index="10" />
+        <GraphiclistItem index="11" />
+        <GraphiclistItem index="12" />
+        <GraphiclistItem index="13" />
+        <GraphiclistItem index="14" />
+        <GraphiclistItem index="15" />
+        <GraphiclistItem index="16" />
+        <GraphiclistItem index="17" />
+        <GraphiclistItem index="18" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="stat">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_00_off.png" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
+      </items>
+    </Graphiclist>
+    <Graphiclist name="stat">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_00_off.png" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
+        <GraphiclistItem index="3" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_03_pauseL.png" />
+        <GraphiclistItem index="4" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_04_Done.png" />
+        <GraphiclistItem index="5" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_05_intrL.png" />
+        <GraphiclistItem index="6" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_06_skip.png" />
+        <GraphiclistItem index="7" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\stat\stat_07_wait.png" />
       </items>
     </Graphiclist>
   </SchemeGraphicsList>
@@ -831,259 +290,7 @@
     </Textlist>
   </SchemeTextlist>
 </SvgConfig>
-<SvgConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <BindingTags>
-    <SchemeValue id="iSF2_Temp_Bottom.arWS_norm" tableName="arWS_norm" columnName="iSF2_Temp_Bottom" name="DynVal1" Type="DynValue" />
-    <SchemeValue id="iSF2_pH.arWS_norm" tableName="arWS_norm" columnName="iSF2_pH" name="DynVal2" Type="DynValue" />
-    <SchemeValue id="diSF2_Weight.arWS_norm" tableName="arWS_norm" columnName="diSF2_Weight" name="DynVal3" Type="DynValue" />
-    <SchemeValue id="iSF2_Temp.arWS_norm" tableName="arWS_norm" columnName="iSF2_Temp" name="DynVal4" Type="DynValue" />
-    <SchemeValue id="usiOperSF2_Step.arWS_norm" tableName="arWS_norm" columnName="usiOperSF2_Step" name="DynVal5" Type="DynValue" />
-    <SchemeValue id="weightBar-SF2" tableName="arWS_norm" columnName="diSF2_Weight" name="101" Type="AgeBarVertical" />
-    <SchemeValue id="phTemp" tableName="arWS_norm" columnName="iSF2_Temp_Bottom" name="DynVal6" Type="DynValue" />
-    <SchemeValue id="AgeBar" tableName="arWS_norm" columnName="diSF2_AgeOld" name="102" Type="AgeBar" />
-    <SchemeValue id="textFerm-SF2" tableName="arWS_norm" columnName="usiOperSF2_Step" name="SF_Step" Type="Textlist" />
-    <SchemeValue id="textStatus-SF2" tableName="arWS_norm" columnName="usiOperSF2_Status" name="status" Type="Textlist" />
-    <SchemeValue id="destNames-textlist" tableName="snapshot" columnName="snapshot" name="dest_names" Type="Textlist" />
-    <SchemeValue id="MF1_FlourInput" tableName="snapshot" columnName="snapshot" name="valve" Type="GraphicList" />
-    <SchemeValue id="SF2_Mixer" tableName="arWS_norm" columnName="usiSF2_Agit" name="mixer" Type="GraphicList" />
-    <SchemeValue id="Common_bAutoSel" tableName="arWS_norm" columnName="bOutdoseTank_AutoSel" name="stat" Type="GraphicList" />
-  </BindingTags>
-  <SchemeTags>
-    <DynValue id="diSF2_Weight.arWS_norm" table="arWS_norm" column="diSF2_Weight" ratio="1" offset="0" unit="kg" textColor="black" />
-    <DynValue id="iSF2_Temp.arWS_norm" table="arWS_norm" column="iSF2_Temp" ratio="1" offset="0" unit="°C" textColor="black" />
-    <DynValue id="iSF2_Temp_Bottom.arWS_norm" table="arWS_norm" column="iSF2_Temp_Bottom" ratio="1" offset="0" unit="°C" textColor="black" />
-    <DynValue id="iSF2_pH.arWS_norm" table="arWS_norm" column="iSF2_pH" ratio="1" offset="0" unit="pH" textColor="black" />
-  </SchemeTags>
-  <SchemeAgeBars>
-    <AgeBar id="101" maxAge="14400" firstColor="green" firstLimit="36000" secondColor="yellow" secLimit="72000" thirdColor="gray" />
-    <AgeBar id="102" maxAge="3000000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
-  </SchemeAgeBars>
-  <SchemeGraphicsList>
-    <Graphiclist name="valve">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
-        <GraphiclistItem index="3" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
-        <GraphiclistItem index="4" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
-        <GraphiclistItem index="5" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
-        <GraphiclistItem index="6" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
-        <GraphiclistItem index="7" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
-        <GraphiclistItem index="8" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_08_moving_on.bmp" />
-        <GraphiclistItem index="10" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_10_undef.bmp" />
-        <GraphiclistItem index="11" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_11_closed_off.bmp" />
-        <GraphiclistItem index="12" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_12_closed_on.bmp" />
-        <GraphiclistItem index="13" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_13_closed_err.bmp" />
-        <GraphiclistItem index="14" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_14_open_off.bmp" />
-        <GraphiclistItem index="15" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_15_open_on.bmp" />
-        <GraphiclistItem index="16" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_16_open_err.bmp" />
-        <GraphiclistItem index="17" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_17_moving_off.bmp" />
-        <GraphiclistItem index="18" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_18_moving_on.bmp" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="valve">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="valve">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_00_undef.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_01_closed_off.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_02_closed_on.bmp" />
-        <GraphiclistItem index="3" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_03_closed_err.bmp" />
-        <GraphiclistItem index="4" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_04_open_off.bmp" />
-        <GraphiclistItem index="5" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_05_open_on.bmp" />
-        <GraphiclistItem index="6" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_06_open_err.bmp" />
-        <GraphiclistItem index="7" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\valve\ValveV_07_moving_off.bmp" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="mixer">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
-        <GraphiclistItem index="3" />
-        <GraphiclistItem index="4" />
-        <GraphiclistItem index="5" />
-        <GraphiclistItem index="6" />
-        <GraphiclistItem index="7" />
-        <GraphiclistItem index="8" />
-        <GraphiclistItem index="10" />
-        <GraphiclistItem index="11" />
-        <GraphiclistItem index="12" />
-        <GraphiclistItem index="13" />
-        <GraphiclistItem index="14" />
-        <GraphiclistItem index="15" />
-        <GraphiclistItem index="16" />
-        <GraphiclistItem index="17" />
-        <GraphiclistItem index="18" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="mixer">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="mixer">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_00_NC.bmp" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_01_CW_RUN_1.bmp" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\mixer\Agit_02_CCW_RUN_1.bmp" />
-        <GraphiclistItem index="3" />
-        <GraphiclistItem index="4" />
-        <GraphiclistItem index="5" />
-        <GraphiclistItem index="6" />
-        <GraphiclistItem index="7" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="stat">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_00_off.png" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
-        <GraphiclistItem index="3" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_03_pauseL.png" />
-        <GraphiclistItem index="4" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_04_Done.png" />
-        <GraphiclistItem index="5" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_05_intrL.png" />
-        <GraphiclistItem index="6" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_06_skip.png" />
-        <GraphiclistItem index="7" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_07_wait.png" />
-        <GraphiclistItem index="8" />
-        <GraphiclistItem index="10" />
-        <GraphiclistItem index="11" />
-        <GraphiclistItem index="12" />
-        <GraphiclistItem index="13" />
-        <GraphiclistItem index="14" />
-        <GraphiclistItem index="15" />
-        <GraphiclistItem index="16" />
-        <GraphiclistItem index="17" />
-        <GraphiclistItem index="18" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="stat">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_00_off.png" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
-      </items>
-    </Graphiclist>
-    <Graphiclist name="stat">
-      <items>
-        <GraphiclistItem index="0" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_00_off.png" />
-        <GraphiclistItem index="1" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_01_runL.png" />
-        <GraphiclistItem index="2" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_02_Reservation.png" />
-        <GraphiclistItem index="3" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_03_pauseL.png" />
-        <GraphiclistItem index="4" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_04_Done.png" />
-        <GraphiclistItem index="5" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_05_intrL.png" />
-        <GraphiclistItem index="6" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_06_skip.png" />
-        <GraphiclistItem index="7" path="C:\Akce\Source-Repos\UsersDiosna\Config\svg\stat\stat_07_wait.png" />
-      </items>
-    </Graphiclist>
-  </SchemeGraphicsList>
-  <SchemeTextlist>
-    <Textlist name="dest_names">
-      <items>
-        <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
-        <TextlistItem index="1" value="Tank SF1" bgColor="White" textColor="Black" />
-        <TextlistItem index="2" value="Tank SF2" bgColor="White" textColor="Black" />
-        <TextlistItem index="3" value="Tank SF3" bgColor="White" textColor="Black" />
-        <TextlistItem index="4" value="Tank SF4" bgColor="White" textColor="Black" />
-        <TextlistItem index="5" value="Tank SF5" bgColor="White" textColor="Black" />
-        <TextlistItem index="6" value="Tank SF6" bgColor="White" textColor="Black" />
-        <TextlistItem index="7" value="Tank SF7" bgColor="White" textColor="Black" />
-        <TextlistItem index="8" value="Tank SF8" bgColor="White" textColor="Black" />
-        <TextlistItem index="9" value="Tank SF9" bgColor="White" textColor="Black" />
-        <TextlistItem index="10" value="Tank SF10" bgColor="White" textColor="Black" />
-        <TextlistItem index="11" value="Tank SF11" bgColor="White" textColor="Black" />
-        <TextlistItem index="12" value="Tank SF12" bgColor="White" textColor="Black" />
-        <TextlistItem index="13" value="LN1" bgColor="White" textColor="Black" />
-        <TextlistItem index="14" value="LN2" bgColor="White" textColor="Black" />
-        <TextlistItem index="15" value="DS1 (man.point)" bgColor="White" textColor="Black" />
-        <TextlistItem index="16" value="Gully" bgColor="White" textColor="Black" />
-        <TextlistItem index="17" value="Pipe1" bgColor="White" textColor="Black" />
-        <TextlistItem index="18" value="Pipe2" bgColor="White" textColor="Black" />
-        <TextlistItem index="19" value="Pipe3" bgColor="White" textColor="Black" />
-        <TextlistItem index="20" value="ST_Trans1" bgColor="White" textColor="Black" />
-        <TextlistItem index="21" value="ST_Trans2" bgColor="White" textColor="Black" />
-        <TextlistItem index="22" value="ST_Trans3" bgColor="White" textColor="Black" />
-        <TextlistItem index="23" value="ST_Pig1" bgColor="White" textColor="Black" />
-        <TextlistItem index="24" value="ST_Pig2" bgColor="White" textColor="Black" />
-        <TextlistItem index="25" value="ST_Pig3" bgColor="White" textColor="Black" />
-        <TextlistItem index="26" value="ST_ClnTank_Aut" bgColor="White" textColor="Black" />
-        <TextlistItem index="27" value="ST_ClnTank_Man" bgColor="White" textColor="Black" />
-        <TextlistItem index="28" value="ST_ClnTank_Shower" bgColor="White" textColor="Black" />
-        <TextlistItem index="29" value="ST_ClnTank_Chem" bgColor="White" textColor="Black" />
-        <TextlistItem index="30" value="MP" bgColor="White" textColor="Black" />
-        <TextlistItem index="31" value="DP_InverterA" bgColor="White" textColor="Black" />
-        <TextlistItem index="32" value="DP_InverterB" bgColor="White" textColor="Black" />
-        <TextlistItem index="33" value="DP_InverterC" bgColor="White" textColor="Black" />
-        <TextlistItem index="34" value="WaterDose" bgColor="White" textColor="Black" />
-        <TextlistItem index="35" value="WaterCleanLN" bgColor="White" textColor="Black" />
-        <TextlistItem index="36" value="WaterCleanTankAut" bgColor="White" textColor="Black" />
-        <TextlistItem index="37" value="WaterCleanTankMan" bgColor="White" textColor="Black" />
-        <TextlistItem index="38" value="Water PIG1" bgColor="White" textColor="Black" />
-        <TextlistItem index="39" value="Water PIG2" bgColor="White" textColor="Black" />
-        <TextlistItem index="40" value="Water PIG3" bgColor="White" textColor="Black" />
-        <TextlistItem index="41" value="ST_Clean_Pipe1" bgColor="White" textColor="Black" />
-        <TextlistItem index="42" value="ST_Clean_Pipe2" bgColor="White" textColor="Black" />
-        <TextlistItem index="43" value="ST_Clean_Pipe3" bgColor="White" textColor="Black" />
-        <TextlistItem index="44" value="ST_Line_Discharge" bgColor="White" textColor="Black" />
-        <TextlistItem index="45" value="ST_Flour" bgColor="White" textColor="Black" />
-        <TextlistItem index="46" value="ST_Line_Shower" bgColor="White" textColor="Black" />
-        <TextlistItem index="47" value="ST_Piper2" bgColor="White" textColor="Black" />
-        <TextlistItem index="48" value="ST_Piper3" bgColor="White" textColor="Black" />
-        <TextlistItem index="49" value="ST_YeastConti" bgColor="White" textColor="Black" />
-        <TextlistItem index="50" value="ST_MaltConti" bgColor="White" textColor="Black" />
-        <TextlistItem index="51" value="ST_FlourConti" bgColor="White" textColor="Black" />
-        <TextlistItem index="52" value="ST_Clean_MP_Aut" bgColor="White" textColor="Black" />
-        <TextlistItem index="53" value="ST_Clean_MP_Flood" bgColor="White" textColor="Black" />
-        <TextlistItem index="90" value="PIG_Home" bgColor="White" textColor="Black" />
-        <TextlistItem index="100" value="Manual start (clean tank AUTO)" bgColor="White" textColor="Black" />
-        <TextlistItem index="101" value="Manual start (clean tank MAN)" bgColor="White" textColor="Black" />
-        <TextlistItem index="102" value="Manual start (clean tank SHOWER)" bgColor="White" textColor="Black" />
-        <TextlistItem index="103" value="Manual start (clean tank CHEM)" bgColor="White" textColor="Black" />
-        <TextlistItem index="104" value="Owner - Dosing out (line1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="105" value="Manual start (Pipe 1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="106" value="Manual start (Pipe 2)" bgColor="White" textColor="Black" />
-        <TextlistItem index="107" value="Manual start (Pipe 3)" bgColor="White" textColor="Black" />
-        <TextlistItem index="108" value="Manual start (PIG1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="109" value="Manual start (PIG2)" bgColor="White" textColor="Black" />
-        <TextlistItem index="110" value="Manual start (PIG3)" bgColor="White" textColor="Black" />
-        <TextlistItem index="111" value="Manual start Pipe2 from DS1" bgColor="White" textColor="Black" />
-        <TextlistItem index="112" value="Manual start Pipe3 from DS1" bgColor="White" textColor="Black" />
-        <TextlistItem index="113" value="Manual start (clean Pipe1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="114" value="Manual start (clean Pipe2)" bgColor="White" textColor="Black" />
-        <TextlistItem index="115" value="Manual start (clean Pipe3)" bgColor="White" textColor="Black" />
-        <TextlistItem index="116" value="Manual start (shower Line1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="117" value="Manual start (discharge Line1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="118" value="Manual start (water WMU1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="119" value="idOWN_DO_LN1" bgColor="White" textColor="Black" />
-        <TextlistItem index="120" value="idOWN_DO_LN2" bgColor="White" textColor="Black" />
-        <TextlistItem index="121" value="idOWN_DO_Man" bgColor="White" textColor="Black" />
-        <TextlistItem index="122" value="idOWN_ManWater" bgColor="White" textColor="Black" />
-        <TextlistItem index="123" value="idOWN_ClnMP_Aut" bgColor="White" textColor="Black" />
-        <TextlistItem index="124" value="idOWN_ClnMP_Flood" bgColor="White" textColor="Black" />
-        <TextlistItem index="125" value="Manual start (clean yeast)" bgColor="White" textColor="Black" />
-        <TextlistItem index="126" value="Manual start (clean LN1)" bgColor="White" textColor="Black" />
-        <TextlistItem index="127" value="Manual start (clean LN2)" bgColor="White" textColor="Black" />
-      </items>
-    </Textlist>
-    <Textlist name="status">
-      <items>
-        <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
-        <TextlistItem index="1" value="Reservation" bgColor="White" textColor="Black" />
-        <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
-        <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
-        <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
-        <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
-        <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
-      </items>
-    </Textlist>
-  </SchemeTextlist>
-</SvgConfig></defs>
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -1093,29 +300,29 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="3840"
-     inkscape:window-height="2097"
+     inkscape:window-width="1920"
+     inkscape:window-height="1137"
      id="namedview3723"
      showgrid="false"
      inkscape:zoom="2.2251823"
-     inkscape:cx="751.05045"
+     inkscape:cx="672.18051"
      inkscape:cy="210.60781"
-     inkscape:window-x="1912"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg3721" />
   <title
      id="title3714">new overview sheme</title>
   <image
-     sodipodi:absref="/Config/svg/overview_scheme_changed.png"
-     xlink:href="/Config/svg/overview_scheme_changed.png"
-     style="opacity:1"
-     width="1092"
-     height="499"
-     preserveAspectRatio="none"
-     id="image885"
+     sodipodi:absref="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\overview_scheme_changed.png"
+     xlink:href="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\overview_scheme_changed.png"
+     y="27.542362"
      x="51.956158"
-     y="27.542362" />
+     id="image885"
+     preserveAspectRatio="none"
+     height="499"
+     width="1092"
+     style="opacity:1" />
   <g
      class="layer"
      id="g3719"
@@ -1128,10 +335,11 @@
      id="weightBar-SF2"
      width="26.21018"
      height="148.08305"
-     x="643.05353"
-     y="189.91451"
+     x="-664.99933"
+     y="-348.36035"
      ry="0"
-     inkscape:label="" />
+     inkscape:label=""
+     transform="rotate(179.09219)" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:21.20460701px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.44576859"
@@ -1185,7 +393,7 @@
        y="286.95477"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.18194008px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.44576859">0.0</tspan></text>
   <rect
-     id="textlistStatus-1"
+     id="textStatus-SF2#10"
      width="246.56999"
      height="30.50638"
      x="596.78107"
@@ -1197,11 +405,11 @@
      style="font-style:normal;font-weight:normal;font-size:18.83647728px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.00909698"
      x="677.05695"
      y="134.92242"
-     id="usiOperSF2_Step.arWS_norm"
-     inkscape:label="step"
+     id="text"
+     inkscape:label="status"
      transform="scale(1.009097,0.99098499)"><tspan
        sodipodi:role="line"
-       id="tspan4592"
+       id="textStatus-SF2#11"
        x="677.05695"
        y="134.92242"
        style="stroke-width:1.00909698">Running</tspan></text>
@@ -1235,13 +443,13 @@
      style="fill:#00f500;fill-opacity:1;stroke-width:0.85941619"
      inkscape:label="" />
   <image
-     sodipodi:absref="/xer/Agit_00_NC.bmp"
-     xlink:href="/Config/svg/mixer/Agit_00_NC.bmp"
-     width="39.303593"
-     height="87.202393"
-     preserveAspectRatio="none"
-     style="image-rendering:optimizeQuality"
-     id="SF2_Mixer"
+     sodipodi:absref="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg\mixer/Agit_00_NC.bmp"
+     xlink:href="mixer/Agit_00_NC.bmp"
+     y="148.3717"
      x="697.14343"
-     y="148.3717" />
+     id="SF2_Mixer"
+     style="image-rendering:optimizeQuality"
+     preserveAspectRatio="none"
+     height="87.202393"
+     width="39.303593" />
 </svg>
