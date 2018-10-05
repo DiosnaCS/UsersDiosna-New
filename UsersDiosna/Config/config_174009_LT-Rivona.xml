@@ -78,6 +78,10 @@
         <tableName>AR_events</tableName>
         <congirationNumber>3</congirationNumber>
     </Report>
+		<NewSchemes>
+			<pathScheme>\Config\svg_174009_LT-Rivona\overview.svg</pathScheme>
+			<pathSvgCfg>C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\SvgCfg.xml</pathSvgCfg>
+		</NewSchemes>
 
 		<SchemeEditor>
 			<pathScheme>\Config\svg_174009_LT-Rivona\overview.svg</pathScheme>
@@ -88,8 +92,7 @@
 			<pathCfg2>c:\Akce\Source-Repos\UsersDiosna\Config\svg\status.txt</pathCfg2>
 			<subGraphicDir>\valve\</subGraphicDir>
 			<pathGraphicCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\valve.txt</pathGraphicCfg>
-			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
-			<pathSvgCfg>c:\Akce\Source-Repos\UsersDiosna\Config\svg\SvgCfg.xml</pathSvgCfg>
+			<pathSvgCfg>C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\SvgCfg.xml</pathSvgCfg>
 		</SchemeEditor>
   </plc>
 </configuration>

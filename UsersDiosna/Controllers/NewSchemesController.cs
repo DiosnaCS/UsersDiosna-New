@@ -49,7 +49,7 @@ namespace UsersDiosna.Controllers
             //read xml config
             SvgConfig svgConfig = schemesHandler.readSchemeConfig(pathToCfg);
             //get all values for svg scheme
-            List<ResponseValue> responses = schemesHandler.readData(svgConfig.BindingTags, (int)Session["id"]); 
+            List<ResponseValue> responses = schemesHandler.readData(svgConfig, svgConfig.BindingTags, (int)Session["id"]); 
             //set values from responses 
             SvgDocument svg = schemesHandler.setValue(responses, svgConfig, pathToSvg);
             /*

@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1171"
+   height="547"
+   version="1.1"
+   id="svg3721"
+   sodipodi:docname="overview.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1493"
+     inkscape:window-height="987"
+     id="namedview3723"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="353.03927"
+     inkscape:cy="227.79717"
+     inkscape:window-x="77"
+     inkscape:window-y="91"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg3721" />
+  <metadata
+     id="metadata3727">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs108">
+    <inkscape:path-effect
+       only_selected="false"
+       apply_with_weight="true"
+       apply_no_weight="true"
+       helper_size="0"
+       steps="2"
+       weight="33.333333"
+       is_visible="true"
+       id="path-effect4647"
+       effect="bspline" />
+<SvgConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BindingTags>
+    <SchemeValue id="usiAH1_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal1" Type="DynValue" />
+    <SchemeValue id="usiAK1_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal2" Type="DynValue" />
+    <SchemeValue id="usiAK2_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal3" Type="DynValue" />
+
+    <SchemeValue id="usiAH1_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal4" Type="DynValue" />
+    <SchemeValue id="usiAK1_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal5" Type="DynValue" />
+    <SchemeValue id="usiAK2_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal6" Type="DynValue" />
+
+    <SchemeValue id="AH1_WeightBar" tableName="snapshot" columnName="snapshot" name="101" Type="AgeBarVertical" />
+    <SchemeValue id="diAH1_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal7" Type="DynValue" />
+    <SchemeValue id="iAH1_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal8" Type="DynValue" />
+    <SchemeValue id="iAH1_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal9" Type="DynValue" />
+    <SchemeValue id="AH1_AgeBar" tableName="arAR_xslow" columnName="snapshot" name="102" Type="AgeBar" />
+    <SchemeValue id="AH1_RcpName" tableName="snapshot" columnName="snapshot" name="rcp_name" Type="Textlist" />
+
+    <SchemeValue id="AK1_WeightBar" tableName="snapshot" columnName="snapshot" name="111" Type="AgeBarVertical" />
+    <SchemeValue id="diAK1_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal10" Type="DynValue" />
+    <SchemeValue id="iAK1_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal11" Type="DynValue" />
+    <SchemeValue id="iAK1_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal12" Type="DynValue" />
+    <SchemeValue id="AK1_AgeBar" tableName="snapshot" columnName="snapshot" name="112" Type="AgeBar" />
+    <SchemeValue id="AK2_RcpName" tableName="snapshot" columnName="snapshot" name="rcp_name" Type="Textlist" />
+
+    <SchemeValue id="AK2_WeightBar" tableName="snapshot" columnName="snapshot" name="121" Type="AgeBarVertical" />
+    <SchemeValue id="diAK2_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal13" Type="DynValue" />
+    <SchemeValue id="iAK2_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal14" Type="DynValue" />
+    <SchemeValue id="iAK2_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal15" Type="DynValue" />
+    <SchemeValue id="AK2_AgeBar" tableName="snapshot" columnName="snapshot" name="122" Type="AgeBar" />   
+    <SchemeValue id="AK2_RcpName" tableName="snapshot" columnName="snapshot" name="rcp_name" Type="Textlist" />
+
+    <SchemeValue id="DestNames" tableName="snapshot" columnName="snapshot" name="dest_names" Type="Textlist" />    
+
+  </BindingTags>
+  <SchemeTags>    
+    <DynValue id="diAH1_Weight.arAR_norm" table="arAR_norm" column="diAH1_Weight" ratio="1500" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAH1_TempSide.arAR_norm" table="arAR_norm" column="iAH1_TempSide" ratio="75" offset="0" unit="�C" textColor="black" />
+    <DynValue id="iAH1_TempBottom.arAR_norm" table="arAR_norm" column="iAH1_TempBottom" ratio="75" offset="0" unit="�C" textColor="black" />
+    
+    <DynValue id="diAK1_Weight.arAR_norm" table="arAR_norm" column="diAK1_Weight" ratio="1500" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAK1_TempSide.arAR_norm" table="arAR_norm" column="iAK1_TempSide" ratio="45" offset="0" unit="�C" textColor="black" />
+    <DynValue id="iAK1_TempBottom.arAR_norm" table="arAR_norm" column="iAK1_TempBottom" ratio="45" offset="0" unit="�C" textColor="black" />
+
+    <DynValue id="diAK2_Weight.arAR_norm" table="arAR_norm" column="diAK2_Weight" ratio="1500" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAK2_TempSide.arAR_norm" table="arAR_norm" column="iAK2_TempSide" ratio="45" offset="0" unit="�C" textColor="black" />
+    <DynValue id="iAK2_TempBottom.arAR_norm" table="arAR_norm" column="iAK2_TempBottom" ratio="45" offset="0" unit="�C" textColor="black" />
+
+  </SchemeTags>
+  <SchemeAgeBars>
+    <AgeBar id="101" maxAge="1500000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+    <AgeBar id="102" maxAge="14400" firstColor="green" firstLimit="36000" secondColor="yellow" secLimit="72000" thirdColor="gray" />    
+    <AgeBar id="111" maxAge="1500000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+    <AgeBar id="112" maxAge="14400" firstColor="green" firstLimit="36000" secondColor="yellow" secLimit="72000" thirdColor="gray" />    
+    <AgeBar id="121" maxAge="1500000" firstColor="blue" firstLimit="3000000" secondColor="blue" secLimit="3000000" thirdColor="blue " />
+    <AgeBar id="122" maxAge="14400" firstColor="green" firstLimit="36000" secondColor="yellow" secLimit="72000" thirdColor="gray" />    
+  </SchemeAgeBars>
+  <SchemeGraphicsList>
+    <Graphiclist name="agit">
+      <items>
+        <GraphiclistItem index="0" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_00_NC.bmp" />
+        <GraphiclistItem index="1" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_01_CW_RUN.bmp" />
+        <GraphiclistItem index="2" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_02_CCW_RUN.bmp" />
+        <GraphiclistItem index="3" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_03_CW_DEC.bmp" />
+        <GraphiclistItem index="4" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_04_CCW_DEC.bmp" />
+        <GraphiclistItem index="5" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_05_disabled.bmp" />
+        <GraphiclistItem index="6" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_06_ERR.bmp" />
+        <GraphiclistItem index="7" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_07_CW_ERR.bmp" />
+        <GraphiclistItem index="8" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_08_CCW_ERR.bmp" />
+        <GraphiclistItem index="10" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_10_MAN_NC.bmp" />
+        <GraphiclistItem index="11" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_11_MAN_CW_RUN.bmp" />
+        <GraphiclistItem index="12" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_12_MAN_CCW_RUN.bmp" />
+        <GraphiclistItem index="13" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_13_MAN_CW_DEC.bmp" />
+        <GraphiclistItem index="14" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_14_MAN_CCW_DEC.bmp" />
+        <GraphiclistItem index="15" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_15_MAN_disabled.bmp" />
+        <GraphiclistItem index="16" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_16_MAN_ERR.bmp" />
+        <GraphiclistItem index="17" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_17_MAN_CW_ERR.bmp" />
+        <GraphiclistItem index="18" path="C:\Users\Admin\source\repos\UsersDiosna-New\UsersDiosna\Config\svg_174009_LT-Rivona\agit\Agit_18_MAN_CCW_RUN.bmp" />
+      </items>
+    </Graphiclist>
+  </SchemeGraphicsList>
+  <SchemeTextlist>
+    <Textlist name="dest_names">
+      <items>
+        <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="AH1" bgColor="White" textColor="Black" />
+        <TextlistItem index="2" value="AK1" bgColor="White" textColor="Black" />
+        <TextlistItem index="3" value="AK2" bgColor="White" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="status">
+      <items>
+        <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+        <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+        <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+        <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+        <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="AH_step">
+      <items>
+        <TextlistItem index="0" value="---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservate" bgColor="White" textColor="Black" />
+        <TextlistItem index="2" value="Reservate" bgColor="White" textColor="Black" />        
+        <TextlistItem index="3" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="4" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="5" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="6" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="7" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="8" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="9" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="10" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="11" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="12" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="13" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="14" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="15" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="16" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="20" value="Fermentation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="21" value="Fermentation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="25" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="26" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="27" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="28" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="30" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="31" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="32" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="33" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="34" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="35" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="40" value="Post-cleaning" bgColor="Blue" textColor="White" />
+        <TextlistItem index="50" value="Tank cleaning(AUTO)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="51" value="Tank cleaning(MAN)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="52" value="Tank cleaning(SHOWER)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="53" value="Tank cleaning(CHEM.)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="54" value="Cleaning water" bgColor="Blue" textColor="White" />
+        <TextlistItem index="55" value="Tank discharging" bgColor="Blue" textColor="White" />
+        <TextlistItem index="61" value="Tech. water filling" bgColor="#00FFFF" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="AK_step">
+      <items>
+        <TextlistItem index="0" value="---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservate" bgColor="White" textColor="Black" />        
+        <TextlistItem index="2" value="   " bgColor="White" textColor="Black" />        
+        <TextlistItem index="3" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="4" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="5" value="Cooling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="6" value="Storing" bgColor="Green" textColor="Black" />
+        <TextlistItem index="30" value="Post-cleaning" bgColor="Blue" textColor="White" />        
+        <TextlistItem index="50" value="Tank cleaning(AUTO)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="51" value="Tank cleaning(MAN)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="52" value="Tank cleaning(SHOWER)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="53" value="Tank cleaning(CHEM.)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="54" value="Cleaning water" bgColor="Blue" textColor="White" />
+        <TextlistItem index="55" value="Tank discharging" bgColor="Blue" textColor="White" />
+      </items>
+    </Textlist>
+  </SchemeTextlist>
+  </SvgConfig>
+  </defs>
+  <title
+     id="title3714">new overview sheme</title>
+  <image
+     sodipodi:absref="V:\UsersProduction\Config\svg_174009_LT-Rivona\LTRIV_overview_AR.png"
+     xlink:href="LTRIV_overview_AR.png"
+     width="840"
+     height="615"
+     preserveAspectRatio="none"
+     id="image255"
+     x="86.473389"
+     y="-30.630827" />
+  <g
+     transform="translate(10.486567,14.617639)"
+     id="g3719"
+     class="layer">
+    <title
+       id="title3716">Layer 1</title>
+  </g>
+  <rect
+     inkscape:label="AH1_weight_bar"
+     ry="0"
+     y="146.1376"
+     x="480.30585"
+     height="115.08305"
+     width="16.73974"
+     id="AH1_WeightBar"
+     style="fill:#0000ff;fill-opacity:1;stroke-width:0.74524212" />
+  <text
+     inkscape:label="AH1_weight"
+     transform="scale(0.9114676,1.0971317)"
+     id="diAH1_Weight.arAR_norm"
+     y="196.50516"
+     x="586.34338"
+     style="font-style:normal;font-weight:normal;font-size:17.73842049px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.20943773"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.88292503px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.20943773"
+       y="196.50516"
+       x="586.34338"
+       id="10"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AH1_tempSide"
+     transform="scale(0.87908146,1.137551)"
+     id="iAH1_TempSide.arAR_norm"
+     y="208.90475"
+     x="608.60449"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="208.90475"
+       x="608.60449"
+       id="12"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="iAH1_TempBottom"
+     transform="scale(0.87908146,1.137551)"
+     id="iAH1_TempBottom.arAR_norm"
+     y="222.83102"
+     x="607.97754"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="222.83102"
+       x="607.97754"
+       id="13"
+       sodipodi:role="line">0.0</tspan></text>
+  <rect
+     inkscape:label="AH_status_back"
+     style="fill:#00f500;fill-opacity:1;stroke-width:0.67668515"
+     y="44.246113"
+     x="448.55493"
+     height="20.606886"
+     width="164.14436"
+     id="AH1_textlist_status" />
+  <text
+     inkscape:label="status"
+     id="usiAH1_RCP_Status.arAR_norm"
+     y="66.057678"
+     x="434.17371"
+     style="font-style:normal;font-weight:normal;font-size:14.34390163px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.76842344"
+     xml:space="preserve"
+     transform="scale(1.1348951,0.8811387)"><tspan
+       y="66.057678"
+       x="434.17371"
+       id="tspan4592"
+       sodipodi:role="line"
+       style="stroke-width:0.76842344">Running</tspan></text>
+  <rect
+     inkscape:label="AH_step_back"
+     y="64.852997"
+     x="448.55493"
+     height="31.155607"
+     width="164.29106"
+     id="AH1_textlist_step"
+     style="fill:#99cc00;fill-opacity:0.91959797;stroke-width:0.78225118" />
+  <text
+     inkscape:label="AH1_step"
+     id="usiAH1_RCP_Step.arAR_norm"
+     y="85.504738"
+     x="501.24805"
+     style="font-style:normal;font-weight:normal;font-size:16.89936638px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.90532327"
+     xml:space="preserve"
+     transform="scale(0.98406882,1.0161891)"><tspan
+       y="85.504738"
+       x="501.24805"
+       id="tspan4592-7"
+       sodipodi:role="line"
+       style="stroke-width:0.90532327">Storage</tspan></text>
+  <rect
+     inkscape:label="AK2_age_bar"
+     style="fill:#00f500;fill-opacity:1;stroke-width:0.7023142"
+     y="303.1572"
+     x="274.01212"
+     height="22.244238"
+     width="163.79868"
+     id="AK2_AgeBar" />
+  <text
+     inkscape:label="AK2_age"
+     transform="scale(0.87908146,1.137551)"
+     id="diAK2_RCP_Age.arAR_xslow"
+     y="281.6087"
+     x="388.15958"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="281.6087"
+       x="388.15958"
+       id="12-5-6"
+       sodipodi:role="line">0.0</tspan></text>
+  <rect
+     inkscape:label="AK1_age_bar"
+     style="fill:#00f500;fill-opacity:1;stroke-width:0.7023142"
+     y="303.36105"
+     x="98.291573"
+     height="22.244238"
+     width="163.79868"
+     id="AK1_AgeBar" />
+  <text
+     inkscape:label="AK1_age"
+     transform="scale(0.87908146,1.137551)"
+     id="diAK1_RCP_Age.arAR_xslow"
+     y="281.78793"
+     x="188.26849"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="281.78793"
+       x="188.26849"
+       id="12-5-6-6"
+       sodipodi:role="line">0.0</tspan></text>
+  <rect
+     inkscape:label="AK_status_back"
+     style="fill:#00f500;fill-opacity:1;stroke-width:0.67668515"
+     y="44.53685"
+     x="273.83908"
+     height="20.606886"
+     width="164.14436"
+     id="AK2_textlist_status" />
+  <text
+     inkscape:label="status"
+     id="usiAK2_RCP_Status.arAR_norm"
+     y="67.327805"
+     x="281.98706"
+     style="font-style:normal;font-weight:normal;font-size:14.34390163px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.76842344"
+     xml:space="preserve"
+     transform="scale(1.1348951,0.8811387)"><tspan
+       y="67.327805"
+       x="281.98706"
+       id="tspan4592-4"
+       sodipodi:role="line"
+       style="stroke-width:0.76842344">Running</tspan></text>
+  <rect
+     inkscape:label="AK_step_back"
+     y="65.713417"
+     x="273.36594"
+     height="31.155607"
+     width="164.29106"
+     id="AK2_textlist_step"
+     style="fill:#99cc00;fill-opacity:0.91959797;stroke-width:0.78225118" />
+  <text
+     inkscape:label="AK2_step"
+     id="usiAK2_RCP_Step.arAR_norm"
+     y="88.895554"
+     x="309.30554"
+     style="font-style:normal;font-weight:normal;font-size:16.14769173px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.86505491"
+     xml:space="preserve"
+     transform="scale(1.0298772,0.97098952)"><tspan
+       y="88.895554"
+       x="309.30554"
+       id="tspan4592-7-2"
+       sodipodi:role="line"
+       style="stroke-width:0.86505491">Storage</tspan></text>
+  <rect
+     inkscape:label="AK_status_back"
+     style="fill:#00f500;fill-opacity:1;stroke-width:0.68819714"
+     y="44.072392"
+     x="97.062393"
+     height="21.313993"
+     width="164.14436"
+     id="AK1_textlist_status" />
+  <text
+     inkscape:label="status"
+     id="usiAK1_RCP_Status.arAR_norm"
+     y="68.130302"
+     x="126.22228"
+     style="font-style:normal;font-weight:normal;font-size:14.34390163px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.76842344"
+     xml:space="preserve"
+     transform="scale(1.1348951,0.8811387)"><tspan
+       y="68.130302"
+       x="126.22228"
+       id="tspan4592-4-5"
+       sodipodi:role="line"
+       style="stroke-width:0.76842344">Running</tspan></text>
+  <rect
+     inkscape:label="AK_step_back"
+     y="66.420525"
+     x="96.589249"
+     height="31.155607"
+     width="164.29106"
+     id="AK1_textlist_step"
+     style="fill:#99cc00;fill-opacity:0.91959797;stroke-width:0.78225118" />
+  <text
+     inkscape:label="AK_step"
+     id="usiAK1_RCP_Step.arAR_norm"
+     y="87.407379"
+     x="140.89767"
+     style="font-style:normal;font-weight:normal;font-size:16.52780342px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.88541806"
+     xml:space="preserve"
+     transform="scale(1.0061918,0.9938463)"><tspan
+       y="87.407379"
+       x="140.89767"
+       id="tspan4592-7-2-0"
+       sodipodi:role="line"
+       style="stroke-width:0.88541806">Storage</tspan></text>
+  <text
+     inkscape:label="AK1_rcp_name"
+     id="AK1_RcpName"
+     y="240.87186"
+     x="198.80603"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514836,1.2420071)"><tspan
+       y="240.87186"
+       x="198.80603"
+       id="tspan4592-7-2-0-7"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <text
+     inkscape:label="AK2_rcp_name"
+     id="AK2_RcpName"
+     y="241.44118"
+     x="418.36392"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514837,1.2420071)"><tspan
+       y="241.44118"
+       x="418.36392"
+       id="tspan4592-7-2-0-7-5"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <text
+     inkscape:label="AH1_rcp_name"
+     id="AH1_RcpName"
+     y="245.99579"
+     x="639.67828"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514837,1.2420071)"><tspan
+       y="245.99579"
+       x="639.67828"
+       id="tspan4592-7-2-0-7-4"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <text
+     inkscape:label="dest_names"
+     id="DestNames"
+     y="140.47629"
+     x="760.26971"
+     style="font-style:normal;font-weight:normal;font-size:16.89936638px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.90532327"
+     xml:space="preserve"
+     transform="scale(0.98406882,1.0161891)"><tspan
+       y="140.47629"
+       x="760.26971"
+       id="tspan4592-7-5"
+       sodipodi:role="line"
+       style="stroke-width:0.90532327">None</tspan></text>
+  <text
+     inkscape:label="Pipe1_step"
+     id="usiPipe1_Step.arAR_norm"
+     y="313.16254"
+     x="414.05042"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514837,1.2420071)"><tspan
+       y="313.16254"
+       x="414.05042"
+       id="tspan4592-7-2-0-7-5-6"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <text
+     inkscape:label="Pipe2_step"
+     id="usiPipe2_Step.arAR_norm"
+     y="352.45975"
+     x="413.97278"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514837,1.2420071)"><tspan
+       y="352.45975"
+       x="413.97278"
+       id="tspan4592-7-2-0-7-5-6-1"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <text
+     inkscape:label="Pipe3_step"
+     id="usiPipe3_Step.arAR_norm"
+     y="391.84091"
+     x="414.85098"
+     style="font-style:normal;font-weight:normal;font-size:9.61746311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.51522124"
+     xml:space="preserve"
+     transform="scale(0.80514837,1.2420071)"><tspan
+       y="391.84091"
+       x="414.85098"
+       id="tspan4592-7-2-0-7-5-6-1-2"
+       sodipodi:role="line"
+       style="stroke-width:0.51522124">Storage</tspan></text>
+  <rect
+     inkscape:label="AK1_weight_bar"
+     ry="0"
+     y="145.09747"
+     x="132.34436"
+     height="115.08305"
+     width="16.73974"
+     id="AK1_WeightBar"
+     style="fill:#0000ff;fill-opacity:1;stroke-width:0.74524212" />
+  <rect
+     inkscape:label="AK2_weight_bar"
+     ry="0"
+     y="145.2188"
+     x="306.99973"
+     height="115.08305"
+     width="16.73974"
+     id="AK2_WeightBar"
+     style="fill:#0000ff;fill-opacity:1;stroke-width:0.74524212" />
+  <text
+     inkscape:label="AK2_weight"
+     transform="scale(0.9114676,1.0971317)"
+     id="diAK2_Weight.arAR_norm"
+     y="195.3175"
+     x="397.14636"
+     style="font-style:normal;font-weight:normal;font-size:17.73842049px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.20943773"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.88292503px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.20943773"
+       y="195.3175"
+       x="397.14636"
+       id="10-8"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AK2_tempSide"
+     transform="scale(0.87908146,1.137551)"
+     id="iAK2_TempSide.arAR_norm"
+     y="207.75929"
+     x="412.43729"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="207.75929"
+       x="412.43729"
+       id="12-7"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AK2_tempBottom"
+     transform="scale(0.87908146,1.137551)"
+     id="iAK2_TempBottom.arAR_norm"
+     y="221.68556"
+     x="411.81033"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="221.68556"
+       x="411.81033"
+       id="13-4"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AK1_weight"
+     transform="scale(0.9114676,1.0971317)"
+     id="diAK1_Weight.arAR_norm"
+     y="195.3175"
+     x="203.97482"
+     style="font-style:normal;font-weight:normal;font-size:17.73842049px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.20943773"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.88292503px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.20943773"
+       y="195.3175"
+       x="203.97482"
+       id="10-8-2"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AK1_tempSide"
+     transform="scale(0.87908146,1.137551)"
+     id="iAK1_TempSide.arAR_norm"
+     y="207.75929"
+     x="212.14917"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="207.75929"
+       x="212.14917"
+       id="12-7-6"
+       sodipodi:role="line">0.0</tspan></text>
+  <text
+     inkscape:label="AK1_tempBottom"
+     transform="scale(0.87908146,1.137551)"
+     id="iAK1_TempBottom.arAR_norm"
+     y="221.68556"
+     x="211.52222"
+     style="font-style:normal;font-weight:normal;font-size:18.22312737px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.24248588"
+     xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.34425354px;font-family:Calibri;-inkscape-font-specification:Calibri;stroke-width:1.24248588"
+       y="221.68556"
+       x="211.52222"
+       id="13-4-2"
+       sodipodi:role="line">0.0</tspan></text>
+  <image
+     sodipodi:absref="V:\UsersProduction\Config\svg_174009_LT-Rivona\agit/Agit_02_CCW_RUN.bmp"
+     xlink:href="agit/Agit_02_CCW_RUN.bmp"
+     y="105.106"
+     x="164.14066"
+     id="image8182"
+     preserveAspectRatio="none"
+     height="89"
+     width="42" />
+  <image
+     sodipodi:absref="V:\UsersProduction\Config\svg_174009_LT-Rivona\agit/Agit_02_CCW_RUN.bmp"
+     xlink:href="agit/Agit_02_CCW_RUN.bmp"
+     inkscape:label="AK1_agit"
+     width="42"
+     height="89"
+     preserveAspectRatio="none"
+     id="AK1_Agit"
+     x="164.14066"
+     y="105.106" />
+  <image
+     sodipodi:absref="V:\UsersProduction\Config\svg_174009_LT-Rivona\agit/Agit_02_CCW_RUN.bmp"
+     xlink:href="agit/Agit_02_CCW_RUN.bmp"
+     inkscape:label="AK2_agit"
+     y="104.5"
+     x="342"
+     id="AK2_Agit"
+     preserveAspectRatio="none"
+     height="89"
+     width="42" />
+  <image
+     sodipodi:absref="V:\UsersProduction\Config\svg_174009_LT-Rivona\agit/Agit_02_CCW_RUN.bmp"
+     xlink:href="agit/Agit_02_CCW_RUN.bmp"
+     inkscape:label="AH1_agit"
+     y="106.5"
+     x="513"
+     id="AH1_Agit"
+     preserveAspectRatio="none"
+     height="89"
+     width="42" />
+</svg>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SvgConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BindingTags>
+    <!-- <SchemeValue id="usiAH1_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal1" Type="DynValue" />
+    <SchemeValue id="usiAK1_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal2" Type="DynValue" />
+    <SchemeValue id="usiAK2_RCP_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal3" Type="DynValue" /> -->
+
+    <SchemeValue id="usiAH1_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal4" Type="DynValue" />
+    <SchemeValue id="usiAK1_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal5" Type="DynValue" />
+    <SchemeValue id="usiAK2_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal6" Type="DynValue" />
+
+    <SchemeValue id="usiAK2_RCP_Step.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal6" Type="DynValue" />
+    <SchemeValue id="usiAH1_Agit.AH1_Agit.arAR_norm" tableName="snapshot" columnName="snapshot" name="agit" Type="GraphicList" />
+    <SchemeValue id="usiAK1_Agit.AK1_Agit.arAR_norm" tableName="snapshot" columnName="snapshot" name="agit" Type="GraphicList" />
+    <SchemeValue id="usiAK2_Agit.AK2_Agit.arAR_norm" tableName="snapshot" columnName="snapshot" name="agit" Type="GraphicList" />
+
+    <SchemeValue id="diAH1_Weight.AH1_WeightBar.arAR_norm" tableName="snapshot" columnName="snapshot" name="101" Type="AgeBarVertical" />
+    <SchemeValue id="diAH1_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal7" Type="DynValue" />
+    <SchemeValue id="iAH1_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal8" Type="DynValue" />
+    <SchemeValue id="iAH1_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal9" Type="DynValue" />
+    <SchemeValue id="diAH1_Old.AH1_AgeBar.arAR_xslow" tableName="arAR_xslow" columnName="snapshot" name="102" Type="AgeBar" />
+    <SchemeValue id="usiAH1_RCP_Status.AH1_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="AH_step" Type="Textlist" />
+
+    <SchemeValue id="diAK1_Weight.AK1_WeightBar.arAR_norm" tableName="snapshot" columnName="snapshot" name="111" Type="AgeBarVertical" />
+    <SchemeValue id="diAK1_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal10" Type="DynValue" />
+    <SchemeValue id="iAK1_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal11" Type="DynValue" />
+    <SchemeValue id="iAK1_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal12" Type="DynValue" />
+    <SchemeValue id="diAK1_Old.AK1_AgeBar.arAR_xslow" tableName="snapshot" columnName="snapshot" name="112" Type="AgeBar" />
+    <SchemeValue id="usiAK1_RCP_Status.AK1_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="AK_step" Type="Textlist" />
+
+    <SchemeValue id="diAK2_Weight.AK2_WeightBar.arAR_norm" tableName="snapshot" columnName="snapshot" name="121" Type="AgeBarVertical" />
+    <SchemeValue id="diAK2_Weight.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal13" Type="DynValue" />
+    <SchemeValue id="iAK2_TempSide.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal14" Type="DynValue" />
+    <SchemeValue id="iAK2_TempBottom.arAR_norm" tableName="snapshot" columnName="snapshot" name="DynVal15" Type="DynValue" />
+    <SchemeValue id="diAK2_Old.AK2_AgeBar.arAR_xslow" tableName="snapshot" columnName="snapshot" name="122" Type="AgeBar" />   
+    <SchemeValue id="usiAK2_RCP_Status.AK2_Status.arAR_norm" tableName="snapshot" columnName="snapshot" name="AK_step" Type="Textlist" />
+  
+    <SchemeValue id="DestNames" tableName="snapshot" columnName="snapshot" name="dest_names" Type="Textlist" />    
+
+  </BindingTags>
+  <SchemeTags>    
+    <DynValue id="diAH1_Weight.arAR_norm" table="arAR_norm" column="diAH1_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAH1_TempSide.arAR_norm" table="arAR_norm" column="iAH1_TempSide" ratio="1" offset="0" unit="°C" textColor="black" />
+    <DynValue id="iAH1_TempBottom.arAR_norm" table="arAR_norm" column="iAH1_TempBottom" ratio="1" offset="0" unit="°C" textColor="black" />
+    
+    <DynValue id="diAK1_Weight.arAR_norm" table="arAR_norm" column="diAK1_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAK1_TempSide.arAR_norm" table="arAR_norm" column="iAK1_TempSide" ratio="1" offset="0" unit="°C" textColor="black" />
+    <DynValue id="iAK1_TempBottom.arAR_norm" table="arAR_norm" column="iAK1_TempBottom" ratio="1" offset="0" unit="°C" textColor="black" />
+
+    <DynValue id="diAK2_Weight.arAR_norm" table="arAR_norm" column="diAK2_Weight" ratio="1000" offset="0" unit="kg" textColor="black" />
+    <DynValue id="iAK2_TempSide.arAR_norm" table="arAR_norm" column="iAK2_TempSide" ratio="1" offset="0" unit="°C" textColor="black" />
+    <DynValue id="iAK2_TempBottom.arAR_norm" table="arAR_norm" column="iAK2_TempBottom" ratio="1" offset="0" unit="°C" textColor="black" />
+
+  </SchemeTags>
+  <SchemeAgeBars>
+    <AgeBar id="diAH1_Weight.AH1_WeightBar.arAR_norm" maxAge="1500000" firstColor="blue" firstLimit="1500000" secondColor="blue" secLimit="1500000" thirdColor="blue" />
+    <AgeBar id="diAH1_Old.AH1_AgeBar.arAR_xslow" maxAge="144" firstColor="green" firstLimit="36" secondColor="yellow" secLimit="72" thirdColor="gray" />    
+    <AgeBar id="diAK1_Weight.AK1_WeightBar.arAR_norm" maxAge="1500000" firstColor="blue" firstLimit="1500000" secondColor="blue" secLimit="1500000" thirdColor="blue" />
+    <AgeBar id="diAK1_Old.AK1_AgeBar.arAR_xslow" maxAge="144" firstColor="green" firstLimit="36" secondColor="yellow" secLimit="72" thirdColor="gray" />    
+    <AgeBar id="diAK2_Weight.AK2_WeightBar.arAR_norm" maxAge="1500000" firstColor="blue" firstLimit="1500000" secondColor="blue" secLimit="1500000" thirdColor="blue" />
+    <AgeBar id="diAK2_Old.AK2_AgeBar.arAR_xslow" maxAge="144" firstColor="green" firstLimit="36" secondColor="yellow" secLimit="72" thirdColor="gray" />    
+  </SchemeAgeBars>
+  <SchemeGraphicsList>
+    <Graphiclist name="agit">
+      <items>
+        <GraphiclistItem index="0" path="Config\svg_174009_LT-Rivona\agit\Agit_00_NC.bmp" />
+        <GraphiclistItem index="1" path="Config\svg_174009_LT-Rivona\agit\Agit_01_CW_RUN.bmp" />
+        <GraphiclistItem index="2" path="Config\svg_174009_LT-Rivona\agit\Agit_02_CCW_RUN.bmp" />
+        <GraphiclistItem index="3" path="Config\svg_174009_LT-Rivona\agit\Agit_03_CW_DEC.bmp" />
+        <GraphiclistItem index="4" path="Config\svg_174009_LT-Rivona\agit\Agit_04_CCW_DEC.bmp" />
+        <GraphiclistItem index="5" path="Config\svg_174009_LT-Rivona\agit\Agit_05_disabled.bmp" />
+        <GraphiclistItem index="6" path="Config\svg_174009_LT-Rivona\agit\Agit_06_ERR.bmp" />
+        <GraphiclistItem index="7" path="Config\svg_174009_LT-Rivona\agit\Agit_07_CW_ERR.bmp" />
+        <GraphiclistItem index="8" path="Config\svg_174009_LT-Rivona\agit\Agit_08_CCW_ERR.bmp" />
+        <GraphiclistItem index="10" path="Config\svg_174009_LT-Rivona\agit\Agit_10_MAN_NC.bmp" />
+        <GraphiclistItem index="11" path="Config\svg_174009_LT-Rivona\agit\Agit_11_MAN_CW_RUN.bmp" />
+        <GraphiclistItem index="12" path="Config\svg_174009_LT-Rivona\agit\Agit_12_MAN_CCW_RUN.bmp" />
+        <GraphiclistItem index="13" path="Config\svg_174009_LT-Rivona\agit\Agit_13_MAN_CW_DEC.bmp" />
+        <GraphiclistItem index="14" path="Config\svg_174009_LT-Rivona\agit\Agit_14_MAN_CCW_DEC.bmp" />
+        <GraphiclistItem index="15" path="Config\svg_174009_LT-Rivona\agit\Agit_15_MAN_disabled.bmp" />
+        <GraphiclistItem index="16" path="Config\svg_174009_LT-Rivona\agit\Agit_16_MAN_ERR.bmp" />
+        <GraphiclistItem index="17" path="Config\svg_174009_LT-Rivona\agit\Agit_17_MAN_CW_ERR.bmp" />
+        <GraphiclistItem index="18" path="Config\svg_174009_LT-Rivona\agit\Agit_18_MAN_CCW_RUN.bmp" />
+      </items>
+    </Graphiclist>
+  </SchemeGraphicsList>
+  <SchemeTextlist>
+    <Textlist name="dest_names">
+      <items>
+        <TextlistItem index="0" value="None" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="AH1" bgColor="White" textColor="Black" />
+        <TextlistItem index="2" value="AK1" bgColor="White" textColor="Black" />
+        <TextlistItem index="3" value="AK2" bgColor="White" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="status">
+      <items>
+        <TextlistItem index="0" value="--- off ---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="2" value="Done" bgColor="White" textColor="Black" />
+        <TextlistItem index="3" value="Running" bgColor="White" textColor="Black" />
+        <TextlistItem index="4" value="Pause" bgColor="White" textColor="Black" />
+        <TextlistItem index="5" value="Hold" bgColor="White" textColor="Black" />
+        <TextlistItem index="6" value="Interrupted (alarm)" bgColor="White" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="AH_step">
+      <items>
+        <TextlistItem index="0" value="---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservate" bgColor="White" textColor="Black" />
+        <TextlistItem index="2" value="Reservate" bgColor="White" textColor="Black" />        
+        <TextlistItem index="3" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="4" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="5" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="6" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="7" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="8" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="9" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="10" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="11" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="12" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="13" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="14" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="15" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="16" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="20" value="Fermentation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="21" value="Fermentation" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="25" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="26" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="27" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="28" value="Repump" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="30" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="31" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="32" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="33" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="34" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="35" value="Repump+PIG" bgColor="#00FFFF" textColor="Black" />
+        <TextlistItem index="40" value="Post-cleaning" bgColor="Blue" textColor="White" />
+        <TextlistItem index="50" value="Tank cleaning(AUTO)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="51" value="Tank cleaning(MAN)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="52" value="Tank cleaning(SHOWER)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="53" value="Tank cleaning(CHEM.)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="54" value="Cleaning water" bgColor="Blue" textColor="White" />
+        <TextlistItem index="55" value="Tank discharging" bgColor="Blue" textColor="White" />
+        <TextlistItem index="61" value="Tech. water filling" bgColor="#00FFFF" textColor="Black" />
+      </items>
+    </Textlist>
+    <Textlist name="AK_step">
+      <items>
+        <TextlistItem index="0" value="---" bgColor="White" textColor="Black" />
+        <TextlistItem index="1" value="Reservate" bgColor="White" textColor="Black" />        
+        <TextlistItem index="2" value="   " bgColor="White" textColor="Black" />        
+        <TextlistItem index="3" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="4" value="Filling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="5" value="Cooling" bgColor="Yellow" textColor="Black" />
+        <TextlistItem index="6" value="Storing" bgColor="Green" textColor="Black" />
+        <TextlistItem index="30" value="Post-cleaning" bgColor="Blue" textColor="White" />        
+        <TextlistItem index="50" value="Tank cleaning(AUTO)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="51" value="Tank cleaning(MAN)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="52" value="Tank cleaning(SHOWER)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="53" value="Tank cleaning(CHEM.)" bgColor="Blue" textColor="White" />
+        <TextlistItem index="54" value="Cleaning water" bgColor="Blue" textColor="White" />
+        <TextlistItem index="55" value="Tank discharging" bgColor="Blue" textColor="White" />
+      </items>
+    </Textlist>
+  </SchemeTextlist>
+  </SvgConfig>

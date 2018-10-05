@@ -69,7 +69,7 @@ namespace UsersDiosna.Handlers
 
             //serialize and write data into file
             BinaryFormatter binFormatter = new BinaryFormatter();
-            using (FileStream dataFileStream = System.IO.File.Open(dataPath, FileMode.Append))
+            using (FileStream dataFileStream = System.IO.File.Open(dataPath, FileMode.Create))
             {
                 binFormatter.Serialize(dataFileStream, snapshot);
                 //close file after append
@@ -85,7 +85,7 @@ namespace UsersDiosna.Handlers
             snapshot.SnapshotValues = snapshotValues;
         }
 
-        private ResponseValue getDataFromSnapshot(SchemeValue tag, int projectId)
+        private ResponseValue getDataFromSnapshot(SvgConfig config, SchemeValue tag, int projectId)
         {
             Snapshot snapshot = new Snapshot();
             string pathToDataForThisDay;
@@ -97,22 +97,55 @@ namespace UsersDiosna.Handlers
             {
                 pathToDataForThisDay = PathDef.PhysicalPath + @"\" + DateTime.Now.ToShortDateString();
             }
-
-            RequestValue value = new RequestValue();
-            if (System.IO.File.Exists(pathToDataForThisDay))
+            if (pathToDataForThisDay.Contains("/"))
+            {
+                pathToDataForThisDay = pathToDataForThisDay.Replace("/", ".");
+            }
+            
+            if (Directory.Exists(pathToDataForThisDay) == true)
             {
                 string pathToDataForThisDayAndThisProject = pathToDataForThisDay + @"\" + projectId;
-                if (System.IO.File.Exists(pathToDataForThisDayAndThisProject) == true)
+                if (Directory.Exists(pathToDataForThisDayAndThisProject) == true)
                 {
                     FileStream fileStreamOfBinData = System.IO.File.OpenRead(pathToDataForThisDayAndThisProject + @"\data.bin");
                     BinaryFormatter binaryFormatter = new BinaryFormatter();
                     snapshot = (Snapshot)binaryFormatter.Deserialize(fileStreamOfBinData);
                     //here should be only one element
-                    value = snapshot.SnapshotValues.First(p => p.columnName == tag.columnName && p.tableName == tag.tableName);
+                    RequestValue value = snapshot.SnapshotValues.FirstOrDefault(
+                        p => tag.id.EndsWith(p.tableName) && tag.id.StartsWith(p.columnName));
+                    ResponseValue responseValue = new ResponseValue();
+                    if (value != null)
+                    {
+                        if (value.sValue != null)
+                        {
+                            responseValue.value = value.sValue;
+                        }
+                        else
+                        {
+                            responseValue.value = 0;
+                            if (value.rValue != 0)
+                            {
+                                responseValue.value = value.rValue;
+                            }
+                            if (value.iValue != 0)
+                            {
+                                responseValue.value = value.iValue;
+                            }
+                        }
+                        var bindingTag = config.BindingTags.FirstOrDefault(
+                            p => p.id.EndsWith(value.tableName) && p.id.StartsWith(value.columnName));
+                        if (bindingTag != null)
+                        {
+                            responseValue.Id = bindingTag.id;
+                            responseValue.Type = bindingTag.Type;
+                            return responseValue;
+                        }
+                    }
                 }
                 else
                 {
-
+                    Error.toFile("Warning no data found on : " +
+                    DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString(), this.GetType().ToString());
                 }
             }
             else
@@ -121,25 +154,7 @@ namespace UsersDiosna.Handlers
                     DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToLongTimeString(), this.GetType().ToString());
             }
 
-            ResponseValue responseValue = new ResponseValue();
-            
-            if (value.sValue != null)
-            {
-                responseValue.value = value.sValue;
-            }
-            else
-            {
-                responseValue.value = 0;
-                if(value.rValue != 0)
-                {
-                    responseValue.value = value.rValue;
-                }
-                if(value.iValue != 0)
-                {
-                    responseValue.value = value.iValue;
-                }
-            }
-            return responseValue;
+            return null;
         }
 
         /// <summary>
@@ -194,15 +209,25 @@ namespace UsersDiosna.Handlers
         /// </summary>
         /// <param name="bindingTags"></param>
         /// <param name="projectId"></param>
-        public List<ResponseValue> readData(List<SchemeValue> bindingTags, int projectId)
+        public List<ResponseValue> readData(SvgConfig config, List<SchemeValue> bindingTags, int projectId)
         {
+            List<ResponseValue> listTags = new List<ResponseValue>();
             List<SchemeValue> listTagsToDB = new List<SchemeValue>();
             foreach (SchemeValue tag in bindingTags)
             {
                 string trimedColName = tag.columnName.Trim().ToLower();
                 if (trimedColName == "snapshot")
                 {
-                    getDataFromSnapshot(tag, projectId);
+                    var valueFromSnapshot = getDataFromSnapshot(config, tag, projectId);
+
+                    if (valueFromSnapshot != null)
+                    {
+                        if (valueFromSnapshot.Type != tag.Type)
+                        {
+                            valueFromSnapshot.Type = tag.Type;
+                        }
+                        listTags.Add(valueFromSnapshot);
+                    }
                 }
                 else
                 {
@@ -211,9 +236,9 @@ namespace UsersDiosna.Handlers
             }
             if (listTagsToDB.Count >= 1)
             {
-                return getDBData(listTagsToDB, projectId);
+               listTags.AddRange(getDBData(listTagsToDB, projectId));
             }
-            return null;
+            return listTags;
         }
 
 
@@ -421,11 +446,28 @@ namespace UsersDiosna.Handlers
         }
         private void setDynValue(ResponseValue responseValue, DynValue dynValueConfig, ref SvgTextSpan svgElement)
         {
-           
+            string newValue = string.Empty;
+            int iValue;
+            double doubleValue;
             //svg.Children.Remove(element);
-            double value = (double)responseValue.value;
-            double dValue = (value + dynValueConfig.offset) * dynValueConfig.ratio;
-            string newValue =  dValue + dynValueConfig.unit;
+            if (responseValue.value is double)
+            {
+                doubleValue = (double)responseValue.value;
+                double dValue = (doubleValue + dynValueConfig.offset) * dynValueConfig.ratio;
+                newValue = dValue + dynValueConfig.unit;
+            }
+            else
+            {
+                if (int.TryParse(responseValue.value.ToString(), out iValue) == true)
+                {
+                    double dValue = (iValue + dynValueConfig.offset) * dynValueConfig.ratio;
+                    newValue = dValue + dynValueConfig.unit;
+                }
+                if (newValue == string.Empty)
+                {
+                    newValue = responseValue.value.ToString();
+                }
+            }
             svgElement.Text = newValue;
             //svg.Nodes.Add(element);
         }
